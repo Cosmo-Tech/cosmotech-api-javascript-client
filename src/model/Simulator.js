@@ -24,7 +24,7 @@ class Simulator {
      * Constructs a new <code>Simulator</code>.
      * a version of a Simulator
      * @alias module:model/Simulator
-     * @param simulatorKey {String} the Simulator key which group Connector versions
+     * @param simulatorKey {String} the Simulator key which group Simulator versions
      * @param name {String} the Simulator name
      * @param repository {String} the registry repository containing the image
      * @param version {String} the Simulator version MAJOR.MINOR.PATCH. Must be aligned with an existing repository tag
@@ -101,7 +101,7 @@ class Simulator {
 Simulator.prototype['id'] = undefined;
 
 /**
- * the Simulator key which group Connector versions
+ * the Simulator key which group Simulator versions
  * @member {String} simulatorKey
  */
 Simulator.prototype['simulatorKey'] = undefined;
@@ -137,7 +137,7 @@ Simulator.prototype['version'] = undefined;
 Simulator.prototype['ownerId'] = undefined;
 
 /**
- * an optional URL link to connector page
+ * an optional URL link to simulator page
  * @member {String} url
  */
 Simulator.prototype['url'] = undefined;

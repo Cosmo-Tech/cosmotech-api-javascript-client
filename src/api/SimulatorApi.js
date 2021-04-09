@@ -272,5 +272,52 @@ export default class SimulatorApi {
       );
     }
 
+    /**
+     * Callback function to receive the result of the upload operation.
+     * @callback module:api/SimulatorApi~uploadCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Simulator} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Upload and register a new simulator
+     * @param {String} organizationId the Organization identifier
+     * @param {File} body the Simulator to upload and register
+     * @param {module:api/SimulatorApi~uploadCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Simulator}
+     */
+    upload(organizationId, body, callback) {
+      let postBody = body;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling upload");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling upload");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let contentTypes = ['application/yaml'];
+      let accepts = ['application/json'];
+      let returnType = Simulator;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/simulators/upload', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
 
 }

@@ -124,7 +124,7 @@ SimulatorAnalysis.prototype['simulation'] = undefined;
 SimulatorAnalysis.prototype['tags'] = undefined;
 
 /**
- * the compute size needed for this Analysis
+ * the compute size needed for this Analysis. Standard sizes are basic and highcpu. Default is basic
  * @member {String} computeSize
  */
 SimulatorAnalysis.prototype['computeSize'] = undefined;

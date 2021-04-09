@@ -1,23 +1,22 @@
-# CosmotechApi.SimulatorApi
+# CosmotechApi.WorkspaceApi
 
 All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSimulator**](SimulatorApi.md#createSimulator) | **POST** /organizations/{organization_id}/simulators | Register a new simulator
-[**deleteSimulator**](SimulatorApi.md#deleteSimulator) | **DELETE** /organizations/{organization_id}/simulators/{simulator_id} | Delete a simulator
-[**findAllSimulators**](SimulatorApi.md#findAllSimulators) | **GET** /organizations/{organization_id}/simulators | List all Simulators
-[**findSimulatorById**](SimulatorApi.md#findSimulatorById) | **GET** /organizations/{organization_id}/simulators/{simulator_id} | Get the details of a simulator
-[**updateSimulator**](SimulatorApi.md#updateSimulator) | **PATCH** /organizations/{organization_id}/simulators/{simulator_id} | Update a simulator
-[**upload**](SimulatorApi.md#upload) | **POST** /organizations/{organization_id}/simulators/upload | Upload and register a new simulator
+[**createWorkspace**](WorkspaceApi.md#createWorkspace) | **POST** /organizations/{organization_id}/workspaces | Create a new workspace
+[**deleteWorkspace**](WorkspaceApi.md#deleteWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id} | Delete a workspace
+[**findAllWorkspaces**](WorkspaceApi.md#findAllWorkspaces) | **GET** /organizations/{organization_id}/workspaces | List all Workspaces
+[**findWorkspaceById**](WorkspaceApi.md#findWorkspaceById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id} | Get the details of an workspace
+[**updateWorkspace**](WorkspaceApi.md#updateWorkspace) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id} | Update a workspace
 
 
 
-## createSimulator
+## createWorkspace
 
-> Simulator createSimulator(organizationId, simulator)
+> Workspace createWorkspace(organizationId, workspace)
 
-Register a new simulator
+Create a new workspace
 
 ### Example
 
@@ -33,10 +32,10 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.SimulatorApi();
+let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let simulator = new CosmotechApi.Simulator(); // Simulator | the Simulator to create
-apiInstance.createSimulator(organizationId, simulator, (error, data, response) => {
+let workspace = new CosmotechApi.Workspace(); // Workspace | the Workspace to create
+apiInstance.createWorkspace(organizationId, workspace, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -51,11 +50,11 @@ apiInstance.createSimulator(organizationId, simulator, (error, data, response) =
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **simulator** | [**Simulator**](Simulator.md)| the Simulator to create | 
+ **workspace** | [**Workspace**](Workspace.md)| the Workspace to create | 
 
 ### Return type
 
-[**Simulator**](Simulator.md)
+[**Workspace**](Workspace.md)
 
 ### Authorization
 
@@ -67,11 +66,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## deleteSimulator
+## deleteWorkspace
 
-> Simulator deleteSimulator(organizationId, simulatorId)
+> Workspace deleteWorkspace(organizationId, workspaceId)
 
-Delete a simulator
+Delete a workspace
 
 ### Example
 
@@ -87,10 +86,10 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.SimulatorApi();
+let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let simulatorId = "simulatorId_example"; // String | the Simulator identifier
-apiInstance.deleteSimulator(organizationId, simulatorId, (error, data, response) => {
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+apiInstance.deleteWorkspace(organizationId, workspaceId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -105,11 +104,11 @@ apiInstance.deleteSimulator(organizationId, simulatorId, (error, data, response)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **simulatorId** | **String**| the Simulator identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
 
 ### Return type
 
-[**Simulator**](Simulator.md)
+[**Workspace**](Workspace.md)
 
 ### Authorization
 
@@ -121,11 +120,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## findAllSimulators
+## findAllWorkspaces
 
-> [Simulator] findAllSimulators(organizationId)
+> [Workspace] findAllWorkspaces(organizationId)
 
-List all Simulators
+List all Workspaces
 
 ### Example
 
@@ -141,9 +140,9 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.SimulatorApi();
+let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findAllSimulators(organizationId, (error, data, response) => {
+apiInstance.findAllWorkspaces(organizationId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -161,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Simulator]**](Simulator.md)
+[**[Workspace]**](Workspace.md)
 
 ### Authorization
 
@@ -173,11 +172,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## findSimulatorById
+## findWorkspaceById
 
-> Simulator findSimulatorById(organizationId, simulatorId)
+> Workspace findWorkspaceById(organizationId, workspaceId)
 
-Get the details of a simulator
+Get the details of an workspace
 
 ### Example
 
@@ -193,10 +192,10 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.SimulatorApi();
+let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let simulatorId = "simulatorId_example"; // String | the Simulator identifier
-apiInstance.findSimulatorById(organizationId, simulatorId, (error, data, response) => {
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+apiInstance.findWorkspaceById(organizationId, workspaceId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -211,11 +210,11 @@ apiInstance.findSimulatorById(organizationId, simulatorId, (error, data, respons
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **simulatorId** | **String**| the Simulator identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
 
 ### Return type
 
-[**Simulator**](Simulator.md)
+[**Workspace**](Workspace.md)
 
 ### Authorization
 
@@ -227,11 +226,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## updateSimulator
+## updateWorkspace
 
-> Simulator updateSimulator(organizationId, simulatorId, simulator)
+> Workspace updateWorkspace(organizationId, workspaceId, workspace)
 
-Update a simulator
+Update a workspace
 
 ### Example
 
@@ -247,11 +246,11 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.SimulatorApi();
+let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let simulatorId = "simulatorId_example"; // String | the Simulator identifier
-let simulator = new CosmotechApi.Simulator(); // Simulator | the new Simulator details.
-apiInstance.updateSimulator(organizationId, simulatorId, simulator, (error, data, response) => {
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let workspace = new CosmotechApi.Workspace(); // Workspace | the new Workspace details.
+apiInstance.updateWorkspace(organizationId, workspaceId, workspace, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -266,12 +265,12 @@ apiInstance.updateSimulator(organizationId, simulatorId, simulator, (error, data
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **simulatorId** | **String**| the Simulator identifier | 
- **simulator** | [**Simulator**](Simulator.md)| the new Simulator details. | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **workspace** | [**Workspace**](Workspace.md)| the new Workspace details. | 
 
 ### Return type
 
-[**Simulator**](Simulator.md)
+[**Workspace**](Workspace.md)
 
 ### Authorization
 
@@ -280,59 +279,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## upload
-
-> Simulator upload(organizationId, body)
-
-Upload and register a new simulator
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new CosmotechApi.SimulatorApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let body = "/path/to/file"; // File | the Simulator to upload and register
-apiInstance.upload(organizationId, body, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **body** | **File**| the Simulator to upload and register | 
-
-### Return type
-
-[**Simulator**](Simulator.md)
-
-### Authorization
-
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/yaml
 - **Accept**: application/json
 

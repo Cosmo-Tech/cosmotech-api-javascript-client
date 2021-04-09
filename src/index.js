@@ -32,12 +32,17 @@ import UserDetailsAllOf from './model/UserDetailsAllOf';
 import UserOrganization from './model/UserOrganization';
 import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
+import Workspace from './model/Workspace';
+import WorkspaceSimulator from './model/WorkspaceSimulator';
+import WorkspaceUser from './model/WorkspaceUser';
+import WorkspaceWebApp from './model/WorkspaceWebApp';
 import ConnectorApi from './api/ConnectorApi';
 import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
 import SimulatorApi from './api/SimulatorApi';
 import UserApi from './api/UserApi';
 import ValidatorApi from './api/ValidatorApi';
+import WorkspaceApi from './api/WorkspaceApi';
 
 
 /**
@@ -193,6 +198,30 @@ export {
     ValidatorRun,
 
     /**
+     * The Workspace model constructor.
+     * @property {module:model/Workspace}
+     */
+    Workspace,
+
+    /**
+     * The WorkspaceSimulator model constructor.
+     * @property {module:model/WorkspaceSimulator}
+     */
+    WorkspaceSimulator,
+
+    /**
+     * The WorkspaceUser model constructor.
+     * @property {module:model/WorkspaceUser}
+     */
+    WorkspaceUser,
+
+    /**
+     * The WorkspaceWebApp model constructor.
+     * @property {module:model/WorkspaceWebApp}
+     */
+    WorkspaceWebApp,
+
+    /**
     * The ConnectorApi service constructor.
     * @property {module:api/ConnectorApi}
     */
@@ -226,5 +255,11 @@ export {
     * The ValidatorApi service constructor.
     * @property {module:api/ValidatorApi}
     */
-    ValidatorApi
+    ValidatorApi,
+
+    /**
+    * The WorkspaceApi service constructor.
+    * @property {module:api/WorkspaceApi}
+    */
+    WorkspaceApi
 };
