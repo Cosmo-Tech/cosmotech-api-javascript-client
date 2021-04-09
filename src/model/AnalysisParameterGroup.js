@@ -25,7 +25,7 @@ class AnalysisParameterGroup {
      * a Parameter Group for an Analysis
      * @alias module:model/AnalysisParameterGroup
      * @param id {String} the Parameter Group id
-     * @param labels {Array.<Object.<String, Object>>} a list of translated labels
+     * @param labels {Object.<String, Object>} a translated label with key as ISO 639-1 code
      * @param parameters {Array.<module:model/AnalysisParameter>} a list of Simulator Analysis Parameters
      */
     constructor(id, labels, parameters) { 
@@ -59,7 +59,7 @@ class AnalysisParameterGroup {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('labels')) {
-                obj['labels'] = ApiClient.convertToType(data['labels'], [Object]);
+                obj['labels'] = ApiClient.convertToType(data['labels'], {'String': Object});
             }
             if (data.hasOwnProperty('order')) {
                 obj['order'] = ApiClient.convertToType(data['order'], 'Number');
@@ -90,8 +90,8 @@ class AnalysisParameterGroup {
 AnalysisParameterGroup.prototype['id'] = undefined;
 
 /**
- * a list of translated labels
- * @member {Array.<Object.<String, Object>>} labels
+ * a translated label with key as ISO 639-1 code
+ * @member {Object.<String, Object>} labels
  */
 AnalysisParameterGroup.prototype['labels'] = undefined;
 

@@ -4,15 +4,15 @@ All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createValidator**](ValidatorApi.md#createValidator) | **POST** /organizations/{organization_id}/validators | Register a new validator
-[**createValidatorRun**](ValidatorApi.md#createValidatorRun) | **POST** /organizations/{organization_id}/validators/{validator_id}/history | Register a new validator run
+[**createValidator**](ValidatorApi.md#createValidator) | **POST** /organizations/{organization_id}/datasets/validators | Register a new validator
+[**createValidatorRun**](ValidatorApi.md#createValidatorRun) | **POST** /organizations/{organization_id}/datasets/validators/{validator_id}/history | Register a new validator run
 [**deleteValidator**](ValidatorApi.md#deleteValidator) | **DELETE** /organizations/{organization_id}/datasets/validators/{validator_id} | Delete a validator
 [**deleteValidatorRun**](ValidatorApi.md#deleteValidatorRun) | **DELETE** /organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id} | Delete a validator run
-[**findAllValidatorRuns**](ValidatorApi.md#findAllValidatorRuns) | **GET** /organizations/{organization_id}/validators/{validator_id}/history | List all Validator Runs
-[**findAllValidators**](ValidatorApi.md#findAllValidators) | **GET** /organizations/{organization_id}/validators | List all Validators
+[**findAllValidatorRuns**](ValidatorApi.md#findAllValidatorRuns) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id}/history | List all Validator Runs
+[**findAllValidators**](ValidatorApi.md#findAllValidators) | **GET** /organizations/{organization_id}/datasets/validators | List all Validators
 [**findValidatorById**](ValidatorApi.md#findValidatorById) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id} | Get the details of a validator
 [**findValidatorRunById**](ValidatorApi.md#findValidatorRunById) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id} | Get the details of a validator run
-[**runValidator**](ValidatorApi.md#runValidator) | **POST** /organizations/{organization_id}/validators/{validator_id}/run | Run a Validator
+[**runValidator**](ValidatorApi.md#runValidator) | **POST** /organizations/{organization_id}/datasets/validators/{validator_id}/run | Run a Validator
 
 
 

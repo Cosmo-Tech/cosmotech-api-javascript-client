@@ -27,10 +27,11 @@ class Workspace {
      * a Workspace
      * @alias module:model/Workspace
      * @param name {String} the Workspace name
+     * @param simulator {module:model/WorkspaceSimulator} 
      */
-    constructor(name) { 
+    constructor(name, simulator) { 
         
-        Workspace.initialize(this, name);
+        Workspace.initialize(this, name, simulator);
     }
 
     /**
@@ -38,8 +39,9 @@ class Workspace {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
+    static initialize(obj, name, simulator) { 
         obj['name'] = name;
+        obj['simulator'] = simulator;
     }
 
     /**

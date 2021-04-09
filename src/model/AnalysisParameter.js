@@ -24,7 +24,7 @@ class AnalysisParameter {
      * a Simulator Analysis Parameter
      * @alias module:model/AnalysisParameter
      * @param id {String} the Parameter id
-     * @param labels {Array.<Object.<String, Object>>} a list of translated labels
+     * @param labels {Object.<String, Object>} a translated label with key as ISO 639-1 code
      * @param varType {String} the variable type for the parameter
      */
     constructor(id, labels, varType) { 
@@ -58,7 +58,7 @@ class AnalysisParameter {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('labels')) {
-                obj['labels'] = ApiClient.convertToType(data['labels'], [Object]);
+                obj['labels'] = ApiClient.convertToType(data['labels'], {'String': Object});
             }
             if (data.hasOwnProperty('varType')) {
                 obj['varType'] = ApiClient.convertToType(data['varType'], 'String');
@@ -83,8 +83,8 @@ class AnalysisParameter {
 AnalysisParameter.prototype['id'] = undefined;
 
 /**
- * a list of translated labels
- * @member {Array.<Object.<String, Object>>} labels
+ * a translated label with key as ISO 639-1 code
+ * @member {Object.<String, Object>} labels
  */
 AnalysisParameter.prototype['labels'] = undefined;
 

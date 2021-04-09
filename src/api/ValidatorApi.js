@@ -76,7 +76,7 @@ export default class ValidatorApi {
       let accepts = ['application/json'];
       let returnType = Validator;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/validators', 'POST',
+        '/organizations/{organization_id}/datasets/validators', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -129,7 +129,7 @@ export default class ValidatorApi {
       let accepts = ['application/json'];
       let returnType = ValidatorRun;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/validators/{validator_id}/history', 'POST',
+        '/organizations/{organization_id}/datasets/validators/{validator_id}/history', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -279,7 +279,7 @@ export default class ValidatorApi {
       let accepts = ['application/json'];
       let returnType = [ValidatorRun];
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/validators/{validator_id}/history', 'GET',
+        '/organizations/{organization_id}/datasets/validators/{validator_id}/history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -321,7 +321,7 @@ export default class ValidatorApi {
       let accepts = ['application/json'];
       let returnType = [Validator];
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/validators', 'GET',
+        '/organizations/{organization_id}/datasets/validators', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -476,7 +476,7 @@ export default class ValidatorApi {
       let accepts = ['application/json'];
       let returnType = ValidatorRun;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/validators/{validator_id}/run', 'POST',
+        '/organizations/{organization_id}/datasets/validators/{validator_id}/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

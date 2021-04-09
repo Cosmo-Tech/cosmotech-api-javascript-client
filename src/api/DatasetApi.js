@@ -123,7 +123,7 @@ export default class DatasetApi {
       let accepts = ['application/json'];
       let returnType = Dataset;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/{dataset_id}', 'DELETE',
+        '/organizations/{organization_id}/datasets/{dataset_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -213,7 +213,7 @@ export default class DatasetApi {
       let accepts = ['application/json'];
       let returnType = Dataset;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/{dataset_id}', 'GET',
+        '/organizations/{organization_id}/datasets/{dataset_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -266,7 +266,7 @@ export default class DatasetApi {
       let accepts = ['application/json'];
       let returnType = Dataset;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/{dataset_id}', 'PATCH',
+        '/organizations/{organization_id}/datasets/{dataset_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
