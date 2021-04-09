@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.User();
+    instance = new CosmotechApi.AnalysisResourceStorage();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,28 @@
       object[property] = value;
   }
 
-  describe('User', function() {
-    it('should create an instance of User', function() {
-      // uncomment below and update the code to test User
-      //var instane = new CosmotechApi.User();
-      //expect(instance).to.be.a(CosmotechApi.User);
+  describe('AnalysisResourceStorage', function() {
+    it('should create an instance of AnalysisResourceStorage', function() {
+      // uncomment below and update the code to test AnalysisResourceStorage
+      //var instane = new CosmotechApi.AnalysisResourceStorage();
+      //expect(instance).to.be.a(CosmotechApi.AnalysisResourceStorage);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.User();
+    it('should have the property storageType (base name: "storageType")', function() {
+      // uncomment below and update the code to test the property storageType
+      //var instance = new CosmotechApi.AnalysisResourceStorage();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.User();
+    it('should have the property resourcePath (base name: "resourcePath")', function() {
+      // uncomment below and update the code to test the property resourcePath
+      //var instance = new CosmotechApi.AnalysisResourceStorage();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property customUri (base name: "customUri")', function() {
+      // uncomment below and update the code to test the property customUri
+      //var instance = new CosmotechApi.AnalysisResourceStorage();
       //expect(instance).to.be();
     });
 

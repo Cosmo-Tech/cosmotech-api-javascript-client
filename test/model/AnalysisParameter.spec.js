@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.User();
+    instance = new CosmotechApi.AnalysisParameter();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,40 @@
       object[property] = value;
   }
 
-  describe('User', function() {
-    it('should create an instance of User', function() {
-      // uncomment below and update the code to test User
-      //var instane = new CosmotechApi.User();
-      //expect(instance).to.be.a(CosmotechApi.User);
+  describe('AnalysisParameter', function() {
+    it('should create an instance of AnalysisParameter', function() {
+      // uncomment below and update the code to test AnalysisParameter
+      //var instane = new CosmotechApi.AnalysisParameter();
+      //expect(instance).to.be.a(CosmotechApi.AnalysisParameter);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.User();
+      //var instance = new CosmotechApi.AnalysisParameter();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.User();
+    it('should have the property labels (base name: "labels")', function() {
+      // uncomment below and update the code to test the property labels
+      //var instance = new CosmotechApi.AnalysisParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property varType (base name: "varType")', function() {
+      // uncomment below and update the code to test the property varType
+      //var instance = new CosmotechApi.AnalysisParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property order (base name: "order")', function() {
+      // uncomment below and update the code to test the property order
+      //var instance = new CosmotechApi.AnalysisParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property options (base name: "options")', function() {
+      // uncomment below and update the code to test the property options
+      //var instance = new CosmotechApi.AnalysisParameter();
       //expect(instance).to.be();
     });
 

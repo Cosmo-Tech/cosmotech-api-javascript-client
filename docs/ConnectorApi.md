@@ -1,22 +1,22 @@
-# CosmotechApi.OrganizationApi
+# CosmotechApi.ConnectorApi
 
 All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findAllOrganizations**](OrganizationApi.md#findAllOrganizations) | **GET** /organizations | List all Organizations
-[**findOrganizationById**](OrganizationApi.md#findOrganizationById) | **GET** /organizations/{organization_id} | Get the details of an organization
-[**registerOrganization**](OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
-[**unregisterOrganization**](OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
-[**updateOrganization**](OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an organization
+[**findAllConnectors**](ConnectorApi.md#findAllConnectors) | **GET** /connectors | List all Connectors
+[**findConnectorById**](ConnectorApi.md#findConnectorById) | **GET** /connectors/{connector_id} | Get the details of an connector
+[**registerConnector**](ConnectorApi.md#registerConnector) | **POST** /connectors | Register a new connector
+[**unregisterConnector**](ConnectorApi.md#unregisterConnector) | **DELETE** /connectors/{connector_id} | Unregister an connector
+[**uploadConnector**](ConnectorApi.md#uploadConnector) | **POST** /connectors/upload | Upload and register a new connector
 
 
 
-## findAllOrganizations
+## findAllConnectors
 
-> [Organization] findAllOrganizations()
+> [Connector] findAllConnectors()
 
-List all Organizations
+List all Connectors
 
 ### Example
 
@@ -32,8 +32,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
-apiInstance.findAllOrganizations((error, data, response) => {
+let apiInstance = new CosmotechApi.ConnectorApi();
+apiInstance.findAllConnectors((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**[Organization]**](Organization.md)
+[**[Connector]**](Connector.md)
 
 ### Authorization
 
@@ -60,11 +60,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## findOrganizationById
+## findConnectorById
 
-> Organization findOrganizationById(organizationId)
+> Connector findConnectorById(connectorId)
 
-Get the details of an organization
+Get the details of an connector
 
 ### Example
 
@@ -80,9 +80,9 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findOrganizationById(organizationId, (error, data, response) => {
+let apiInstance = new CosmotechApi.ConnectorApi();
+let connectorId = "connectorId_example"; // String | the Connector identifier
+apiInstance.findConnectorById(connectorId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -96,11 +96,11 @@ apiInstance.findOrganizationById(organizationId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
+ **connectorId** | **String**| the Connector identifier | 
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**Connector**](Connector.md)
 
 ### Authorization
 
@@ -112,11 +112,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## registerOrganization
+## registerConnector
 
-> Organization registerOrganization(organization)
+> Connector registerConnector(connector)
 
-Register a new organization
+Register a new connector
 
 ### Example
 
@@ -132,9 +132,9 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
-let organization = new CosmotechApi.Organization(); // Organization | the Organization to register
-apiInstance.registerOrganization(organization, (error, data, response) => {
+let apiInstance = new CosmotechApi.ConnectorApi();
+let connector = new CosmotechApi.Connector(); // Connector | the Connector to register
+apiInstance.registerConnector(connector, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -148,11 +148,11 @@ apiInstance.registerOrganization(organization, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization** | [**Organization**](Organization.md)| the Organization to register | 
+ **connector** | [**Connector**](Connector.md)| the Connector to register | 
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**Connector**](Connector.md)
 
 ### Authorization
 
@@ -164,11 +164,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## unregisterOrganization
+## unregisterConnector
 
-> Organization unregisterOrganization(organizationId)
+> Connector unregisterConnector(connectorId)
 
-Unregister an organization
+Unregister an connector
 
 ### Example
 
@@ -184,9 +184,9 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.unregisterOrganization(organizationId, (error, data, response) => {
+let apiInstance = new CosmotechApi.ConnectorApi();
+let connectorId = "connectorId_example"; // String | the Connector identifier
+apiInstance.unregisterConnector(connectorId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -200,11 +200,11 @@ apiInstance.unregisterOrganization(organizationId, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
+ **connectorId** | **String**| the Connector identifier | 
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**Connector**](Connector.md)
 
 ### Authorization
 
@@ -216,11 +216,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## updateOrganization
+## uploadConnector
 
-> Organization updateOrganization(organizationId, organization)
+> Connector uploadConnector(body)
 
-Update an organization
+Upload and register a new connector
 
 ### Example
 
@@ -236,10 +236,9 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let organization = {"name":"CosmoTech Digital Twins Engine"}; // Organization | the new Organization details
-apiInstance.updateOrganization(organizationId, organization, (error, data, response) => {
+let apiInstance = new CosmotechApi.ConnectorApi();
+let body = "/path/to/file"; // File | the Connector to upload and register
+apiInstance.uploadConnector(body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -253,12 +252,11 @@ apiInstance.updateOrganization(organizationId, organization, (error, data, respo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **organization** | [**Organization**](Organization.md)| the new Organization details | 
+ **body** | **File**| the Connector to upload and register | 
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**Connector**](Connector.md)
 
 ### Authorization
 
@@ -266,6 +264,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/yaml
 - **Accept**: application/json
 

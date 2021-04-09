@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.Organization();
+    instance = new CosmotechApi.ConnectorParameter();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,46 @@
       object[property] = value;
   }
 
-  describe('Organization', function() {
-    it('should create an instance of Organization', function() {
-      // uncomment below and update the code to test Organization
-      //var instane = new CosmotechApi.Organization();
-      //expect(instance).to.be.a(CosmotechApi.Organization);
+  describe('ConnectorParameter', function() {
+    it('should create an instance of ConnectorParameter', function() {
+      // uncomment below and update the code to test ConnectorParameter
+      //var instane = new CosmotechApi.ConnectorParameter();
+      //expect(instance).to.be.a(CosmotechApi.ConnectorParameter);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.Organization();
+      //var instance = new CosmotechApi.ConnectorParameter();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.Organization();
+    it('should have the property label (base name: "label")', function() {
+      // uncomment below and update the code to test the property label
+      //var instance = new CosmotechApi.ConnectorParameter();
       //expect(instance).to.be();
     });
 
-    it('should have the property users (base name: "users")', function() {
-      // uncomment below and update the code to test the property users
-      //var instance = new CosmotechApi.Organization();
+    it('should have the property valueType (base name: "valueType")', function() {
+      // uncomment below and update the code to test the property valueType
+      //var instance = new CosmotechApi.ConnectorParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property options (base name: "options")', function() {
+      // uncomment below and update the code to test the property options
+      //var instance = new CosmotechApi.ConnectorParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property _default (base name: "default")', function() {
+      // uncomment below and update the code to test the property _default
+      //var instance = new CosmotechApi.ConnectorParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property envVar (base name: "envVar")', function() {
+      // uncomment below and update the code to test the property envVar
+      //var instance = new CosmotechApi.ConnectorParameter();
       //expect(instance).to.be();
     });
 

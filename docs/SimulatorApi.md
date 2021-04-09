@@ -1,70 +1,22 @@
-# CosmotechApi.OrganizationApi
+# CosmotechApi.SimulatorApi
 
 All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findAllOrganizations**](OrganizationApi.md#findAllOrganizations) | **GET** /organizations | List all Organizations
-[**findOrganizationById**](OrganizationApi.md#findOrganizationById) | **GET** /organizations/{organization_id} | Get the details of an organization
-[**registerOrganization**](OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
-[**unregisterOrganization**](OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
-[**updateOrganization**](OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an organization
+[**createSimulator**](SimulatorApi.md#createSimulator) | **POST** /organizations/{organization_id}/simulators | Register a new simulator
+[**deleteSimulator**](SimulatorApi.md#deleteSimulator) | **DELETE** /organizations/{organization_id}/simulators/{simulator_id} | Delete a simulator
+[**findAllSimulators**](SimulatorApi.md#findAllSimulators) | **GET** /organizations/{organization_id}/simulators | List all Simulators
+[**findSimulatorById**](SimulatorApi.md#findSimulatorById) | **GET** /organizations/{organization_id}/simulators/{simulator_id} | Get the details of a simulator
+[**updateSimulator**](SimulatorApi.md#updateSimulator) | **PATCH** /organizations/{organization_id}/simulators/{simulator_id} | Update a simulator
 
 
 
-## findAllOrganizations
+## createSimulator
 
-> [Organization] findAllOrganizations()
+> Simulator createSimulator(organizationId, simulator)
 
-List all Organizations
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new CosmotechApi.OrganizationApi();
-apiInstance.findAllOrganizations((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**[Organization]**](Organization.md)
-
-### Authorization
-
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## findOrganizationById
-
-> Organization findOrganizationById(organizationId)
-
-Get the details of an organization
+Register a new simulator
 
 ### Example
 
@@ -80,9 +32,10 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
+let apiInstance = new CosmotechApi.SimulatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findOrganizationById(organizationId, (error, data, response) => {
+let simulator = new CosmotechApi.Simulator(); // Simulator | the Simulator to create
+apiInstance.createSimulator(organizationId, simulator, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -97,62 +50,11 @@ apiInstance.findOrganizationById(organizationId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **simulator** | [**Simulator**](Simulator.md)| the Simulator to create | 
 
 ### Return type
 
-[**Organization**](Organization.md)
-
-### Authorization
-
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## registerOrganization
-
-> Organization registerOrganization(organization)
-
-Register a new organization
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new CosmotechApi.OrganizationApi();
-let organization = new CosmotechApi.Organization(); // Organization | the Organization to register
-apiInstance.registerOrganization(organization, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization** | [**Organization**](Organization.md)| the Organization to register | 
-
-### Return type
-
-[**Organization**](Organization.md)
+[**Simulator**](Simulator.md)
 
 ### Authorization
 
@@ -164,11 +66,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## unregisterOrganization
+## deleteSimulator
 
-> Organization unregisterOrganization(organizationId)
+> Simulator deleteSimulator(organizationId, simulatorId)
 
-Unregister an organization
+Delete a simulator
 
 ### Example
 
@@ -184,9 +86,10 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
+let apiInstance = new CosmotechApi.SimulatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.unregisterOrganization(organizationId, (error, data, response) => {
+let simulatorId = "simulatorId_example"; // String | the Simulator identifier
+apiInstance.deleteSimulator(organizationId, simulatorId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -201,10 +104,11 @@ apiInstance.unregisterOrganization(organizationId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **simulatorId** | **String**| the Simulator identifier | 
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**Simulator**](Simulator.md)
 
 ### Authorization
 
@@ -216,11 +120,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## updateOrganization
+## findAllSimulators
 
-> Organization updateOrganization(organizationId, organization)
+> [Simulator] findAllSimulators(organizationId)
 
-Update an organization
+List all Simulators
 
 ### Example
 
@@ -236,10 +140,9 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
+let apiInstance = new CosmotechApi.SimulatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let organization = {"name":"CosmoTech Digital Twins Engine"}; // Organization | the new Organization details
-apiInstance.updateOrganization(organizationId, organization, (error, data, response) => {
+apiInstance.findAllSimulators(organizationId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -254,11 +157,120 @@ apiInstance.updateOrganization(organizationId, organization, (error, data, respo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **organization** | [**Organization**](Organization.md)| the new Organization details | 
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**[Simulator]**](Simulator.md)
+
+### Authorization
+
+[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## findSimulatorById
+
+> Simulator findSimulatorById(organizationId, simulatorId)
+
+Get the details of a simulator
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
+let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
+AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
+
+let apiInstance = new CosmotechApi.SimulatorApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let simulatorId = "simulatorId_example"; // String | the Simulator identifier
+apiInstance.findSimulatorById(organizationId, simulatorId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **simulatorId** | **String**| the Simulator identifier | 
+
+### Return type
+
+[**Simulator**](Simulator.md)
+
+### Authorization
+
+[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## updateSimulator
+
+> Simulator updateSimulator(organizationId, simulatorId, simulator)
+
+Update a simulator
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
+let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
+AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
+
+let apiInstance = new CosmotechApi.SimulatorApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let simulatorId = "simulatorId_example"; // String | the Simulator identifier
+let simulator = new CosmotechApi.Simulator(); // Simulator | the new Simulator details.
+apiInstance.updateSimulator(organizationId, simulatorId, simulator, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **simulatorId** | **String**| the Simulator identifier | 
+ **simulator** | [**Simulator**](Simulator.md)| the new Simulator details. | 
+
+### Return type
+
+[**Simulator**](Simulator.md)
 
 ### Authorization
 

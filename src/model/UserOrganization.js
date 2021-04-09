@@ -12,23 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import OrganizationUser from './OrganizationUser';
 
 /**
- * The Organization model module.
- * @module model/Organization
+ * The UserOrganization model module.
+ * @module model/UserOrganization
  * @version 0.0.1-SNAPSHOT
  */
-class Organization {
+class UserOrganization {
     /**
-     * Constructs a new <code>Organization</code>.
-     * an Organization
-     * @alias module:model/Organization
-     * @param name {String} the Organization name
+     * Constructs a new <code>UserOrganization</code>.
+     * The organization of the user
+     * @alias module:model/UserOrganization
      */
-    constructor(name) { 
+    constructor() { 
         
-        Organization.initialize(this, name);
+        UserOrganization.initialize(this);
     }
 
     /**
@@ -36,29 +34,25 @@ class Organization {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
-        obj['name'] = name;
+    static initialize(obj) { 
     }
 
     /**
-     * Constructs a <code>Organization</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UserOrganization</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Organization} obj Optional instance to populate.
-     * @return {module:model/Organization} The populated <code>Organization</code> instance.
+     * @param {module:model/UserOrganization} obj Optional instance to populate.
+     * @return {module:model/UserOrganization} The populated <code>UserOrganization</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Organization();
+            obj = obj || new UserOrganization();
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('users')) {
-                obj['users'] = ApiClient.convertToType(data['users'], [OrganizationUser]);
             }
         }
         return obj;
@@ -68,26 +62,21 @@ class Organization {
 }
 
 /**
- * the Organization unique identifier
+ * the Organization id
  * @member {String} id
  */
-Organization.prototype['id'] = undefined;
+UserOrganization.prototype['id'] = undefined;
 
 /**
  * the Organization name
  * @member {String} name
  */
-Organization.prototype['name'] = undefined;
-
-/**
- * @member {Array.<module:model/OrganizationUser>} users
- */
-Organization.prototype['users'] = undefined;
+UserOrganization.prototype['name'] = undefined;
 
 
 
 
 
 
-export default Organization;
+export default UserOrganization;
 

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.User();
+    instance = new CosmotechApi.DatasetConnector();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,22 @@
       object[property] = value;
   }
 
-  describe('User', function() {
-    it('should create an instance of User', function() {
-      // uncomment below and update the code to test User
-      //var instane = new CosmotechApi.User();
-      //expect(instance).to.be.a(CosmotechApi.User);
+  describe('DatasetConnector', function() {
+    it('should create an instance of DatasetConnector', function() {
+      // uncomment below and update the code to test DatasetConnector
+      //var instane = new CosmotechApi.DatasetConnector();
+      //expect(instance).to.be.a(CosmotechApi.DatasetConnector);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.User();
+      //var instance = new CosmotechApi.DatasetConnector();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.User();
+    it('should have the property parametersValues (base name: "parametersValues")', function() {
+      // uncomment below and update the code to test the property parametersValues
+      //var instance = new CosmotechApi.DatasetConnector();
       //expect(instance).to.be();
     });
 

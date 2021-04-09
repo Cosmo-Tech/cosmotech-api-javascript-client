@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import User from '../model/User';
+import UserDetails from '../model/UserDetails';
 
 /**
 * User service.
@@ -38,14 +39,14 @@ export default class UserApi {
      * Callback function to receive the result of the findAllUsers operation.
      * @callback module:api/UserApi~findAllUsersCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/User>} data The data returned by the service call.
+     * @param {Array.<module:model/UserDetails>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * List all Users
      * @param {module:api/UserApi~findAllUsersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/User>}
+     * data is of type: {@link Array.<module:model/UserDetails>}
      */
     findAllUsers(callback) {
       let postBody = null;
@@ -62,7 +63,7 @@ export default class UserApi {
       let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [User];
+      let returnType = [UserDetails];
       return this.apiClient.callApi(
         '/users', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -74,7 +75,7 @@ export default class UserApi {
      * Callback function to receive the result of the findUserById operation.
      * @callback module:api/UserApi~findUserByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
+     * @param {module:model/UserDetails} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -82,7 +83,7 @@ export default class UserApi {
      * Get the details of an user
      * @param {String} userId the User identifier
      * @param {module:api/UserApi~findUserByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * data is of type: {@link module:model/UserDetails}
      */
     findUserById(userId, callback) {
       let postBody = null;
@@ -104,7 +105,7 @@ export default class UserApi {
       let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = User;
+      let returnType = UserDetails;
       return this.apiClient.callApi(
         '/users/{user_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -116,7 +117,7 @@ export default class UserApi {
      * Callback function to receive the result of the registerUser operation.
      * @callback module:api/UserApi~registerUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
+     * @param {module:model/UserDetails} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -124,7 +125,7 @@ export default class UserApi {
      * Register a new user
      * @param {module:model/User} user the User to register
      * @param {module:api/UserApi~registerUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * data is of type: {@link module:model/UserDetails}
      */
     registerUser(user, callback) {
       let postBody = user;
@@ -145,7 +146,7 @@ export default class UserApi {
       let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = User;
+      let returnType = UserDetails;
       return this.apiClient.callApi(
         '/users', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -157,7 +158,7 @@ export default class UserApi {
      * Callback function to receive the result of the unregisterUser operation.
      * @callback module:api/UserApi~unregisterUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
+     * @param {module:model/UserDetails} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -165,7 +166,7 @@ export default class UserApi {
      * Unregister an user
      * @param {String} userId the User identifier
      * @param {module:api/UserApi~unregisterUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * data is of type: {@link module:model/UserDetails}
      */
     unregisterUser(userId, callback) {
       let postBody = null;
@@ -187,7 +188,7 @@ export default class UserApi {
       let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = User;
+      let returnType = UserDetails;
       return this.apiClient.callApi(
         '/users/{user_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -199,16 +200,16 @@ export default class UserApi {
      * Callback function to receive the result of the updateUser operation.
      * @callback module:api/UserApi~updateUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
+     * @param {module:model/UserDetails} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Update an user
      * @param {String} userId the User identifier
-     * @param {module:model/User} user the new User details
+     * @param {module:model/User} user the new User details. Organization membership is handled in Organzation service.
      * @param {module:api/UserApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * data is of type: {@link module:model/UserDetails}
      */
     updateUser(userId, user, callback) {
       let postBody = user;
@@ -234,7 +235,7 @@ export default class UserApi {
       let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = User;
+      let returnType = UserDetails;
       return this.apiClient.callApi(
         '/users/{user_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,

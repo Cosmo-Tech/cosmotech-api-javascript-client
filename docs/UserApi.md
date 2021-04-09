@@ -1,6 +1,6 @@
 # CosmotechApi.UserApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## findAllUsers
 
-> [User] findAllUsers()
+> [UserDetails] findAllUsers()
 
 List all Users
 
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**[User]**](User.md)
+[**[UserDetails]**](UserDetails.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ This endpoint does not need any parameter.
 
 ## findUserById
 
-> User findUserById(userId)
+> UserDetails findUserById(userId)
 
 Get the details of an user
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**UserDetails**](UserDetails.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ## registerUser
 
-> User registerUser(user)
+> UserDetails registerUser(user)
 
 Register a new user
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**UserDetails**](UserDetails.md)
 
 ### Authorization
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 ## unregisterUser
 
-> User unregisterUser(userId)
+> UserDetails unregisterUser(userId)
 
 Unregister an user
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**UserDetails**](UserDetails.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> User updateUser(userId, user)
+> UserDetails updateUser(userId, user)
 
 Update an user
 
@@ -238,7 +238,7 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new CosmotechApi.UserApi();
 let userId = "userId_example"; // String | the User identifier
-let user = new CosmotechApi.User(); // User | the new User details
+let user = new CosmotechApi.User(); // User | the new User details. Organization membership is handled in Organzation service.
 apiInstance.updateUser(userId, user, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -254,11 +254,11 @@ apiInstance.updateUser(userId, user, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| the User identifier | 
- **user** | [**User**](User.md)| the new User details | 
+ **user** | [**User**](User.md)| the new User details. Organization membership is handled in Organzation service. | 
 
 ### Return type
 
-[**User**](User.md)
+[**UserDetails**](UserDetails.md)
 
 ### Authorization
 

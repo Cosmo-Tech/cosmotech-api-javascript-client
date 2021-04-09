@@ -32,9 +32,9 @@ class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://localhost:8080
+         * @default https://api.azure.cosmo-platform.com
          */
-        this.basePath = 'http://localhost:8080'.replace(/\/+$/, '');
+        this.basePath = 'https://api.azure.cosmo-platform.com'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.
@@ -588,6 +588,14 @@ class ApiClient {
     */
     hostSettings() {
         return [
+            {
+              'url': "https://api.azure.cosmo-platform.com",
+              'description': "No description provided",
+            },
+            {
+              'url': "https://gateway.api.cosmo-platform.com",
+              'description': "No description provided",
+            },
             {
               'url': "http://localhost:8080",
               'description': "No description provided",

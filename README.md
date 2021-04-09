@@ -110,7 +110,7 @@ ApiKeyAuth.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix['key'] = "Token"
 
-var api = new CosmotechApi.OrganizationApi()
+var api = new CosmotechApi.ConnectorApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -118,32 +118,73 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.findAllOrganizations(callback);
+api.findAllConnectors(callback);
 
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CosmotechApi.ConnectorApi* | [**findAllConnectors**](docs/ConnectorApi.md#findAllConnectors) | **GET** /connectors | List all Connectors
+*CosmotechApi.ConnectorApi* | [**findConnectorById**](docs/ConnectorApi.md#findConnectorById) | **GET** /connectors/{connector_id} | Get the details of an connector
+*CosmotechApi.ConnectorApi* | [**registerConnector**](docs/ConnectorApi.md#registerConnector) | **POST** /connectors | Register a new connector
+*CosmotechApi.ConnectorApi* | [**unregisterConnector**](docs/ConnectorApi.md#unregisterConnector) | **DELETE** /connectors/{connector_id} | Unregister an connector
+*CosmotechApi.ConnectorApi* | [**uploadConnector**](docs/ConnectorApi.md#uploadConnector) | **POST** /connectors/upload | Upload and register a new connector
+*CosmotechApi.DatasetApi* | [**createDataset**](docs/DatasetApi.md#createDataset) | **POST** /organizations/{organization_id}/datasets | Register a new dataset
+*CosmotechApi.DatasetApi* | [**deleteDataset**](docs/DatasetApi.md#deleteDataset) | **DELETE** /organizations/{organization_id}/{dataset_id} | Delete a dataset
+*CosmotechApi.DatasetApi* | [**findAllDatasets**](docs/DatasetApi.md#findAllDatasets) | **GET** /organizations/{organization_id}/datasets | List all Datasets
+*CosmotechApi.DatasetApi* | [**findDatasetById**](docs/DatasetApi.md#findDatasetById) | **GET** /organizations/{organization_id}/{dataset_id} | Get the details of a dataset
+*CosmotechApi.DatasetApi* | [**updateDataset**](docs/DatasetApi.md#updateDataset) | **PATCH** /organizations/{organization_id}/{dataset_id} | Update a dataset
 *CosmotechApi.OrganizationApi* | [**findAllOrganizations**](docs/OrganizationApi.md#findAllOrganizations) | **GET** /organizations | List all Organizations
 *CosmotechApi.OrganizationApi* | [**findOrganizationById**](docs/OrganizationApi.md#findOrganizationById) | **GET** /organizations/{organization_id} | Get the details of an organization
 *CosmotechApi.OrganizationApi* | [**registerOrganization**](docs/OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
 *CosmotechApi.OrganizationApi* | [**unregisterOrganization**](docs/OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
 *CosmotechApi.OrganizationApi* | [**updateOrganization**](docs/OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an organization
+*CosmotechApi.SimulatorApi* | [**createSimulator**](docs/SimulatorApi.md#createSimulator) | **POST** /organizations/{organization_id}/simulators | Register a new simulator
+*CosmotechApi.SimulatorApi* | [**deleteSimulator**](docs/SimulatorApi.md#deleteSimulator) | **DELETE** /organizations/{organization_id}/simulators/{simulator_id} | Delete a simulator
+*CosmotechApi.SimulatorApi* | [**findAllSimulators**](docs/SimulatorApi.md#findAllSimulators) | **GET** /organizations/{organization_id}/simulators | List all Simulators
+*CosmotechApi.SimulatorApi* | [**findSimulatorById**](docs/SimulatorApi.md#findSimulatorById) | **GET** /organizations/{organization_id}/simulators/{simulator_id} | Get the details of a simulator
+*CosmotechApi.SimulatorApi* | [**updateSimulator**](docs/SimulatorApi.md#updateSimulator) | **PATCH** /organizations/{organization_id}/simulators/{simulator_id} | Update a simulator
 *CosmotechApi.UserApi* | [**findAllUsers**](docs/UserApi.md#findAllUsers) | **GET** /users | List all Users
 *CosmotechApi.UserApi* | [**findUserById**](docs/UserApi.md#findUserById) | **GET** /users/{user_id} | Get the details of an user
 *CosmotechApi.UserApi* | [**registerUser**](docs/UserApi.md#registerUser) | **POST** /users | Register a new user
 *CosmotechApi.UserApi* | [**unregisterUser**](docs/UserApi.md#unregisterUser) | **DELETE** /users/{user_id} | Unregister an user
 *CosmotechApi.UserApi* | [**updateUser**](docs/UserApi.md#updateUser) | **PATCH** /users/{user_id} | Update an user
+*CosmotechApi.ValidatorApi* | [**createValidator**](docs/ValidatorApi.md#createValidator) | **POST** /organizations/{organization_id}/validators | Register a new validator
+*CosmotechApi.ValidatorApi* | [**createValidatorRun**](docs/ValidatorApi.md#createValidatorRun) | **POST** /organizations/{organization_id}/validators/{validator_id}/history | Register a new validator run
+*CosmotechApi.ValidatorApi* | [**deleteValidator**](docs/ValidatorApi.md#deleteValidator) | **DELETE** /organizations/{organization_id}/datasets/validators/{validator_id} | Delete a validator
+*CosmotechApi.ValidatorApi* | [**deleteValidatorRun**](docs/ValidatorApi.md#deleteValidatorRun) | **DELETE** /organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id} | Delete a validator run
+*CosmotechApi.ValidatorApi* | [**findAllValidatorRuns**](docs/ValidatorApi.md#findAllValidatorRuns) | **GET** /organizations/{organization_id}/validators/{validator_id}/history | List all Validator Runs
+*CosmotechApi.ValidatorApi* | [**findAllValidators**](docs/ValidatorApi.md#findAllValidators) | **GET** /organizations/{organization_id}/validators | List all Validators
+*CosmotechApi.ValidatorApi* | [**findValidatorById**](docs/ValidatorApi.md#findValidatorById) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id} | Get the details of a validator
+*CosmotechApi.ValidatorApi* | [**findValidatorRunById**](docs/ValidatorApi.md#findValidatorRunById) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id} | Get the details of a validator run
+*CosmotechApi.ValidatorApi* | [**runValidator**](docs/ValidatorApi.md#runValidator) | **POST** /organizations/{organization_id}/validators/{validator_id}/run | Run a Validator
 
 
 ## Documentation for Models
 
+ - [CosmotechApi.AnalysisParameter](docs/AnalysisParameter.md)
+ - [CosmotechApi.AnalysisParameterGroup](docs/AnalysisParameterGroup.md)
+ - [CosmotechApi.AnalysisResourceStorage](docs/AnalysisResourceStorage.md)
+ - [CosmotechApi.Connector](docs/Connector.md)
+ - [CosmotechApi.ConnectorParameter](docs/ConnectorParameter.md)
+ - [CosmotechApi.ConnectorParameterGroup](docs/ConnectorParameterGroup.md)
+ - [CosmotechApi.Dataset](docs/Dataset.md)
+ - [CosmotechApi.DatasetCompatibility](docs/DatasetCompatibility.md)
+ - [CosmotechApi.DatasetConnector](docs/DatasetConnector.md)
  - [CosmotechApi.Organization](docs/Organization.md)
+ - [CosmotechApi.OrganizationUser](docs/OrganizationUser.md)
+ - [CosmotechApi.Simulator](docs/Simulator.md)
+ - [CosmotechApi.SimulatorAnalysis](docs/SimulatorAnalysis.md)
  - [CosmotechApi.User](docs/User.md)
+ - [CosmotechApi.UserDetails](docs/UserDetails.md)
+ - [CosmotechApi.UserDetailsAllOf](docs/UserDetailsAllOf.md)
+ - [CosmotechApi.UserOrganization](docs/UserOrganization.md)
+ - [CosmotechApi.Validator](docs/Validator.md)
+ - [CosmotechApi.ValidatorRun](docs/ValidatorRun.md)
 
 
 ## Documentation for Authorization

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.User();
+    instance = new CosmotechApi.DatasetCompatibility();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,28 @@
       object[property] = value;
   }
 
-  describe('User', function() {
-    it('should create an instance of User', function() {
-      // uncomment below and update the code to test User
-      //var instane = new CosmotechApi.User();
-      //expect(instance).to.be.a(CosmotechApi.User);
+  describe('DatasetCompatibility', function() {
+    it('should create an instance of DatasetCompatibility', function() {
+      // uncomment below and update the code to test DatasetCompatibility
+      //var instane = new CosmotechApi.DatasetCompatibility();
+      //expect(instance).to.be.a(CosmotechApi.DatasetCompatibility);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.User();
+    it('should have the property simulatorKey (base name: "simulatorKey")', function() {
+      // uncomment below and update the code to test the property simulatorKey
+      //var instance = new CosmotechApi.DatasetCompatibility();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.User();
+    it('should have the property minimumVersion (base name: "minimumVersion")', function() {
+      // uncomment below and update the code to test the property minimumVersion
+      //var instance = new CosmotechApi.DatasetCompatibility();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maximumVersion (base name: "maximumVersion")', function() {
+      // uncomment below and update the code to test the property maximumVersion
+      //var instance = new CosmotechApi.DatasetCompatibility();
       //expect(instance).to.be();
     });
 

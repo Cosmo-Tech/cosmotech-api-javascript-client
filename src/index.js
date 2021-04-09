@@ -13,10 +13,31 @@
 
 
 import ApiClient from './ApiClient';
+import AnalysisParameter from './model/AnalysisParameter';
+import AnalysisParameterGroup from './model/AnalysisParameterGroup';
+import AnalysisResourceStorage from './model/AnalysisResourceStorage';
+import Connector from './model/Connector';
+import ConnectorParameter from './model/ConnectorParameter';
+import ConnectorParameterGroup from './model/ConnectorParameterGroup';
+import Dataset from './model/Dataset';
+import DatasetCompatibility from './model/DatasetCompatibility';
+import DatasetConnector from './model/DatasetConnector';
 import Organization from './model/Organization';
+import OrganizationUser from './model/OrganizationUser';
+import Simulator from './model/Simulator';
+import SimulatorAnalysis from './model/SimulatorAnalysis';
 import User from './model/User';
+import UserDetails from './model/UserDetails';
+import UserDetailsAllOf from './model/UserDetailsAllOf';
+import UserOrganization from './model/UserOrganization';
+import Validator from './model/Validator';
+import ValidatorRun from './model/ValidatorRun';
+import ConnectorApi from './api/ConnectorApi';
+import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
+import SimulatorApi from './api/SimulatorApi';
 import UserApi from './api/UserApi';
+import ValidatorApi from './api/ValidatorApi';
 
 
 /**
@@ -58,10 +79,82 @@ export {
     ApiClient,
 
     /**
+     * The AnalysisParameter model constructor.
+     * @property {module:model/AnalysisParameter}
+     */
+    AnalysisParameter,
+
+    /**
+     * The AnalysisParameterGroup model constructor.
+     * @property {module:model/AnalysisParameterGroup}
+     */
+    AnalysisParameterGroup,
+
+    /**
+     * The AnalysisResourceStorage model constructor.
+     * @property {module:model/AnalysisResourceStorage}
+     */
+    AnalysisResourceStorage,
+
+    /**
+     * The Connector model constructor.
+     * @property {module:model/Connector}
+     */
+    Connector,
+
+    /**
+     * The ConnectorParameter model constructor.
+     * @property {module:model/ConnectorParameter}
+     */
+    ConnectorParameter,
+
+    /**
+     * The ConnectorParameterGroup model constructor.
+     * @property {module:model/ConnectorParameterGroup}
+     */
+    ConnectorParameterGroup,
+
+    /**
+     * The Dataset model constructor.
+     * @property {module:model/Dataset}
+     */
+    Dataset,
+
+    /**
+     * The DatasetCompatibility model constructor.
+     * @property {module:model/DatasetCompatibility}
+     */
+    DatasetCompatibility,
+
+    /**
+     * The DatasetConnector model constructor.
+     * @property {module:model/DatasetConnector}
+     */
+    DatasetConnector,
+
+    /**
      * The Organization model constructor.
      * @property {module:model/Organization}
      */
     Organization,
+
+    /**
+     * The OrganizationUser model constructor.
+     * @property {module:model/OrganizationUser}
+     */
+    OrganizationUser,
+
+    /**
+     * The Simulator model constructor.
+     * @property {module:model/Simulator}
+     */
+    Simulator,
+
+    /**
+     * The SimulatorAnalysis model constructor.
+     * @property {module:model/SimulatorAnalysis}
+     */
+    SimulatorAnalysis,
 
     /**
      * The User model constructor.
@@ -70,14 +163,68 @@ export {
     User,
 
     /**
+     * The UserDetails model constructor.
+     * @property {module:model/UserDetails}
+     */
+    UserDetails,
+
+    /**
+     * The UserDetailsAllOf model constructor.
+     * @property {module:model/UserDetailsAllOf}
+     */
+    UserDetailsAllOf,
+
+    /**
+     * The UserOrganization model constructor.
+     * @property {module:model/UserOrganization}
+     */
+    UserOrganization,
+
+    /**
+     * The Validator model constructor.
+     * @property {module:model/Validator}
+     */
+    Validator,
+
+    /**
+     * The ValidatorRun model constructor.
+     * @property {module:model/ValidatorRun}
+     */
+    ValidatorRun,
+
+    /**
+    * The ConnectorApi service constructor.
+    * @property {module:api/ConnectorApi}
+    */
+    ConnectorApi,
+
+    /**
+    * The DatasetApi service constructor.
+    * @property {module:api/DatasetApi}
+    */
+    DatasetApi,
+
+    /**
     * The OrganizationApi service constructor.
     * @property {module:api/OrganizationApi}
     */
     OrganizationApi,
 
     /**
+    * The SimulatorApi service constructor.
+    * @property {module:api/SimulatorApi}
+    */
+    SimulatorApi,
+
+    /**
     * The UserApi service constructor.
     * @property {module:api/UserApi}
     */
-    UserApi
+    UserApi,
+
+    /**
+    * The ValidatorApi service constructor.
+    * @property {module:api/ValidatorApi}
+    */
+    ValidatorApi
 };

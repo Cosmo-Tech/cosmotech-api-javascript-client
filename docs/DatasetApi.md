@@ -1,70 +1,22 @@
-# CosmotechApi.OrganizationApi
+# CosmotechApi.DatasetApi
 
 All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**findAllOrganizations**](OrganizationApi.md#findAllOrganizations) | **GET** /organizations | List all Organizations
-[**findOrganizationById**](OrganizationApi.md#findOrganizationById) | **GET** /organizations/{organization_id} | Get the details of an organization
-[**registerOrganization**](OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
-[**unregisterOrganization**](OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
-[**updateOrganization**](OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an organization
+[**createDataset**](DatasetApi.md#createDataset) | **POST** /organizations/{organization_id}/datasets | Register a new dataset
+[**deleteDataset**](DatasetApi.md#deleteDataset) | **DELETE** /organizations/{organization_id}/{dataset_id} | Delete a dataset
+[**findAllDatasets**](DatasetApi.md#findAllDatasets) | **GET** /organizations/{organization_id}/datasets | List all Datasets
+[**findDatasetById**](DatasetApi.md#findDatasetById) | **GET** /organizations/{organization_id}/{dataset_id} | Get the details of a dataset
+[**updateDataset**](DatasetApi.md#updateDataset) | **PATCH** /organizations/{organization_id}/{dataset_id} | Update a dataset
 
 
 
-## findAllOrganizations
+## createDataset
 
-> [Organization] findAllOrganizations()
+> Dataset createDataset(organizationId, dataset)
 
-List all Organizations
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new CosmotechApi.OrganizationApi();
-apiInstance.findAllOrganizations((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**[Organization]**](Organization.md)
-
-### Authorization
-
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## findOrganizationById
-
-> Organization findOrganizationById(organizationId)
-
-Get the details of an organization
+Register a new dataset
 
 ### Example
 
@@ -80,9 +32,10 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
+let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findOrganizationById(organizationId, (error, data, response) => {
+let dataset = new CosmotechApi.Dataset(); // Dataset | the Dataset to create
+apiInstance.createDataset(organizationId, dataset, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -97,62 +50,11 @@ apiInstance.findOrganizationById(organizationId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **dataset** | [**Dataset**](Dataset.md)| the Dataset to create | 
 
 ### Return type
 
-[**Organization**](Organization.md)
-
-### Authorization
-
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## registerOrganization
-
-> Organization registerOrganization(organization)
-
-Register a new organization
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
-
-let apiInstance = new CosmotechApi.OrganizationApi();
-let organization = new CosmotechApi.Organization(); // Organization | the Organization to register
-apiInstance.registerOrganization(organization, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization** | [**Organization**](Organization.md)| the Organization to register | 
-
-### Return type
-
-[**Organization**](Organization.md)
+[**Dataset**](Dataset.md)
 
 ### Authorization
 
@@ -164,11 +66,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## unregisterOrganization
+## deleteDataset
 
-> Organization unregisterOrganization(organizationId)
+> Dataset deleteDataset(organizationId, datasetId)
 
-Unregister an organization
+Delete a dataset
 
 ### Example
 
@@ -184,9 +86,10 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
+let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.unregisterOrganization(organizationId, (error, data, response) => {
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+apiInstance.deleteDataset(organizationId, datasetId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -201,10 +104,11 @@ apiInstance.unregisterOrganization(organizationId, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**Dataset**](Dataset.md)
 
 ### Authorization
 
@@ -216,11 +120,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## updateOrganization
+## findAllDatasets
 
-> Organization updateOrganization(organizationId, organization)
+> [Dataset] findAllDatasets(organizationId)
 
-Update an organization
+List all Datasets
 
 ### Example
 
@@ -236,10 +140,9 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new CosmotechApi.OrganizationApi();
+let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let organization = {"name":"CosmoTech Digital Twins Engine"}; // Organization | the new Organization details
-apiInstance.updateOrganization(organizationId, organization, (error, data, response) => {
+apiInstance.findAllDatasets(organizationId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -254,11 +157,120 @@ apiInstance.updateOrganization(organizationId, organization, (error, data, respo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **organization** | [**Organization**](Organization.md)| the new Organization details | 
 
 ### Return type
 
-[**Organization**](Organization.md)
+[**[Dataset]**](Dataset.md)
+
+### Authorization
+
+[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## findDatasetById
+
+> Dataset findDatasetById(organizationId, datasetId)
+
+Get the details of a dataset
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
+let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
+AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+apiInstance.findDatasetById(organizationId, datasetId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+
+### Return type
+
+[**Dataset**](Dataset.md)
+
+### Authorization
+
+[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## updateDataset
+
+> Dataset updateDataset(organizationId, datasetId, dataset)
+
+Update a dataset
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
+let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
+AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+let dataset = new CosmotechApi.Dataset(); // Dataset | the new Dataset details.
+apiInstance.updateDataset(organizationId, datasetId, dataset, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+ **dataset** | [**Dataset**](Dataset.md)| the new Dataset details. | 
+
+### Return type
+
+[**Dataset**](Dataset.md)
 
 ### Authorization
 
