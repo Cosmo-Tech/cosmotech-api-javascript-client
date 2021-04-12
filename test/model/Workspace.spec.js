@@ -108,8 +108,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property resources (base name: "resources")', function() {
-      // uncomment below and update the code to test the property resources
+    it('should have the property services (base name: "services")', function() {
+      // uncomment below and update the code to test the property services
       //var instance = new CosmotechApi.Workspace();
       //expect(instance).to.be();
     });

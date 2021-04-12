@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **tags** | **[String]** | the list of tags | [optional] 
 **ownerId** | **String** | the user id which own this connector version | [optional] [readonly] 
 **url** | **String** | an optional URL link to connector page | [optional] 
-**ioTypes** | **[String]** | The read and write capabilities of connector | 
+**ioTypes** | **[String]** |  | 
 **parameterGroups** | [**[ConnectorParameterGroup]**](ConnectorParameterGroup.md) | the list of connector parameters groups | [optional] 
 
 

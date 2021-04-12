@@ -22,6 +22,7 @@ import ConnectorParameterGroup from './model/ConnectorParameterGroup';
 import Dataset from './model/Dataset';
 import DatasetCompatibility from './model/DatasetCompatibility';
 import DatasetConnector from './model/DatasetConnector';
+import DatasetCopyParameters from './model/DatasetCopyParameters';
 import Organization from './model/Organization';
 import OrganizationUser from './model/OrganizationUser';
 import Scenario from './model/Scenario';
@@ -31,6 +32,14 @@ import ScenarioAnalysisParameterValue from './model/ScenarioAnalysisParameterVal
 import ScenarioBase from './model/ScenarioBase';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
+import ScenarioDataWarehouseQuery from './model/ScenarioDataWarehouseQuery';
+import ScenarioDataWarehouseQueryResult from './model/ScenarioDataWarehouseQueryResult';
+import ScenarioFailedAnalysis from './model/ScenarioFailedAnalysis';
+import ScenarioFailedAnalysisAllOf from './model/ScenarioFailedAnalysisAllOf';
+import ScenarioRunningAnalysis from './model/ScenarioRunningAnalysis';
+import ScenarioRunningAnalysisAllOf from './model/ScenarioRunningAnalysisAllOf';
+import ScenarioSuccessfulAnalysis from './model/ScenarioSuccessfulAnalysis';
+import ScenarioSuccessfulAnalysisAllOf from './model/ScenarioSuccessfulAnalysisAllOf';
 import ScenarioUser from './model/ScenarioUser';
 import Simulator from './model/Simulator';
 import SimulatorAnalysis from './model/SimulatorAnalysis';
@@ -41,6 +50,7 @@ import UserOrganization from './model/UserOrganization';
 import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
 import Workspace from './model/Workspace';
+import WorkspaceServices from './model/WorkspaceServices';
 import WorkspaceSimulator from './model/WorkspaceSimulator';
 import WorkspaceUser from './model/WorkspaceUser';
 import WorkspaceWebApp from './model/WorkspaceWebApp';
@@ -147,6 +157,12 @@ export {
     DatasetConnector,
 
     /**
+     * The DatasetCopyParameters model constructor.
+     * @property {module:model/DatasetCopyParameters}
+     */
+    DatasetCopyParameters,
+
+    /**
      * The Organization model constructor.
      * @property {module:model/Organization}
      */
@@ -199,6 +215,54 @@ export {
      * @property {module:model/ScenarioComparisonResult}
      */
     ScenarioComparisonResult,
+
+    /**
+     * The ScenarioDataWarehouseQuery model constructor.
+     * @property {module:model/ScenarioDataWarehouseQuery}
+     */
+    ScenarioDataWarehouseQuery,
+
+    /**
+     * The ScenarioDataWarehouseQueryResult model constructor.
+     * @property {module:model/ScenarioDataWarehouseQueryResult}
+     */
+    ScenarioDataWarehouseQueryResult,
+
+    /**
+     * The ScenarioFailedAnalysis model constructor.
+     * @property {module:model/ScenarioFailedAnalysis}
+     */
+    ScenarioFailedAnalysis,
+
+    /**
+     * The ScenarioFailedAnalysisAllOf model constructor.
+     * @property {module:model/ScenarioFailedAnalysisAllOf}
+     */
+    ScenarioFailedAnalysisAllOf,
+
+    /**
+     * The ScenarioRunningAnalysis model constructor.
+     * @property {module:model/ScenarioRunningAnalysis}
+     */
+    ScenarioRunningAnalysis,
+
+    /**
+     * The ScenarioRunningAnalysisAllOf model constructor.
+     * @property {module:model/ScenarioRunningAnalysisAllOf}
+     */
+    ScenarioRunningAnalysisAllOf,
+
+    /**
+     * The ScenarioSuccessfulAnalysis model constructor.
+     * @property {module:model/ScenarioSuccessfulAnalysis}
+     */
+    ScenarioSuccessfulAnalysis,
+
+    /**
+     * The ScenarioSuccessfulAnalysisAllOf model constructor.
+     * @property {module:model/ScenarioSuccessfulAnalysisAllOf}
+     */
+    ScenarioSuccessfulAnalysisAllOf,
 
     /**
      * The ScenarioUser model constructor.
@@ -259,6 +323,12 @@ export {
      * @property {module:model/Workspace}
      */
     Workspace,
+
+    /**
+     * The WorkspaceServices model constructor.
+     * @property {module:model/WorkspaceServices}
+     */
+    WorkspaceServices,
 
     /**
      * The WorkspaceSimulator model constructor.

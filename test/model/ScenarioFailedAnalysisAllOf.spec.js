@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.ScenarioAllOf();
+    instance = new CosmotechApi.ScenarioFailedAnalysisAllOf();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,22 @@
       object[property] = value;
   }
 
-  describe('ScenarioAllOf', function() {
-    it('should create an instance of ScenarioAllOf', function() {
-      // uncomment below and update the code to test ScenarioAllOf
-      //var instane = new CosmotechApi.ScenarioAllOf();
-      //expect(instance).to.be.a(CosmotechApi.ScenarioAllOf);
+  describe('ScenarioFailedAnalysisAllOf', function() {
+    it('should create an instance of ScenarioFailedAnalysisAllOf', function() {
+      // uncomment below and update the code to test ScenarioFailedAnalysisAllOf
+      //var instane = new CosmotechApi.ScenarioFailedAnalysisAllOf();
+      //expect(instance).to.be.a(CosmotechApi.ScenarioFailedAnalysisAllOf);
     });
 
-    it('should have the property simulatorId (base name: "simulatorId")', function() {
-      // uncomment below and update the code to test the property simulatorId
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property simulationId (base name: "simulationId")', function() {
+      // uncomment below and update the code to test the property simulationId
+      //var instance = new CosmotechApi.ScenarioFailedAnalysisAllOf();
       //expect(instance).to.be();
     });
 
-    it('should have the property analyses (base name: "analyses")', function() {
-      // uncomment below and update the code to test the property analyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property lastAnalyses (base name: "lastAnalyses")', function() {
-      // uncomment below and update the code to test the property lastAnalyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property error (base name: "error")', function() {
+      // uncomment below and update the code to test the property error
+      //var instance = new CosmotechApi.ScenarioFailedAnalysisAllOf();
       //expect(instance).to.be();
     });
 

@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **simulator** | [**WorkspaceSimulator**](WorkspaceSimulator.md) |  | 
 **userList** | [**[WorkspaceUser]**](WorkspaceUser.md) | the list of users Id with their role | [optional] 
 **webApp** | [**WorkspaceWebApp**](WorkspaceWebApp.md) |  | [optional] 
-**resources** | **{String: Object}** | a list of resources for the Workspace with resourceName/resourceUrl | [optional] [readonly] 
+**services** | [**WorkspaceServices**](WorkspaceServices.md) |  | [optional] 
 
 

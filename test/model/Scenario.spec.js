@@ -102,8 +102,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property analysis (base name: "analysis")', function() {
-      // uncomment below and update the code to test the property analysis
+    it('should have the property analyses (base name: "analyses")', function() {
+      // uncomment below and update the code to test the property analyses
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastAnalyses (base name: "lastAnalyses")', function() {
+      // uncomment below and update the code to test the property lastAnalyses
       //var instance = new CosmotechApi.Scenario();
       //expect(instance).to.be();
     });

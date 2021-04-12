@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import WorkspaceServices from './WorkspaceServices';
 import WorkspaceSimulator from './WorkspaceSimulator';
 import WorkspaceUser from './WorkspaceUser';
 import WorkspaceWebApp from './WorkspaceWebApp';
@@ -82,8 +83,8 @@ class Workspace {
             if (data.hasOwnProperty('webApp')) {
                 obj['webApp'] = WorkspaceWebApp.constructFromObject(data['webApp']);
             }
-            if (data.hasOwnProperty('resources')) {
-                obj['resources'] = ApiClient.convertToType(data['resources'], {'String': Object});
+            if (data.hasOwnProperty('services')) {
+                obj['services'] = WorkspaceServices.constructFromObject(data['services']);
             }
         }
         return obj;
@@ -145,10 +146,9 @@ Workspace.prototype['userList'] = undefined;
 Workspace.prototype['webApp'] = undefined;
 
 /**
- * a list of resources for the Workspace with resourceName/resourceUrl
- * @member {Object.<String, Object>} resources
+ * @member {module:model/WorkspaceServices} services
  */
-Workspace.prototype['resources'] = undefined;
+Workspace.prototype['services'] = undefined;
 
 
 

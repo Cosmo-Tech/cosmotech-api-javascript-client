@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.ScenarioAllOf();
+    instance = new CosmotechApi.ScenarioDataWarehouseQueryResult();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,28 @@
       object[property] = value;
   }
 
-  describe('ScenarioAllOf', function() {
-    it('should create an instance of ScenarioAllOf', function() {
-      // uncomment below and update the code to test ScenarioAllOf
-      //var instane = new CosmotechApi.ScenarioAllOf();
-      //expect(instance).to.be.a(CosmotechApi.ScenarioAllOf);
+  describe('ScenarioDataWarehouseQueryResult', function() {
+    it('should create an instance of ScenarioDataWarehouseQueryResult', function() {
+      // uncomment below and update the code to test ScenarioDataWarehouseQueryResult
+      //var instane = new CosmotechApi.ScenarioDataWarehouseQueryResult();
+      //expect(instance).to.be.a(CosmotechApi.ScenarioDataWarehouseQueryResult);
     });
 
-    it('should have the property simulatorId (base name: "simulatorId")', function() {
-      // uncomment below and update the code to test the property simulatorId
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property simulationId (base name: "simulationId")', function() {
+      // uncomment below and update the code to test the property simulationId
+      //var instance = new CosmotechApi.ScenarioDataWarehouseQueryResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property analyses (base name: "analyses")', function() {
-      // uncomment below and update the code to test the property analyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property query (base name: "query")', function() {
+      // uncomment below and update the code to test the property query
+      //var instance = new CosmotechApi.ScenarioDataWarehouseQueryResult();
       //expect(instance).to.be();
     });
 
-    it('should have the property lastAnalyses (base name: "lastAnalyses")', function() {
-      // uncomment below and update the code to test the property lastAnalyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property result (base name: "result")', function() {
+      // uncomment below and update the code to test the property result
+      //var instance = new CosmotechApi.ScenarioDataWarehouseQueryResult();
       //expect(instance).to.be();
     });
 

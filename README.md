@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ConnectorApi* | [**registerConnector**](docs/ConnectorApi.md#registerConnector) | **POST** /connectors | Register a new connector
 *CosmotechApi.ConnectorApi* | [**unregisterConnector**](docs/ConnectorApi.md#unregisterConnector) | **DELETE** /connectors/{connector_id} | Unregister an connector
 *CosmotechApi.ConnectorApi* | [**uploadConnector**](docs/ConnectorApi.md#uploadConnector) | **POST** /connectors/upload | Upload and register a new connector
+*CosmotechApi.DatasetApi* | [**copyDataset**](docs/DatasetApi.md#copyDataset) | **POST** /organizations/{organization_id}/datasets/copy | Copy a Dataset to another Dataset. Source must have a read capable connector and Target a write capable connector.
 *CosmotechApi.DatasetApi* | [**createDataset**](docs/DatasetApi.md#createDataset) | **POST** /organizations/{organization_id}/datasets | Register a new dataset
 *CosmotechApi.DatasetApi* | [**deleteDataset**](docs/DatasetApi.md#deleteDataset) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id} | Delete a dataset
 *CosmotechApi.DatasetApi* | [**findAllDatasets**](docs/DatasetApi.md#findAllDatasets) | **GET** /organizations/{organization_id}/datasets | List all Datasets
@@ -149,6 +150,7 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ScenarioApi* | [**findAllScenarios**](docs/ScenarioApi.md#findAllScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | List all Scenarios
 *CosmotechApi.ScenarioApi* | [**findScenarioById**](docs/ScenarioApi.md#findScenarioById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Get the details of an scenario
 *CosmotechApi.ScenarioApi* | [**getScenariosTree**](docs/ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
+*CosmotechApi.ScenarioApi* | [**queryDataWarehouse**](docs/ScenarioApi.md#queryDataWarehouse) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/queryDataWarehouse | Get the result of a query on the DatawareHouse
 *CosmotechApi.ScenarioApi* | [**updateScenario**](docs/ScenarioApi.md#updateScenario) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Update a scenario
 *CosmotechApi.SimulatorApi* | [**createSimulator**](docs/SimulatorApi.md#createSimulator) | **POST** /organizations/{organization_id}/simulators | Register a new simulator
 *CosmotechApi.SimulatorApi* | [**deleteSimulator**](docs/SimulatorApi.md#deleteSimulator) | **DELETE** /organizations/{organization_id}/simulators/{simulator_id} | Delete a simulator
@@ -188,6 +190,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.Dataset](docs/Dataset.md)
  - [CosmotechApi.DatasetCompatibility](docs/DatasetCompatibility.md)
  - [CosmotechApi.DatasetConnector](docs/DatasetConnector.md)
+ - [CosmotechApi.DatasetCopyParameters](docs/DatasetCopyParameters.md)
  - [CosmotechApi.Organization](docs/Organization.md)
  - [CosmotechApi.OrganizationUser](docs/OrganizationUser.md)
  - [CosmotechApi.Scenario](docs/Scenario.md)
@@ -197,6 +200,14 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ScenarioBase](docs/ScenarioBase.md)
  - [CosmotechApi.ScenarioChangedParameterValue](docs/ScenarioChangedParameterValue.md)
  - [CosmotechApi.ScenarioComparisonResult](docs/ScenarioComparisonResult.md)
+ - [CosmotechApi.ScenarioDataWarehouseQuery](docs/ScenarioDataWarehouseQuery.md)
+ - [CosmotechApi.ScenarioDataWarehouseQueryResult](docs/ScenarioDataWarehouseQueryResult.md)
+ - [CosmotechApi.ScenarioFailedAnalysis](docs/ScenarioFailedAnalysis.md)
+ - [CosmotechApi.ScenarioFailedAnalysisAllOf](docs/ScenarioFailedAnalysisAllOf.md)
+ - [CosmotechApi.ScenarioRunningAnalysis](docs/ScenarioRunningAnalysis.md)
+ - [CosmotechApi.ScenarioRunningAnalysisAllOf](docs/ScenarioRunningAnalysisAllOf.md)
+ - [CosmotechApi.ScenarioSuccessfulAnalysis](docs/ScenarioSuccessfulAnalysis.md)
+ - [CosmotechApi.ScenarioSuccessfulAnalysisAllOf](docs/ScenarioSuccessfulAnalysisAllOf.md)
  - [CosmotechApi.ScenarioUser](docs/ScenarioUser.md)
  - [CosmotechApi.Simulator](docs/Simulator.md)
  - [CosmotechApi.SimulatorAnalysis](docs/SimulatorAnalysis.md)
@@ -207,6 +218,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.Validator](docs/Validator.md)
  - [CosmotechApi.ValidatorRun](docs/ValidatorRun.md)
  - [CosmotechApi.Workspace](docs/Workspace.md)
+ - [CosmotechApi.WorkspaceServices](docs/WorkspaceServices.md)
  - [CosmotechApi.WorkspaceSimulator](docs/WorkspaceSimulator.md)
  - [CosmotechApi.WorkspaceUser](docs/WorkspaceUser.md)
  - [CosmotechApi.WorkspaceWebApp](docs/WorkspaceWebApp.md)

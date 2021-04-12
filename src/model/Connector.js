@@ -28,7 +28,7 @@ class Connector {
      * @param name {String} the Connector name
      * @param repository {String} the registry repository containing the image
      * @param version {String} the Connector version MAJOR.MINOR.PATCH. Must be aligned with an existing repository tag
-     * @param ioTypes {Array.<module:model/Connector.IoTypesEnum>} The read and write capabilities of connector
+     * @param ioTypes {Array.<module:model/Connector.IoTypesEnum>} 
      */
     constructor(connectorKey, name, repository, version, ioTypes) { 
         
@@ -154,7 +154,6 @@ Connector.prototype['ownerId'] = undefined;
 Connector.prototype['url'] = undefined;
 
 /**
- * The read and write capabilities of connector
  * @member {Array.<module:model/Connector.IoTypesEnum>} ioTypes
  */
 Connector.prototype['ioTypes'] = undefined;

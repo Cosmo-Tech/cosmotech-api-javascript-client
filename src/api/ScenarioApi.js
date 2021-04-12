@@ -16,6 +16,8 @@ import ApiClient from "../ApiClient";
 import Scenario from '../model/Scenario';
 import ScenarioBase from '../model/ScenarioBase';
 import ScenarioComparisonResult from '../model/ScenarioComparisonResult';
+import ScenarioDataWarehouseQuery from '../model/ScenarioDataWarehouseQuery';
+import ScenarioDataWarehouseQueryResult from '../model/ScenarioDataWarehouseQueryResult';
 
 /**
 * Scenario service.
@@ -348,6 +350,65 @@ export default class ScenarioApi {
       let returnType = [ScenarioBase];
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the queryDataWarehouse operation.
+     * @callback module:api/ScenarioApi~queryDataWarehouseCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ScenarioDataWarehouseQueryResult} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the result of a query on the DatawareHouse
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @param {module:model/ScenarioDataWarehouseQuery} scenarioDataWarehouseQuery the DatawareHouse query
+     * @param {module:api/ScenarioApi~queryDataWarehouseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ScenarioDataWarehouseQueryResult}
+     */
+    queryDataWarehouse(organizationId, workspaceId, scenarioId, scenarioDataWarehouseQuery, callback) {
+      let postBody = scenarioDataWarehouseQuery;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling queryDataWarehouse");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling queryDataWarehouse");
+      }
+      // verify the required parameter 'scenarioId' is set
+      if (scenarioId === undefined || scenarioId === null) {
+        throw new Error("Missing the required parameter 'scenarioId' when calling queryDataWarehouse");
+      }
+      // verify the required parameter 'scenarioDataWarehouseQuery' is set
+      if (scenarioDataWarehouseQuery === undefined || scenarioDataWarehouseQuery === null) {
+        throw new Error("Missing the required parameter 'scenarioDataWarehouseQuery' when calling queryDataWarehouse");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId,
+        'scenario_id': scenarioId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ScenarioDataWarehouseQueryResult;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/queryDataWarehouse', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

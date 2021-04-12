@@ -15,6 +15,9 @@ import ApiClient from '../ApiClient';
 import ScenarioAllOf from './ScenarioAllOf';
 import ScenarioAnalysis from './ScenarioAnalysis';
 import ScenarioBase from './ScenarioBase';
+import ScenarioFailedAnalysis from './ScenarioFailedAnalysis';
+import ScenarioRunningAnalysis from './ScenarioRunningAnalysis';
+import ScenarioSuccessfulAnalysis from './ScenarioSuccessfulAnalysis';
 import ScenarioUser from './ScenarioUser';
 
 /**
@@ -81,8 +84,17 @@ class Scenario {
             if (data.hasOwnProperty('simulatorId')) {
                 obj['simulatorId'] = ApiClient.convertToType(data['simulatorId'], 'String');
             }
-            if (data.hasOwnProperty('analysis')) {
-                obj['analysis'] = ApiClient.convertToType(data['analysis'], [ScenarioAnalysis]);
+            if (data.hasOwnProperty('analyses')) {
+                obj['analyses'] = ApiClient.convertToType(data['analyses'], [ScenarioAnalysis]);
+            }
+            if (data.hasOwnProperty('successfulAnalyses')) {
+                obj['successfulAnalyses'] = ApiClient.convertToType(data['successfulAnalyses'], [ScenarioSuccessfulAnalysis]);
+            }
+            if (data.hasOwnProperty('failedAnalyses')) {
+                obj['failedAnalyses'] = ApiClient.convertToType(data['failedAnalyses'], [ScenarioFailedAnalysis]);
+            }
+            if (data.hasOwnProperty('runningAnalyses')) {
+                obj['runningAnalyses'] = ApiClient.convertToType(data['runningAnalyses'], [ScenarioRunningAnalysis]);
             }
         }
         return obj;
@@ -140,10 +152,28 @@ Scenario.prototype['userList'] = undefined;
 Scenario.prototype['simulatorId'] = undefined;
 
 /**
- * the configuration for Analysis
- * @member {Array.<module:model/ScenarioAnalysis>} analysis
+ * the configuration for next Analysis
+ * @member {Array.<module:model/ScenarioAnalysis>} analyses
  */
-Scenario.prototype['analysis'] = undefined;
+Scenario.prototype['analyses'] = undefined;
+
+/**
+ * the configuration and information for last successful Analyses Runs
+ * @member {Array.<module:model/ScenarioSuccessfulAnalysis>} successfulAnalyses
+ */
+Scenario.prototype['successfulAnalyses'] = undefined;
+
+/**
+ * the configuration and information for last failed Analyses Runs
+ * @member {Array.<module:model/ScenarioFailedAnalysis>} failedAnalyses
+ */
+Scenario.prototype['failedAnalyses'] = undefined;
+
+/**
+ * the configuration and information for currently running Analyses Runs
+ * @member {Array.<module:model/ScenarioRunningAnalysis>} runningAnalyses
+ */
+Scenario.prototype['runningAnalyses'] = undefined;
 
 
 // Implement ScenarioBase interface:
@@ -189,10 +219,25 @@ ScenarioBase.prototype['userList'] = undefined;
  */
 ScenarioAllOf.prototype['simulatorId'] = undefined;
 /**
- * the configuration for Analysis
- * @member {Array.<module:model/ScenarioAnalysis>} analysis
+ * the configuration for next Analysis
+ * @member {Array.<module:model/ScenarioAnalysis>} analyses
  */
-ScenarioAllOf.prototype['analysis'] = undefined;
+ScenarioAllOf.prototype['analyses'] = undefined;
+/**
+ * the configuration and information for last successful Analyses Runs
+ * @member {Array.<module:model/ScenarioSuccessfulAnalysis>} successfulAnalyses
+ */
+ScenarioAllOf.prototype['successfulAnalyses'] = undefined;
+/**
+ * the configuration and information for last failed Analyses Runs
+ * @member {Array.<module:model/ScenarioFailedAnalysis>} failedAnalyses
+ */
+ScenarioAllOf.prototype['failedAnalyses'] = undefined;
+/**
+ * the configuration and information for currently running Analyses Runs
+ * @member {Array.<module:model/ScenarioRunningAnalysis>} runningAnalyses
+ */
+ScenarioAllOf.prototype['runningAnalyses'] = undefined;
 
 
 

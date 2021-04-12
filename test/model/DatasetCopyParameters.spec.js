@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.ScenarioAllOf();
+    instance = new CosmotechApi.DatasetCopyParameters();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,28 @@
       object[property] = value;
   }
 
-  describe('ScenarioAllOf', function() {
-    it('should create an instance of ScenarioAllOf', function() {
-      // uncomment below and update the code to test ScenarioAllOf
-      //var instane = new CosmotechApi.ScenarioAllOf();
-      //expect(instance).to.be.a(CosmotechApi.ScenarioAllOf);
+  describe('DatasetCopyParameters', function() {
+    it('should create an instance of DatasetCopyParameters', function() {
+      // uncomment below and update the code to test DatasetCopyParameters
+      //var instane = new CosmotechApi.DatasetCopyParameters();
+      //expect(instance).to.be.a(CosmotechApi.DatasetCopyParameters);
     });
 
-    it('should have the property simulatorId (base name: "simulatorId")', function() {
-      // uncomment below and update the code to test the property simulatorId
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property sourceId (base name: "sourceId")', function() {
+      // uncomment below and update the code to test the property sourceId
+      //var instance = new CosmotechApi.DatasetCopyParameters();
       //expect(instance).to.be();
     });
 
-    it('should have the property analyses (base name: "analyses")', function() {
-      // uncomment below and update the code to test the property analyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property targetId (base name: "targetId")', function() {
+      // uncomment below and update the code to test the property targetId
+      //var instance = new CosmotechApi.DatasetCopyParameters();
       //expect(instance).to.be();
     });
 
-    it('should have the property lastAnalyses (base name: "lastAnalyses")', function() {
-      // uncomment below and update the code to test the property lastAnalyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property options (base name: "options")', function() {
+      // uncomment below and update the code to test the property options
+      //var instance = new CosmotechApi.DatasetCopyParameters();
       //expect(instance).to.be();
     });
 

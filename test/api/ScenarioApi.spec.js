@@ -108,6 +108,16 @@
         done();
       });
     });
+    describe('queryDataWarehouse', function() {
+      it('should call queryDataWarehouse successfully', function(done) {
+        //uncomment below and update the code to test queryDataWarehouse
+        //instance.queryDataWarehouse(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('updateScenario', function() {
       it('should call updateScenario successfully', function(done) {
         //uncomment below and update the code to test updateScenario

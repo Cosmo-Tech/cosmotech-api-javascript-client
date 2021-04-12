@@ -25,7 +25,7 @@ class AnalysisParameter {
      * @alias module:model/AnalysisParameter
      * @param id {String} the Parameter id
      * @param labels {Object.<String, Object>} a translated label with key as ISO 639-1 code
-     * @param varType {String} the variable type for the parameter
+     * @param varType {String} the variable type for the parameter. Basic types or special type $DATASETID, $DATAPATH
      */
     constructor(id, labels, varType) { 
         
@@ -89,7 +89,7 @@ AnalysisParameter.prototype['id'] = undefined;
 AnalysisParameter.prototype['labels'] = undefined;
 
 /**
- * the variable type for the parameter
+ * the variable type for the parameter. Basic types or special type $DATASETID, $DATAPATH
  * @member {String} varType
  */
 AnalysisParameter.prototype['varType'] = undefined;

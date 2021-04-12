@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.ScenarioAllOf();
+    instance = new CosmotechApi.ScenarioSuccessfulAnalysis();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,34 @@
       object[property] = value;
   }
 
-  describe('ScenarioAllOf', function() {
-    it('should create an instance of ScenarioAllOf', function() {
-      // uncomment below and update the code to test ScenarioAllOf
-      //var instane = new CosmotechApi.ScenarioAllOf();
-      //expect(instance).to.be.a(CosmotechApi.ScenarioAllOf);
+  describe('ScenarioSuccessfulAnalysis', function() {
+    it('should create an instance of ScenarioSuccessfulAnalysis', function() {
+      // uncomment below and update the code to test ScenarioSuccessfulAnalysis
+      //var instane = new CosmotechApi.ScenarioSuccessfulAnalysis();
+      //expect(instance).to.be.a(CosmotechApi.ScenarioSuccessfulAnalysis);
     });
 
-    it('should have the property simulatorId (base name: "simulatorId")', function() {
-      // uncomment below and update the code to test the property simulatorId
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property analysisId (base name: "analysisId")', function() {
+      // uncomment below and update the code to test the property analysisId
+      //var instance = new CosmotechApi.ScenarioSuccessfulAnalysis();
       //expect(instance).to.be();
     });
 
-    it('should have the property analyses (base name: "analyses")', function() {
-      // uncomment below and update the code to test the property analyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property datasetList (base name: "datasetList")', function() {
+      // uncomment below and update the code to test the property datasetList
+      //var instance = new CosmotechApi.ScenarioSuccessfulAnalysis();
       //expect(instance).to.be();
     });
 
-    it('should have the property lastAnalyses (base name: "lastAnalyses")', function() {
-      // uncomment below and update the code to test the property lastAnalyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property parametersValues (base name: "parametersValues")', function() {
+      // uncomment below and update the code to test the property parametersValues
+      //var instance = new CosmotechApi.ScenarioSuccessfulAnalysis();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property simulationId (base name: "simulationId")', function() {
+      // uncomment below and update the code to test the property simulationId
+      //var instance = new CosmotechApi.ScenarioSuccessfulAnalysis();
       //expect(instance).to.be();
     });
 

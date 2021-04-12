@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import Dataset from '../model/Dataset';
+import DatasetCopyParameters from '../model/DatasetCopyParameters';
 
 /**
 * Dataset service.
@@ -33,6 +34,53 @@ export default class DatasetApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the copyDataset operation.
+     * @callback module:api/DatasetApi~copyDatasetCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/DatasetCopyParameters} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Copy a Dataset to another Dataset. Source must have a read capable connector and Target a write capable connector.
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/DatasetCopyParameters} datasetCopyParameters the Dataset copy parameters
+     * @param {module:api/DatasetApi~copyDatasetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/DatasetCopyParameters}
+     */
+    copyDataset(organizationId, datasetCopyParameters, callback) {
+      let postBody = datasetCopyParameters;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling copyDataset");
+      }
+      // verify the required parameter 'datasetCopyParameters' is set
+      if (datasetCopyParameters === undefined || datasetCopyParameters === null) {
+        throw new Error("Missing the required parameter 'datasetCopyParameters' when calling copyDataset");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = DatasetCopyParameters;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/datasets/copy', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the createDataset operation.

@@ -48,6 +48,16 @@
   }
 
   describe('DatasetApi', function() {
+    describe('copyDataset', function() {
+      it('should call copyDataset successfully', function(done) {
+        //uncomment below and update the code to test copyDataset
+        //instance.copyDataset(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createDataset', function() {
       it('should call createDataset successfully', function(done) {
         //uncomment below and update the code to test createDataset
