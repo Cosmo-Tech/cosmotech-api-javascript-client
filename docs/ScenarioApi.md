@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## getScenariosTree
 
-> [Array] getScenariosTree(organizationId, workspaceId)
+> [ScenarioBase] getScenariosTree(organizationId, workspaceId)
 
 Get the Scenarios Tree
 
@@ -336,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[Array]**
+[**[ScenarioBase]**](ScenarioBase.md)
 
 ### Authorization
 
