@@ -1,4 +1,4 @@
-# CosmotechApi.WorkspaceUser
+# CosmotechApi.ScenarioUser
 
 ## Properties
 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 * `Viewer` (value: `"Viewer"`)
 
-* `Advanced` (value: `"Advanced"`)
+* `Editor` (value: `"Editor"`)
 
 
 

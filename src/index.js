@@ -24,6 +24,14 @@ import DatasetCompatibility from './model/DatasetCompatibility';
 import DatasetConnector from './model/DatasetConnector';
 import Organization from './model/Organization';
 import OrganizationUser from './model/OrganizationUser';
+import Scenario from './model/Scenario';
+import ScenarioAllOf from './model/ScenarioAllOf';
+import ScenarioAnalysis from './model/ScenarioAnalysis';
+import ScenarioAnalysisParameterValue from './model/ScenarioAnalysisParameterValue';
+import ScenarioBase from './model/ScenarioBase';
+import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
+import ScenarioComparisonResult from './model/ScenarioComparisonResult';
+import ScenarioUser from './model/ScenarioUser';
 import Simulator from './model/Simulator';
 import SimulatorAnalysis from './model/SimulatorAnalysis';
 import User from './model/User';
@@ -39,6 +47,7 @@ import WorkspaceWebApp from './model/WorkspaceWebApp';
 import ConnectorApi from './api/ConnectorApi';
 import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
+import ScenarioApi from './api/ScenarioApi';
 import SimulatorApi from './api/SimulatorApi';
 import UserApi from './api/UserApi';
 import ValidatorApi from './api/ValidatorApi';
@@ -150,6 +159,54 @@ export {
     OrganizationUser,
 
     /**
+     * The Scenario model constructor.
+     * @property {module:model/Scenario}
+     */
+    Scenario,
+
+    /**
+     * The ScenarioAllOf model constructor.
+     * @property {module:model/ScenarioAllOf}
+     */
+    ScenarioAllOf,
+
+    /**
+     * The ScenarioAnalysis model constructor.
+     * @property {module:model/ScenarioAnalysis}
+     */
+    ScenarioAnalysis,
+
+    /**
+     * The ScenarioAnalysisParameterValue model constructor.
+     * @property {module:model/ScenarioAnalysisParameterValue}
+     */
+    ScenarioAnalysisParameterValue,
+
+    /**
+     * The ScenarioBase model constructor.
+     * @property {module:model/ScenarioBase}
+     */
+    ScenarioBase,
+
+    /**
+     * The ScenarioChangedParameterValue model constructor.
+     * @property {module:model/ScenarioChangedParameterValue}
+     */
+    ScenarioChangedParameterValue,
+
+    /**
+     * The ScenarioComparisonResult model constructor.
+     * @property {module:model/ScenarioComparisonResult}
+     */
+    ScenarioComparisonResult,
+
+    /**
+     * The ScenarioUser model constructor.
+     * @property {module:model/ScenarioUser}
+     */
+    ScenarioUser,
+
+    /**
      * The Simulator model constructor.
      * @property {module:model/Simulator}
      */
@@ -238,6 +295,12 @@ export {
     * @property {module:api/OrganizationApi}
     */
     OrganizationApi,
+
+    /**
+    * The ScenarioApi service constructor.
+    * @property {module:api/ScenarioApi}
+    */
+    ScenarioApi,
 
     /**
     * The SimulatorApi service constructor.

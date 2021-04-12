@@ -143,6 +143,13 @@ Class | Method | HTTP request | Description
 *CosmotechApi.OrganizationApi* | [**registerOrganization**](docs/OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
 *CosmotechApi.OrganizationApi* | [**unregisterOrganization**](docs/OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
 *CosmotechApi.OrganizationApi* | [**updateOrganization**](docs/OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an organization
+*CosmotechApi.ScenarioApi* | [**compareScenarios**](docs/ScenarioApi.md#compareScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/compare/{compared_scenario_id} | Compare the Scenario with another one and returns the difference for parameters values
+*CosmotechApi.ScenarioApi* | [**createScenario**](docs/ScenarioApi.md#createScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | Create a new scenario
+*CosmotechApi.ScenarioApi* | [**deleteScenario**](docs/ScenarioApi.md#deleteScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Delete a scenario
+*CosmotechApi.ScenarioApi* | [**findAllScenarios**](docs/ScenarioApi.md#findAllScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | List all Scenarios
+*CosmotechApi.ScenarioApi* | [**findScenarioById**](docs/ScenarioApi.md#findScenarioById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Get the details of an scenario
+*CosmotechApi.ScenarioApi* | [**getScenariosTree**](docs/ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
+*CosmotechApi.ScenarioApi* | [**updateScenario**](docs/ScenarioApi.md#updateScenario) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Update a scenario
 *CosmotechApi.SimulatorApi* | [**createSimulator**](docs/SimulatorApi.md#createSimulator) | **POST** /organizations/{organization_id}/simulators | Register a new simulator
 *CosmotechApi.SimulatorApi* | [**deleteSimulator**](docs/SimulatorApi.md#deleteSimulator) | **DELETE** /organizations/{organization_id}/simulators/{simulator_id} | Delete a simulator
 *CosmotechApi.SimulatorApi* | [**findAllSimulators**](docs/SimulatorApi.md#findAllSimulators) | **GET** /organizations/{organization_id}/simulators | List all Simulators
@@ -183,6 +190,14 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.DatasetConnector](docs/DatasetConnector.md)
  - [CosmotechApi.Organization](docs/Organization.md)
  - [CosmotechApi.OrganizationUser](docs/OrganizationUser.md)
+ - [CosmotechApi.Scenario](docs/Scenario.md)
+ - [CosmotechApi.ScenarioAllOf](docs/ScenarioAllOf.md)
+ - [CosmotechApi.ScenarioAnalysis](docs/ScenarioAnalysis.md)
+ - [CosmotechApi.ScenarioAnalysisParameterValue](docs/ScenarioAnalysisParameterValue.md)
+ - [CosmotechApi.ScenarioBase](docs/ScenarioBase.md)
+ - [CosmotechApi.ScenarioChangedParameterValue](docs/ScenarioChangedParameterValue.md)
+ - [CosmotechApi.ScenarioComparisonResult](docs/ScenarioComparisonResult.md)
+ - [CosmotechApi.ScenarioUser](docs/ScenarioUser.md)
  - [CosmotechApi.Simulator](docs/Simulator.md)
  - [CosmotechApi.SimulatorAnalysis](docs/SimulatorAnalysis.md)
  - [CosmotechApi.User](docs/User.md)

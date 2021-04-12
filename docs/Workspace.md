@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **tags** | **[String]** | the list of tags | [optional] 
 **ownerId** | **String** | the user id which own this workspace | [optional] [readonly] 
 **simulator** | [**WorkspaceSimulator**](WorkspaceSimulator.md) |  | 
-**userList** | [**[WorkspaceUser]**](WorkspaceUser.md) | the list of user Id which have | [optional] 
+**userList** | [**[WorkspaceUser]**](WorkspaceUser.md) | the list of users Id with their role | [optional] 
 **webApp** | [**WorkspaceWebApp**](WorkspaceWebApp.md) |  | [optional] 
 **resources** | **{String: Object}** | a list of resources for the Workspace with resourceName/resourceUrl | [optional] [readonly] 
 

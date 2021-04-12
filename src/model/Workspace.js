@@ -134,7 +134,7 @@ Workspace.prototype['ownerId'] = undefined;
 Workspace.prototype['simulator'] = undefined;
 
 /**
- * the list of user Id which have
+ * the list of users Id with their role
  * @member {Array.<module:model/WorkspaceUser>} userList
  */
 Workspace.prototype['userList'] = undefined;
