@@ -27,11 +27,10 @@ class SimulatorAnalysis {
      * @alias module:model/SimulatorAnalysis
      * @param id {String} the Simulator Analysis id
      * @param name {String} the Simulator Analysis name
-     * @param simulation {String} the simulation name
      */
-    constructor(id, name, simulation) { 
+    constructor(id, name) { 
         
-        SimulatorAnalysis.initialize(this, id, name, simulation);
+        SimulatorAnalysis.initialize(this, id, name);
     }
 
     /**
@@ -39,10 +38,9 @@ class SimulatorAnalysis {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, simulation) { 
+    static initialize(obj, id, name) { 
         obj['id'] = id;
         obj['name'] = name;
-        obj['simulation'] = simulation;
     }
 
     /**
@@ -82,6 +80,9 @@ class SimulatorAnalysis {
             }
             if (data.hasOwnProperty('customDriverResource')) {
                 obj['customDriverResource'] = AnalysisResourceStorage.constructFromObject(data['customDriverResource']);
+            }
+            if (data.hasOwnProperty('datasetSchemaResource')) {
+                obj['datasetSchemaResource'] = AnalysisResourceStorage.constructFromObject(data['datasetSchemaResource']);
             }
             if (data.hasOwnProperty('parameterGroups')) {
                 obj['parameterGroups'] = ApiClient.convertToType(data['parameterGroups'], [AnalysisParameterGroup]);
@@ -143,6 +144,11 @@ SimulatorAnalysis.prototype['datasetValidatorResource'] = undefined;
  * @member {module:model/AnalysisResourceStorage} customDriverResource
  */
 SimulatorAnalysis.prototype['customDriverResource'] = undefined;
+
+/**
+ * @member {module:model/AnalysisResourceStorage} datasetSchemaResource
+ */
+SimulatorAnalysis.prototype['datasetSchemaResource'] = undefined;
 
 /**
  * the list of parameters groups for the Analysis

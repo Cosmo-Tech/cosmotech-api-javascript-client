@@ -24,11 +24,10 @@ class ScenarioAnalysis {
      * Constructs a new <code>ScenarioAnalysis</code>.
      * a Scenario configuration for a Simulator Analysis
      * @alias module:model/ScenarioAnalysis
-     * @param analysisId {String} the Simulator Analysis Id
      */
-    constructor(analysisId) { 
+    constructor() { 
         
-        ScenarioAnalysis.initialize(this, analysisId);
+        ScenarioAnalysis.initialize(this);
     }
 
     /**
@@ -36,8 +35,7 @@ class ScenarioAnalysis {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, analysisId) { 
-        obj['analysisId'] = analysisId;
+    static initialize(obj) { 
     }
 
     /**
@@ -60,6 +58,9 @@ class ScenarioAnalysis {
             if (data.hasOwnProperty('parametersValues')) {
                 obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [ScenarioAnalysisParameterValue]);
             }
+            if (data.hasOwnProperty('sendInputToDataWarehouse')) {
+                obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -68,7 +69,7 @@ class ScenarioAnalysis {
 }
 
 /**
- * the Simulator Analysis Id
+ * the Simulator Analysis Id associated with this Scenario
  * @member {String} analysisId
  */
 ScenarioAnalysis.prototype['analysisId'] = undefined;
@@ -84,6 +85,12 @@ ScenarioAnalysis.prototype['datasetList'] = undefined;
  * @member {Array.<module:model/ScenarioAnalysisParameterValue>} parametersValues
  */
 ScenarioAnalysis.prototype['parametersValues'] = undefined;
+
+/**
+ * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * @member {Boolean} sendInputToDataWarehouse
+ */
+ScenarioAnalysis.prototype['sendInputToDataWarehouse'] = undefined;
 
 
 

@@ -4,10 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**simulatorId** | **String** | the Simulator Id associated with this Scenario | [optional] [readonly] 
-**analyses** | [**[ScenarioAnalysis]**](ScenarioAnalysis.md) | the configuration for next Analysis | [optional] 
-**successfulAnalyses** | [**[ScenarioSuccessfulAnalysis]**](ScenarioSuccessfulAnalysis.md) | the configuration and information for last successful Analyses Runs | [optional] [readonly] 
-**failedAnalyses** | [**[ScenarioFailedAnalysis]**](ScenarioFailedAnalysis.md) | the configuration and information for last failed Analyses Runs | [optional] [readonly] 
-**runningAnalyses** | [**[ScenarioRunningAnalysis]**](ScenarioRunningAnalysis.md) | the configuration and information for currently running Analyses Runs | [optional] [readonly] 
+**simulatorName** | **String** |  | [optional] 
+**simulatorAnalysisName** | **String** |  | [optional] 
+**analysis** | [**ScenarioAnalysis**](ScenarioAnalysis.md) |  | [optional] 
+**successfulAnalysis** | [**ScenarioSuccessfulAnalysis**](ScenarioSuccessfulAnalysis.md) |  | [optional] 
+**failedAnalysis** | [**ScenarioFailedAnalysis**](ScenarioFailedAnalysis.md) |  | [optional] 
+**runningAnalysis** | [**ScenarioRunningAnalysis**](ScenarioRunningAnalysis.md) |  | [optional] 
+**sendInputToDataWarehouse** | **Boolean** | default setting for all Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run | [optional] 
 
 

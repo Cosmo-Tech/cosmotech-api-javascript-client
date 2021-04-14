@@ -69,6 +69,9 @@ class ScenarioBase {
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
             }
+            if (data.hasOwnProperty('simulatorId')) {
+                obj['simulatorId'] = ApiClient.convertToType(data['simulatorId'], 'String');
+            }
             if (data.hasOwnProperty('userList')) {
                 obj['userList'] = ApiClient.convertToType(data['userList'], [ScenarioUser]);
             }
@@ -114,6 +117,12 @@ ScenarioBase.prototype['parentId'] = undefined;
  * @member {String} ownerId
  */
 ScenarioBase.prototype['ownerId'] = undefined;
+
+/**
+ * the Simulator Id associated with this Scenario
+ * @member {String} simulatorId
+ */
+ScenarioBase.prototype['simulatorId'] = undefined;
 
 /**
  * the list of users Id with their role

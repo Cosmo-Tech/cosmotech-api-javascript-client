@@ -32,8 +32,6 @@ import ScenarioAnalysisParameterValue from './model/ScenarioAnalysisParameterVal
 import ScenarioBase from './model/ScenarioBase';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
-import ScenarioDataWarehouseQuery from './model/ScenarioDataWarehouseQuery';
-import ScenarioDataWarehouseQueryResult from './model/ScenarioDataWarehouseQueryResult';
 import ScenarioFailedAnalysis from './model/ScenarioFailedAnalysis';
 import ScenarioFailedAnalysisAllOf from './model/ScenarioFailedAnalysisAllOf';
 import ScenarioRunningAnalysis from './model/ScenarioRunningAnalysis';
@@ -50,6 +48,7 @@ import UserOrganization from './model/UserOrganization';
 import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
 import Workspace from './model/Workspace';
+import WorkspaceService from './model/WorkspaceService';
 import WorkspaceServices from './model/WorkspaceServices';
 import WorkspaceSimulator from './model/WorkspaceSimulator';
 import WorkspaceUser from './model/WorkspaceUser';
@@ -217,18 +216,6 @@ export {
     ScenarioComparisonResult,
 
     /**
-     * The ScenarioDataWarehouseQuery model constructor.
-     * @property {module:model/ScenarioDataWarehouseQuery}
-     */
-    ScenarioDataWarehouseQuery,
-
-    /**
-     * The ScenarioDataWarehouseQueryResult model constructor.
-     * @property {module:model/ScenarioDataWarehouseQueryResult}
-     */
-    ScenarioDataWarehouseQueryResult,
-
-    /**
      * The ScenarioFailedAnalysis model constructor.
      * @property {module:model/ScenarioFailedAnalysis}
      */
@@ -323,6 +310,12 @@ export {
      * @property {module:model/Workspace}
      */
     Workspace,
+
+    /**
+     * The WorkspaceService model constructor.
+     * @property {module:model/WorkspaceService}
+     */
+    WorkspaceService,
 
     /**
      * The WorkspaceServices model constructor.

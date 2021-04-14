@@ -16,8 +16,7 @@ import ApiClient from "../ApiClient";
 import Scenario from '../model/Scenario';
 import ScenarioBase from '../model/ScenarioBase';
 import ScenarioComparisonResult from '../model/ScenarioComparisonResult';
-import ScenarioDataWarehouseQuery from '../model/ScenarioDataWarehouseQuery';
-import ScenarioDataWarehouseQueryResult from '../model/ScenarioDataWarehouseQueryResult';
+import ScenarioRunningAnalysis from '../model/ScenarioRunningAnalysis';
 
 /**
 * Scenario service.
@@ -356,39 +355,34 @@ export default class ScenarioApi {
     }
 
     /**
-     * Callback function to receive the result of the queryDataWarehouse operation.
-     * @callback module:api/ScenarioApi~queryDataWarehouseCallback
+     * Callback function to receive the result of the runScenario operation.
+     * @callback module:api/ScenarioApi~runScenarioCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioDataWarehouseQueryResult} data The data returned by the service call.
+     * @param {module:model/ScenarioRunningAnalysis} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Get the result of a query on the DatawareHouse
+     * Get the details of an scenario
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:model/ScenarioDataWarehouseQuery} scenarioDataWarehouseQuery the DatawareHouse query
-     * @param {module:api/ScenarioApi~queryDataWarehouseCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioDataWarehouseQueryResult}
+     * @param {module:api/ScenarioApi~runScenarioCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ScenarioRunningAnalysis}
      */
-    queryDataWarehouse(organizationId, workspaceId, scenarioId, scenarioDataWarehouseQuery, callback) {
-      let postBody = scenarioDataWarehouseQuery;
+    runScenario(organizationId, workspaceId, scenarioId, callback) {
+      let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling queryDataWarehouse");
+        throw new Error("Missing the required parameter 'organizationId' when calling runScenario");
       }
       // verify the required parameter 'workspaceId' is set
       if (workspaceId === undefined || workspaceId === null) {
-        throw new Error("Missing the required parameter 'workspaceId' when calling queryDataWarehouse");
+        throw new Error("Missing the required parameter 'workspaceId' when calling runScenario");
       }
       // verify the required parameter 'scenarioId' is set
       if (scenarioId === undefined || scenarioId === null) {
-        throw new Error("Missing the required parameter 'scenarioId' when calling queryDataWarehouse");
-      }
-      // verify the required parameter 'scenarioDataWarehouseQuery' is set
-      if (scenarioDataWarehouseQuery === undefined || scenarioDataWarehouseQuery === null) {
-        throw new Error("Missing the required parameter 'scenarioDataWarehouseQuery' when calling queryDataWarehouse");
+        throw new Error("Missing the required parameter 'scenarioId' when calling runScenario");
       }
 
       let pathParams = {
@@ -404,11 +398,11 @@ export default class ScenarioApi {
       };
 
       let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
-      let contentTypes = ['application/json'];
+      let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ScenarioDataWarehouseQueryResult;
+      let returnType = ScenarioRunningAnalysis;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/queryDataWarehouse', 'POST',
+        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

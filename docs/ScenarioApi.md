@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**findAllScenarios**](ScenarioApi.md#findAllScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | List all Scenarios
 [**findScenarioById**](ScenarioApi.md#findScenarioById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Get the details of an scenario
 [**getScenariosTree**](ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
-[**queryDataWarehouse**](ScenarioApi.md#queryDataWarehouse) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/queryDataWarehouse | Get the result of a query on the DatawareHouse
+[**runScenario**](ScenarioApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | Get the details of an scenario
 [**updateScenario**](ScenarioApi.md#updateScenario) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Update a scenario
 
 
@@ -349,11 +349,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## queryDataWarehouse
+## runScenario
 
-> ScenarioDataWarehouseQueryResult queryDataWarehouse(organizationId, workspaceId, scenarioId, scenarioDataWarehouseQuery)
+> ScenarioRunningAnalysis runScenario(organizationId, workspaceId, scenarioId)
 
-Get the result of a query on the DatawareHouse
+Get the details of an scenario
 
 ### Example
 
@@ -373,8 +373,7 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-let scenarioDataWarehouseQuery = new CosmotechApi.ScenarioDataWarehouseQuery(); // ScenarioDataWarehouseQuery | the DatawareHouse query
-apiInstance.queryDataWarehouse(organizationId, workspaceId, scenarioId, scenarioDataWarehouseQuery, (error, data, response) => {
+apiInstance.runScenario(organizationId, workspaceId, scenarioId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -391,11 +390,10 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
- **scenarioDataWarehouseQuery** | [**ScenarioDataWarehouseQuery**](ScenarioDataWarehouseQuery.md)| the DatawareHouse query | 
 
 ### Return type
 
-[**ScenarioDataWarehouseQueryResult**](ScenarioDataWarehouseQueryResult.md)
+[**ScenarioRunningAnalysis**](ScenarioRunningAnalysis.md)
 
 ### Authorization
 
@@ -403,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

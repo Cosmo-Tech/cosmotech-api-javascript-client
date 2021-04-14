@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **userList** | [**[WorkspaceUser]**](WorkspaceUser.md) | the list of users Id with their role | [optional] 
 **webApp** | [**WorkspaceWebApp**](WorkspaceWebApp.md) |  | [optional] 
 **services** | [**WorkspaceServices**](WorkspaceServices.md) |  | [optional] 
+**sendInputToDataWarehouse** | **Boolean** | default setting for all Scenarios and Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run | [optional] [default to true]
 
 

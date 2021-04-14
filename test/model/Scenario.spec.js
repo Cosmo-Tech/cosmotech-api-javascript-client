@@ -108,8 +108,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property lastAnalyses (base name: "lastAnalyses")', function() {
-      // uncomment below and update the code to test the property lastAnalyses
+    it('should have the property successfulAnalyses (base name: "successfulAnalyses")', function() {
+      // uncomment below and update the code to test the property successfulAnalyses
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property failedAnalyses (base name: "failedAnalyses")', function() {
+      // uncomment below and update the code to test the property failedAnalyses
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property runningAnalyses (base name: "runningAnalyses")', function() {
+      // uncomment below and update the code to test the property runningAnalyses
       //var instance = new CosmotechApi.Scenario();
       //expect(instance).to.be();
     });

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.ScenarioAllOf();
+    instance = new CosmotechApi.WorkspaceService();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,40 +47,34 @@
       object[property] = value;
   }
 
-  describe('ScenarioAllOf', function() {
-    it('should create an instance of ScenarioAllOf', function() {
-      // uncomment below and update the code to test ScenarioAllOf
-      //var instane = new CosmotechApi.ScenarioAllOf();
-      //expect(instance).to.be.a(CosmotechApi.ScenarioAllOf);
+  describe('WorkspaceService', function() {
+    it('should create an instance of WorkspaceService', function() {
+      // uncomment below and update the code to test WorkspaceService
+      //var instane = new CosmotechApi.WorkspaceService();
+      //expect(instance).to.be.a(CosmotechApi.WorkspaceService);
     });
 
-    it('should have the property simulatorId (base name: "simulatorId")', function() {
-      // uncomment below and update the code to test the property simulatorId
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property cloudService (base name: "cloudService")', function() {
+      // uncomment below and update the code to test the property cloudService
+      //var instance = new CosmotechApi.WorkspaceService();
       //expect(instance).to.be();
     });
 
-    it('should have the property analyses (base name: "analyses")', function() {
-      // uncomment below and update the code to test the property analyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property baseUri (base name: "baseUri")', function() {
+      // uncomment below and update the code to test the property baseUri
+      //var instance = new CosmotechApi.WorkspaceService();
       //expect(instance).to.be();
     });
 
-    it('should have the property successfulAnalyses (base name: "successfulAnalyses")', function() {
-      // uncomment below and update the code to test the property successfulAnalyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property resourceUri (base name: "resourceUri")', function() {
+      // uncomment below and update the code to test the property resourceUri
+      //var instance = new CosmotechApi.WorkspaceService();
       //expect(instance).to.be();
     });
 
-    it('should have the property failedAnalyses (base name: "failedAnalyses")', function() {
-      // uncomment below and update the code to test the property failedAnalyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property runningAnalyses (base name: "runningAnalyses")', function() {
-      // uncomment below and update the code to test the property runningAnalyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
+    it('should have the property credentials (base name: "credentials")', function() {
+      // uncomment below and update the code to test the property credentials
+      //var instance = new CosmotechApi.WorkspaceService();
       //expect(instance).to.be();
     });
 

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import WorkspaceService from './WorkspaceService';
 
 /**
  * The WorkspaceServices model module.
@@ -49,16 +50,16 @@ class WorkspaceServices {
             obj = obj || new WorkspaceServices();
 
             if (data.hasOwnProperty('resultsEventBus')) {
-                obj['resultsEventBus'] = ApiClient.convertToType(data['resultsEventBus'], 'String');
+                obj['resultsEventBus'] = WorkspaceService.constructFromObject(data['resultsEventBus']);
             }
             if (data.hasOwnProperty('simulationEventBus')) {
-                obj['simulationEventBus'] = ApiClient.convertToType(data['simulationEventBus'], 'String');
+                obj['simulationEventBus'] = WorkspaceService.constructFromObject(data['simulationEventBus']);
             }
             if (data.hasOwnProperty('dataWarehouse')) {
-                obj['dataWarehouse'] = ApiClient.convertToType(data['dataWarehouse'], 'String');
+                obj['dataWarehouse'] = WorkspaceService.constructFromObject(data['dataWarehouse']);
             }
             if (data.hasOwnProperty('storage')) {
-                obj['storage'] = ApiClient.convertToType(data['storage'], 'String');
+                obj['storage'] = WorkspaceService.constructFromObject(data['storage']);
             }
         }
         return obj;
@@ -68,26 +69,22 @@ class WorkspaceServices {
 }
 
 /**
- * the event bus which receive Workspace Simulation results messages
- * @member {String} resultsEventBus
+ * @member {module:model/WorkspaceService} resultsEventBus
  */
 WorkspaceServices.prototype['resultsEventBus'] = undefined;
 
 /**
- * the event bus which receive Workspace Simulation events messages
- * @member {String} simulationEventBus
+ * @member {module:model/WorkspaceService} simulationEventBus
  */
 WorkspaceServices.prototype['simulationEventBus'] = undefined;
 
 /**
- * the Workspace DataWarehouse specific informations
- * @member {String} dataWarehouse
+ * @member {module:model/WorkspaceService} dataWarehouse
  */
 WorkspaceServices.prototype['dataWarehouse'] = undefined;
 
 /**
- * ths Workspace file storage specific informations
- * @member {String} storage
+ * @member {module:model/WorkspaceService} storage
  */
 WorkspaceServices.prototype['storage'] = undefined;
 

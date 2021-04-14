@@ -150,7 +150,7 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ScenarioApi* | [**findAllScenarios**](docs/ScenarioApi.md#findAllScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | List all Scenarios
 *CosmotechApi.ScenarioApi* | [**findScenarioById**](docs/ScenarioApi.md#findScenarioById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Get the details of an scenario
 *CosmotechApi.ScenarioApi* | [**getScenariosTree**](docs/ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
-*CosmotechApi.ScenarioApi* | [**queryDataWarehouse**](docs/ScenarioApi.md#queryDataWarehouse) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/queryDataWarehouse | Get the result of a query on the DatawareHouse
+*CosmotechApi.ScenarioApi* | [**runScenario**](docs/ScenarioApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | Get the details of an scenario
 *CosmotechApi.ScenarioApi* | [**updateScenario**](docs/ScenarioApi.md#updateScenario) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Update a scenario
 *CosmotechApi.SimulatorApi* | [**createSimulator**](docs/SimulatorApi.md#createSimulator) | **POST** /organizations/{organization_id}/simulators | Register a new simulator
 *CosmotechApi.SimulatorApi* | [**deleteSimulator**](docs/SimulatorApi.md#deleteSimulator) | **DELETE** /organizations/{organization_id}/simulators/{simulator_id} | Delete a simulator
@@ -200,8 +200,6 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ScenarioBase](docs/ScenarioBase.md)
  - [CosmotechApi.ScenarioChangedParameterValue](docs/ScenarioChangedParameterValue.md)
  - [CosmotechApi.ScenarioComparisonResult](docs/ScenarioComparisonResult.md)
- - [CosmotechApi.ScenarioDataWarehouseQuery](docs/ScenarioDataWarehouseQuery.md)
- - [CosmotechApi.ScenarioDataWarehouseQueryResult](docs/ScenarioDataWarehouseQueryResult.md)
  - [CosmotechApi.ScenarioFailedAnalysis](docs/ScenarioFailedAnalysis.md)
  - [CosmotechApi.ScenarioFailedAnalysisAllOf](docs/ScenarioFailedAnalysisAllOf.md)
  - [CosmotechApi.ScenarioRunningAnalysis](docs/ScenarioRunningAnalysis.md)
@@ -218,6 +216,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.Validator](docs/Validator.md)
  - [CosmotechApi.ValidatorRun](docs/ValidatorRun.md)
  - [CosmotechApi.Workspace](docs/Workspace.md)
+ - [CosmotechApi.WorkspaceService](docs/WorkspaceService.md)
  - [CosmotechApi.WorkspaceServices](docs/WorkspaceServices.md)
  - [CosmotechApi.WorkspaceSimulator](docs/WorkspaceSimulator.md)
  - [CosmotechApi.WorkspaceUser](docs/WorkspaceUser.md)

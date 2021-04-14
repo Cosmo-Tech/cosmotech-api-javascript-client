@@ -86,6 +86,9 @@ class Workspace {
             if (data.hasOwnProperty('services')) {
                 obj['services'] = WorkspaceServices.constructFromObject(data['services']);
             }
+            if (data.hasOwnProperty('sendInputToDataWarehouse')) {
+                obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -149,6 +152,13 @@ Workspace.prototype['webApp'] = undefined;
  * @member {module:model/WorkspaceServices} services
  */
 Workspace.prototype['services'] = undefined;
+
+/**
+ * default setting for all Scenarios and Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * @member {Boolean} sendInputToDataWarehouse
+ * @default true
+ */
+Workspace.prototype['sendInputToDataWarehouse'] = true;
 
 
 

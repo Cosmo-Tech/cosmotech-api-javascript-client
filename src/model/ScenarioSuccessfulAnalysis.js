@@ -27,11 +27,10 @@ class ScenarioSuccessfulAnalysis {
      * @alias module:model/ScenarioSuccessfulAnalysis
      * @implements module:model/ScenarioAnalysis
      * @implements module:model/ScenarioSuccessfulAnalysisAllOf
-     * @param analysisId {String} the Simulator Analysis Id
      */
-    constructor(analysisId) { 
-        ScenarioAnalysis.initialize(this, analysisId);ScenarioSuccessfulAnalysisAllOf.initialize(this);
-        ScenarioSuccessfulAnalysis.initialize(this, analysisId);
+    constructor() { 
+        ScenarioAnalysis.initialize(this);ScenarioSuccessfulAnalysisAllOf.initialize(this);
+        ScenarioSuccessfulAnalysis.initialize(this);
     }
 
     /**
@@ -39,8 +38,7 @@ class ScenarioSuccessfulAnalysis {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, analysisId) { 
-        obj['analysisId'] = analysisId;
+    static initialize(obj) { 
     }
 
     /**
@@ -65,6 +63,9 @@ class ScenarioSuccessfulAnalysis {
             if (data.hasOwnProperty('parametersValues')) {
                 obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [ScenarioAnalysisParameterValue]);
             }
+            if (data.hasOwnProperty('sendInputToDataWarehouse')) {
+                obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
+            }
             if (data.hasOwnProperty('simulationId')) {
                 obj['simulationId'] = ApiClient.convertToType(data['simulationId'], 'String');
             }
@@ -76,7 +77,7 @@ class ScenarioSuccessfulAnalysis {
 }
 
 /**
- * the Simulator Analysis Id
+ * the Simulator Analysis Id associated with this Scenario
  * @member {String} analysisId
  */
 ScenarioSuccessfulAnalysis.prototype['analysisId'] = undefined;
@@ -94,6 +95,12 @@ ScenarioSuccessfulAnalysis.prototype['datasetList'] = undefined;
 ScenarioSuccessfulAnalysis.prototype['parametersValues'] = undefined;
 
 /**
+ * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * @member {Boolean} sendInputToDataWarehouse
+ */
+ScenarioSuccessfulAnalysis.prototype['sendInputToDataWarehouse'] = undefined;
+
+/**
  * the Simulation Run Id
  * @member {String} simulationId
  */
@@ -102,7 +109,7 @@ ScenarioSuccessfulAnalysis.prototype['simulationId'] = undefined;
 
 // Implement ScenarioAnalysis interface:
 /**
- * the Simulator Analysis Id
+ * the Simulator Analysis Id associated with this Scenario
  * @member {String} analysisId
  */
 ScenarioAnalysis.prototype['analysisId'] = undefined;
@@ -116,6 +123,11 @@ ScenarioAnalysis.prototype['datasetList'] = undefined;
  * @member {Array.<module:model/ScenarioAnalysisParameterValue>} parametersValues
  */
 ScenarioAnalysis.prototype['parametersValues'] = undefined;
+/**
+ * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * @member {Boolean} sendInputToDataWarehouse
+ */
+ScenarioAnalysis.prototype['sendInputToDataWarehouse'] = undefined;
 // Implement ScenarioSuccessfulAnalysisAllOf interface:
 /**
  * the Simulation Run Id
