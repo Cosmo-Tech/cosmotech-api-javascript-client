@@ -13,9 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import ScenarioAnalysis from './ScenarioAnalysis';
-import ScenarioFailedAnalysis from './ScenarioFailedAnalysis';
-import ScenarioRunningAnalysis from './ScenarioRunningAnalysis';
-import ScenarioSuccessfulAnalysis from './ScenarioSuccessfulAnalysis';
 
 /**
  * The ScenarioAllOf model module.
@@ -61,15 +58,6 @@ class ScenarioAllOf {
             if (data.hasOwnProperty('analysis')) {
                 obj['analysis'] = ScenarioAnalysis.constructFromObject(data['analysis']);
             }
-            if (data.hasOwnProperty('successfulAnalysis')) {
-                obj['successfulAnalysis'] = ScenarioSuccessfulAnalysis.constructFromObject(data['successfulAnalysis']);
-            }
-            if (data.hasOwnProperty('failedAnalysis')) {
-                obj['failedAnalysis'] = ScenarioFailedAnalysis.constructFromObject(data['failedAnalysis']);
-            }
-            if (data.hasOwnProperty('runningAnalysis')) {
-                obj['runningAnalysis'] = ScenarioRunningAnalysis.constructFromObject(data['runningAnalysis']);
-            }
             if (data.hasOwnProperty('sendInputToDataWarehouse')) {
                 obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
             }
@@ -94,21 +82,6 @@ ScenarioAllOf.prototype['simulatorAnalysisName'] = undefined;
  * @member {module:model/ScenarioAnalysis} analysis
  */
 ScenarioAllOf.prototype['analysis'] = undefined;
-
-/**
- * @member {module:model/ScenarioSuccessfulAnalysis} successfulAnalysis
- */
-ScenarioAllOf.prototype['successfulAnalysis'] = undefined;
-
-/**
- * @member {module:model/ScenarioFailedAnalysis} failedAnalysis
- */
-ScenarioAllOf.prototype['failedAnalysis'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunningAnalysis} runningAnalysis
- */
-ScenarioAllOf.prototype['runningAnalysis'] = undefined;
 
 /**
  * default setting for all Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run

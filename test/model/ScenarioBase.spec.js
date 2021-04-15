@@ -90,8 +90,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property userList (base name: "userList")', function() {
-      // uncomment below and update the code to test the property userList
+    it('should have the property simulatorId (base name: "simulatorId")', function() {
+      // uncomment below and update the code to test the property simulatorId
+      //var instance = new CosmotechApi.ScenarioBase();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property users (base name: "users")', function() {
+      // uncomment below and update the code to test the property users
       //var instance = new CosmotechApi.ScenarioBase();
       //expect(instance).to.be();
     });

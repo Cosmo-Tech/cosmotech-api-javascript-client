@@ -11,13 +11,10 @@ Name | Type | Description | Notes
 **parentId** | **String** | the Scenario parent id | [optional] 
 **ownerId** | **String** | the user id which own this Scenario | [optional] [readonly] 
 **simulatorId** | **String** | the Simulator Id associated with this Scenario | [optional] [readonly] 
-**userList** | [**[ScenarioUser]**](ScenarioUser.md) | the list of users Id with their role | [optional] 
+**users** | [**[ScenarioUser]**](ScenarioUser.md) | the list of users Id with their role | [optional] 
 **simulatorName** | **String** |  | [optional] 
 **simulatorAnalysisName** | **String** |  | [optional] 
 **analysis** | [**ScenarioAnalysis**](ScenarioAnalysis.md) |  | [optional] 
-**successfulAnalysis** | [**ScenarioSuccessfulAnalysis**](ScenarioSuccessfulAnalysis.md) |  | [optional] 
-**failedAnalysis** | [**ScenarioFailedAnalysis**](ScenarioFailedAnalysis.md) |  | [optional] 
-**runningAnalysis** | [**ScenarioRunningAnalysis**](ScenarioRunningAnalysis.md) |  | [optional] 
 **sendInputToDataWarehouse** | **Boolean** | default setting for all Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run | [optional] 
 
 

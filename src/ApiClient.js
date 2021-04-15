@@ -41,8 +41,7 @@ class ApiClient {
          * @type {Array.<String>}
          */
         this.authentications = {
-            'AADOAuth2AuthCode': {type: 'oauth2'},
-            'ApiKeyAuth': {type: 'apiKey', 'in': 'query', name: 'key'}
+            'oAuth2AuthCode': {type: 'oauth2'}
         }
 
         /**

@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property ownerId (base name: "ownerId")', function() {
+      // uncomment below and update the code to test the property ownerId
+      //var instance = new CosmotechApi.Organization();
+      //expect(instance).to.be();
+    });
+
     it('should have the property users (base name: "users")', function() {
       // uncomment below and update the code to test the property users
       //var instance = new CosmotechApi.Organization();

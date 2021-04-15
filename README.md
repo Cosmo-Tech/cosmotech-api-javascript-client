@@ -101,14 +101,9 @@ Please follow the [installation](#installation) instruction and execute the foll
 var CosmotechApi = require('@cosmotech/api');
 
 var defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-var AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = "YOUR ACCESS TOKEN"
-// Configure API key authorization: ApiKeyAuth
-var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix['key'] = "Token"
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+var oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new CosmotechApi.ConnectorApi()
 var callback = function(error, data, response) {
@@ -134,13 +129,14 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ConnectorApi* | [**unregisterConnector**](docs/ConnectorApi.md#unregisterConnector) | **DELETE** /connectors/{connector_id} | Unregister an connector
 *CosmotechApi.ConnectorApi* | [**uploadConnector**](docs/ConnectorApi.md#uploadConnector) | **POST** /connectors/upload | Upload and register a new connector
 *CosmotechApi.DatasetApi* | [**copyDataset**](docs/DatasetApi.md#copyDataset) | **POST** /organizations/{organization_id}/datasets/copy | Copy a Dataset to another Dataset. Source must have a read capable connector and Target a write capable connector.
-*CosmotechApi.DatasetApi* | [**createDataset**](docs/DatasetApi.md#createDataset) | **POST** /organizations/{organization_id}/datasets | Register a new dataset
+*CosmotechApi.DatasetApi* | [**createDataset**](docs/DatasetApi.md#createDataset) | **POST** /organizations/{organization_id}/datasets | Create a new dataset
 *CosmotechApi.DatasetApi* | [**deleteDataset**](docs/DatasetApi.md#deleteDataset) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id} | Delete a dataset
 *CosmotechApi.DatasetApi* | [**findAllDatasets**](docs/DatasetApi.md#findAllDatasets) | **GET** /organizations/{organization_id}/datasets | List all Datasets
 *CosmotechApi.DatasetApi* | [**findDatasetById**](docs/DatasetApi.md#findDatasetById) | **GET** /organizations/{organization_id}/datasets/{dataset_id} | Get the details of a dataset
 *CosmotechApi.DatasetApi* | [**updateDataset**](docs/DatasetApi.md#updateDataset) | **PATCH** /organizations/{organization_id}/datasets/{dataset_id} | Update a dataset
 *CosmotechApi.OrganizationApi* | [**findAllOrganizations**](docs/OrganizationApi.md#findAllOrganizations) | **GET** /organizations | List all Organizations
 *CosmotechApi.OrganizationApi* | [**findOrganizationById**](docs/OrganizationApi.md#findOrganizationById) | **GET** /organizations/{organization_id} | Get the details of an organization
+*CosmotechApi.OrganizationApi* | [**getCurrentOrganizationUser**](docs/OrganizationApi.md#getCurrentOrganizationUser) | **GET** /organizations/{organization_id}/me | Get the current User information for the Organization
 *CosmotechApi.OrganizationApi* | [**registerOrganization**](docs/OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
 *CosmotechApi.OrganizationApi* | [**unregisterOrganization**](docs/OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
 *CosmotechApi.OrganizationApi* | [**updateOrganization**](docs/OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an organization
@@ -150,8 +146,19 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ScenarioApi* | [**findAllScenarios**](docs/ScenarioApi.md#findAllScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | List all Scenarios
 *CosmotechApi.ScenarioApi* | [**findScenarioById**](docs/ScenarioApi.md#findScenarioById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Get the details of an scenario
 *CosmotechApi.ScenarioApi* | [**getScenariosTree**](docs/ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
-*CosmotechApi.ScenarioApi* | [**runScenario**](docs/ScenarioApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | Get the details of an scenario
 *CosmotechApi.ScenarioApi* | [**updateScenario**](docs/ScenarioApi.md#updateScenario) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Update a scenario
+*CosmotechApi.SimulationApi* | [**deleteSimulation**](docs/SimulationApi.md#deleteSimulation) | **DELETE** /organizations/{organization_id}/simulations/{simulation_id} | Delete a simulation
+*CosmotechApi.SimulationApi* | [**findSimulationById**](docs/SimulationApi.md#findSimulationById) | **GET** /organizations/{organization_id}/simulations/{simulation_id} | Get the details of a simulation
+*CosmotechApi.SimulationApi* | [**getScenarioSimulation**](docs/SimulationApi.md#getScenarioSimulation) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/simulations/{simulation_id} | get the Simulation for the Scenario
+*CosmotechApi.SimulationApi* | [**getScenarioSimulationLogs**](docs/SimulationApi.md#getScenarioSimulationLogs) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/simulations/{simulation_id}/logs | get the logs for the Simulation
+*CosmotechApi.SimulationApi* | [**getScenarioSimulations**](docs/SimulationApi.md#getScenarioSimulations) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/simulations | get the list of Simulations for the Scenario
+*CosmotechApi.SimulationApi* | [**getWorkspaceSimulations**](docs/SimulationApi.md#getWorkspaceSimulations) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/simulations | get the list of Simulations for the Workspace
+*CosmotechApi.SimulationApi* | [**runScenario**](docs/SimulationApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | run a Simulation for the Scenario
+*CosmotechApi.SimulationApi* | [**searchSimulationLogs**](docs/SimulationApi.md#searchSimulationLogs) | **POST** /organizations/{organization_id}/simulations/{simulation_id}/logs/search | Search the logs of a simulation
+*CosmotechApi.SimulationApi* | [**searchSimulations**](docs/SimulationApi.md#searchSimulations) | **POST** /organizations/{organization_id}/simulations/search | Search Simulations
+*CosmotechApi.SimulationApi* | [**startSimulationContainers**](docs/SimulationApi.md#startSimulationContainers) | **POST** /organizations/{organization_id}/simulations/startcontainers | Start a new simulation with raw containers definition
+*CosmotechApi.SimulationApi* | [**startSimulationScenario**](docs/SimulationApi.md#startSimulationScenario) | **POST** /organizations/{organization_id}/simulations/start | Start a new simulation for a Scenario
+*CosmotechApi.SimulationApi* | [**startSimulationSimulator**](docs/SimulationApi.md#startSimulationSimulator) | **POST** /organizations/{organization_id}/simulations/startsimulator | Start a new simulation for a Simulator Analysis
 *CosmotechApi.SimulatorApi* | [**createSimulator**](docs/SimulatorApi.md#createSimulator) | **POST** /organizations/{organization_id}/simulators | Register a new simulator
 *CosmotechApi.SimulatorApi* | [**deleteSimulator**](docs/SimulatorApi.md#deleteSimulator) | **DELETE** /organizations/{organization_id}/simulators/{simulator_id} | Delete a simulator
 *CosmotechApi.SimulatorApi* | [**findAllSimulators**](docs/SimulatorApi.md#findAllSimulators) | **GET** /organizations/{organization_id}/simulators | List all Simulators
@@ -176,6 +183,7 @@ Class | Method | HTTP request | Description
 *CosmotechApi.WorkspaceApi* | [**deleteWorkspace**](docs/WorkspaceApi.md#deleteWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id} | Delete a workspace
 *CosmotechApi.WorkspaceApi* | [**findAllWorkspaces**](docs/WorkspaceApi.md#findAllWorkspaces) | **GET** /organizations/{organization_id}/workspaces | List all Workspaces
 *CosmotechApi.WorkspaceApi* | [**findWorkspaceById**](docs/WorkspaceApi.md#findWorkspaceById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id} | Get the details of an workspace
+*CosmotechApi.WorkspaceApi* | [**getCurrentWorkspaceUser**](docs/WorkspaceApi.md#getCurrentWorkspaceUser) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/me | Get the current User information for the Workspace
 *CosmotechApi.WorkspaceApi* | [**updateWorkspace**](docs/WorkspaceApi.md#updateWorkspace) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id} | Update a workspace
 
 
@@ -200,13 +208,20 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ScenarioBase](docs/ScenarioBase.md)
  - [CosmotechApi.ScenarioChangedParameterValue](docs/ScenarioChangedParameterValue.md)
  - [CosmotechApi.ScenarioComparisonResult](docs/ScenarioComparisonResult.md)
- - [CosmotechApi.ScenarioFailedAnalysis](docs/ScenarioFailedAnalysis.md)
- - [CosmotechApi.ScenarioFailedAnalysisAllOf](docs/ScenarioFailedAnalysisAllOf.md)
- - [CosmotechApi.ScenarioRunningAnalysis](docs/ScenarioRunningAnalysis.md)
- - [CosmotechApi.ScenarioRunningAnalysisAllOf](docs/ScenarioRunningAnalysisAllOf.md)
- - [CosmotechApi.ScenarioSuccessfulAnalysis](docs/ScenarioSuccessfulAnalysis.md)
- - [CosmotechApi.ScenarioSuccessfulAnalysisAllOf](docs/ScenarioSuccessfulAnalysisAllOf.md)
  - [CosmotechApi.ScenarioUser](docs/ScenarioUser.md)
+ - [CosmotechApi.Simulation](docs/Simulation.md)
+ - [CosmotechApi.SimulationAllOf](docs/SimulationAllOf.md)
+ - [CosmotechApi.SimulationAnalysisParameterValue](docs/SimulationAnalysisParameterValue.md)
+ - [CosmotechApi.SimulationBase](docs/SimulationBase.md)
+ - [CosmotechApi.SimulationContainerLog](docs/SimulationContainerLog.md)
+ - [CosmotechApi.SimulationContainerLogs](docs/SimulationContainerLogs.md)
+ - [CosmotechApi.SimulationContainers](docs/SimulationContainers.md)
+ - [CosmotechApi.SimulationLogs](docs/SimulationLogs.md)
+ - [CosmotechApi.SimulationLogsOptions](docs/SimulationLogsOptions.md)
+ - [CosmotechApi.SimulationSearch](docs/SimulationSearch.md)
+ - [CosmotechApi.SimulationStartContainers](docs/SimulationStartContainers.md)
+ - [CosmotechApi.SimulationStartScenario](docs/SimulationStartScenario.md)
+ - [CosmotechApi.SimulationStartSimulator](docs/SimulationStartSimulator.md)
  - [CosmotechApi.Simulator](docs/Simulator.md)
  - [CosmotechApi.SimulatorAnalysis](docs/SimulatorAnalysis.md)
  - [CosmotechApi.User](docs/User.md)
@@ -220,6 +235,8 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.WorkspaceServices](docs/WorkspaceServices.md)
  - [CosmotechApi.WorkspaceSimulator](docs/WorkspaceSimulator.md)
  - [CosmotechApi.WorkspaceUser](docs/WorkspaceUser.md)
+ - [CosmotechApi.WorkspaceUserDetails](docs/WorkspaceUserDetails.md)
+ - [CosmotechApi.WorkspaceUserDetailsAllOf](docs/WorkspaceUserDetailsAllOf.md)
  - [CosmotechApi.WorkspaceWebApp](docs/WorkspaceWebApp.md)
 
 
@@ -227,21 +244,11 @@ Class | Method | HTTP request | Description
 
 
 
-### AADOAuth2AuthCode
+### oAuth2AuthCode
 
 
 - **Type**: OAuth
 - **Flow**: implicit
-- **Authorization URL**: https://login.microsoftonline.com/e9641c78-d0d6-4d09-af63-168922724e7f/oauth2/v2.0/authorize
-- **Scopes**: 
-  - http://sample.azure.cosmo-platform.com/user_impersonation: User Impersonation
-
-
-
-### ApiKeyAuth
-
-
-- **Type**: API key
-- **API key parameter name**: key
-- **Location**: URL query string
+- **Authorization URL**: oauth2/authorize
+- **Scopes**: N/A
 

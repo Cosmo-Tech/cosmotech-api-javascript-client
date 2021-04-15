@@ -15,9 +15,6 @@ import ApiClient from '../ApiClient';
 import ScenarioAllOf from './ScenarioAllOf';
 import ScenarioAnalysis from './ScenarioAnalysis';
 import ScenarioBase from './ScenarioBase';
-import ScenarioFailedAnalysis from './ScenarioFailedAnalysis';
-import ScenarioRunningAnalysis from './ScenarioRunningAnalysis';
-import ScenarioSuccessfulAnalysis from './ScenarioSuccessfulAnalysis';
 import ScenarioUser from './ScenarioUser';
 
 /**
@@ -81,8 +78,8 @@ class Scenario {
             if (data.hasOwnProperty('simulatorId')) {
                 obj['simulatorId'] = ApiClient.convertToType(data['simulatorId'], 'String');
             }
-            if (data.hasOwnProperty('userList')) {
-                obj['userList'] = ApiClient.convertToType(data['userList'], [ScenarioUser]);
+            if (data.hasOwnProperty('users')) {
+                obj['users'] = ApiClient.convertToType(data['users'], [ScenarioUser]);
             }
             if (data.hasOwnProperty('simulatorName')) {
                 obj['simulatorName'] = ApiClient.convertToType(data['simulatorName'], 'String');
@@ -92,15 +89,6 @@ class Scenario {
             }
             if (data.hasOwnProperty('analysis')) {
                 obj['analysis'] = ScenarioAnalysis.constructFromObject(data['analysis']);
-            }
-            if (data.hasOwnProperty('successfulAnalysis')) {
-                obj['successfulAnalysis'] = ScenarioSuccessfulAnalysis.constructFromObject(data['successfulAnalysis']);
-            }
-            if (data.hasOwnProperty('failedAnalysis')) {
-                obj['failedAnalysis'] = ScenarioFailedAnalysis.constructFromObject(data['failedAnalysis']);
-            }
-            if (data.hasOwnProperty('runningAnalysis')) {
-                obj['runningAnalysis'] = ScenarioRunningAnalysis.constructFromObject(data['runningAnalysis']);
             }
             if (data.hasOwnProperty('sendInputToDataWarehouse')) {
                 obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
@@ -156,9 +144,9 @@ Scenario.prototype['simulatorId'] = undefined;
 
 /**
  * the list of users Id with their role
- * @member {Array.<module:model/ScenarioUser>} userList
+ * @member {Array.<module:model/ScenarioUser>} users
  */
-Scenario.prototype['userList'] = undefined;
+Scenario.prototype['users'] = undefined;
 
 /**
  * @member {String} simulatorName
@@ -174,21 +162,6 @@ Scenario.prototype['simulatorAnalysisName'] = undefined;
  * @member {module:model/ScenarioAnalysis} analysis
  */
 Scenario.prototype['analysis'] = undefined;
-
-/**
- * @member {module:model/ScenarioSuccessfulAnalysis} successfulAnalysis
- */
-Scenario.prototype['successfulAnalysis'] = undefined;
-
-/**
- * @member {module:model/ScenarioFailedAnalysis} failedAnalysis
- */
-Scenario.prototype['failedAnalysis'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunningAnalysis} runningAnalysis
- */
-Scenario.prototype['runningAnalysis'] = undefined;
 
 /**
  * default setting for all Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
@@ -235,9 +208,9 @@ ScenarioBase.prototype['ownerId'] = undefined;
 ScenarioBase.prototype['simulatorId'] = undefined;
 /**
  * the list of users Id with their role
- * @member {Array.<module:model/ScenarioUser>} userList
+ * @member {Array.<module:model/ScenarioUser>} users
  */
-ScenarioBase.prototype['userList'] = undefined;
+ScenarioBase.prototype['users'] = undefined;
 // Implement ScenarioAllOf interface:
 /**
  * @member {String} simulatorName
@@ -251,18 +224,6 @@ ScenarioAllOf.prototype['simulatorAnalysisName'] = undefined;
  * @member {module:model/ScenarioAnalysis} analysis
  */
 ScenarioAllOf.prototype['analysis'] = undefined;
-/**
- * @member {module:model/ScenarioSuccessfulAnalysis} successfulAnalysis
- */
-ScenarioAllOf.prototype['successfulAnalysis'] = undefined;
-/**
- * @member {module:model/ScenarioFailedAnalysis} failedAnalysis
- */
-ScenarioAllOf.prototype['failedAnalysis'] = undefined;
-/**
- * @member {module:model/ScenarioRunningAnalysis} runningAnalysis
- */
-ScenarioAllOf.prototype['runningAnalysis'] = undefined;
 /**
  * default setting for all Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
  * @member {Boolean} sendInputToDataWarehouse

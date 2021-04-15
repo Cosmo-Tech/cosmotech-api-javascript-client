@@ -23,11 +23,11 @@ class WorkspaceService {
      * Constructs a new <code>WorkspaceService</code>.
      * a cloud service resource
      * @alias module:model/WorkspaceService
-     * @param credentials {Object.<String, Object>} a freeform credentials object. Structure depends on service
+     * @param cloudService {String} the cloud service name
      */
-    constructor(credentials) { 
+    constructor(cloudService) { 
         
-        WorkspaceService.initialize(this, credentials);
+        WorkspaceService.initialize(this, cloudService);
     }
 
     /**
@@ -35,8 +35,8 @@ class WorkspaceService {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, credentials) { 
-        obj['credentials'] = credentials;
+    static initialize(obj, cloudService) { 
+        obj['cloudService'] = cloudService;
     }
 
     /**

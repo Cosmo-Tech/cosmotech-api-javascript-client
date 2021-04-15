@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import Organization from '../model/Organization';
+import OrganizationUser from '../model/OrganizationUser';
 
 /**
 * Organization service.
@@ -59,7 +60,7 @@ export default class OrganizationApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [Organization];
@@ -101,12 +102,54 @@ export default class OrganizationApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Organization;
       return this.apiClient.callApi(
         '/organizations/{organization_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getCurrentOrganizationUser operation.
+     * @callback module:api/OrganizationApi~getCurrentOrganizationUserCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/OrganizationUser} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the current User information for the Organization
+     * @param {String} organizationId the Organization identifier
+     * @param {module:api/OrganizationApi~getCurrentOrganizationUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/OrganizationUser}
+     */
+    getCurrentOrganizationUser(organizationId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getCurrentOrganizationUser");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = OrganizationUser;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -142,7 +185,7 @@ export default class OrganizationApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Organization;
@@ -184,7 +227,7 @@ export default class OrganizationApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Organization;
@@ -231,7 +274,7 @@ export default class OrganizationApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Organization;

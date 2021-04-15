@@ -70,7 +70,7 @@ export default class SimulatorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Simulator;
@@ -118,7 +118,7 @@ export default class SimulatorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Simulator;
@@ -160,7 +160,7 @@ export default class SimulatorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [Simulator];
@@ -208,7 +208,7 @@ export default class SimulatorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Simulator;
@@ -261,7 +261,7 @@ export default class SimulatorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Simulator;
@@ -308,7 +308,7 @@ export default class SimulatorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/yaml'];
       let accepts = ['application/json'];
       let returnType = Simulator;

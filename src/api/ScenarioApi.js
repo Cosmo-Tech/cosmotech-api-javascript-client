@@ -16,7 +16,6 @@ import ApiClient from "../ApiClient";
 import Scenario from '../model/Scenario';
 import ScenarioBase from '../model/ScenarioBase';
 import ScenarioComparisonResult from '../model/ScenarioComparisonResult';
-import ScenarioRunningAnalysis from '../model/ScenarioRunningAnalysis';
 
 /**
 * Scenario service.
@@ -86,7 +85,7 @@ export default class ScenarioApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ScenarioComparisonResult;
@@ -139,7 +138,7 @@ export default class ScenarioApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Scenario;
@@ -193,7 +192,7 @@ export default class ScenarioApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Scenario;
@@ -241,7 +240,7 @@ export default class ScenarioApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [Scenario];
@@ -295,7 +294,7 @@ export default class ScenarioApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Scenario;
@@ -343,66 +342,12 @@ export default class ScenarioApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [ScenarioBase];
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the runScenario operation.
-     * @callback module:api/ScenarioApi~runScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRunningAnalysis} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get the details of an scenario
-     * @param {String} organizationId the Organization identifier
-     * @param {String} workspaceId the Workspace identifier
-     * @param {String} scenarioId the Scenario identifier
-     * @param {module:api/ScenarioApi~runScenarioCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRunningAnalysis}
-     */
-    runScenario(organizationId, workspaceId, scenarioId, callback) {
-      let postBody = null;
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling runScenario");
-      }
-      // verify the required parameter 'workspaceId' is set
-      if (workspaceId === undefined || workspaceId === null) {
-        throw new Error("Missing the required parameter 'workspaceId' when calling runScenario");
-      }
-      // verify the required parameter 'scenarioId' is set
-      if (scenarioId === undefined || scenarioId === null) {
-        throw new Error("Missing the required parameter 'scenarioId' when calling runScenario");
-      }
-
-      let pathParams = {
-        'organization_id': organizationId,
-        'workspace_id': workspaceId,
-        'scenario_id': scenarioId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = ScenarioRunningAnalysis;
-      return this.apiClient.callApi(
-        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -456,7 +401,7 @@ export default class ScenarioApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Scenario;

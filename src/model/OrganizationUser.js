@@ -23,10 +23,12 @@ class OrganizationUser {
      * Constructs a new <code>OrganizationUser</code>.
      * a User
      * @alias module:model/OrganizationUser
+     * @param name {String} the User name
+     * @param roles {Array.<module:model/OrganizationUser.RolesEnum>} the User's roles for the Organization
      */
-    constructor() { 
+    constructor(name, roles) { 
         
-        OrganizationUser.initialize(this);
+        OrganizationUser.initialize(this, name, roles);
     }
 
     /**
@@ -34,7 +36,9 @@ class OrganizationUser {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name, roles) { 
+        obj['name'] = name;
+        obj['roles'] = roles;
     }
 
     /**
@@ -53,6 +57,12 @@ class OrganizationUser {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('organizationId')) {
+                obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
+            }
+            if (data.hasOwnProperty('roles')) {
+                obj['roles'] = ApiClient.convertToType(data['roles'], ['String']);
             }
         }
         return obj;
@@ -73,8 +83,53 @@ OrganizationUser.prototype['id'] = undefined;
  */
 OrganizationUser.prototype['name'] = undefined;
 
+/**
+ * the Organization Id context
+ * @member {String} organizationId
+ */
+OrganizationUser.prototype['organizationId'] = undefined;
+
+/**
+ * the User's roles for the Organization
+ * @member {Array.<module:model/OrganizationUser.RolesEnum>} roles
+ */
+OrganizationUser.prototype['roles'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>roles</code> property.
+ * @enum {String}
+ * @readonly
+ */
+OrganizationUser['RolesEnum'] = {
+
+    /**
+     * value: "Admin"
+     * @const
+     */
+    "Admin": "Admin",
+
+    /**
+     * value: "User"
+     * @const
+     */
+    "User": "User",
+
+    /**
+     * value: "Viewer"
+     * @const
+     */
+    "Viewer": "Viewer",
+
+    /**
+     * value: "Developer"
+     * @const
+     */
+    "Developer": "Developer"
+};
 
 
 

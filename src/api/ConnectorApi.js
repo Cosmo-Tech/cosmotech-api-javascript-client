@@ -59,7 +59,7 @@ export default class ConnectorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [Connector];
@@ -101,7 +101,7 @@ export default class ConnectorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Connector;
@@ -142,7 +142,7 @@ export default class ConnectorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Connector;
@@ -184,7 +184,7 @@ export default class ConnectorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Connector;
@@ -225,7 +225,7 @@ export default class ConnectorApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/yaml'];
       let accepts = ['application/json'];
       let returnType = Connector;

@@ -72,8 +72,8 @@ class ScenarioBase {
             if (data.hasOwnProperty('simulatorId')) {
                 obj['simulatorId'] = ApiClient.convertToType(data['simulatorId'], 'String');
             }
-            if (data.hasOwnProperty('userList')) {
-                obj['userList'] = ApiClient.convertToType(data['userList'], [ScenarioUser]);
+            if (data.hasOwnProperty('users')) {
+                obj['users'] = ApiClient.convertToType(data['users'], [ScenarioUser]);
             }
         }
         return obj;
@@ -126,9 +126,9 @@ ScenarioBase.prototype['simulatorId'] = undefined;
 
 /**
  * the list of users Id with their role
- * @member {Array.<module:model/ScenarioUser>} userList
+ * @member {Array.<module:model/ScenarioUser>} users
  */
-ScenarioBase.prototype['userList'] = undefined;
+ScenarioBase.prototype['users'] = undefined;
 
 
 

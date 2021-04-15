@@ -96,8 +96,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property userList (base name: "userList")', function() {
-      // uncomment below and update the code to test the property userList
+    it('should have the property simulatorAnalysisFilter (base name: "simulatorAnalysisFilter")', function() {
+      // uncomment below and update the code to test the property simulatorAnalysisFilter
+      //var instance = new CosmotechApi.Workspace();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property users (base name: "users")', function() {
+      // uncomment below and update the code to test the property users
       //var instance = new CosmotechApi.Workspace();
       //expect(instance).to.be();
     });
@@ -110,6 +116,12 @@
 
     it('should have the property services (base name: "services")', function() {
       // uncomment below and update the code to test the property services
+      //var instance = new CosmotechApi.Workspace();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sendInputToDataWarehouse (base name: "sendInputToDataWarehouse")', function() {
+      // uncomment below and update the code to test the property sendInputToDataWarehouse
       //var instance = new CosmotechApi.Workspace();
       //expect(instance).to.be();
     });

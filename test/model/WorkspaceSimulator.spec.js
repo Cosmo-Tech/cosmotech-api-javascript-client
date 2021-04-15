@@ -60,8 +60,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorAnalysisFilter (base name: "simulatorAnalysisFilter")', function() {
-      // uncomment below and update the code to test the property simulatorAnalysisFilter
+    it('should have the property analysisFilter (base name: "analysisFilter")', function() {
+      // uncomment below and update the code to test the property analysisFilter
       //var instance = new CosmotechApi.WorkspaceSimulator();
       //expect(instance).to.be();
     });

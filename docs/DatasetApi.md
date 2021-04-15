@@ -5,7 +5,7 @@ All URIs are relative to *https://api.azure.cosmo-platform.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**copyDataset**](DatasetApi.md#copyDataset) | **POST** /organizations/{organization_id}/datasets/copy | Copy a Dataset to another Dataset. Source must have a read capable connector and Target a write capable connector.
-[**createDataset**](DatasetApi.md#createDataset) | **POST** /organizations/{organization_id}/datasets | Register a new dataset
+[**createDataset**](DatasetApi.md#createDataset) | **POST** /organizations/{organization_id}/datasets | Create a new dataset
 [**deleteDataset**](DatasetApi.md#deleteDataset) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id} | Delete a dataset
 [**findAllDatasets**](DatasetApi.md#findAllDatasets) | **GET** /organizations/{organization_id}/datasets | List all Datasets
 [**findDatasetById**](DatasetApi.md#findDatasetById) | **GET** /organizations/{organization_id}/datasets/{dataset_id} | Get the details of a dataset
@@ -24,14 +24,9 @@ Copy a Dataset to another Dataset. Source must have a read capable connector and
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -59,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -71,21 +66,16 @@ Name | Type | Description  | Notes
 
 > Dataset createDataset(organizationId, dataset)
 
-Register a new dataset
+Create a new dataset
 
 ### Example
 
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -113,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -132,14 +122,9 @@ Delete a dataset
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -167,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -186,14 +171,9 @@ List all Datasets
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -219,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -238,14 +218,9 @@ Get the details of a dataset
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -273,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -292,14 +267,9 @@ Update a dataset
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -329,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 

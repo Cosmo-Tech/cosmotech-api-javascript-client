@@ -108,6 +108,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property datasetSchemaResource (base name: "datasetSchemaResource")', function() {
+      // uncomment below and update the code to test the property datasetSchemaResource
+      //var instance = new CosmotechApi.SimulatorAnalysis();
+      //expect(instance).to.be();
+    });
+
     it('should have the property parameterGroups (base name: "parameterGroups")', function() {
       // uncomment below and update the code to test the property parameterGroups
       //var instance = new CosmotechApi.SimulatorAnalysis();

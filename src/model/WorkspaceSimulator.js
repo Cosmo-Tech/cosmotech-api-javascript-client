@@ -53,8 +53,8 @@ class WorkspaceSimulator {
             if (data.hasOwnProperty('simulatorId')) {
                 obj['simulatorId'] = ApiClient.convertToType(data['simulatorId'], 'String');
             }
-            if (data.hasOwnProperty('simulatorAnalysisFilter')) {
-                obj['simulatorAnalysisFilter'] = ApiClient.convertToType(data['simulatorAnalysisFilter'], ['String']);
+            if (data.hasOwnProperty('analysisFilter')) {
+                obj['analysisFilter'] = ApiClient.convertToType(data['analysisFilter'], ['String']);
             }
             if (data.hasOwnProperty('defaultAnalysisDataset')) {
                 obj['defaultAnalysisDataset'] = ApiClient.convertToType(data['defaultAnalysisDataset'], {'String': Object});
@@ -74,9 +74,9 @@ WorkspaceSimulator.prototype['simulatorId'] = undefined;
 
 /**
  * the list of Simulator Analysis Id to filter
- * @member {Array.<String>} simulatorAnalysisFilter
+ * @member {Array.<String>} analysisFilter
  */
-WorkspaceSimulator.prototype['simulatorAnalysisFilter'] = undefined;
+WorkspaceSimulator.prototype['analysisFilter'] = undefined;
 
 /**
  * a map of AnalysisId/DatasetId to set a default dataset for an analysis

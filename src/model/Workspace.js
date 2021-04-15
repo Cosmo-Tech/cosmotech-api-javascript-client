@@ -77,8 +77,11 @@ class Workspace {
             if (data.hasOwnProperty('simulator')) {
                 obj['simulator'] = WorkspaceSimulator.constructFromObject(data['simulator']);
             }
-            if (data.hasOwnProperty('userList')) {
-                obj['userList'] = ApiClient.convertToType(data['userList'], [WorkspaceUser]);
+            if (data.hasOwnProperty('simulatorAnalysisFilter')) {
+                obj['simulatorAnalysisFilter'] = ApiClient.convertToType(data['simulatorAnalysisFilter'], ['String']);
+            }
+            if (data.hasOwnProperty('users')) {
+                obj['users'] = ApiClient.convertToType(data['users'], [WorkspaceUser]);
             }
             if (data.hasOwnProperty('webApp')) {
                 obj['webApp'] = WorkspaceWebApp.constructFromObject(data['webApp']);
@@ -138,10 +141,16 @@ Workspace.prototype['ownerId'] = undefined;
 Workspace.prototype['simulator'] = undefined;
 
 /**
- * the list of users Id with their role
- * @member {Array.<module:model/WorkspaceUser>} userList
+ * a filter list of available Simulator Analysis
+ * @member {Array.<String>} simulatorAnalysisFilter
  */
-Workspace.prototype['userList'] = undefined;
+Workspace.prototype['simulatorAnalysisFilter'] = undefined;
+
+/**
+ * the list of users Id with their role
+ * @member {Array.<module:model/WorkspaceUser>} users
+ */
+Workspace.prototype['users'] = undefined;
 
 /**
  * @member {module:model/WorkspaceWebApp} webApp

@@ -49,6 +49,9 @@ class WorkspaceServices {
         if (data) {
             obj = obj || new WorkspaceServices();
 
+            if (data.hasOwnProperty('tenantCredentials')) {
+                obj['tenantCredentials'] = ApiClient.convertToType(data['tenantCredentials'], {'String': Object});
+            }
             if (data.hasOwnProperty('resultsEventBus')) {
                 obj['resultsEventBus'] = WorkspaceService.constructFromObject(data['resultsEventBus']);
             }
@@ -67,6 +70,12 @@ class WorkspaceServices {
 
 
 }
+
+/**
+ * a freeform credentials object for the tenant. Structure depends on cloud provider
+ * @member {Object.<String, Object>} tenantCredentials
+ */
+WorkspaceServices.prototype['tenantCredentials'] = undefined;
 
 /**
  * @member {module:model/WorkspaceService} resultsEventBus

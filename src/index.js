@@ -32,13 +32,20 @@ import ScenarioAnalysisParameterValue from './model/ScenarioAnalysisParameterVal
 import ScenarioBase from './model/ScenarioBase';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
-import ScenarioFailedAnalysis from './model/ScenarioFailedAnalysis';
-import ScenarioFailedAnalysisAllOf from './model/ScenarioFailedAnalysisAllOf';
-import ScenarioRunningAnalysis from './model/ScenarioRunningAnalysis';
-import ScenarioRunningAnalysisAllOf from './model/ScenarioRunningAnalysisAllOf';
-import ScenarioSuccessfulAnalysis from './model/ScenarioSuccessfulAnalysis';
-import ScenarioSuccessfulAnalysisAllOf from './model/ScenarioSuccessfulAnalysisAllOf';
 import ScenarioUser from './model/ScenarioUser';
+import Simulation from './model/Simulation';
+import SimulationAllOf from './model/SimulationAllOf';
+import SimulationAnalysisParameterValue from './model/SimulationAnalysisParameterValue';
+import SimulationBase from './model/SimulationBase';
+import SimulationContainerLog from './model/SimulationContainerLog';
+import SimulationContainerLogs from './model/SimulationContainerLogs';
+import SimulationContainers from './model/SimulationContainers';
+import SimulationLogs from './model/SimulationLogs';
+import SimulationLogsOptions from './model/SimulationLogsOptions';
+import SimulationSearch from './model/SimulationSearch';
+import SimulationStartContainers from './model/SimulationStartContainers';
+import SimulationStartScenario from './model/SimulationStartScenario';
+import SimulationStartSimulator from './model/SimulationStartSimulator';
 import Simulator from './model/Simulator';
 import SimulatorAnalysis from './model/SimulatorAnalysis';
 import User from './model/User';
@@ -52,11 +59,14 @@ import WorkspaceService from './model/WorkspaceService';
 import WorkspaceServices from './model/WorkspaceServices';
 import WorkspaceSimulator from './model/WorkspaceSimulator';
 import WorkspaceUser from './model/WorkspaceUser';
+import WorkspaceUserDetails from './model/WorkspaceUserDetails';
+import WorkspaceUserDetailsAllOf from './model/WorkspaceUserDetailsAllOf';
 import WorkspaceWebApp from './model/WorkspaceWebApp';
 import ConnectorApi from './api/ConnectorApi';
 import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
 import ScenarioApi from './api/ScenarioApi';
+import SimulationApi from './api/SimulationApi';
 import SimulatorApi from './api/SimulatorApi';
 import UserApi from './api/UserApi';
 import ValidatorApi from './api/ValidatorApi';
@@ -216,46 +226,88 @@ export {
     ScenarioComparisonResult,
 
     /**
-     * The ScenarioFailedAnalysis model constructor.
-     * @property {module:model/ScenarioFailedAnalysis}
-     */
-    ScenarioFailedAnalysis,
-
-    /**
-     * The ScenarioFailedAnalysisAllOf model constructor.
-     * @property {module:model/ScenarioFailedAnalysisAllOf}
-     */
-    ScenarioFailedAnalysisAllOf,
-
-    /**
-     * The ScenarioRunningAnalysis model constructor.
-     * @property {module:model/ScenarioRunningAnalysis}
-     */
-    ScenarioRunningAnalysis,
-
-    /**
-     * The ScenarioRunningAnalysisAllOf model constructor.
-     * @property {module:model/ScenarioRunningAnalysisAllOf}
-     */
-    ScenarioRunningAnalysisAllOf,
-
-    /**
-     * The ScenarioSuccessfulAnalysis model constructor.
-     * @property {module:model/ScenarioSuccessfulAnalysis}
-     */
-    ScenarioSuccessfulAnalysis,
-
-    /**
-     * The ScenarioSuccessfulAnalysisAllOf model constructor.
-     * @property {module:model/ScenarioSuccessfulAnalysisAllOf}
-     */
-    ScenarioSuccessfulAnalysisAllOf,
-
-    /**
      * The ScenarioUser model constructor.
      * @property {module:model/ScenarioUser}
      */
     ScenarioUser,
+
+    /**
+     * The Simulation model constructor.
+     * @property {module:model/Simulation}
+     */
+    Simulation,
+
+    /**
+     * The SimulationAllOf model constructor.
+     * @property {module:model/SimulationAllOf}
+     */
+    SimulationAllOf,
+
+    /**
+     * The SimulationAnalysisParameterValue model constructor.
+     * @property {module:model/SimulationAnalysisParameterValue}
+     */
+    SimulationAnalysisParameterValue,
+
+    /**
+     * The SimulationBase model constructor.
+     * @property {module:model/SimulationBase}
+     */
+    SimulationBase,
+
+    /**
+     * The SimulationContainerLog model constructor.
+     * @property {module:model/SimulationContainerLog}
+     */
+    SimulationContainerLog,
+
+    /**
+     * The SimulationContainerLogs model constructor.
+     * @property {module:model/SimulationContainerLogs}
+     */
+    SimulationContainerLogs,
+
+    /**
+     * The SimulationContainers model constructor.
+     * @property {module:model/SimulationContainers}
+     */
+    SimulationContainers,
+
+    /**
+     * The SimulationLogs model constructor.
+     * @property {module:model/SimulationLogs}
+     */
+    SimulationLogs,
+
+    /**
+     * The SimulationLogsOptions model constructor.
+     * @property {module:model/SimulationLogsOptions}
+     */
+    SimulationLogsOptions,
+
+    /**
+     * The SimulationSearch model constructor.
+     * @property {module:model/SimulationSearch}
+     */
+    SimulationSearch,
+
+    /**
+     * The SimulationStartContainers model constructor.
+     * @property {module:model/SimulationStartContainers}
+     */
+    SimulationStartContainers,
+
+    /**
+     * The SimulationStartScenario model constructor.
+     * @property {module:model/SimulationStartScenario}
+     */
+    SimulationStartScenario,
+
+    /**
+     * The SimulationStartSimulator model constructor.
+     * @property {module:model/SimulationStartSimulator}
+     */
+    SimulationStartSimulator,
 
     /**
      * The Simulator model constructor.
@@ -336,6 +388,18 @@ export {
     WorkspaceUser,
 
     /**
+     * The WorkspaceUserDetails model constructor.
+     * @property {module:model/WorkspaceUserDetails}
+     */
+    WorkspaceUserDetails,
+
+    /**
+     * The WorkspaceUserDetailsAllOf model constructor.
+     * @property {module:model/WorkspaceUserDetailsAllOf}
+     */
+    WorkspaceUserDetailsAllOf,
+
+    /**
      * The WorkspaceWebApp model constructor.
      * @property {module:model/WorkspaceWebApp}
      */
@@ -364,6 +428,12 @@ export {
     * @property {module:api/ScenarioApi}
     */
     ScenarioApi,
+
+    /**
+    * The SimulationApi service constructor.
+    * @property {module:api/SimulationApi}
+    */
+    SimulationApi,
 
     /**
     * The SimulatorApi service constructor.

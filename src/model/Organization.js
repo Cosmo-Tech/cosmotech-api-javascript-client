@@ -57,6 +57,9 @@ class Organization {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('ownerId')) {
+                obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
+            }
             if (data.hasOwnProperty('users')) {
                 obj['users'] = ApiClient.convertToType(data['users'], [OrganizationUser]);
             }
@@ -78,6 +81,12 @@ Organization.prototype['id'] = undefined;
  * @member {String} name
  */
 Organization.prototype['name'] = undefined;
+
+/**
+ * the Owner User Id
+ * @member {String} ownerId
+ */
+Organization.prototype['ownerId'] = undefined;
 
 /**
  * @member {Array.<module:model/OrganizationUser>} users

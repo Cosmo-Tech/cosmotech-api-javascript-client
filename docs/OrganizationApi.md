@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findAllOrganizations**](OrganizationApi.md#findAllOrganizations) | **GET** /organizations | List all Organizations
 [**findOrganizationById**](OrganizationApi.md#findOrganizationById) | **GET** /organizations/{organization_id} | Get the details of an organization
+[**getCurrentOrganizationUser**](OrganizationApi.md#getCurrentOrganizationUser) | **GET** /organizations/{organization_id}/me | Get the current User information for the Organization
 [**registerOrganization**](OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
 [**unregisterOrganization**](OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
 [**updateOrganization**](OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an organization
@@ -23,14 +24,9 @@ List all Organizations
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 apiInstance.findAllOrganizations((error, data, response) => {
@@ -52,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -71,14 +67,9 @@ Get the details of an organization
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -104,7 +95,54 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getCurrentOrganizationUser
+
+> OrganizationUser getCurrentOrganizationUser(organizationId)
+
+Get the current User information for the Organization
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.OrganizationApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+apiInstance.getCurrentOrganizationUser(organizationId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+
+### Return type
+
+[**OrganizationUser**](OrganizationUser.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -123,14 +161,9 @@ Register a new organization
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organization = new CosmotechApi.Organization(); // Organization | the Organization to register
@@ -156,7 +189,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -175,14 +208,9 @@ Unregister an organization
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -208,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 
@@ -227,14 +255,9 @@ Update an organization
 ```javascript
 import CosmotechApi from '@cosmotech/api';
 let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: AADOAuth2AuthCode
-let AADOAuth2AuthCode = defaultClient.authentications['AADOAuth2AuthCode'];
-AADOAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-// Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKeyAuth.apiKeyPrefix = 'Token';
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
@@ -262,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[AADOAuth2AuthCode](../README.md#AADOAuth2AuthCode), [ApiKeyAuth](../README.md#ApiKeyAuth)
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
 
 ### HTTP request headers
 

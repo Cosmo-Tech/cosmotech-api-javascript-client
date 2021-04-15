@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **parentId** | **String** | the Scenario parent id | [optional] 
 **ownerId** | **String** | the user id which own this Scenario | [optional] [readonly] 
 **simulatorId** | **String** | the Simulator Id associated with this Scenario | [optional] [readonly] 
-**userList** | [**[ScenarioUser]**](ScenarioUser.md) | the list of users Id with their role | [optional] 
+**users** | [**[ScenarioUser]**](ScenarioUser.md) | the list of users Id with their role | [optional] 
 
 

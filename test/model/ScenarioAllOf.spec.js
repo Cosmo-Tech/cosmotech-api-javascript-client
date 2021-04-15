@@ -54,32 +54,26 @@
       //expect(instance).to.be.a(CosmotechApi.ScenarioAllOf);
     });
 
-    it('should have the property simulatorId (base name: "simulatorId")', function() {
-      // uncomment below and update the code to test the property simulatorId
+    it('should have the property simulatorName (base name: "simulatorName")', function() {
+      // uncomment below and update the code to test the property simulatorName
       //var instance = new CosmotechApi.ScenarioAllOf();
       //expect(instance).to.be();
     });
 
-    it('should have the property analyses (base name: "analyses")', function() {
-      // uncomment below and update the code to test the property analyses
+    it('should have the property simulatorAnalysisName (base name: "simulatorAnalysisName")', function() {
+      // uncomment below and update the code to test the property simulatorAnalysisName
       //var instance = new CosmotechApi.ScenarioAllOf();
       //expect(instance).to.be();
     });
 
-    it('should have the property successfulAnalyses (base name: "successfulAnalyses")', function() {
-      // uncomment below and update the code to test the property successfulAnalyses
+    it('should have the property analysis (base name: "analysis")', function() {
+      // uncomment below and update the code to test the property analysis
       //var instance = new CosmotechApi.ScenarioAllOf();
       //expect(instance).to.be();
     });
 
-    it('should have the property failedAnalyses (base name: "failedAnalyses")', function() {
-      // uncomment below and update the code to test the property failedAnalyses
-      //var instance = new CosmotechApi.ScenarioAllOf();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property runningAnalyses (base name: "runningAnalyses")', function() {
-      // uncomment below and update the code to test the property runningAnalyses
+    it('should have the property sendInputToDataWarehouse (base name: "sendInputToDataWarehouse")', function() {
+      // uncomment below and update the code to test the property sendInputToDataWarehouse
       //var instance = new CosmotechApi.ScenarioAllOf();
       //expect(instance).to.be();
     });

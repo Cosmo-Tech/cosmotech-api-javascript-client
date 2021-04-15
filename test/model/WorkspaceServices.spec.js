@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(CosmotechApi.WorkspaceServices);
     });
 
+    it('should have the property tenantCredentials (base name: "tenantCredentials")', function() {
+      // uncomment below and update the code to test the property tenantCredentials
+      //var instance = new CosmotechApi.WorkspaceServices();
+      //expect(instance).to.be();
+    });
+
     it('should have the property resultsEventBus (base name: "resultsEventBus")', function() {
       // uncomment below and update the code to test the property resultsEventBus
       //var instance = new CosmotechApi.WorkspaceServices();

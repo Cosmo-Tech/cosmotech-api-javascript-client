@@ -71,7 +71,7 @@ export default class DatasetApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = DatasetCopyParameters;
@@ -91,7 +91,7 @@ export default class DatasetApi {
      */
 
     /**
-     * Register a new dataset
+     * Create a new dataset
      * @param {String} organizationId the Organization identifier
      * @param {module:model/Dataset} dataset the Dataset to create
      * @param {module:api/DatasetApi~createDatasetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -118,7 +118,7 @@ export default class DatasetApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Dataset;
@@ -166,7 +166,7 @@ export default class DatasetApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Dataset;
@@ -208,7 +208,7 @@ export default class DatasetApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [Dataset];
@@ -256,7 +256,7 @@ export default class DatasetApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = Dataset;
@@ -309,7 +309,7 @@ export default class DatasetApi {
       let formParams = {
       };
 
-      let authNames = ['AADOAuth2AuthCode', 'ApiKeyAuth'];
+      let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = Dataset;
