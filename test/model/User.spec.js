@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property platformRoles (base name: "platformRoles")', function() {
+      // uncomment below and update the code to test the property platformRoles
+      //var instance = new CosmotechApi.User();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

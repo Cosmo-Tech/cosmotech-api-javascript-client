@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | the User id | 
 **name** | **String** | the User name | [optional] [readonly] 
-**role** | **String** | the User role | 
+**roles** | **[String]** | the User roles | 
 
 
 
-## Enum: RoleEnum
+## Enum: [RolesEnum]
 
 
 * `Admin` (value: `"Admin"`)

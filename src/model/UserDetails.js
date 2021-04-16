@@ -28,10 +28,11 @@ class UserDetails {
      * @implements module:model/User
      * @implements module:model/UserDetailsAllOf
      * @param name {String} the User name
+     * @param platformRoles {Array.<module:model/UserDetails.PlatformRolesEnum>} the list of Platform roles
      */
-    constructor(name) { 
-        User.initialize(this, name);UserDetailsAllOf.initialize(this);
-        UserDetails.initialize(this, name);
+    constructor(name, platformRoles) { 
+        User.initialize(this, name, platformRoles);UserDetailsAllOf.initialize(this);
+        UserDetails.initialize(this, name, platformRoles);
     }
 
     /**
@@ -39,8 +40,9 @@ class UserDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
+    static initialize(obj, name, platformRoles) { 
         obj['name'] = name;
+        obj['platformRoles'] = platformRoles;
     }
 
     /**
@@ -61,6 +63,9 @@ class UserDetails {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('platformRoles')) {
+                obj['platformRoles'] = ApiClient.convertToType(data['platformRoles'], ['String']);
             }
             if (data.hasOwnProperty('organizations')) {
                 obj['organizations'] = ApiClient.convertToType(data['organizations'], [UserOrganization]);
@@ -85,6 +90,12 @@ UserDetails.prototype['id'] = undefined;
 UserDetails.prototype['name'] = undefined;
 
 /**
+ * the list of Platform roles
+ * @member {Array.<module:model/UserDetails.PlatformRolesEnum>} platformRoles
+ */
+UserDetails.prototype['platformRoles'] = undefined;
+
+/**
  * @member {Array.<module:model/UserOrganization>} organizations
  */
 UserDetails.prototype['organizations'] = undefined;
@@ -101,12 +112,44 @@ User.prototype['id'] = undefined;
  * @member {String} name
  */
 User.prototype['name'] = undefined;
+/**
+ * the list of Platform roles
+ * @member {Array.<module:model/User.PlatformRolesEnum>} platformRoles
+ */
+User.prototype['platformRoles'] = undefined;
 // Implement UserDetailsAllOf interface:
 /**
  * @member {Array.<module:model/UserOrganization>} organizations
  */
 UserDetailsAllOf.prototype['organizations'] = undefined;
 
+
+
+/**
+ * Allowed values for the <code>platformRoles</code> property.
+ * @enum {String}
+ * @readonly
+ */
+UserDetails['PlatformRolesEnum'] = {
+
+    /**
+     * value: "Admin"
+     * @const
+     */
+    "Admin": "Admin",
+
+    /**
+     * value: "User"
+     * @const
+     */
+    "User": "User",
+
+    /**
+     * value: "ConnectorDeveloper"
+     * @const
+     */
+    "ConnectorDeveloper": "ConnectorDeveloper"
+};
 
 
 

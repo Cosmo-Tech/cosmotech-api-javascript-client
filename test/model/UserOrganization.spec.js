@@ -66,6 +66,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property roles (base name: "roles")', function() {
+      // uncomment below and update the code to test the property roles
+      //var instance = new CosmotechApi.UserOrganization();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property workspaces (base name: "workspaces")', function() {
+      // uncomment below and update the code to test the property workspaces
+      //var instance = new CosmotechApi.UserOrganization();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

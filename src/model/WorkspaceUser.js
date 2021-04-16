@@ -24,11 +24,11 @@ class WorkspaceUser {
      * a Workspace user with roles
      * @alias module:model/WorkspaceUser
      * @param id {String} the User id
-     * @param role {module:model/WorkspaceUser.RoleEnum} the User role
+     * @param roles {Array.<module:model/WorkspaceUser.RolesEnum>} the User roles
      */
-    constructor(id, role) { 
+    constructor(id, roles) { 
         
-        WorkspaceUser.initialize(this, id, role);
+        WorkspaceUser.initialize(this, id, roles);
     }
 
     /**
@@ -36,9 +36,9 @@ class WorkspaceUser {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, role) { 
+    static initialize(obj, id, roles) { 
         obj['id'] = id;
-        obj['role'] = role;
+        obj['roles'] = roles;
     }
 
     /**
@@ -58,8 +58,8 @@ class WorkspaceUser {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('role')) {
-                obj['role'] = ApiClient.convertToType(data['role'], 'String');
+            if (data.hasOwnProperty('roles')) {
+                obj['roles'] = ApiClient.convertToType(data['roles'], ['String']);
             }
         }
         return obj;
@@ -81,21 +81,21 @@ WorkspaceUser.prototype['id'] = undefined;
 WorkspaceUser.prototype['name'] = undefined;
 
 /**
- * the User role
- * @member {module:model/WorkspaceUser.RoleEnum} role
+ * the User roles
+ * @member {Array.<module:model/WorkspaceUser.RolesEnum>} roles
  */
-WorkspaceUser.prototype['role'] = undefined;
+WorkspaceUser.prototype['roles'] = undefined;
 
 
 
 
 
 /**
- * Allowed values for the <code>role</code> property.
+ * Allowed values for the <code>roles</code> property.
  * @enum {String}
  * @readonly
  */
-WorkspaceUser['RoleEnum'] = {
+WorkspaceUser['RolesEnum'] = {
 
     /**
      * value: "Admin"

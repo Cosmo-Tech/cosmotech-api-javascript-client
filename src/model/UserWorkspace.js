@@ -12,22 +12,21 @@
  */
 
 import ApiClient from '../ApiClient';
-import UserWorkspace from './UserWorkspace';
 
 /**
- * The UserOrganization model module.
- * @module model/UserOrganization
+ * The UserWorkspace model module.
+ * @module model/UserWorkspace
  * @version 0.0.1-SNAPSHOT
  */
-class UserOrganization {
+class UserWorkspace {
     /**
-     * Constructs a new <code>UserOrganization</code>.
-     * The organization of the user
-     * @alias module:model/UserOrganization
+     * Constructs a new <code>UserWorkspace</code>.
+     * the list of User roles for a Workspace
+     * @alias module:model/UserWorkspace
      */
     constructor() { 
         
-        UserOrganization.initialize(this);
+        UserWorkspace.initialize(this);
     }
 
     /**
@@ -39,15 +38,15 @@ class UserOrganization {
     }
 
     /**
-     * Constructs a <code>UserOrganization</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>UserWorkspace</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/UserOrganization} obj Optional instance to populate.
-     * @return {module:model/UserOrganization} The populated <code>UserOrganization</code> instance.
+     * @param {module:model/UserWorkspace} obj Optional instance to populate.
+     * @return {module:model/UserWorkspace} The populated <code>UserWorkspace</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new UserOrganization();
+            obj = obj || new UserWorkspace();
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -58,9 +57,6 @@ class UserOrganization {
             if (data.hasOwnProperty('roles')) {
                 obj['roles'] = ApiClient.convertToType(data['roles'], ['String']);
             }
-            if (data.hasOwnProperty('workspaces')) {
-                obj['workspaces'] = ApiClient.convertToType(data['workspaces'], [UserWorkspace]);
-            }
         }
         return obj;
     }
@@ -69,33 +65,27 @@ class UserOrganization {
 }
 
 /**
- * the Organization id
+ * the Workspace Id
  * @member {String} id
  */
-UserOrganization.prototype['id'] = undefined;
+UserWorkspace.prototype['id'] = undefined;
 
 /**
- * the Organization name
+ * the Workspace name
  * @member {String} name
  */
-UserOrganization.prototype['name'] = undefined;
+UserWorkspace.prototype['name'] = undefined;
 
 /**
- * the roles of the User in the Organization
+ * the roles of the User in the Workspace
  * @member {Array.<String>} roles
  */
-UserOrganization.prototype['roles'] = undefined;
-
-/**
- * the list of Workspaces roles
- * @member {Array.<module:model/UserWorkspace>} workspaces
- */
-UserOrganization.prototype['workspaces'] = undefined;
+UserWorkspace.prototype['roles'] = undefined;
 
 
 
 
 
 
-export default UserOrganization;
+export default UserWorkspace;
 

@@ -14,7 +14,6 @@
 
 import ApiClient from "../ApiClient";
 import Workspace from '../model/Workspace';
-import WorkspaceUserDetails from '../model/WorkspaceUserDetails';
 
 /**
 * Workspace service.
@@ -215,54 +214,6 @@ export default class WorkspaceApi {
       let returnType = Workspace;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getCurrentWorkspaceUser operation.
-     * @callback module:api/WorkspaceApi~getCurrentWorkspaceUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/WorkspaceUserDetails} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Get the current User information for the Workspace
-     * @param {String} organizationId the Organization identifier
-     * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/WorkspaceApi~getCurrentWorkspaceUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/WorkspaceUserDetails}
-     */
-    getCurrentWorkspaceUser(organizationId, workspaceId, callback) {
-      let postBody = null;
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling getCurrentWorkspaceUser");
-      }
-      // verify the required parameter 'workspaceId' is set
-      if (workspaceId === undefined || workspaceId === null) {
-        throw new Error("Missing the required parameter 'workspaceId' when calling getCurrentWorkspaceUser");
-      }
-
-      let pathParams = {
-        'organization_id': organizationId,
-        'workspace_id': workspaceId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = WorkspaceUserDetails;
-      return this.apiClient.callApi(
-        '/organizations/{organization_id}/workspaces/{workspace_id}/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

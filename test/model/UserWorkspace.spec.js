@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.UserDetails();
+    instance = new CosmotechApi.UserWorkspace();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,28 @@
       object[property] = value;
   }
 
-  describe('UserDetails', function() {
-    it('should create an instance of UserDetails', function() {
-      // uncomment below and update the code to test UserDetails
-      //var instane = new CosmotechApi.UserDetails();
-      //expect(instance).to.be.a(CosmotechApi.UserDetails);
+  describe('UserWorkspace', function() {
+    it('should create an instance of UserWorkspace', function() {
+      // uncomment below and update the code to test UserWorkspace
+      //var instane = new CosmotechApi.UserWorkspace();
+      //expect(instance).to.be.a(CosmotechApi.UserWorkspace);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.UserDetails();
+      //var instance = new CosmotechApi.UserWorkspace();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.UserDetails();
+      //var instance = new CosmotechApi.UserWorkspace();
       //expect(instance).to.be();
     });
 
-    it('should have the property platformRoles (base name: "platformRoles")', function() {
-      // uncomment below and update the code to test the property platformRoles
-      //var instance = new CosmotechApi.UserDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property organizations (base name: "organizations")', function() {
-      // uncomment below and update the code to test the property organizations
-      //var instance = new CosmotechApi.UserDetails();
+    it('should have the property roles (base name: "roles")', function() {
+      // uncomment below and update the code to test the property roles
+      //var instance = new CosmotechApi.UserWorkspace();
       //expect(instance).to.be();
     });
 

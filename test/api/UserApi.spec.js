@@ -68,6 +68,36 @@
         done();
       });
     });
+    describe('getCurrentUser', function() {
+      it('should call getCurrentUser successfully', function(done) {
+        //uncomment below and update the code to test getCurrentUser
+        //instance.getCurrentUser(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getOrganizationCurrentUser', function() {
+      it('should call getOrganizationCurrentUser successfully', function(done) {
+        //uncomment below and update the code to test getOrganizationCurrentUser
+        //instance.getOrganizationCurrentUser(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getWorkspaceCurrentUser', function() {
+      it('should call getWorkspaceCurrentUser successfully', function(done) {
+        //uncomment below and update the code to test getWorkspaceCurrentUser
+        //instance.getWorkspaceCurrentUser(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('registerUser', function() {
       it('should call registerUser successfully', function(done) {
         //uncomment below and update the code to test registerUser

@@ -24,10 +24,11 @@ class User {
      * a User
      * @alias module:model/User
      * @param name {String} the User name
+     * @param platformRoles {Array.<module:model/User.PlatformRolesEnum>} the list of Platform roles
      */
-    constructor(name) { 
+    constructor(name, platformRoles) { 
         
-        User.initialize(this, name);
+        User.initialize(this, name, platformRoles);
     }
 
     /**
@@ -35,8 +36,9 @@ class User {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
+    static initialize(obj, name, platformRoles) { 
         obj['name'] = name;
+        obj['platformRoles'] = platformRoles;
     }
 
     /**
@@ -55,6 +57,9 @@ class User {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('platformRoles')) {
+                obj['platformRoles'] = ApiClient.convertToType(data['platformRoles'], ['String']);
             }
         }
         return obj;
@@ -75,8 +80,41 @@ User.prototype['id'] = undefined;
  */
 User.prototype['name'] = undefined;
 
+/**
+ * the list of Platform roles
+ * @member {Array.<module:model/User.PlatformRolesEnum>} platformRoles
+ */
+User.prototype['platformRoles'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>platformRoles</code> property.
+ * @enum {String}
+ * @readonly
+ */
+User['PlatformRolesEnum'] = {
+
+    /**
+     * value: "Admin"
+     * @const
+     */
+    "Admin": "Admin",
+
+    /**
+     * value: "User"
+     * @const
+     */
+    "User": "User",
+
+    /**
+     * value: "ConnectorDeveloper"
+     * @const
+     */
+    "ConnectorDeveloper": "ConnectorDeveloper"
+};
 
 
 

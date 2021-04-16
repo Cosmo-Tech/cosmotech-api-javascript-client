@@ -27,11 +27,11 @@ class WorkspaceUserDetails {
      * @implements module:model/WorkspaceUser
      * @implements module:model/WorkspaceUserDetailsAllOf
      * @param id {String} the User id
-     * @param role {module:model/WorkspaceUserDetails.RoleEnum} the User role
+     * @param roles {Array.<module:model/WorkspaceUserDetails.RolesEnum>} the User roles
      */
-    constructor(id, role) { 
-        WorkspaceUser.initialize(this, id, role);WorkspaceUserDetailsAllOf.initialize(this);
-        WorkspaceUserDetails.initialize(this, id, role);
+    constructor(id, roles) { 
+        WorkspaceUser.initialize(this, id, roles);WorkspaceUserDetailsAllOf.initialize(this);
+        WorkspaceUserDetails.initialize(this, id, roles);
     }
 
     /**
@@ -39,9 +39,9 @@ class WorkspaceUserDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, role) { 
+    static initialize(obj, id, roles) { 
         obj['id'] = id;
-        obj['role'] = role;
+        obj['roles'] = roles;
     }
 
     /**
@@ -63,8 +63,8 @@ class WorkspaceUserDetails {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('role')) {
-                obj['role'] = ApiClient.convertToType(data['role'], 'String');
+            if (data.hasOwnProperty('roles')) {
+                obj['roles'] = ApiClient.convertToType(data['roles'], ['String']);
             }
             if (data.hasOwnProperty('organizationId')) {
                 obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
@@ -95,10 +95,10 @@ WorkspaceUserDetails.prototype['id'] = undefined;
 WorkspaceUserDetails.prototype['name'] = undefined;
 
 /**
- * the User role
- * @member {module:model/WorkspaceUserDetails.RoleEnum} role
+ * the User roles
+ * @member {Array.<module:model/WorkspaceUserDetails.RolesEnum>} roles
  */
-WorkspaceUserDetails.prototype['role'] = undefined;
+WorkspaceUserDetails.prototype['roles'] = undefined;
 
 /**
  * the Organization Id context
@@ -131,10 +131,10 @@ WorkspaceUser.prototype['id'] = undefined;
  */
 WorkspaceUser.prototype['name'] = undefined;
 /**
- * the User role
- * @member {module:model/WorkspaceUser.RoleEnum} role
+ * the User roles
+ * @member {Array.<module:model/WorkspaceUser.RolesEnum>} roles
  */
-WorkspaceUser.prototype['role'] = undefined;
+WorkspaceUser.prototype['roles'] = undefined;
 // Implement WorkspaceUserDetailsAllOf interface:
 /**
  * the Organization Id context
@@ -155,11 +155,11 @@ WorkspaceUserDetailsAllOf.prototype['workspaceId'] = undefined;
 
 
 /**
- * Allowed values for the <code>role</code> property.
+ * Allowed values for the <code>roles</code> property.
  * @enum {String}
  * @readonly
  */
-WorkspaceUserDetails['RoleEnum'] = {
+WorkspaceUserDetails['RolesEnum'] = {
 
     /**
      * value: "Admin"

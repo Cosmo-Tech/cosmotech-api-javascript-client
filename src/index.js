@@ -52,6 +52,7 @@ import User from './model/User';
 import UserDetails from './model/UserDetails';
 import UserDetailsAllOf from './model/UserDetailsAllOf';
 import UserOrganization from './model/UserOrganization';
+import UserWorkspace from './model/UserWorkspace';
 import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
 import Workspace from './model/Workspace';
@@ -344,6 +345,12 @@ export {
      * @property {module:model/UserOrganization}
      */
     UserOrganization,
+
+    /**
+     * The UserWorkspace model constructor.
+     * @property {module:model/UserWorkspace}
+     */
+    UserWorkspace,
 
     /**
      * The Validator model constructor.

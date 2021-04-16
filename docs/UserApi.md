@@ -6,6 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findAllUsers**](UserApi.md#findAllUsers) | **GET** /users | List all Users
 [**findUserById**](UserApi.md#findUserById) | **GET** /users/{user_id} | Get the details of an user
+[**getCurrentUser**](UserApi.md#getCurrentUser) | **GET** /users/me | Get the details of an user
+[**getOrganizationCurrentUser**](UserApi.md#getOrganizationCurrentUser) | **GET** /organizations/{organization_id}/me | Get the details of an user with roles for an Organization
+[**getWorkspaceCurrentUser**](UserApi.md#getWorkspaceCurrentUser) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/me | Get the details of an user with roles for a Workspace
 [**registerUser**](UserApi.md#registerUser) | **POST** /users | Register a new user
 [**unregisterUser**](UserApi.md#unregisterUser) | **DELETE** /users/{user_id} | Unregister an user
 [**updateUser**](UserApi.md#updateUser) | **PATCH** /users/{user_id} | Update an user
@@ -14,7 +17,7 @@ Method | HTTP request | Description
 
 ## findAllUsers
 
-> [UserDetails] findAllUsers()
+> [User] findAllUsers()
 
 List all Users
 
@@ -43,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**[UserDetails]**](UserDetails.md)
+[**[User]**](User.md)
 
 ### Authorization
 
@@ -102,9 +105,148 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getCurrentUser
+
+> UserDetails getCurrentUser()
+
+Get the details of an user
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.UserApi();
+apiInstance.getCurrentUser((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**UserDetails**](UserDetails.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationCurrentUser
+
+> UserDetails getOrganizationCurrentUser(organizationId)
+
+Get the details of an user with roles for an Organization
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.UserApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+apiInstance.getOrganizationCurrentUser(organizationId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+
+### Return type
+
+[**UserDetails**](UserDetails.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getWorkspaceCurrentUser
+
+> UserDetails getWorkspaceCurrentUser(organizationId, workspaceId)
+
+Get the details of an user with roles for a Workspace
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.UserApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+apiInstance.getWorkspaceCurrentUser(organizationId, workspaceId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+
+### Return type
+
+[**UserDetails**](UserDetails.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## registerUser
 
-> UserDetails registerUser(user)
+> User registerUser(user)
 
 Register a new user
 
@@ -137,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserDetails**](UserDetails.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -151,7 +293,7 @@ Name | Type | Description  | Notes
 
 ## unregisterUser
 
-> UserDetails unregisterUser(userId)
+> User unregisterUser(userId)
 
 Unregister an user
 
@@ -184,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserDetails**](UserDetails.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -198,7 +340,7 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> UserDetails updateUser(userId, user)
+> User updateUser(userId, user)
 
 Update an user
 
@@ -233,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserDetails**](UserDetails.md)
+[**User**](User.md)
 
 ### Authorization
 

@@ -592,11 +592,7 @@ class ApiClient {
               'description': "No description provided",
             },
             {
-              'url': "https://gateway.api.cosmo-platform.com",
-              'description': "No description provided",
-            },
-            {
-              'url': "http://localhost:8080",
+              'url': "http://localhost:4010",
               'description': "No description provided",
             }
       ];

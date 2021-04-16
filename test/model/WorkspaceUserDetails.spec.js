@@ -66,8 +66,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property role (base name: "role")', function() {
-      // uncomment below and update the code to test the property role
+    it('should have the property roles (base name: "roles")', function() {
+      // uncomment below and update the code to test the property roles
       //var instance = new CosmotechApi.WorkspaceUserDetails();
       //expect(instance).to.be();
     });
