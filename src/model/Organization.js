@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import OrganizationServices from './OrganizationServices';
 import OrganizationUser from './OrganizationUser';
 
 /**
@@ -63,6 +64,9 @@ class Organization {
             if (data.hasOwnProperty('users')) {
                 obj['users'] = ApiClient.convertToType(data['users'], [OrganizationUser]);
             }
+            if (data.hasOwnProperty('services')) {
+                obj['services'] = OrganizationServices.constructFromObject(data['services']);
+            }
         }
         return obj;
     }
@@ -92,6 +96,11 @@ Organization.prototype['ownerId'] = undefined;
  * @member {Array.<module:model/OrganizationUser>} users
  */
 Organization.prototype['users'] = undefined;
+
+/**
+ * @member {module:model/OrganizationServices} services
+ */
+Organization.prototype['services'] = undefined;
 
 
 

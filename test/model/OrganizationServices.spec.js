@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.Organization();
+    instance = new CosmotechApi.OrganizationServices();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,40 +47,28 @@
       object[property] = value;
   }
 
-  describe('Organization', function() {
-    it('should create an instance of Organization', function() {
-      // uncomment below and update the code to test Organization
-      //var instane = new CosmotechApi.Organization();
-      //expect(instance).to.be.a(CosmotechApi.Organization);
+  describe('OrganizationServices', function() {
+    it('should create an instance of OrganizationServices', function() {
+      // uncomment below and update the code to test OrganizationServices
+      //var instane = new CosmotechApi.OrganizationServices();
+      //expect(instance).to.be.a(CosmotechApi.OrganizationServices);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.Organization();
+    it('should have the property tenantCredentials (base name: "tenantCredentials")', function() {
+      // uncomment below and update the code to test the property tenantCredentials
+      //var instance = new CosmotechApi.OrganizationServices();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.Organization();
+    it('should have the property storage (base name: "storage")', function() {
+      // uncomment below and update the code to test the property storage
+      //var instance = new CosmotechApi.OrganizationServices();
       //expect(instance).to.be();
     });
 
-    it('should have the property ownerId (base name: "ownerId")', function() {
-      // uncomment below and update the code to test the property ownerId
-      //var instance = new CosmotechApi.Organization();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property users (base name: "users")', function() {
-      // uncomment below and update the code to test the property users
-      //var instance = new CosmotechApi.Organization();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property services (base name: "services")', function() {
-      // uncomment below and update the code to test the property services
-      //var instance = new CosmotechApi.Organization();
+    it('should have the property simulatorsContainerRegistry (base name: "simulatorsContainerRegistry")', function() {
+      // uncomment below and update the code to test the property simulatorsContainerRegistry
+      //var instance = new CosmotechApi.OrganizationServices();
       //expect(instance).to.be();
     });
 

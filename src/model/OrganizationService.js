@@ -14,19 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The WorkspaceService model module.
- * @module model/WorkspaceService
+ * The OrganizationService model module.
+ * @module model/OrganizationService
  * @version 0.0.1-SNAPSHOT
  */
-class WorkspaceService {
+class OrganizationService {
     /**
-     * Constructs a new <code>WorkspaceService</code>.
+     * Constructs a new <code>OrganizationService</code>.
      * a cloud service resource
-     * @alias module:model/WorkspaceService
+     * @alias module:model/OrganizationService
      */
     constructor() { 
         
-        WorkspaceService.initialize(this);
+        OrganizationService.initialize(this);
     }
 
     /**
@@ -38,15 +38,15 @@ class WorkspaceService {
     }
 
     /**
-     * Constructs a <code>WorkspaceService</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>OrganizationService</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/WorkspaceService} obj Optional instance to populate.
-     * @return {module:model/WorkspaceService} The populated <code>WorkspaceService</code> instance.
+     * @param {module:model/OrganizationService} obj Optional instance to populate.
+     * @return {module:model/OrganizationService} The populated <code>OrganizationService</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new WorkspaceService();
+            obj = obj || new OrganizationService();
 
             if (data.hasOwnProperty('cloudService')) {
                 obj['cloudService'] = ApiClient.convertToType(data['cloudService'], 'String');
@@ -74,36 +74,36 @@ class WorkspaceService {
  * the cloud service name
  * @member {String} cloudService
  */
-WorkspaceService.prototype['cloudService'] = undefined;
+OrganizationService.prototype['cloudService'] = undefined;
 
 /**
  * the platform base uri for this service
  * @member {String} baseUri
  */
-WorkspaceService.prototype['baseUri'] = undefined;
+OrganizationService.prototype['baseUri'] = undefined;
 
 /**
  * the Platform service associated to the resource
  * @member {String} platformService
  */
-WorkspaceService.prototype['platformService'] = undefined;
+OrganizationService.prototype['platformService'] = undefined;
 
 /**
- * the workspace specific uri for this service resource
+ * the Organization specific uri for this service resource
  * @member {String} resourceUri
  */
-WorkspaceService.prototype['resourceUri'] = undefined;
+OrganizationService.prototype['resourceUri'] = undefined;
 
 /**
  * a freeform credentials object. Structure depends on service
  * @member {Object.<String, Object>} credentials
  */
-WorkspaceService.prototype['credentials'] = undefined;
+OrganizationService.prototype['credentials'] = undefined;
 
 
 
 
 
 
-export default WorkspaceService;
+export default OrganizationService;
 

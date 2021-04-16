@@ -14,19 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The WorkspaceService model module.
- * @module model/WorkspaceService
+ * The PlatformService model module.
+ * @module model/PlatformService
  * @version 0.0.1-SNAPSHOT
  */
-class WorkspaceService {
+class PlatformService {
     /**
-     * Constructs a new <code>WorkspaceService</code>.
-     * a cloud service resource
-     * @alias module:model/WorkspaceService
+     * Constructs a new <code>PlatformService</code>.
+     * a Cloud Service resource
+     * @alias module:model/PlatformService
      */
     constructor() { 
         
-        WorkspaceService.initialize(this);
+        PlatformService.initialize(this);
     }
 
     /**
@@ -38,15 +38,15 @@ class WorkspaceService {
     }
 
     /**
-     * Constructs a <code>WorkspaceService</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>PlatformService</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/WorkspaceService} obj Optional instance to populate.
-     * @return {module:model/WorkspaceService} The populated <code>WorkspaceService</code> instance.
+     * @param {module:model/PlatformService} obj Optional instance to populate.
+     * @return {module:model/PlatformService} The populated <code>PlatformService</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new WorkspaceService();
+            obj = obj || new PlatformService();
 
             if (data.hasOwnProperty('cloudService')) {
                 obj['cloudService'] = ApiClient.convertToType(data['cloudService'], 'String');
@@ -54,14 +54,14 @@ class WorkspaceService {
             if (data.hasOwnProperty('baseUri')) {
                 obj['baseUri'] = ApiClient.convertToType(data['baseUri'], 'String');
             }
-            if (data.hasOwnProperty('platformService')) {
-                obj['platformService'] = ApiClient.convertToType(data['platformService'], 'String');
-            }
             if (data.hasOwnProperty('resourceUri')) {
                 obj['resourceUri'] = ApiClient.convertToType(data['resourceUri'], 'String');
             }
             if (data.hasOwnProperty('credentials')) {
                 obj['credentials'] = ApiClient.convertToType(data['credentials'], {'String': Object});
+            }
+            if (data.hasOwnProperty('options')) {
+                obj['options'] = ApiClient.convertToType(data['options'], {'String': Object});
             }
         }
         return obj;
@@ -74,36 +74,36 @@ class WorkspaceService {
  * the cloud service name
  * @member {String} cloudService
  */
-WorkspaceService.prototype['cloudService'] = undefined;
+PlatformService.prototype['cloudService'] = undefined;
 
 /**
  * the platform base uri for this service
  * @member {String} baseUri
  */
-WorkspaceService.prototype['baseUri'] = undefined;
-
-/**
- * the Platform service associated to the resource
- * @member {String} platformService
- */
-WorkspaceService.prototype['platformService'] = undefined;
+PlatformService.prototype['baseUri'] = undefined;
 
 /**
  * the workspace specific uri for this service resource
  * @member {String} resourceUri
  */
-WorkspaceService.prototype['resourceUri'] = undefined;
+PlatformService.prototype['resourceUri'] = undefined;
 
 /**
  * a freeform credentials object. Structure depends on service
  * @member {Object.<String, Object>} credentials
  */
-WorkspaceService.prototype['credentials'] = undefined;
+PlatformService.prototype['credentials'] = undefined;
+
+/**
+ * the service specific options
+ * @member {Object.<String, Object>} options
+ */
+PlatformService.prototype['options'] = undefined;
 
 
 
 
 
 
-export default WorkspaceService;
+export default PlatformService;
 

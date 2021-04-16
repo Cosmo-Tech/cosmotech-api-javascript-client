@@ -72,7 +72,7 @@ class WorkspaceServices {
 }
 
 /**
- * a freeform credentials object for the tenant. Structure depends on cloud provider
+ * a freeform credentials object for the Organization tenant. Structure depends on cloud provider
  * @member {Object.<String, Object>} tenantCredentials
  */
 WorkspaceServices.prototype['tenantCredentials'] = undefined;

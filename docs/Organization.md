@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **name** | **String** | the Organization name | 
 **ownerId** | **String** | the Owner User Id | [optional] [readonly] 
 **users** | [**[OrganizationUser]**](OrganizationUser.md) |  | [optional] 
+**services** | [**OrganizationServices**](OrganizationServices.md) |  | [optional] 
 
 

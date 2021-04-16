@@ -48,6 +48,16 @@
   }
 
   describe('UserApi', function() {
+    describe('authorizeUser', function() {
+      it('should call authorizeUser successfully', function(done) {
+        //uncomment below and update the code to test authorizeUser
+        //instance.authorizeUser(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('findAllUsers', function() {
       it('should call findAllUsers successfully', function(done) {
         //uncomment below and update the code to test findAllUsers

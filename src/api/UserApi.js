@@ -36,6 +36,41 @@ export default class UserApi {
 
 
     /**
+     * Callback function to receive the result of the authorizeUser operation.
+     * @callback module:api/UserApi~authorizeUserCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Authorize an User with OAuth2. Delegated to configured OAuth2 service
+     * @param {module:api/UserApi~authorizeUserCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    authorizeUser(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/oauth2/authorize', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the findAllUsers operation.
      * @callback module:api/UserApi~findAllUsersCallback
      * @param {String} error Error message, if any.

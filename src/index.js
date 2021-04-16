@@ -24,7 +24,12 @@ import DatasetCompatibility from './model/DatasetCompatibility';
 import DatasetConnector from './model/DatasetConnector';
 import DatasetCopyParameters from './model/DatasetCopyParameters';
 import Organization from './model/Organization';
+import OrganizationService from './model/OrganizationService';
+import OrganizationServices from './model/OrganizationServices';
 import OrganizationUser from './model/OrganizationUser';
+import Platform from './model/Platform';
+import PlatformService from './model/PlatformService';
+import PlatformServices from './model/PlatformServices';
 import Scenario from './model/Scenario';
 import ScenarioAllOf from './model/ScenarioAllOf';
 import ScenarioAnalysis from './model/ScenarioAnalysis';
@@ -60,12 +65,11 @@ import WorkspaceService from './model/WorkspaceService';
 import WorkspaceServices from './model/WorkspaceServices';
 import WorkspaceSimulator from './model/WorkspaceSimulator';
 import WorkspaceUser from './model/WorkspaceUser';
-import WorkspaceUserDetails from './model/WorkspaceUserDetails';
-import WorkspaceUserDetailsAllOf from './model/WorkspaceUserDetailsAllOf';
 import WorkspaceWebApp from './model/WorkspaceWebApp';
 import ConnectorApi from './api/ConnectorApi';
 import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
+import PlatformApi from './api/PlatformApi';
 import ScenarioApi from './api/ScenarioApi';
 import SimulationApi from './api/SimulationApi';
 import SimulatorApi from './api/SimulatorApi';
@@ -179,10 +183,40 @@ export {
     Organization,
 
     /**
+     * The OrganizationService model constructor.
+     * @property {module:model/OrganizationService}
+     */
+    OrganizationService,
+
+    /**
+     * The OrganizationServices model constructor.
+     * @property {module:model/OrganizationServices}
+     */
+    OrganizationServices,
+
+    /**
      * The OrganizationUser model constructor.
      * @property {module:model/OrganizationUser}
      */
     OrganizationUser,
+
+    /**
+     * The Platform model constructor.
+     * @property {module:model/Platform}
+     */
+    Platform,
+
+    /**
+     * The PlatformService model constructor.
+     * @property {module:model/PlatformService}
+     */
+    PlatformService,
+
+    /**
+     * The PlatformServices model constructor.
+     * @property {module:model/PlatformServices}
+     */
+    PlatformServices,
 
     /**
      * The Scenario model constructor.
@@ -395,18 +429,6 @@ export {
     WorkspaceUser,
 
     /**
-     * The WorkspaceUserDetails model constructor.
-     * @property {module:model/WorkspaceUserDetails}
-     */
-    WorkspaceUserDetails,
-
-    /**
-     * The WorkspaceUserDetailsAllOf model constructor.
-     * @property {module:model/WorkspaceUserDetailsAllOf}
-     */
-    WorkspaceUserDetailsAllOf,
-
-    /**
      * The WorkspaceWebApp model constructor.
      * @property {module:model/WorkspaceWebApp}
      */
@@ -429,6 +451,12 @@ export {
     * @property {module:api/OrganizationApi}
     */
     OrganizationApi,
+
+    /**
+    * The PlatformApi service constructor.
+    * @property {module:api/PlatformApi}
+    */
+    PlatformApi,
 
     /**
     * The ScenarioApi service constructor.

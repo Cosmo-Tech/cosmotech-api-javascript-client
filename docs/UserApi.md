@@ -4,6 +4,7 @@ All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**authorizeUser**](UserApi.md#authorizeUser) | **GET** /oauth2/authorize | Authorize an User with OAuth2. Delegated to configured OAuth2 service
 [**findAllUsers**](UserApi.md#findAllUsers) | **GET** /users | List all Users
 [**findUserById**](UserApi.md#findUserById) | **GET** /users/{user_id} | Get the details of an user
 [**getCurrentUser**](UserApi.md#getCurrentUser) | **GET** /users/me | Get the details of an user
@@ -13,6 +14,49 @@ Method | HTTP request | Description
 [**unregisterUser**](UserApi.md#unregisterUser) | **DELETE** /users/{user_id} | Unregister an user
 [**updateUser**](UserApi.md#updateUser) | **PATCH** /users/{user_id} | Update an user
 
+
+
+## authorizeUser
+
+> authorizeUser()
+
+Authorize an User with OAuth2. Delegated to configured OAuth2 service
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.UserApi();
+apiInstance.authorizeUser((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## findAllUsers

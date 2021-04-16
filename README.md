@@ -139,6 +139,9 @@ Class | Method | HTTP request | Description
 *CosmotechApi.OrganizationApi* | [**registerOrganization**](docs/OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
 *CosmotechApi.OrganizationApi* | [**unregisterOrganization**](docs/OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
 *CosmotechApi.OrganizationApi* | [**updateOrganization**](docs/OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an organization
+*CosmotechApi.PlatformApi* | [**createPlatform**](docs/PlatformApi.md#createPlatform) | **POST** /platform | Create a new platform
+*CosmotechApi.PlatformApi* | [**getPlatform**](docs/PlatformApi.md#getPlatform) | **GET** /platform | Get the details of the platform
+*CosmotechApi.PlatformApi* | [**updatePlatform**](docs/PlatformApi.md#updatePlatform) | **PATCH** /platform | Update a platform
 *CosmotechApi.ScenarioApi* | [**compareScenarios**](docs/ScenarioApi.md#compareScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/compare/{compared_scenario_id} | Compare the Scenario with another one and returns the difference for parameters values
 *CosmotechApi.ScenarioApi* | [**createScenario**](docs/ScenarioApi.md#createScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | Create a new scenario
 *CosmotechApi.ScenarioApi* | [**deleteScenario**](docs/ScenarioApi.md#deleteScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Delete a scenario
@@ -164,6 +167,7 @@ Class | Method | HTTP request | Description
 *CosmotechApi.SimulatorApi* | [**findSimulatorById**](docs/SimulatorApi.md#findSimulatorById) | **GET** /organizations/{organization_id}/simulators/{simulator_id} | Get the details of a simulator
 *CosmotechApi.SimulatorApi* | [**updateSimulator**](docs/SimulatorApi.md#updateSimulator) | **PATCH** /organizations/{organization_id}/simulators/{simulator_id} | Update a simulator
 *CosmotechApi.SimulatorApi* | [**upload**](docs/SimulatorApi.md#upload) | **POST** /organizations/{organization_id}/simulators/upload | Upload and register a new simulator
+*CosmotechApi.UserApi* | [**authorizeUser**](docs/UserApi.md#authorizeUser) | **GET** /oauth2/authorize | Authorize an User with OAuth2. Delegated to configured OAuth2 service
 *CosmotechApi.UserApi* | [**findAllUsers**](docs/UserApi.md#findAllUsers) | **GET** /users | List all Users
 *CosmotechApi.UserApi* | [**findUserById**](docs/UserApi.md#findUserById) | **GET** /users/{user_id} | Get the details of an user
 *CosmotechApi.UserApi* | [**getCurrentUser**](docs/UserApi.md#getCurrentUser) | **GET** /users/me | Get the details of an user
@@ -201,7 +205,12 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.DatasetConnector](docs/DatasetConnector.md)
  - [CosmotechApi.DatasetCopyParameters](docs/DatasetCopyParameters.md)
  - [CosmotechApi.Organization](docs/Organization.md)
+ - [CosmotechApi.OrganizationService](docs/OrganizationService.md)
+ - [CosmotechApi.OrganizationServices](docs/OrganizationServices.md)
  - [CosmotechApi.OrganizationUser](docs/OrganizationUser.md)
+ - [CosmotechApi.Platform](docs/Platform.md)
+ - [CosmotechApi.PlatformService](docs/PlatformService.md)
+ - [CosmotechApi.PlatformServices](docs/PlatformServices.md)
  - [CosmotechApi.Scenario](docs/Scenario.md)
  - [CosmotechApi.ScenarioAllOf](docs/ScenarioAllOf.md)
  - [CosmotechApi.ScenarioAnalysis](docs/ScenarioAnalysis.md)
@@ -237,8 +246,6 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.WorkspaceServices](docs/WorkspaceServices.md)
  - [CosmotechApi.WorkspaceSimulator](docs/WorkspaceSimulator.md)
  - [CosmotechApi.WorkspaceUser](docs/WorkspaceUser.md)
- - [CosmotechApi.WorkspaceUserDetails](docs/WorkspaceUserDetails.md)
- - [CosmotechApi.WorkspaceUserDetailsAllOf](docs/WorkspaceUserDetailsAllOf.md)
  - [CosmotechApi.WorkspaceWebApp](docs/WorkspaceWebApp.md)
 
 

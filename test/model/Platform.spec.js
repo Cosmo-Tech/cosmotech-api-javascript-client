@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.Organization();
+    instance = new CosmotechApi.Platform();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,40 +47,52 @@
       object[property] = value;
   }
 
-  describe('Organization', function() {
-    it('should create an instance of Organization', function() {
-      // uncomment below and update the code to test Organization
-      //var instane = new CosmotechApi.Organization();
-      //expect(instance).to.be.a(CosmotechApi.Organization);
-    });
-
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.Organization();
-      //expect(instance).to.be();
+  describe('Platform', function() {
+    it('should create an instance of Platform', function() {
+      // uncomment below and update the code to test Platform
+      //var instane = new CosmotechApi.Platform();
+      //expect(instance).to.be.a(CosmotechApi.Platform);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.Organization();
+      //var instance = new CosmotechApi.Platform();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instance = new CosmotechApi.Platform();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property version (base name: "version")', function() {
+      // uncomment below and update the code to test the property version
+      //var instance = new CosmotechApi.Platform();
       //expect(instance).to.be();
     });
 
     it('should have the property ownerId (base name: "ownerId")', function() {
       // uncomment below and update the code to test the property ownerId
-      //var instance = new CosmotechApi.Organization();
+      //var instance = new CosmotechApi.Platform();
       //expect(instance).to.be();
     });
 
-    it('should have the property users (base name: "users")', function() {
-      // uncomment below and update the code to test the property users
-      //var instance = new CosmotechApi.Organization();
+    it('should have the property apiHost (base name: "apiHost")', function() {
+      // uncomment below and update the code to test the property apiHost
+      //var instance = new CosmotechApi.Platform();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property webAppUrl (base name: "webAppUrl")', function() {
+      // uncomment below and update the code to test the property webAppUrl
+      //var instance = new CosmotechApi.Platform();
       //expect(instance).to.be();
     });
 
     it('should have the property services (base name: "services")', function() {
       // uncomment below and update the code to test the property services
-      //var instance = new CosmotechApi.Organization();
+      //var instance = new CosmotechApi.Platform();
       //expect(instance).to.be();
     });
 

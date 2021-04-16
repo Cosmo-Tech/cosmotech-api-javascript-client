@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.WorkspaceService();
+    instance = new CosmotechApi.PlatformService();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,40 +47,40 @@
       object[property] = value;
   }
 
-  describe('WorkspaceService', function() {
-    it('should create an instance of WorkspaceService', function() {
-      // uncomment below and update the code to test WorkspaceService
-      //var instane = new CosmotechApi.WorkspaceService();
-      //expect(instance).to.be.a(CosmotechApi.WorkspaceService);
+  describe('PlatformService', function() {
+    it('should create an instance of PlatformService', function() {
+      // uncomment below and update the code to test PlatformService
+      //var instane = new CosmotechApi.PlatformService();
+      //expect(instance).to.be.a(CosmotechApi.PlatformService);
     });
 
     it('should have the property cloudService (base name: "cloudService")', function() {
       // uncomment below and update the code to test the property cloudService
-      //var instance = new CosmotechApi.WorkspaceService();
+      //var instance = new CosmotechApi.PlatformService();
       //expect(instance).to.be();
     });
 
     it('should have the property baseUri (base name: "baseUri")', function() {
       // uncomment below and update the code to test the property baseUri
-      //var instance = new CosmotechApi.WorkspaceService();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property platformService (base name: "platformService")', function() {
-      // uncomment below and update the code to test the property platformService
-      //var instance = new CosmotechApi.WorkspaceService();
+      //var instance = new CosmotechApi.PlatformService();
       //expect(instance).to.be();
     });
 
     it('should have the property resourceUri (base name: "resourceUri")', function() {
       // uncomment below and update the code to test the property resourceUri
-      //var instance = new CosmotechApi.WorkspaceService();
+      //var instance = new CosmotechApi.PlatformService();
       //expect(instance).to.be();
     });
 
     it('should have the property credentials (base name: "credentials")', function() {
       // uncomment below and update the code to test the property credentials
-      //var instance = new CosmotechApi.WorkspaceService();
+      //var instance = new CosmotechApi.PlatformService();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property options (base name: "options")', function() {
+      // uncomment below and update the code to test the property options
+      //var instance = new CosmotechApi.PlatformService();
       //expect(instance).to.be();
     });
 
