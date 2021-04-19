@@ -49,6 +49,9 @@ class ScenarioAllOf {
         if (data) {
             obj = obj || new ScenarioAllOf();
 
+            if (data.hasOwnProperty('ownerName')) {
+                obj['ownerName'] = ApiClient.convertToType(data['ownerName'], 'String');
+            }
             if (data.hasOwnProperty('solutionName')) {
                 obj['solutionName'] = ApiClient.convertToType(data['solutionName'], 'String');
             }
@@ -70,6 +73,12 @@ class ScenarioAllOf {
 
 
 }
+
+/**
+ * the name of the owner
+ * @member {String} ownerName
+ */
+ScenarioAllOf.prototype['ownerName'] = undefined;
 
 /**
  * the Solution name

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ownerName** | **String** | the name of the owner | [optional] [readonly] 
 **solutionName** | **String** | the Solution name | [optional] [readonly] 
 **runTemplateName** | **String** | the Solution Run Template name associated with this Scenario | [optional] [readonly] 
 **datasetList** | **[String]** | the list of Dataset Id associated to this Scenario Run Template | [optional] 

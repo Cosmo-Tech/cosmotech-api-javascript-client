@@ -78,6 +78,12 @@ class ScenarioBase {
             if (data.hasOwnProperty('users')) {
                 obj['users'] = ApiClient.convertToType(data['users'], [ScenarioUser]);
             }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
+            if (data.hasOwnProperty('creationDate')) {
+                obj['creationDate'] = ApiClient.convertToType(data['creationDate'], 'String');
+            }
         }
         return obj;
     }
@@ -139,8 +145,53 @@ ScenarioBase.prototype['runTemplateId'] = undefined;
  */
 ScenarioBase.prototype['users'] = undefined;
 
+/**
+ * the Scenario state
+ * @member {module:model/ScenarioBase.StateEnum} state
+ */
+ScenarioBase.prototype['state'] = undefined;
+
+/**
+ * the Scenario creation date
+ * @member {String} creationDate
+ */
+ScenarioBase.prototype['creationDate'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ScenarioBase['StateEnum'] = {
+
+    /**
+     * value: "Created"
+     * @const
+     */
+    "Created": "Created",
+
+    /**
+     * value: "Running"
+     * @const
+     */
+    "Running": "Running",
+
+    /**
+     * value: "Successful"
+     * @const
+     */
+    "Successful": "Successful",
+
+    /**
+     * value: "Failed"
+     * @const
+     */
+    "Failed": "Failed"
+};
 
 
 

@@ -13,5 +13,22 @@ Name | Type | Description | Notes
 **solutionId** | **String** | the Solution Id associated with this Scenario | [optional] [readonly] 
 **runTemplateId** | **String** | the Solution Run Template Id associated with this Scenario | [optional] 
 **users** | [**[ScenarioUser]**](ScenarioUser.md) | the list of users Id with their role | [optional] 
+**state** | **String** | the Scenario state | [optional] [readonly] 
+**creationDate** | **String** | the Scenario creation date | [optional] [readonly] 
+
+
+
+## Enum: StateEnum
+
+
+* `Created` (value: `"Created"`)
+
+* `Running` (value: `"Running"`)
+
+* `Successful` (value: `"Successful"`)
+
+* `Failed` (value: `"Failed"`)
+
+
 
 

@@ -120,12 +120,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property files (base name: "files")', function() {
-      // uncomment below and update the code to test the property files
-      //var instance = new CosmotechApi.Workspace();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

@@ -108,6 +108,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property state (base name: "state")', function() {
+      // uncomment below and update the code to test the property state
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property creationDate (base name: "creationDate")', function() {
+      // uncomment below and update the code to test the property creationDate
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ownerName (base name: "ownerName")', function() {
+      // uncomment below and update the code to test the property ownerName
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
     it('should have the property solutionName (base name: "solutionName")', function() {
       // uncomment below and update the code to test the property solutionName
       //var instance = new CosmotechApi.Scenario();

@@ -84,6 +84,15 @@ class Scenario {
             if (data.hasOwnProperty('users')) {
                 obj['users'] = ApiClient.convertToType(data['users'], [ScenarioUser]);
             }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
+            if (data.hasOwnProperty('creationDate')) {
+                obj['creationDate'] = ApiClient.convertToType(data['creationDate'], 'String');
+            }
+            if (data.hasOwnProperty('ownerName')) {
+                obj['ownerName'] = ApiClient.convertToType(data['ownerName'], 'String');
+            }
             if (data.hasOwnProperty('solutionName')) {
                 obj['solutionName'] = ApiClient.convertToType(data['solutionName'], 'String');
             }
@@ -159,6 +168,24 @@ Scenario.prototype['runTemplateId'] = undefined;
  * @member {Array.<module:model/ScenarioUser>} users
  */
 Scenario.prototype['users'] = undefined;
+
+/**
+ * the Scenario state
+ * @member {module:model/Scenario.StateEnum} state
+ */
+Scenario.prototype['state'] = undefined;
+
+/**
+ * the Scenario creation date
+ * @member {String} creationDate
+ */
+Scenario.prototype['creationDate'] = undefined;
+
+/**
+ * the name of the owner
+ * @member {String} ownerName
+ */
+Scenario.prototype['ownerName'] = undefined;
 
 /**
  * the Solution name
@@ -237,7 +264,22 @@ ScenarioBase.prototype['runTemplateId'] = undefined;
  * @member {Array.<module:model/ScenarioUser>} users
  */
 ScenarioBase.prototype['users'] = undefined;
+/**
+ * the Scenario state
+ * @member {module:model/ScenarioBase.StateEnum} state
+ */
+ScenarioBase.prototype['state'] = undefined;
+/**
+ * the Scenario creation date
+ * @member {String} creationDate
+ */
+ScenarioBase.prototype['creationDate'] = undefined;
 // Implement ScenarioAllOf interface:
+/**
+ * the name of the owner
+ * @member {String} ownerName
+ */
+ScenarioAllOf.prototype['ownerName'] = undefined;
 /**
  * the Solution name
  * @member {String} solutionName
@@ -264,6 +306,39 @@ ScenarioAllOf.prototype['parametersValues'] = undefined;
  */
 ScenarioAllOf.prototype['sendInputToDataWarehouse'] = undefined;
 
+
+
+/**
+ * Allowed values for the <code>state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Scenario['StateEnum'] = {
+
+    /**
+     * value: "Created"
+     * @const
+     */
+    "Created": "Created",
+
+    /**
+     * value: "Running"
+     * @const
+     */
+    "Running": "Running",
+
+    /**
+     * value: "Successful"
+     * @const
+     */
+    "Successful": "Successful",
+
+    /**
+     * value: "Failed"
+     * @const
+     */
+    "Failed": "Failed"
+};
 
 
 
