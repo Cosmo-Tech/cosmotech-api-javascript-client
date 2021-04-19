@@ -68,6 +68,26 @@
         done();
       });
     });
+    describe('deleteWorkspaceFile', function() {
+      it('should call deleteWorkspaceFile successfully', function(done) {
+        //uncomment below and update the code to test deleteWorkspaceFile
+        //instance.deleteWorkspaceFile(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('findAllWorkspaceFiles', function() {
+      it('should call findAllWorkspaceFiles successfully', function(done) {
+        //uncomment below and update the code to test findAllWorkspaceFiles
+        //instance.findAllWorkspaceFiles(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('findAllWorkspaces', function() {
       it('should call findAllWorkspaces successfully', function(done) {
         //uncomment below and update the code to test findAllWorkspaces

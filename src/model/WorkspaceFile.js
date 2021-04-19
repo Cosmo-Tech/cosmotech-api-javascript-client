@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class WorkspaceFile {
     /**
      * Constructs a new <code>WorkspaceFile</code>.
-     * a Workspace Web Application
+     * a Workspace File resource
      * @alias module:model/WorkspaceFile
      */
     constructor() { 
@@ -59,7 +59,7 @@ class WorkspaceFile {
 }
 
 /**
- * the Workspace Web Application URL
+ * the Workspace File name
  * @member {String} fileName
  */
 WorkspaceFile.prototype['fileName'] = undefined;
