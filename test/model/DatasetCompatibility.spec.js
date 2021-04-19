@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(CosmotechApi.DatasetCompatibility);
     });
 
-    it('should have the property simulatorKey (base name: "simulatorKey")', function() {
-      // uncomment below and update the code to test the property simulatorKey
+    it('should have the property solutionKey (base name: "solutionKey")', function() {
+      // uncomment below and update the code to test the property solutionKey
       //var instance = new CosmotechApi.DatasetCompatibility();
       //expect(instance).to.be();
     });

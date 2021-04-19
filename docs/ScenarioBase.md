@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **tags** | **[String]** | the list of tags | [optional] 
 **parentId** | **String** | the Scenario parent id | [optional] 
 **ownerId** | **String** | the user id which own this Scenario | [optional] [readonly] 
-**simulatorId** | **String** | the Simulator Id associated with this Scenario | [optional] [readonly] 
+**solutionId** | **String** | the Solution Id associated with this Scenario | [optional] [readonly] 
+**runTemplateId** | **String** | the Solution Run Template Id associated with this Scenario | [optional] 
 **users** | [**[ScenarioUser]**](ScenarioUser.md) | the list of users Id with their role | [optional] 
 
 

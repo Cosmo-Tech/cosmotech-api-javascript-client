@@ -158,10 +158,10 @@
         done();
       });
     });
-    describe('startSimulationSimulator', function() {
-      it('should call startSimulationSimulator successfully', function(done) {
-        //uncomment below and update the code to test startSimulationSimulator
-        //instance.startSimulationSimulator(function(error) {
+    describe('startSimulationSolution', function() {
+      it('should call startSimulationSolution successfully', function(done) {
+        //uncomment below and update the code to test startSimulationSolution
+        //instance.startSimulationSolution(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

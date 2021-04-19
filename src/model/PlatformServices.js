@@ -63,8 +63,8 @@ class PlatformServices {
             if (data.hasOwnProperty('coreContainerRegistry')) {
                 obj['coreContainerRegistry'] = PlatformService.constructFromObject(data['coreContainerRegistry']);
             }
-            if (data.hasOwnProperty('simulatorsContainerRegistry')) {
-                obj['simulatorsContainerRegistry'] = PlatformService.constructFromObject(data['simulatorsContainerRegistry']);
+            if (data.hasOwnProperty('solutionsContainerRegistry')) {
+                obj['solutionsContainerRegistry'] = PlatformService.constructFromObject(data['solutionsContainerRegistry']);
             }
             if (data.hasOwnProperty('eventBusCluster')) {
                 obj['eventBusCluster'] = PlatformService.constructFromObject(data['eventBusCluster']);
@@ -120,9 +120,9 @@ PlatformServices.prototype['storage'] = undefined;
 PlatformServices.prototype['coreContainerRegistry'] = undefined;
 
 /**
- * @member {module:model/PlatformService} simulatorsContainerRegistry
+ * @member {module:model/PlatformService} solutionsContainerRegistry
  */
-PlatformServices.prototype['simulatorsContainerRegistry'] = undefined;
+PlatformServices.prototype['solutionsContainerRegistry'] = undefined;
 
 /**
  * @member {module:model/PlatformService} eventBusCluster

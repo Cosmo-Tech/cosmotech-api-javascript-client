@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SimulationAnalysisParameterValue from './SimulationAnalysisParameterValue';
+import RunTemplateParameterValue from './RunTemplateParameterValue';
 import SimulationContainers from './SimulationContainers';
 
 /**
@@ -54,7 +54,7 @@ class SimulationAllOf {
                 obj['datasetList'] = ApiClient.convertToType(data['datasetList'], ['String']);
             }
             if (data.hasOwnProperty('parametersValues')) {
-                obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [SimulationAnalysisParameterValue]);
+                obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [RunTemplateParameterValue]);
             }
             if (data.hasOwnProperty('sendInputToDataWarehouse')) {
                 obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
@@ -91,8 +91,8 @@ class SimulationAllOf {
 SimulationAllOf.prototype['datasetList'] = undefined;
 
 /**
- * the list of Simulator Analysis parameters values
- * @member {Array.<module:model/SimulationAnalysisParameterValue>} parametersValues
+ * the list of Run Template parameters values
+ * @member {Array.<module:model/RunTemplateParameterValue>} parametersValues
  */
 SimulationAllOf.prototype['parametersValues'] = undefined;
 

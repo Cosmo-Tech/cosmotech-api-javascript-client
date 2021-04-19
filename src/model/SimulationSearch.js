@@ -48,11 +48,11 @@ class SimulationSearch {
         if (data) {
             obj = obj || new SimulationSearch();
 
-            if (data.hasOwnProperty('simulatorId')) {
-                obj['simulatorId'] = ApiClient.convertToType(data['simulatorId'], 'String');
+            if (data.hasOwnProperty('solutionId')) {
+                obj['solutionId'] = ApiClient.convertToType(data['solutionId'], 'String');
             }
-            if (data.hasOwnProperty('simulatorAnalysisId')) {
-                obj['simulatorAnalysisId'] = ApiClient.convertToType(data['simulatorAnalysisId'], 'String');
+            if (data.hasOwnProperty('runTemplateId')) {
+                obj['runTemplateId'] = ApiClient.convertToType(data['runTemplateId'], 'String');
             }
             if (data.hasOwnProperty('workspaceId')) {
                 obj['workspaceId'] = ApiClient.convertToType(data['workspaceId'], 'String');
@@ -77,16 +77,16 @@ class SimulationSearch {
 }
 
 /**
- * the Simulator Id to search
- * @member {String} simulatorId
+ * the Solution Id to search
+ * @member {String} solutionId
  */
-SimulationSearch.prototype['simulatorId'] = undefined;
+SimulationSearch.prototype['solutionId'] = undefined;
 
 /**
- * the Simulator Analysis Id to search
- * @member {String} simulatorAnalysisId
+ * the Solution Analysis Id to search
+ * @member {String} runTemplateId
  */
-SimulationSearch.prototype['simulatorAnalysisId'] = undefined;
+SimulationSearch.prototype['runTemplateId'] = undefined;
 
 /**
  * the Workspace Id to search

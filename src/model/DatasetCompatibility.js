@@ -21,13 +21,13 @@ import ApiClient from '../ApiClient';
 class DatasetCompatibility {
     /**
      * Constructs a new <code>DatasetCompatibility</code>.
-     * a Dataset compatibility constraint to a Simulator version open range
+     * a Dataset compatibility constraint to a Solution version open range
      * @alias module:model/DatasetCompatibility
-     * @param simulatorKey {String} the Simulator key which group Simulator versions
+     * @param solutionKey {String} the Solution key which group Solution versions
      */
-    constructor(simulatorKey) { 
+    constructor(solutionKey) { 
         
-        DatasetCompatibility.initialize(this, simulatorKey);
+        DatasetCompatibility.initialize(this, solutionKey);
     }
 
     /**
@@ -35,8 +35,8 @@ class DatasetCompatibility {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, simulatorKey) { 
-        obj['simulatorKey'] = simulatorKey;
+    static initialize(obj, solutionKey) { 
+        obj['solutionKey'] = solutionKey;
     }
 
     /**
@@ -50,8 +50,8 @@ class DatasetCompatibility {
         if (data) {
             obj = obj || new DatasetCompatibility();
 
-            if (data.hasOwnProperty('simulatorKey')) {
-                obj['simulatorKey'] = ApiClient.convertToType(data['simulatorKey'], 'String');
+            if (data.hasOwnProperty('solutionKey')) {
+                obj['solutionKey'] = ApiClient.convertToType(data['solutionKey'], 'String');
             }
             if (data.hasOwnProperty('minimumVersion')) {
                 obj['minimumVersion'] = ApiClient.convertToType(data['minimumVersion'], 'String');
@@ -67,19 +67,19 @@ class DatasetCompatibility {
 }
 
 /**
- * the Simulator key which group Simulator versions
- * @member {String} simulatorKey
+ * the Solution key which group Solution versions
+ * @member {String} solutionKey
  */
-DatasetCompatibility.prototype['simulatorKey'] = undefined;
+DatasetCompatibility.prototype['solutionKey'] = undefined;
 
 /**
- * the Simulator minimum version compatibility (version included)
+ * the Solution minimum version compatibility (version included)
  * @member {String} minimumVersion
  */
 DatasetCompatibility.prototype['minimumVersion'] = undefined;
 
 /**
- * the Simulator maximum version compatibility (version included)
+ * the Solution maximum version compatibility (version included)
  * @member {String} maximumVersion
  */
 DatasetCompatibility.prototype['maximumVersion'] = undefined;

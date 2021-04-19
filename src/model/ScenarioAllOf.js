@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ScenarioAnalysis from './ScenarioAnalysis';
+import ScenarioRunTemplateParameterValue from './ScenarioRunTemplateParameterValue';
 
 /**
  * The ScenarioAllOf model module.
@@ -49,14 +49,17 @@ class ScenarioAllOf {
         if (data) {
             obj = obj || new ScenarioAllOf();
 
-            if (data.hasOwnProperty('simulatorName')) {
-                obj['simulatorName'] = ApiClient.convertToType(data['simulatorName'], 'String');
+            if (data.hasOwnProperty('solutionName')) {
+                obj['solutionName'] = ApiClient.convertToType(data['solutionName'], 'String');
             }
-            if (data.hasOwnProperty('simulatorAnalysisName')) {
-                obj['simulatorAnalysisName'] = ApiClient.convertToType(data['simulatorAnalysisName'], 'String');
+            if (data.hasOwnProperty('runTemplateName')) {
+                obj['runTemplateName'] = ApiClient.convertToType(data['runTemplateName'], 'String');
             }
-            if (data.hasOwnProperty('analysis')) {
-                obj['analysis'] = ScenarioAnalysis.constructFromObject(data['analysis']);
+            if (data.hasOwnProperty('datasetList')) {
+                obj['datasetList'] = ApiClient.convertToType(data['datasetList'], ['String']);
+            }
+            if (data.hasOwnProperty('parametersValues')) {
+                obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [ScenarioRunTemplateParameterValue]);
             }
             if (data.hasOwnProperty('sendInputToDataWarehouse')) {
                 obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
@@ -69,22 +72,31 @@ class ScenarioAllOf {
 }
 
 /**
- * @member {String} simulatorName
+ * the Solution name
+ * @member {String} solutionName
  */
-ScenarioAllOf.prototype['simulatorName'] = undefined;
+ScenarioAllOf.prototype['solutionName'] = undefined;
 
 /**
- * @member {String} simulatorAnalysisName
+ * the Solution Run Template name associated with this Scenario
+ * @member {String} runTemplateName
  */
-ScenarioAllOf.prototype['simulatorAnalysisName'] = undefined;
+ScenarioAllOf.prototype['runTemplateName'] = undefined;
 
 /**
- * @member {module:model/ScenarioAnalysis} analysis
+ * the list of Dataset Id associated to this Scenario Run Template
+ * @member {Array.<String>} datasetList
  */
-ScenarioAllOf.prototype['analysis'] = undefined;
+ScenarioAllOf.prototype['datasetList'] = undefined;
 
 /**
- * default setting for all Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * the list of Solution Run Template parameters values
+ * @member {Array.<module:model/ScenarioRunTemplateParameterValue>} parametersValues
+ */
+ScenarioAllOf.prototype['parametersValues'] = undefined;
+
+/**
+ * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
  * @member {Boolean} sendInputToDataWarehouse
  */
 ScenarioAllOf.prototype['sendInputToDataWarehouse'] = undefined;

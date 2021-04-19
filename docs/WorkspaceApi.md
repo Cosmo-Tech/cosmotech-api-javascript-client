@@ -6,9 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createWorkspace**](WorkspaceApi.md#createWorkspace) | **POST** /organizations/{organization_id}/workspaces | Create a new workspace
 [**deleteWorkspace**](WorkspaceApi.md#deleteWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id} | Delete a workspace
+[**deleteWorkspaceFile**](WorkspaceApi.md#deleteWorkspaceFile) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/files | Delete a workspace file
+[**findAllWorkspaceFiles**](WorkspaceApi.md#findAllWorkspaceFiles) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/files | List all Workspace files
 [**findAllWorkspaces**](WorkspaceApi.md#findAllWorkspaces) | **GET** /organizations/{organization_id}/workspaces | List all Workspaces
 [**findWorkspaceById**](WorkspaceApi.md#findWorkspaceById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id} | Get the details of an workspace
 [**updateWorkspace**](WorkspaceApi.md#updateWorkspace) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id} | Update a workspace
+[**uploadWorkspaceFile**](WorkspaceApi.md#uploadWorkspaceFile) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/files | Upload a file for the Workspace
 
 
 
@@ -99,6 +102,106 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Workspace**](Workspace.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## deleteWorkspaceFile
+
+> WorkspaceFile deleteWorkspaceFile(organizationId, workspaceId, workspaceFile)
+
+Delete a workspace file
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.WorkspaceApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let workspaceFile = new CosmotechApi.WorkspaceFile(); // WorkspaceFile | the file to upload
+apiInstance.deleteWorkspaceFile(organizationId, workspaceId, workspaceFile, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **workspaceFile** | [**WorkspaceFile**](WorkspaceFile.md)| the file to upload | 
+
+### Return type
+
+[**WorkspaceFile**](WorkspaceFile.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## findAllWorkspaceFiles
+
+> [WorkspaceFile] findAllWorkspaceFiles(organizationId, workspaceId)
+
+List all Workspace files
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.WorkspaceApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+apiInstance.findAllWorkspaceFiles(organizationId, workspaceId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+
+### Return type
+
+[**[WorkspaceFile]**](WorkspaceFile.md)
 
 ### Authorization
 
@@ -254,5 +357,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## uploadWorkspaceFile
+
+> WorkspaceFile uploadWorkspaceFile(organizationId, workspaceId, opts)
+
+Upload a file for the Workspace
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.WorkspaceApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let opts = {
+  'fileName': "/path/to/file" // File | 
+};
+apiInstance.uploadWorkspaceFile(organizationId, workspaceId, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **fileName** | **File**|  | [optional] 
+
+### Return type
+
+[**WorkspaceFile**](WorkspaceFile.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 

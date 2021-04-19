@@ -69,20 +69,20 @@ class SimulationBase {
             if (data.hasOwnProperty('scenarioName')) {
                 obj['scenarioName'] = ApiClient.convertToType(data['scenarioName'], 'String');
             }
-            if (data.hasOwnProperty('simulatorId')) {
-                obj['simulatorId'] = ApiClient.convertToType(data['simulatorId'], 'String');
+            if (data.hasOwnProperty('solutionId')) {
+                obj['solutionId'] = ApiClient.convertToType(data['solutionId'], 'String');
             }
-            if (data.hasOwnProperty('simulatorName')) {
-                obj['simulatorName'] = ApiClient.convertToType(data['simulatorName'], 'String');
+            if (data.hasOwnProperty('solutionName')) {
+                obj['solutionName'] = ApiClient.convertToType(data['solutionName'], 'String');
             }
-            if (data.hasOwnProperty('simulatorVersion')) {
-                obj['simulatorVersion'] = ApiClient.convertToType(data['simulatorVersion'], 'String');
+            if (data.hasOwnProperty('solutionVersion')) {
+                obj['solutionVersion'] = ApiClient.convertToType(data['solutionVersion'], 'String');
             }
-            if (data.hasOwnProperty('simulatorAnalysisId')) {
-                obj['simulatorAnalysisId'] = ApiClient.convertToType(data['simulatorAnalysisId'], 'String');
+            if (data.hasOwnProperty('runTemplateId')) {
+                obj['runTemplateId'] = ApiClient.convertToType(data['runTemplateId'], 'String');
             }
-            if (data.hasOwnProperty('simulatorAnalysisName')) {
-                obj['simulatorAnalysisName'] = ApiClient.convertToType(data['simulatorAnalysisName'], 'String');
+            if (data.hasOwnProperty('runTemplateName')) {
+                obj['runTemplateName'] = ApiClient.convertToType(data['runTemplateName'], 'String');
             }
             if (data.hasOwnProperty('computeSize')) {
                 obj['computeSize'] = ApiClient.convertToType(data['computeSize'], 'String');
@@ -146,34 +146,34 @@ SimulationBase.prototype['scenarioId'] = undefined;
 SimulationBase.prototype['scenarioName'] = undefined;
 
 /**
- * the Simulator Id
- * @member {String} simulatorId
+ * the Solution Id
+ * @member {String} solutionId
  */
-SimulationBase.prototype['simulatorId'] = undefined;
+SimulationBase.prototype['solutionId'] = undefined;
 
 /**
- * the Simulator name
- * @member {String} simulatorName
+ * the Solution name
+ * @member {String} solutionName
  */
-SimulationBase.prototype['simulatorName'] = undefined;
+SimulationBase.prototype['solutionName'] = undefined;
 
 /**
- * the Simulator version
- * @member {String} simulatorVersion
+ * the Solution version
+ * @member {String} solutionVersion
  */
-SimulationBase.prototype['simulatorVersion'] = undefined;
+SimulationBase.prototype['solutionVersion'] = undefined;
 
 /**
- * the Simulator Analysis id
- * @member {String} simulatorAnalysisId
+ * the Solution Run Template id
+ * @member {String} runTemplateId
  */
-SimulationBase.prototype['simulatorAnalysisId'] = undefined;
+SimulationBase.prototype['runTemplateId'] = undefined;
 
 /**
- * the Simulator Analysis name
- * @member {String} simulatorAnalysisName
+ * the Run Template name
+ * @member {String} runTemplateName
  */
-SimulationBase.prototype['simulatorAnalysisName'] = undefined;
+SimulationBase.prototype['runTemplateName'] = undefined;
 
 /**
  * the compute size needed for this Analysis. Standard sizes are basic and highcpu. Default is basic

@@ -160,13 +160,13 @@ Class | Method | HTTP request | Description
 *CosmotechApi.SimulationApi* | [**searchSimulations**](docs/SimulationApi.md#searchSimulations) | **POST** /organizations/{organization_id}/simulations/search | Search Simulations
 *CosmotechApi.SimulationApi* | [**startSimulationContainers**](docs/SimulationApi.md#startSimulationContainers) | **POST** /organizations/{organization_id}/simulations/startcontainers | Start a new simulation with raw containers definition
 *CosmotechApi.SimulationApi* | [**startSimulationScenario**](docs/SimulationApi.md#startSimulationScenario) | **POST** /organizations/{organization_id}/simulations/start | Start a new simulation for a Scenario
-*CosmotechApi.SimulationApi* | [**startSimulationSimulator**](docs/SimulationApi.md#startSimulationSimulator) | **POST** /organizations/{organization_id}/simulations/startsimulator | Start a new simulation for a Simulator Analysis
-*CosmotechApi.SimulatorApi* | [**createSimulator**](docs/SimulatorApi.md#createSimulator) | **POST** /organizations/{organization_id}/simulators | Register a new simulator
-*CosmotechApi.SimulatorApi* | [**deleteSimulator**](docs/SimulatorApi.md#deleteSimulator) | **DELETE** /organizations/{organization_id}/simulators/{simulator_id} | Delete a simulator
-*CosmotechApi.SimulatorApi* | [**findAllSimulators**](docs/SimulatorApi.md#findAllSimulators) | **GET** /organizations/{organization_id}/simulators | List all Simulators
-*CosmotechApi.SimulatorApi* | [**findSimulatorById**](docs/SimulatorApi.md#findSimulatorById) | **GET** /organizations/{organization_id}/simulators/{simulator_id} | Get the details of a simulator
-*CosmotechApi.SimulatorApi* | [**updateSimulator**](docs/SimulatorApi.md#updateSimulator) | **PATCH** /organizations/{organization_id}/simulators/{simulator_id} | Update a simulator
-*CosmotechApi.SimulatorApi* | [**upload**](docs/SimulatorApi.md#upload) | **POST** /organizations/{organization_id}/simulators/upload | Upload and register a new simulator
+*CosmotechApi.SimulationApi* | [**startSimulationSolution**](docs/SimulationApi.md#startSimulationSolution) | **POST** /organizations/{organization_id}/simulations/startsolution | Start a new simulation for a Solution Run Template
+*CosmotechApi.SolutionApi* | [**createSolution**](docs/SolutionApi.md#createSolution) | **POST** /organizations/{organization_id}/solutions | Register a new solution
+*CosmotechApi.SolutionApi* | [**deleteSolution**](docs/SolutionApi.md#deleteSolution) | **DELETE** /organizations/{organization_id}/solutions/{solution_id} | Delete a solution
+*CosmotechApi.SolutionApi* | [**findAllSolutions**](docs/SolutionApi.md#findAllSolutions) | **GET** /organizations/{organization_id}/solutions | List all Solutions
+*CosmotechApi.SolutionApi* | [**findSolutionById**](docs/SolutionApi.md#findSolutionById) | **GET** /organizations/{organization_id}/solutions/{solution_id} | Get the details of a solution
+*CosmotechApi.SolutionApi* | [**updateSolution**](docs/SolutionApi.md#updateSolution) | **PATCH** /organizations/{organization_id}/solutions/{solution_id} | Update a solution
+*CosmotechApi.SolutionApi* | [**upload**](docs/SolutionApi.md#upload) | **POST** /organizations/{organization_id}/solutions/upload | Upload and register a new solution
 *CosmotechApi.UserApi* | [**authorizeUser**](docs/UserApi.md#authorizeUser) | **GET** /oauth2/authorize | Authorize an User with OAuth2. Delegated to configured OAuth2 service
 *CosmotechApi.UserApi* | [**findAllUsers**](docs/UserApi.md#findAllUsers) | **GET** /users | List all Users
 *CosmotechApi.UserApi* | [**findUserById**](docs/UserApi.md#findUserById) | **GET** /users/{user_id} | Get the details of an user
@@ -187,16 +187,16 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ValidatorApi* | [**runValidator**](docs/ValidatorApi.md#runValidator) | **POST** /organizations/{organization_id}/datasets/validators/{validator_id}/run | Run a Validator
 *CosmotechApi.WorkspaceApi* | [**createWorkspace**](docs/WorkspaceApi.md#createWorkspace) | **POST** /organizations/{organization_id}/workspaces | Create a new workspace
 *CosmotechApi.WorkspaceApi* | [**deleteWorkspace**](docs/WorkspaceApi.md#deleteWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id} | Delete a workspace
+*CosmotechApi.WorkspaceApi* | [**deleteWorkspaceFile**](docs/WorkspaceApi.md#deleteWorkspaceFile) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/files | Delete a workspace file
+*CosmotechApi.WorkspaceApi* | [**findAllWorkspaceFiles**](docs/WorkspaceApi.md#findAllWorkspaceFiles) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/files | List all Workspace files
 *CosmotechApi.WorkspaceApi* | [**findAllWorkspaces**](docs/WorkspaceApi.md#findAllWorkspaces) | **GET** /organizations/{organization_id}/workspaces | List all Workspaces
 *CosmotechApi.WorkspaceApi* | [**findWorkspaceById**](docs/WorkspaceApi.md#findWorkspaceById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id} | Get the details of an workspace
 *CosmotechApi.WorkspaceApi* | [**updateWorkspace**](docs/WorkspaceApi.md#updateWorkspace) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id} | Update a workspace
+*CosmotechApi.WorkspaceApi* | [**uploadWorkspaceFile**](docs/WorkspaceApi.md#uploadWorkspaceFile) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/files | Upload a file for the Workspace
 
 
 ## Documentation for Models
 
- - [CosmotechApi.AnalysisParameter](docs/AnalysisParameter.md)
- - [CosmotechApi.AnalysisParameterGroup](docs/AnalysisParameterGroup.md)
- - [CosmotechApi.AnalysisResourceStorage](docs/AnalysisResourceStorage.md)
  - [CosmotechApi.Connector](docs/Connector.md)
  - [CosmotechApi.ConnectorParameter](docs/ConnectorParameter.md)
  - [CosmotechApi.ConnectorParameterGroup](docs/ConnectorParameterGroup.md)
@@ -211,17 +211,20 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.Platform](docs/Platform.md)
  - [CosmotechApi.PlatformService](docs/PlatformService.md)
  - [CosmotechApi.PlatformServices](docs/PlatformServices.md)
+ - [CosmotechApi.RunTemplate](docs/RunTemplate.md)
+ - [CosmotechApi.RunTemplateParameter](docs/RunTemplateParameter.md)
+ - [CosmotechApi.RunTemplateParameterGroup](docs/RunTemplateParameterGroup.md)
+ - [CosmotechApi.RunTemplateParameterValue](docs/RunTemplateParameterValue.md)
+ - [CosmotechApi.RunTemplateResourceStorage](docs/RunTemplateResourceStorage.md)
  - [CosmotechApi.Scenario](docs/Scenario.md)
  - [CosmotechApi.ScenarioAllOf](docs/ScenarioAllOf.md)
- - [CosmotechApi.ScenarioAnalysis](docs/ScenarioAnalysis.md)
- - [CosmotechApi.ScenarioAnalysisParameterValue](docs/ScenarioAnalysisParameterValue.md)
  - [CosmotechApi.ScenarioBase](docs/ScenarioBase.md)
  - [CosmotechApi.ScenarioChangedParameterValue](docs/ScenarioChangedParameterValue.md)
  - [CosmotechApi.ScenarioComparisonResult](docs/ScenarioComparisonResult.md)
+ - [CosmotechApi.ScenarioRunTemplateParameterValue](docs/ScenarioRunTemplateParameterValue.md)
  - [CosmotechApi.ScenarioUser](docs/ScenarioUser.md)
  - [CosmotechApi.Simulation](docs/Simulation.md)
  - [CosmotechApi.SimulationAllOf](docs/SimulationAllOf.md)
- - [CosmotechApi.SimulationAnalysisParameterValue](docs/SimulationAnalysisParameterValue.md)
  - [CosmotechApi.SimulationBase](docs/SimulationBase.md)
  - [CosmotechApi.SimulationContainerLog](docs/SimulationContainerLog.md)
  - [CosmotechApi.SimulationContainerLogs](docs/SimulationContainerLogs.md)
@@ -231,9 +234,8 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.SimulationSearch](docs/SimulationSearch.md)
  - [CosmotechApi.SimulationStartContainers](docs/SimulationStartContainers.md)
  - [CosmotechApi.SimulationStartScenario](docs/SimulationStartScenario.md)
- - [CosmotechApi.SimulationStartSimulator](docs/SimulationStartSimulator.md)
- - [CosmotechApi.Simulator](docs/Simulator.md)
- - [CosmotechApi.SimulatorAnalysis](docs/SimulatorAnalysis.md)
+ - [CosmotechApi.SimulationStartSolution](docs/SimulationStartSolution.md)
+ - [CosmotechApi.Solution](docs/Solution.md)
  - [CosmotechApi.User](docs/User.md)
  - [CosmotechApi.UserDetails](docs/UserDetails.md)
  - [CosmotechApi.UserDetailsAllOf](docs/UserDetailsAllOf.md)
@@ -242,9 +244,10 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.Validator](docs/Validator.md)
  - [CosmotechApi.ValidatorRun](docs/ValidatorRun.md)
  - [CosmotechApi.Workspace](docs/Workspace.md)
+ - [CosmotechApi.WorkspaceFile](docs/WorkspaceFile.md)
  - [CosmotechApi.WorkspaceService](docs/WorkspaceService.md)
  - [CosmotechApi.WorkspaceServices](docs/WorkspaceServices.md)
- - [CosmotechApi.WorkspaceSimulator](docs/WorkspaceSimulator.md)
+ - [CosmotechApi.WorkspaceSolution](docs/WorkspaceSolution.md)
  - [CosmotechApi.WorkspaceUser](docs/WorkspaceUser.md)
  - [CosmotechApi.WorkspaceWebApp](docs/WorkspaceWebApp.md)
 

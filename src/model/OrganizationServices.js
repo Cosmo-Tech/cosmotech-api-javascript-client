@@ -55,8 +55,8 @@ class OrganizationServices {
             if (data.hasOwnProperty('storage')) {
                 obj['storage'] = OrganizationService.constructFromObject(data['storage']);
             }
-            if (data.hasOwnProperty('simulatorsContainerRegistry')) {
-                obj['simulatorsContainerRegistry'] = OrganizationService.constructFromObject(data['simulatorsContainerRegistry']);
+            if (data.hasOwnProperty('solutionsContainerRegistry')) {
+                obj['solutionsContainerRegistry'] = OrganizationService.constructFromObject(data['solutionsContainerRegistry']);
             }
         }
         return obj;
@@ -77,9 +77,9 @@ OrganizationServices.prototype['tenantCredentials'] = undefined;
 OrganizationServices.prototype['storage'] = undefined;
 
 /**
- * @member {module:model/OrganizationService} simulatorsContainerRegistry
+ * @member {module:model/OrganizationService} solutionsContainerRegistry
  */
-OrganizationServices.prototype['simulatorsContainerRegistry'] = undefined;
+OrganizationServices.prototype['solutionsContainerRegistry'] = undefined;
 
 
 

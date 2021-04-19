@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import WorkspaceServices from './WorkspaceServices';
-import WorkspaceSimulator from './WorkspaceSimulator';
+import WorkspaceSolution from './WorkspaceSolution';
 import WorkspaceUser from './WorkspaceUser';
 import WorkspaceWebApp from './WorkspaceWebApp';
 
@@ -28,11 +28,11 @@ class Workspace {
      * a Workspace
      * @alias module:model/Workspace
      * @param name {String} the Workspace name
-     * @param simulator {module:model/WorkspaceSimulator} 
+     * @param solution {module:model/WorkspaceSolution} 
      */
-    constructor(name, simulator) { 
+    constructor(name, solution) { 
         
-        Workspace.initialize(this, name, simulator);
+        Workspace.initialize(this, name, solution);
     }
 
     /**
@@ -40,9 +40,9 @@ class Workspace {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, simulator) { 
+    static initialize(obj, name, solution) { 
         obj['name'] = name;
-        obj['simulator'] = simulator;
+        obj['solution'] = solution;
     }
 
     /**
@@ -74,11 +74,8 @@ class Workspace {
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
             }
-            if (data.hasOwnProperty('simulator')) {
-                obj['simulator'] = WorkspaceSimulator.constructFromObject(data['simulator']);
-            }
-            if (data.hasOwnProperty('simulatorAnalysisFilter')) {
-                obj['simulatorAnalysisFilter'] = ApiClient.convertToType(data['simulatorAnalysisFilter'], ['String']);
+            if (data.hasOwnProperty('solution')) {
+                obj['solution'] = WorkspaceSolution.constructFromObject(data['solution']);
             }
             if (data.hasOwnProperty('users')) {
                 obj['users'] = ApiClient.convertToType(data['users'], [WorkspaceUser]);
@@ -136,15 +133,9 @@ Workspace.prototype['tags'] = undefined;
 Workspace.prototype['ownerId'] = undefined;
 
 /**
- * @member {module:model/WorkspaceSimulator} simulator
+ * @member {module:model/WorkspaceSolution} solution
  */
-Workspace.prototype['simulator'] = undefined;
-
-/**
- * a filter list of available Simulator Analysis
- * @member {Array.<String>} simulatorAnalysisFilter
- */
-Workspace.prototype['simulatorAnalysisFilter'] = undefined;
+Workspace.prototype['solution'] = undefined;
 
 /**
  * the list of users Id with their role
@@ -163,7 +154,7 @@ Workspace.prototype['webApp'] = undefined;
 Workspace.prototype['services'] = undefined;
 
 /**
- * default setting for all Scenarios and Analysis to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * default setting for all Scenarios and Run Templates to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
  * @member {Boolean} sendInputToDataWarehouse
  * @default true
  */

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**searchSimulations**](SimulationApi.md#searchSimulations) | **POST** /organizations/{organization_id}/simulations/search | Search Simulations
 [**startSimulationContainers**](SimulationApi.md#startSimulationContainers) | **POST** /organizations/{organization_id}/simulations/startcontainers | Start a new simulation with raw containers definition
 [**startSimulationScenario**](SimulationApi.md#startSimulationScenario) | **POST** /organizations/{organization_id}/simulations/start | Start a new simulation for a Scenario
-[**startSimulationSimulator**](SimulationApi.md#startSimulationSimulator) | **POST** /organizations/{organization_id}/simulations/startsimulator | Start a new simulation for a Simulator Analysis
+[**startSimulationSolution**](SimulationApi.md#startSimulationSolution) | **POST** /organizations/{organization_id}/simulations/startsolution | Start a new simulation for a Solution Run Template
 
 
 
@@ -572,11 +572,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## startSimulationSimulator
+## startSimulationSolution
 
-> Simulation startSimulationSimulator(organizationId, simulationStartSimulator)
+> Simulation startSimulationSolution(organizationId, simulationStartSolution)
 
-Start a new simulation for a Simulator Analysis
+Start a new simulation for a Solution Run Template
 
 ### Example
 
@@ -589,8 +589,8 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.SimulationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let simulationStartSimulator = new CosmotechApi.SimulationStartSimulator(); // SimulationStartSimulator | the Simulator Analysis information to start
-apiInstance.startSimulationSimulator(organizationId, simulationStartSimulator, (error, data, response) => {
+let simulationStartSolution = new CosmotechApi.SimulationStartSolution(); // SimulationStartSolution | the Solution Run Template information to start
+apiInstance.startSimulationSolution(organizationId, simulationStartSolution, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -605,7 +605,7 @@ apiInstance.startSimulationSimulator(organizationId, simulationStartSimulator, (
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **simulationStartSimulator** | [**SimulationStartSimulator**](SimulationStartSimulator.md)| the Simulator Analysis information to start | 
+ **simulationStartSolution** | [**SimulationStartSolution**](SimulationStartSolution.md)| the Solution Run Template information to start | 
 
 ### Return type
 

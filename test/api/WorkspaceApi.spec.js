@@ -98,6 +98,16 @@
         done();
       });
     });
+    describe('uploadWorkspaceFile', function() {
+      it('should call uploadWorkspaceFile successfully', function(done) {
+        //uncomment below and update the code to test uploadWorkspaceFile
+        //instance.uploadWorkspaceFile(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

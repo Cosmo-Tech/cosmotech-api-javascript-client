@@ -96,32 +96,32 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorId (base name: "simulatorId")', function() {
-      // uncomment below and update the code to test the property simulatorId
+    it('should have the property solutionId (base name: "solutionId")', function() {
+      // uncomment below and update the code to test the property solutionId
       //var instance = new CosmotechApi.SimulationBase();
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorName (base name: "simulatorName")', function() {
-      // uncomment below and update the code to test the property simulatorName
+    it('should have the property solutionName (base name: "solutionName")', function() {
+      // uncomment below and update the code to test the property solutionName
       //var instance = new CosmotechApi.SimulationBase();
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorVersion (base name: "simulatorVersion")', function() {
-      // uncomment below and update the code to test the property simulatorVersion
+    it('should have the property solutionVersion (base name: "solutionVersion")', function() {
+      // uncomment below and update the code to test the property solutionVersion
       //var instance = new CosmotechApi.SimulationBase();
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorAnalysisId (base name: "simulatorAnalysisId")', function() {
-      // uncomment below and update the code to test the property simulatorAnalysisId
+    it('should have the property runTemplateId (base name: "runTemplateId")', function() {
+      // uncomment below and update the code to test the property runTemplateId
       //var instance = new CosmotechApi.SimulationBase();
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorAnalysisName (base name: "simulatorAnalysisName")', function() {
-      // uncomment below and update the code to test the property simulatorAnalysisName
+    it('should have the property runTemplateName (base name: "runTemplateName")', function() {
+      // uncomment below and update the code to test the property runTemplateName
       //var instance = new CosmotechApi.SimulationBase();
       //expect(instance).to.be();
     });

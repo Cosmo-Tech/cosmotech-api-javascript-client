@@ -13,9 +13,6 @@
 
 
 import ApiClient from './ApiClient';
-import AnalysisParameter from './model/AnalysisParameter';
-import AnalysisParameterGroup from './model/AnalysisParameterGroup';
-import AnalysisResourceStorage from './model/AnalysisResourceStorage';
 import Connector from './model/Connector';
 import ConnectorParameter from './model/ConnectorParameter';
 import ConnectorParameterGroup from './model/ConnectorParameterGroup';
@@ -30,17 +27,20 @@ import OrganizationUser from './model/OrganizationUser';
 import Platform from './model/Platform';
 import PlatformService from './model/PlatformService';
 import PlatformServices from './model/PlatformServices';
+import RunTemplate from './model/RunTemplate';
+import RunTemplateParameter from './model/RunTemplateParameter';
+import RunTemplateParameterGroup from './model/RunTemplateParameterGroup';
+import RunTemplateParameterValue from './model/RunTemplateParameterValue';
+import RunTemplateResourceStorage from './model/RunTemplateResourceStorage';
 import Scenario from './model/Scenario';
 import ScenarioAllOf from './model/ScenarioAllOf';
-import ScenarioAnalysis from './model/ScenarioAnalysis';
-import ScenarioAnalysisParameterValue from './model/ScenarioAnalysisParameterValue';
 import ScenarioBase from './model/ScenarioBase';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
+import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParameterValue';
 import ScenarioUser from './model/ScenarioUser';
 import Simulation from './model/Simulation';
 import SimulationAllOf from './model/SimulationAllOf';
-import SimulationAnalysisParameterValue from './model/SimulationAnalysisParameterValue';
 import SimulationBase from './model/SimulationBase';
 import SimulationContainerLog from './model/SimulationContainerLog';
 import SimulationContainerLogs from './model/SimulationContainerLogs';
@@ -50,9 +50,8 @@ import SimulationLogsOptions from './model/SimulationLogsOptions';
 import SimulationSearch from './model/SimulationSearch';
 import SimulationStartContainers from './model/SimulationStartContainers';
 import SimulationStartScenario from './model/SimulationStartScenario';
-import SimulationStartSimulator from './model/SimulationStartSimulator';
-import Simulator from './model/Simulator';
-import SimulatorAnalysis from './model/SimulatorAnalysis';
+import SimulationStartSolution from './model/SimulationStartSolution';
+import Solution from './model/Solution';
 import User from './model/User';
 import UserDetails from './model/UserDetails';
 import UserDetailsAllOf from './model/UserDetailsAllOf';
@@ -61,9 +60,10 @@ import UserWorkspace from './model/UserWorkspace';
 import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
 import Workspace from './model/Workspace';
+import WorkspaceFile from './model/WorkspaceFile';
 import WorkspaceService from './model/WorkspaceService';
 import WorkspaceServices from './model/WorkspaceServices';
-import WorkspaceSimulator from './model/WorkspaceSimulator';
+import WorkspaceSolution from './model/WorkspaceSolution';
 import WorkspaceUser from './model/WorkspaceUser';
 import WorkspaceWebApp from './model/WorkspaceWebApp';
 import ConnectorApi from './api/ConnectorApi';
@@ -72,7 +72,7 @@ import OrganizationApi from './api/OrganizationApi';
 import PlatformApi from './api/PlatformApi';
 import ScenarioApi from './api/ScenarioApi';
 import SimulationApi from './api/SimulationApi';
-import SimulatorApi from './api/SimulatorApi';
+import SolutionApi from './api/SolutionApi';
 import UserApi from './api/UserApi';
 import ValidatorApi from './api/ValidatorApi';
 import WorkspaceApi from './api/WorkspaceApi';
@@ -115,24 +115,6 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
-
-    /**
-     * The AnalysisParameter model constructor.
-     * @property {module:model/AnalysisParameter}
-     */
-    AnalysisParameter,
-
-    /**
-     * The AnalysisParameterGroup model constructor.
-     * @property {module:model/AnalysisParameterGroup}
-     */
-    AnalysisParameterGroup,
-
-    /**
-     * The AnalysisResourceStorage model constructor.
-     * @property {module:model/AnalysisResourceStorage}
-     */
-    AnalysisResourceStorage,
 
     /**
      * The Connector model constructor.
@@ -219,6 +201,36 @@ export {
     PlatformServices,
 
     /**
+     * The RunTemplate model constructor.
+     * @property {module:model/RunTemplate}
+     */
+    RunTemplate,
+
+    /**
+     * The RunTemplateParameter model constructor.
+     * @property {module:model/RunTemplateParameter}
+     */
+    RunTemplateParameter,
+
+    /**
+     * The RunTemplateParameterGroup model constructor.
+     * @property {module:model/RunTemplateParameterGroup}
+     */
+    RunTemplateParameterGroup,
+
+    /**
+     * The RunTemplateParameterValue model constructor.
+     * @property {module:model/RunTemplateParameterValue}
+     */
+    RunTemplateParameterValue,
+
+    /**
+     * The RunTemplateResourceStorage model constructor.
+     * @property {module:model/RunTemplateResourceStorage}
+     */
+    RunTemplateResourceStorage,
+
+    /**
      * The Scenario model constructor.
      * @property {module:model/Scenario}
      */
@@ -229,18 +241,6 @@ export {
      * @property {module:model/ScenarioAllOf}
      */
     ScenarioAllOf,
-
-    /**
-     * The ScenarioAnalysis model constructor.
-     * @property {module:model/ScenarioAnalysis}
-     */
-    ScenarioAnalysis,
-
-    /**
-     * The ScenarioAnalysisParameterValue model constructor.
-     * @property {module:model/ScenarioAnalysisParameterValue}
-     */
-    ScenarioAnalysisParameterValue,
 
     /**
      * The ScenarioBase model constructor.
@@ -261,6 +261,12 @@ export {
     ScenarioComparisonResult,
 
     /**
+     * The ScenarioRunTemplateParameterValue model constructor.
+     * @property {module:model/ScenarioRunTemplateParameterValue}
+     */
+    ScenarioRunTemplateParameterValue,
+
+    /**
      * The ScenarioUser model constructor.
      * @property {module:model/ScenarioUser}
      */
@@ -277,12 +283,6 @@ export {
      * @property {module:model/SimulationAllOf}
      */
     SimulationAllOf,
-
-    /**
-     * The SimulationAnalysisParameterValue model constructor.
-     * @property {module:model/SimulationAnalysisParameterValue}
-     */
-    SimulationAnalysisParameterValue,
 
     /**
      * The SimulationBase model constructor.
@@ -339,22 +339,16 @@ export {
     SimulationStartScenario,
 
     /**
-     * The SimulationStartSimulator model constructor.
-     * @property {module:model/SimulationStartSimulator}
+     * The SimulationStartSolution model constructor.
+     * @property {module:model/SimulationStartSolution}
      */
-    SimulationStartSimulator,
+    SimulationStartSolution,
 
     /**
-     * The Simulator model constructor.
-     * @property {module:model/Simulator}
+     * The Solution model constructor.
+     * @property {module:model/Solution}
      */
-    Simulator,
-
-    /**
-     * The SimulatorAnalysis model constructor.
-     * @property {module:model/SimulatorAnalysis}
-     */
-    SimulatorAnalysis,
+    Solution,
 
     /**
      * The User model constructor.
@@ -405,6 +399,12 @@ export {
     Workspace,
 
     /**
+     * The WorkspaceFile model constructor.
+     * @property {module:model/WorkspaceFile}
+     */
+    WorkspaceFile,
+
+    /**
      * The WorkspaceService model constructor.
      * @property {module:model/WorkspaceService}
      */
@@ -417,10 +417,10 @@ export {
     WorkspaceServices,
 
     /**
-     * The WorkspaceSimulator model constructor.
-     * @property {module:model/WorkspaceSimulator}
+     * The WorkspaceSolution model constructor.
+     * @property {module:model/WorkspaceSolution}
      */
-    WorkspaceSimulator,
+    WorkspaceSolution,
 
     /**
      * The WorkspaceUser model constructor.
@@ -471,10 +471,10 @@ export {
     SimulationApi,
 
     /**
-    * The SimulatorApi service constructor.
-    * @property {module:api/SimulatorApi}
+    * The SolutionApi service constructor.
+    * @property {module:api/SolutionApi}
     */
-    SimulatorApi,
+    SolutionApi,
 
     /**
     * The UserApi service constructor.

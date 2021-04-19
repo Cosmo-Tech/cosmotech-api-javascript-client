@@ -54,20 +54,26 @@
       //expect(instance).to.be.a(CosmotechApi.ScenarioAllOf);
     });
 
-    it('should have the property simulatorName (base name: "simulatorName")', function() {
-      // uncomment below and update the code to test the property simulatorName
+    it('should have the property solutionName (base name: "solutionName")', function() {
+      // uncomment below and update the code to test the property solutionName
       //var instance = new CosmotechApi.ScenarioAllOf();
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorAnalysisName (base name: "simulatorAnalysisName")', function() {
-      // uncomment below and update the code to test the property simulatorAnalysisName
+    it('should have the property runTemplateName (base name: "runTemplateName")', function() {
+      // uncomment below and update the code to test the property runTemplateName
       //var instance = new CosmotechApi.ScenarioAllOf();
       //expect(instance).to.be();
     });
 
-    it('should have the property analysis (base name: "analysis")', function() {
-      // uncomment below and update the code to test the property analysis
+    it('should have the property datasetList (base name: "datasetList")', function() {
+      // uncomment below and update the code to test the property datasetList
+      //var instance = new CosmotechApi.ScenarioAllOf();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property parametersValues (base name: "parametersValues")', function() {
+      // uncomment below and update the code to test the property parametersValues
       //var instance = new CosmotechApi.ScenarioAllOf();
       //expect(instance).to.be();
     });

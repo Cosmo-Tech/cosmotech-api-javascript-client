@@ -20,7 +20,7 @@ import SimulationLogsOptions from '../model/SimulationLogsOptions';
 import SimulationSearch from '../model/SimulationSearch';
 import SimulationStartContainers from '../model/SimulationStartContainers';
 import SimulationStartScenario from '../model/SimulationStartScenario';
-import SimulationStartSimulator from '../model/SimulationStartSimulator';
+import SimulationStartSolution from '../model/SimulationStartSolution';
 
 /**
 * Simulation service.
@@ -608,29 +608,29 @@ export default class SimulationApi {
     }
 
     /**
-     * Callback function to receive the result of the startSimulationSimulator operation.
-     * @callback module:api/SimulationApi~startSimulationSimulatorCallback
+     * Callback function to receive the result of the startSimulationSolution operation.
+     * @callback module:api/SimulationApi~startSimulationSolutionCallback
      * @param {String} error Error message, if any.
      * @param {module:model/Simulation} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Start a new simulation for a Simulator Analysis
+     * Start a new simulation for a Solution Run Template
      * @param {String} organizationId the Organization identifier
-     * @param {module:model/SimulationStartSimulator} simulationStartSimulator the Simulator Analysis information to start
-     * @param {module:api/SimulationApi~startSimulationSimulatorCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:model/SimulationStartSolution} simulationStartSolution the Solution Run Template information to start
+     * @param {module:api/SimulationApi~startSimulationSolutionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Simulation}
      */
-    startSimulationSimulator(organizationId, simulationStartSimulator, callback) {
-      let postBody = simulationStartSimulator;
+    startSimulationSolution(organizationId, simulationStartSolution, callback) {
+      let postBody = simulationStartSolution;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling startSimulationSimulator");
+        throw new Error("Missing the required parameter 'organizationId' when calling startSimulationSolution");
       }
-      // verify the required parameter 'simulationStartSimulator' is set
-      if (simulationStartSimulator === undefined || simulationStartSimulator === null) {
-        throw new Error("Missing the required parameter 'simulationStartSimulator' when calling startSimulationSimulator");
+      // verify the required parameter 'simulationStartSolution' is set
+      if (simulationStartSolution === undefined || simulationStartSolution === null) {
+        throw new Error("Missing the required parameter 'simulationStartSolution' when calling startSimulationSolution");
       }
 
       let pathParams = {
@@ -648,7 +648,7 @@ export default class SimulationApi {
       let accepts = ['application/json'];
       let returnType = Simulation;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/simulations/startsimulator', 'POST',
+        '/organizations/{organization_id}/simulations/startsolution', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

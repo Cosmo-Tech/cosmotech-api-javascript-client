@@ -78,8 +78,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorsContainerRegistry (base name: "simulatorsContainerRegistry")', function() {
-      // uncomment below and update the code to test the property simulatorsContainerRegistry
+    it('should have the property solutionsContainerRegistry (base name: "solutionsContainerRegistry")', function() {
+      // uncomment below and update the code to test the property solutionsContainerRegistry
       //var instance = new CosmotechApi.PlatformServices();
       //expect(instance).to.be();
     });

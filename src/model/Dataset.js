@@ -136,7 +136,7 @@ Dataset.prototype['fragmentsIds'] = undefined;
 Dataset.prototype['validatorId'] = undefined;
 
 /**
- * the list of compatible Simulators versions
+ * the list of compatible Solutions versions
  * @member {Array.<module:model/DatasetCompatibility>} compatibility
  */
 Dataset.prototype['compatibility'] = undefined;

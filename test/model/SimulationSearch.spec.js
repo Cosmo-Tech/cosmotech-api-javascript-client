@@ -54,14 +54,14 @@
       //expect(instance).to.be.a(CosmotechApi.SimulationSearch);
     });
 
-    it('should have the property simulatorId (base name: "simulatorId")', function() {
-      // uncomment below and update the code to test the property simulatorId
+    it('should have the property solutionId (base name: "solutionId")', function() {
+      // uncomment below and update the code to test the property solutionId
       //var instance = new CosmotechApi.SimulationSearch();
       //expect(instance).to.be();
     });
 
-    it('should have the property simulatorAnalysisId (base name: "simulatorAnalysisId")', function() {
-      // uncomment below and update the code to test the property simulatorAnalysisId
+    it('should have the property runTemplateId (base name: "runTemplateId")', function() {
+      // uncomment below and update the code to test the property runTemplateId
       //var instance = new CosmotechApi.SimulationSearch();
       //expect(instance).to.be();
     });

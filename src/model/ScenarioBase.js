@@ -69,8 +69,11 @@ class ScenarioBase {
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
             }
-            if (data.hasOwnProperty('simulatorId')) {
-                obj['simulatorId'] = ApiClient.convertToType(data['simulatorId'], 'String');
+            if (data.hasOwnProperty('solutionId')) {
+                obj['solutionId'] = ApiClient.convertToType(data['solutionId'], 'String');
+            }
+            if (data.hasOwnProperty('runTemplateId')) {
+                obj['runTemplateId'] = ApiClient.convertToType(data['runTemplateId'], 'String');
             }
             if (data.hasOwnProperty('users')) {
                 obj['users'] = ApiClient.convertToType(data['users'], [ScenarioUser]);
@@ -119,10 +122,16 @@ ScenarioBase.prototype['parentId'] = undefined;
 ScenarioBase.prototype['ownerId'] = undefined;
 
 /**
- * the Simulator Id associated with this Scenario
- * @member {String} simulatorId
+ * the Solution Id associated with this Scenario
+ * @member {String} solutionId
  */
-ScenarioBase.prototype['simulatorId'] = undefined;
+ScenarioBase.prototype['solutionId'] = undefined;
+
+/**
+ * the Solution Run Template Id associated with this Scenario
+ * @member {String} runTemplateId
+ */
+ScenarioBase.prototype['runTemplateId'] = undefined;
 
 /**
  * the list of users Id with their role

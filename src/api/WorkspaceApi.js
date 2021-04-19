@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import Workspace from '../model/Workspace';
+import WorkspaceFile from '../model/WorkspaceFile';
 
 /**
 * Workspace service.
@@ -124,6 +125,107 @@ export default class WorkspaceApi {
       let returnType = Workspace;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteWorkspaceFile operation.
+     * @callback module:api/WorkspaceApi~deleteWorkspaceFileCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/WorkspaceFile} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete a workspace file
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {module:model/WorkspaceFile} workspaceFile the file to upload
+     * @param {module:api/WorkspaceApi~deleteWorkspaceFileCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/WorkspaceFile}
+     */
+    deleteWorkspaceFile(organizationId, workspaceId, workspaceFile, callback) {
+      let postBody = workspaceFile;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling deleteWorkspaceFile");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling deleteWorkspaceFile");
+      }
+      // verify the required parameter 'workspaceFile' is set
+      if (workspaceFile === undefined || workspaceFile === null) {
+        throw new Error("Missing the required parameter 'workspaceFile' when calling deleteWorkspaceFile");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = WorkspaceFile;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/files', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the findAllWorkspaceFiles operation.
+     * @callback module:api/WorkspaceApi~findAllWorkspaceFilesCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/WorkspaceFile>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List all Workspace files
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {module:api/WorkspaceApi~findAllWorkspaceFilesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/WorkspaceFile>}
+     */
+    findAllWorkspaceFiles(organizationId, workspaceId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling findAllWorkspaceFiles");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling findAllWorkspaceFiles");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [WorkspaceFile];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -267,6 +369,58 @@ export default class WorkspaceApi {
       let returnType = Workspace;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the uploadWorkspaceFile operation.
+     * @callback module:api/WorkspaceApi~uploadWorkspaceFileCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/WorkspaceFile} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Upload a file for the Workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {Object} opts Optional parameters
+     * @param {File} opts.fileName 
+     * @param {module:api/WorkspaceApi~uploadWorkspaceFileCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/WorkspaceFile}
+     */
+    uploadWorkspaceFile(organizationId, workspaceId, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling uploadWorkspaceFile");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling uploadWorkspaceFile");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+        'fileName': opts['fileName']
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['multipart/form-data'];
+      let accepts = ['application/json'];
+      let returnType = WorkspaceFile;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/files', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
