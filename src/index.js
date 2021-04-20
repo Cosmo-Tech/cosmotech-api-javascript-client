@@ -37,20 +37,20 @@ import ScenarioAllOf from './model/ScenarioAllOf';
 import ScenarioBase from './model/ScenarioBase';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
+import ScenarioRun from './model/ScenarioRun';
+import ScenarioRunAllOf from './model/ScenarioRunAllOf';
+import ScenarioRunBase from './model/ScenarioRunBase';
+import ScenarioRunContainerLog from './model/ScenarioRunContainerLog';
+import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
+import ScenarioRunContainers from './model/ScenarioRunContainers';
+import ScenarioRunLogs from './model/ScenarioRunLogs';
+import ScenarioRunLogsOptions from './model/ScenarioRunLogsOptions';
+import ScenarioRunSearch from './model/ScenarioRunSearch';
+import ScenarioRunStart from './model/ScenarioRunStart';
+import ScenarioRunStartContainers from './model/ScenarioRunStartContainers';
+import ScenarioRunStartSolution from './model/ScenarioRunStartSolution';
 import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParameterValue';
 import ScenarioUser from './model/ScenarioUser';
-import Simulation from './model/Simulation';
-import SimulationAllOf from './model/SimulationAllOf';
-import SimulationBase from './model/SimulationBase';
-import SimulationContainerLog from './model/SimulationContainerLog';
-import SimulationContainerLogs from './model/SimulationContainerLogs';
-import SimulationContainers from './model/SimulationContainers';
-import SimulationLogs from './model/SimulationLogs';
-import SimulationLogsOptions from './model/SimulationLogsOptions';
-import SimulationSearch from './model/SimulationSearch';
-import SimulationStartContainers from './model/SimulationStartContainers';
-import SimulationStartScenario from './model/SimulationStartScenario';
-import SimulationStartSolution from './model/SimulationStartSolution';
 import Solution from './model/Solution';
 import User from './model/User';
 import UserDetails from './model/UserDetails';
@@ -71,7 +71,7 @@ import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
 import PlatformApi from './api/PlatformApi';
 import ScenarioApi from './api/ScenarioApi';
-import SimulationApi from './api/SimulationApi';
+import ScenariorunApi from './api/ScenariorunApi';
 import SolutionApi from './api/SolutionApi';
 import UserApi from './api/UserApi';
 import ValidatorApi from './api/ValidatorApi';
@@ -261,6 +261,78 @@ export {
     ScenarioComparisonResult,
 
     /**
+     * The ScenarioRun model constructor.
+     * @property {module:model/ScenarioRun}
+     */
+    ScenarioRun,
+
+    /**
+     * The ScenarioRunAllOf model constructor.
+     * @property {module:model/ScenarioRunAllOf}
+     */
+    ScenarioRunAllOf,
+
+    /**
+     * The ScenarioRunBase model constructor.
+     * @property {module:model/ScenarioRunBase}
+     */
+    ScenarioRunBase,
+
+    /**
+     * The ScenarioRunContainerLog model constructor.
+     * @property {module:model/ScenarioRunContainerLog}
+     */
+    ScenarioRunContainerLog,
+
+    /**
+     * The ScenarioRunContainerLogs model constructor.
+     * @property {module:model/ScenarioRunContainerLogs}
+     */
+    ScenarioRunContainerLogs,
+
+    /**
+     * The ScenarioRunContainers model constructor.
+     * @property {module:model/ScenarioRunContainers}
+     */
+    ScenarioRunContainers,
+
+    /**
+     * The ScenarioRunLogs model constructor.
+     * @property {module:model/ScenarioRunLogs}
+     */
+    ScenarioRunLogs,
+
+    /**
+     * The ScenarioRunLogsOptions model constructor.
+     * @property {module:model/ScenarioRunLogsOptions}
+     */
+    ScenarioRunLogsOptions,
+
+    /**
+     * The ScenarioRunSearch model constructor.
+     * @property {module:model/ScenarioRunSearch}
+     */
+    ScenarioRunSearch,
+
+    /**
+     * The ScenarioRunStart model constructor.
+     * @property {module:model/ScenarioRunStart}
+     */
+    ScenarioRunStart,
+
+    /**
+     * The ScenarioRunStartContainers model constructor.
+     * @property {module:model/ScenarioRunStartContainers}
+     */
+    ScenarioRunStartContainers,
+
+    /**
+     * The ScenarioRunStartSolution model constructor.
+     * @property {module:model/ScenarioRunStartSolution}
+     */
+    ScenarioRunStartSolution,
+
+    /**
      * The ScenarioRunTemplateParameterValue model constructor.
      * @property {module:model/ScenarioRunTemplateParameterValue}
      */
@@ -271,78 +343,6 @@ export {
      * @property {module:model/ScenarioUser}
      */
     ScenarioUser,
-
-    /**
-     * The Simulation model constructor.
-     * @property {module:model/Simulation}
-     */
-    Simulation,
-
-    /**
-     * The SimulationAllOf model constructor.
-     * @property {module:model/SimulationAllOf}
-     */
-    SimulationAllOf,
-
-    /**
-     * The SimulationBase model constructor.
-     * @property {module:model/SimulationBase}
-     */
-    SimulationBase,
-
-    /**
-     * The SimulationContainerLog model constructor.
-     * @property {module:model/SimulationContainerLog}
-     */
-    SimulationContainerLog,
-
-    /**
-     * The SimulationContainerLogs model constructor.
-     * @property {module:model/SimulationContainerLogs}
-     */
-    SimulationContainerLogs,
-
-    /**
-     * The SimulationContainers model constructor.
-     * @property {module:model/SimulationContainers}
-     */
-    SimulationContainers,
-
-    /**
-     * The SimulationLogs model constructor.
-     * @property {module:model/SimulationLogs}
-     */
-    SimulationLogs,
-
-    /**
-     * The SimulationLogsOptions model constructor.
-     * @property {module:model/SimulationLogsOptions}
-     */
-    SimulationLogsOptions,
-
-    /**
-     * The SimulationSearch model constructor.
-     * @property {module:model/SimulationSearch}
-     */
-    SimulationSearch,
-
-    /**
-     * The SimulationStartContainers model constructor.
-     * @property {module:model/SimulationStartContainers}
-     */
-    SimulationStartContainers,
-
-    /**
-     * The SimulationStartScenario model constructor.
-     * @property {module:model/SimulationStartScenario}
-     */
-    SimulationStartScenario,
-
-    /**
-     * The SimulationStartSolution model constructor.
-     * @property {module:model/SimulationStartSolution}
-     */
-    SimulationStartSolution,
 
     /**
      * The Solution model constructor.
@@ -465,10 +465,10 @@ export {
     ScenarioApi,
 
     /**
-    * The SimulationApi service constructor.
-    * @property {module:api/SimulationApi}
+    * The ScenariorunApi service constructor.
+    * @property {module:api/ScenariorunApi}
     */
-    SimulationApi,
+    ScenariorunApi,
 
     /**
     * The SolutionApi service constructor.

@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class RunTemplateParameterValue {
     /**
      * Constructs a new <code>RunTemplateParameterValue</code>.
-     * the value of Analysis parameter for a Scenario for this Simulation
+     * the value of Analysis parameter for a Scenario for this ScenarioRun
      * @alias module:model/RunTemplateParameterValue
      * @param parameterId {String} the parameter Id
      * @param value {String} the parameter value

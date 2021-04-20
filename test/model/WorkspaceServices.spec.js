@@ -66,8 +66,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property simulationEventBus (base name: "simulationEventBus")', function() {
-      // uncomment below and update the code to test the property simulationEventBus
+    it('should have the property scenariorunEventBus (base name: "scenariorunEventBus")', function() {
+      // uncomment below and update the code to test the property scenariorunEventBus
       //var instance = new CosmotechApi.WorkspaceServices();
       //expect(instance).to.be();
     });

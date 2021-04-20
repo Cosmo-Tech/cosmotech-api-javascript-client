@@ -72,14 +72,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property isStandardSimulator (base name: "isStandardSimulator")', function() {
-      // uncomment below and update the code to test the property isStandardSimulator
+    it('should have the property useDirectCsmSimulator (base name: "useDirectCsmSimulator")', function() {
+      // uncomment below and update the code to test the property useDirectCsmSimulator
       //var instance = new CosmotechApi.RunTemplate();
       //expect(instance).to.be();
     });
 
-    it('should have the property simulation (base name: "simulation")', function() {
-      // uncomment below and update the code to test the property simulation
+    it('should have the property csmSimulation (base name: "csmSimulation")', function() {
+      // uncomment below and update the code to test the property csmSimulation
       //var instance = new CosmotechApi.RunTemplate();
       //expect(instance).to.be();
     });
@@ -108,8 +108,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property customSimulatorResource (base name: "customSimulatorResource")', function() {
-      // uncomment below and update the code to test the property customSimulatorResource
+    it('should have the property engineResource (base name: "engineResource")', function() {
+      // uncomment below and update the code to test the property engineResource
       //var instance = new CosmotechApi.RunTemplate();
       //expect(instance).to.be();
     });

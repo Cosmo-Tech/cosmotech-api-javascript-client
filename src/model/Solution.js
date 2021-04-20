@@ -24,14 +24,14 @@ class Solution {
      * Constructs a new <code>Solution</code>.
      * a version of a Solution
      * @alias module:model/Solution
-     * @param solutionKey {String} the Solution key which group Solution versions
+     * @param key {String} the Solution key which group Solution versions
      * @param name {String} the Solution name
      * @param repository {String} the registry repository containing the image
      * @param version {String} the Solution version MAJOR.MINOR.PATCH. Must be aligned with an existing repository tag
      */
-    constructor(solutionKey, name, repository, version) { 
+    constructor(key, name, repository, version) { 
         
-        Solution.initialize(this, solutionKey, name, repository, version);
+        Solution.initialize(this, key, name, repository, version);
     }
 
     /**
@@ -39,8 +39,8 @@ class Solution {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, solutionKey, name, repository, version) { 
-        obj['solutionKey'] = solutionKey;
+    static initialize(obj, key, name, repository, version) { 
+        obj['key'] = key;
         obj['name'] = name;
         obj['repository'] = repository;
         obj['version'] = version;
@@ -60,8 +60,8 @@ class Solution {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('solutionKey')) {
-                obj['solutionKey'] = ApiClient.convertToType(data['solutionKey'], 'String');
+            if (data.hasOwnProperty('key')) {
+                obj['key'] = ApiClient.convertToType(data['key'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -72,8 +72,8 @@ class Solution {
             if (data.hasOwnProperty('repository')) {
                 obj['repository'] = ApiClient.convertToType(data['repository'], 'String');
             }
-            if (data.hasOwnProperty('simulator')) {
-                obj['simulator'] = ApiClient.convertToType(data['simulator'], 'String');
+            if (data.hasOwnProperty('csmSimulator')) {
+                obj['csmSimulator'] = ApiClient.convertToType(data['csmSimulator'], 'String');
             }
             if (data.hasOwnProperty('version')) {
                 obj['version'] = ApiClient.convertToType(data['version'], 'String');
@@ -105,9 +105,9 @@ Solution.prototype['id'] = undefined;
 
 /**
  * the Solution key which group Solution versions
- * @member {String} solutionKey
+ * @member {String} key
  */
-Solution.prototype['solutionKey'] = undefined;
+Solution.prototype['key'] = undefined;
 
 /**
  * the Solution name
@@ -128,10 +128,10 @@ Solution.prototype['description'] = undefined;
 Solution.prototype['repository'] = undefined;
 
 /**
- * the main simulator name used in standard Run Template
- * @member {String} simulator
+ * the main Cosmo Tech simulator name used in standard Run Template
+ * @member {String} csmSimulator
  */
-Solution.prototype['simulator'] = undefined;
+Solution.prototype['csmSimulator'] = undefined;
 
 /**
  * the Solution version MAJOR.MINOR.PATCH. Must be aligned with an existing repository tag

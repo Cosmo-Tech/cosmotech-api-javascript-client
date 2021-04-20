@@ -149,18 +149,18 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ScenarioApi* | [**findScenarioById**](docs/ScenarioApi.md#findScenarioById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Get the details of an scenario
 *CosmotechApi.ScenarioApi* | [**getScenariosTree**](docs/ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
 *CosmotechApi.ScenarioApi* | [**updateScenario**](docs/ScenarioApi.md#updateScenario) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Update a scenario
-*CosmotechApi.SimulationApi* | [**deleteSimulation**](docs/SimulationApi.md#deleteSimulation) | **DELETE** /organizations/{organization_id}/simulations/{simulation_id} | Delete a simulation
-*CosmotechApi.SimulationApi* | [**findSimulationById**](docs/SimulationApi.md#findSimulationById) | **GET** /organizations/{organization_id}/simulations/{simulation_id} | Get the details of a simulation
-*CosmotechApi.SimulationApi* | [**getScenarioSimulation**](docs/SimulationApi.md#getScenarioSimulation) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/simulations/{simulation_id} | get the Simulation for the Scenario
-*CosmotechApi.SimulationApi* | [**getScenarioSimulationLogs**](docs/SimulationApi.md#getScenarioSimulationLogs) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/simulations/{simulation_id}/logs | get the logs for the Simulation
-*CosmotechApi.SimulationApi* | [**getScenarioSimulations**](docs/SimulationApi.md#getScenarioSimulations) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/simulations | get the list of Simulations for the Scenario
-*CosmotechApi.SimulationApi* | [**getWorkspaceSimulations**](docs/SimulationApi.md#getWorkspaceSimulations) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/simulations | get the list of Simulations for the Workspace
-*CosmotechApi.SimulationApi* | [**runScenario**](docs/SimulationApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | run a Simulation for the Scenario
-*CosmotechApi.SimulationApi* | [**searchSimulationLogs**](docs/SimulationApi.md#searchSimulationLogs) | **POST** /organizations/{organization_id}/simulations/{simulation_id}/logs/search | Search the logs of a simulation
-*CosmotechApi.SimulationApi* | [**searchSimulations**](docs/SimulationApi.md#searchSimulations) | **POST** /organizations/{organization_id}/simulations/search | Search Simulations
-*CosmotechApi.SimulationApi* | [**startSimulationContainers**](docs/SimulationApi.md#startSimulationContainers) | **POST** /organizations/{organization_id}/simulations/startcontainers | Start a new simulation with raw containers definition
-*CosmotechApi.SimulationApi* | [**startSimulationScenario**](docs/SimulationApi.md#startSimulationScenario) | **POST** /organizations/{organization_id}/simulations/start | Start a new simulation for a Scenario
-*CosmotechApi.SimulationApi* | [**startSimulationSolution**](docs/SimulationApi.md#startSimulationSolution) | **POST** /organizations/{organization_id}/simulations/startsolution | Start a new simulation for a Solution Run Template
+*CosmotechApi.ScenariorunApi* | [**deleteScenarioRun**](docs/ScenariorunApi.md#deleteScenarioRun) | **DELETE** /organizations/{organization_id}/scenarioruns/{scenariorun_id} | Delete a scenariorun
+*CosmotechApi.ScenariorunApi* | [**findScenarioRunById**](docs/ScenariorunApi.md#findScenarioRunById) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id} | Get the details of a scenariorun
+*CosmotechApi.ScenariorunApi* | [**getScenarioScenarioRun**](docs/ScenariorunApi.md#getScenarioScenarioRun) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id} | get the ScenarioRun for the Scenario
+*CosmotechApi.ScenariorunApi* | [**getScenarioScenarioRunLogs**](docs/ScenariorunApi.md#getScenarioScenarioRunLogs) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id}/logs | get the logs for the ScenarioRun
+*CosmotechApi.ScenariorunApi* | [**getScenarioScenarioRuns**](docs/ScenariorunApi.md#getScenarioScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns | get the list of ScenarioRuns for the Scenario
+*CosmotechApi.ScenariorunApi* | [**getWorkspaceScenarioRuns**](docs/ScenariorunApi.md#getWorkspaceScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarioruns | get the list of ScenarioRuns for the Workspace
+*CosmotechApi.ScenariorunApi* | [**runScenario**](docs/ScenariorunApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | run a ScenarioRun for the Scenario
+*CosmotechApi.ScenariorunApi* | [**searchScenarioRunLogs**](docs/ScenariorunApi.md#searchScenarioRunLogs) | **POST** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/logs/search | Search the logs of a scenariorun
+*CosmotechApi.ScenariorunApi* | [**searchScenarioRuns**](docs/ScenariorunApi.md#searchScenarioRuns) | **POST** /organizations/{organization_id}/scenarioruns/search | Search ScenarioRuns
+*CosmotechApi.ScenariorunApi* | [**startScenarioRunContainers**](docs/ScenariorunApi.md#startScenarioRunContainers) | **POST** /organizations/{organization_id}/scenarioruns/startcontainers | Start a new scenariorun with raw containers definition
+*CosmotechApi.ScenariorunApi* | [**startScenarioRunScenario**](docs/ScenariorunApi.md#startScenarioRunScenario) | **POST** /organizations/{organization_id}/scenarioruns/start | Start a new scenariorun for a Scenario
+*CosmotechApi.ScenariorunApi* | [**startScenarioRunSolution**](docs/ScenariorunApi.md#startScenarioRunSolution) | **POST** /organizations/{organization_id}/scenarioruns/startsolution | Start a new scenariorun for a Solution Run Template
 *CosmotechApi.SolutionApi* | [**createSolution**](docs/SolutionApi.md#createSolution) | **POST** /organizations/{organization_id}/solutions | Register a new solution
 *CosmotechApi.SolutionApi* | [**deleteSolution**](docs/SolutionApi.md#deleteSolution) | **DELETE** /organizations/{organization_id}/solutions/{solution_id} | Delete a solution
 *CosmotechApi.SolutionApi* | [**findAllSolutions**](docs/SolutionApi.md#findAllSolutions) | **GET** /organizations/{organization_id}/solutions | List all Solutions
@@ -221,20 +221,20 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ScenarioBase](docs/ScenarioBase.md)
  - [CosmotechApi.ScenarioChangedParameterValue](docs/ScenarioChangedParameterValue.md)
  - [CosmotechApi.ScenarioComparisonResult](docs/ScenarioComparisonResult.md)
+ - [CosmotechApi.ScenarioRun](docs/ScenarioRun.md)
+ - [CosmotechApi.ScenarioRunAllOf](docs/ScenarioRunAllOf.md)
+ - [CosmotechApi.ScenarioRunBase](docs/ScenarioRunBase.md)
+ - [CosmotechApi.ScenarioRunContainerLog](docs/ScenarioRunContainerLog.md)
+ - [CosmotechApi.ScenarioRunContainerLogs](docs/ScenarioRunContainerLogs.md)
+ - [CosmotechApi.ScenarioRunContainers](docs/ScenarioRunContainers.md)
+ - [CosmotechApi.ScenarioRunLogs](docs/ScenarioRunLogs.md)
+ - [CosmotechApi.ScenarioRunLogsOptions](docs/ScenarioRunLogsOptions.md)
+ - [CosmotechApi.ScenarioRunSearch](docs/ScenarioRunSearch.md)
+ - [CosmotechApi.ScenarioRunStart](docs/ScenarioRunStart.md)
+ - [CosmotechApi.ScenarioRunStartContainers](docs/ScenarioRunStartContainers.md)
+ - [CosmotechApi.ScenarioRunStartSolution](docs/ScenarioRunStartSolution.md)
  - [CosmotechApi.ScenarioRunTemplateParameterValue](docs/ScenarioRunTemplateParameterValue.md)
  - [CosmotechApi.ScenarioUser](docs/ScenarioUser.md)
- - [CosmotechApi.Simulation](docs/Simulation.md)
- - [CosmotechApi.SimulationAllOf](docs/SimulationAllOf.md)
- - [CosmotechApi.SimulationBase](docs/SimulationBase.md)
- - [CosmotechApi.SimulationContainerLog](docs/SimulationContainerLog.md)
- - [CosmotechApi.SimulationContainerLogs](docs/SimulationContainerLogs.md)
- - [CosmotechApi.SimulationContainers](docs/SimulationContainers.md)
- - [CosmotechApi.SimulationLogs](docs/SimulationLogs.md)
- - [CosmotechApi.SimulationLogsOptions](docs/SimulationLogsOptions.md)
- - [CosmotechApi.SimulationSearch](docs/SimulationSearch.md)
- - [CosmotechApi.SimulationStartContainers](docs/SimulationStartContainers.md)
- - [CosmotechApi.SimulationStartScenario](docs/SimulationStartScenario.md)
- - [CosmotechApi.SimulationStartSolution](docs/SimulationStartSolution.md)
  - [CosmotechApi.Solution](docs/Solution.md)
  - [CosmotechApi.User](docs/User.md)
  - [CosmotechApi.UserDetails](docs/UserDetails.md)

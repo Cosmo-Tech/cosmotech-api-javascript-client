@@ -154,7 +154,7 @@ Workspace.prototype['webApp'] = undefined;
 Workspace.prototype['services'] = undefined;
 
 /**
- * default setting for all Scenarios and Run Templates to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * default setting for all Scenarios and Run Templates to set whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to the ScenarioRun
  * @member {Boolean} sendInputToDataWarehouse
  * @default true
  */

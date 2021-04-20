@@ -60,8 +60,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property solutionKey (base name: "solutionKey")', function() {
-      // uncomment below and update the code to test the property solutionKey
+    it('should have the property key (base name: "key")', function() {
+      // uncomment below and update the code to test the property key
       //var instance = new CosmotechApi.Solution();
       //expect(instance).to.be();
     });
@@ -84,8 +84,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property simulator (base name: "simulator")', function() {
-      // uncomment below and update the code to test the property simulator
+    it('should have the property csmSimulator (base name: "csmSimulator")', function() {
+      // uncomment below and update the code to test the property csmSimulator
       //var instance = new CosmotechApi.Solution();
       //expect(instance).to.be();
     });

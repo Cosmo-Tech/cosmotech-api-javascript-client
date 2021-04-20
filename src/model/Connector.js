@@ -24,15 +24,15 @@ class Connector {
      * Constructs a new <code>Connector</code>.
      * a version of a Connector
      * @alias module:model/Connector
-     * @param connectorKey {String} the Connector key which group Connector versions
+     * @param key {String} the Connector key which group Connector versions
      * @param name {String} the Connector name
      * @param repository {String} the registry repository containing the image
      * @param version {String} the Connector version MAJOR.MINOR.PATCH. Must be aligned with an existing repository tag
      * @param ioTypes {Array.<module:model/Connector.IoTypesEnum>} 
      */
-    constructor(connectorKey, name, repository, version, ioTypes) { 
+    constructor(key, name, repository, version, ioTypes) { 
         
-        Connector.initialize(this, connectorKey, name, repository, version, ioTypes);
+        Connector.initialize(this, key, name, repository, version, ioTypes);
     }
 
     /**
@@ -40,8 +40,8 @@ class Connector {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, connectorKey, name, repository, version, ioTypes) { 
-        obj['connectorKey'] = connectorKey;
+    static initialize(obj, key, name, repository, version, ioTypes) { 
+        obj['key'] = key;
         obj['name'] = name;
         obj['repository'] = repository;
         obj['version'] = version;
@@ -62,8 +62,8 @@ class Connector {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('connectorKey')) {
-                obj['connectorKey'] = ApiClient.convertToType(data['connectorKey'], 'String');
+            if (data.hasOwnProperty('key')) {
+                obj['key'] = ApiClient.convertToType(data['key'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -107,9 +107,9 @@ Connector.prototype['id'] = undefined;
 
 /**
  * the Connector key which group Connector versions
- * @member {String} connectorKey
+ * @member {String} key
  */
-Connector.prototype['connectorKey'] = undefined;
+Connector.prototype['key'] = undefined;
 
 /**
  * the Connector name

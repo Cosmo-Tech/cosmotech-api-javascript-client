@@ -55,8 +55,8 @@ class WorkspaceServices {
             if (data.hasOwnProperty('resultsEventBus')) {
                 obj['resultsEventBus'] = WorkspaceService.constructFromObject(data['resultsEventBus']);
             }
-            if (data.hasOwnProperty('simulationEventBus')) {
-                obj['simulationEventBus'] = WorkspaceService.constructFromObject(data['simulationEventBus']);
+            if (data.hasOwnProperty('scenariorunEventBus')) {
+                obj['scenariorunEventBus'] = WorkspaceService.constructFromObject(data['scenariorunEventBus']);
             }
             if (data.hasOwnProperty('dataWarehouse')) {
                 obj['dataWarehouse'] = WorkspaceService.constructFromObject(data['dataWarehouse']);
@@ -83,9 +83,9 @@ WorkspaceServices.prototype['tenantCredentials'] = undefined;
 WorkspaceServices.prototype['resultsEventBus'] = undefined;
 
 /**
- * @member {module:model/WorkspaceService} simulationEventBus
+ * @member {module:model/WorkspaceService} scenariorunEventBus
  */
-WorkspaceServices.prototype['simulationEventBus'] = undefined;
+WorkspaceServices.prototype['scenariorunEventBus'] = undefined;
 
 /**
  * @member {module:model/WorkspaceService} dataWarehouse

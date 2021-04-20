@@ -60,8 +60,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property connectorKey (base name: "connectorKey")', function() {
-      // uncomment below and update the code to test the property connectorKey
+    it('should have the property key (base name: "key")', function() {
+      // uncomment below and update the code to test the property key
       //var instance = new CosmotechApi.Connector();
       //expect(instance).to.be();
     });

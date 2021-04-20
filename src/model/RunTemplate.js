@@ -63,11 +63,11 @@ class RunTemplate {
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('isStandardSimulator')) {
-                obj['isStandardSimulator'] = ApiClient.convertToType(data['isStandardSimulator'], 'Boolean');
+            if (data.hasOwnProperty('useDirectCsmSimulator')) {
+                obj['useDirectCsmSimulator'] = ApiClient.convertToType(data['useDirectCsmSimulator'], 'Boolean');
             }
-            if (data.hasOwnProperty('simulation')) {
-                obj['simulation'] = ApiClient.convertToType(data['simulation'], 'String');
+            if (data.hasOwnProperty('csmSimulation')) {
+                obj['csmSimulation'] = ApiClient.convertToType(data['csmSimulation'], 'String');
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
@@ -81,8 +81,8 @@ class RunTemplate {
             if (data.hasOwnProperty('datasetValidatorResource')) {
                 obj['datasetValidatorResource'] = RunTemplateResourceStorage.constructFromObject(data['datasetValidatorResource']);
             }
-            if (data.hasOwnProperty('customSimulatorResource')) {
-                obj['customSimulatorResource'] = RunTemplateResourceStorage.constructFromObject(data['customSimulatorResource']);
+            if (data.hasOwnProperty('engineResource')) {
+                obj['engineResource'] = RunTemplateResourceStorage.constructFromObject(data['engineResource']);
             }
             if (data.hasOwnProperty('datasetSchemaResource')) {
                 obj['datasetSchemaResource'] = RunTemplateResourceStorage.constructFromObject(data['datasetSchemaResource']);
@@ -116,16 +116,16 @@ RunTemplate.prototype['name'] = undefined;
 RunTemplate.prototype['description'] = undefined;
 
 /**
- * whether or not the Run Template use the main standard Simulator directly. False if there is a Custom Simulator set
- * @member {Boolean} isStandardSimulator
+ * whether or not the Run Template use the main standard csmSimulator directly. False if there is an Engine set
+ * @member {Boolean} useDirectCsmSimulator
  */
-RunTemplate.prototype['isStandardSimulator'] = undefined;
+RunTemplate.prototype['useDirectCsmSimulator'] = undefined;
 
 /**
- * the simulation name. This information is send to the Simulator
- * @member {String} simulation
+ * the Cosmo Tech simulation name. This information is send to the Engine. Mandatory information if no Engine is defined
+ * @member {String} csmSimulation
  */
-RunTemplate.prototype['simulation'] = undefined;
+RunTemplate.prototype['csmSimulation'] = undefined;
 
 /**
  * the list of Run Template tags
@@ -150,9 +150,9 @@ RunTemplate.prototype['parametersHandlerResource'] = undefined;
 RunTemplate.prototype['datasetValidatorResource'] = undefined;
 
 /**
- * @member {module:model/RunTemplateResourceStorage} customSimulatorResource
+ * @member {module:model/RunTemplateResourceStorage} engineResource
  */
-RunTemplate.prototype['customSimulatorResource'] = undefined;
+RunTemplate.prototype['engineResource'] = undefined;
 
 /**
  * @member {module:model/RunTemplateResourceStorage} datasetSchemaResource
