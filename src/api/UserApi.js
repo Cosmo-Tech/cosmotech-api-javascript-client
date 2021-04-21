@@ -14,7 +14,6 @@
 
 import ApiClient from "../ApiClient";
 import User from '../model/User';
-import UserDetails from '../model/UserDetails';
 
 /**
 * User service.
@@ -110,7 +109,7 @@ export default class UserApi {
      * Callback function to receive the result of the findUserById operation.
      * @callback module:api/UserApi~findUserByIdCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/UserDetails} data The data returned by the service call.
+     * @param {module:model/User} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -118,7 +117,7 @@ export default class UserApi {
      * Get the details of an user
      * @param {String} userId the User identifier
      * @param {module:api/UserApi~findUserByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserDetails}
+     * data is of type: {@link module:model/User}
      */
     findUserById(userId, callback) {
       let postBody = null;
@@ -140,7 +139,7 @@ export default class UserApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = UserDetails;
+      let returnType = User;
       return this.apiClient.callApi(
         '/users/{user_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -152,14 +151,14 @@ export default class UserApi {
      * Callback function to receive the result of the getCurrentUser operation.
      * @callback module:api/UserApi~getCurrentUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/UserDetails} data The data returned by the service call.
+     * @param {module:model/User} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Get the details of an user
      * @param {module:api/UserApi~getCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserDetails}
+     * data is of type: {@link module:model/User}
      */
     getCurrentUser(callback) {
       let postBody = null;
@@ -176,7 +175,7 @@ export default class UserApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = UserDetails;
+      let returnType = User;
       return this.apiClient.callApi(
         '/users/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -188,7 +187,7 @@ export default class UserApi {
      * Callback function to receive the result of the getOrganizationCurrentUser operation.
      * @callback module:api/UserApi~getOrganizationCurrentUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/UserDetails} data The data returned by the service call.
+     * @param {module:model/User} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -196,7 +195,7 @@ export default class UserApi {
      * Get the details of an user with roles for an Organization
      * @param {String} organizationId the Organization identifier
      * @param {module:api/UserApi~getOrganizationCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserDetails}
+     * data is of type: {@link module:model/User}
      */
     getOrganizationCurrentUser(organizationId, callback) {
       let postBody = null;
@@ -218,7 +217,7 @@ export default class UserApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = UserDetails;
+      let returnType = User;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -230,7 +229,7 @@ export default class UserApi {
      * Callback function to receive the result of the getWorkspaceCurrentUser operation.
      * @callback module:api/UserApi~getWorkspaceCurrentUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/UserDetails} data The data returned by the service call.
+     * @param {module:model/User} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -239,7 +238,7 @@ export default class UserApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {module:api/UserApi~getWorkspaceCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserDetails}
+     * data is of type: {@link module:model/User}
      */
     getWorkspaceCurrentUser(organizationId, workspaceId, callback) {
       let postBody = null;
@@ -266,7 +265,7 @@ export default class UserApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = UserDetails;
+      let returnType = User;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

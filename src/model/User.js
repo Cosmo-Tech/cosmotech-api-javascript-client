@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import UserOrganization from './UserOrganization';
 
 /**
  * The User model module.
@@ -61,6 +62,9 @@ class User {
             if (data.hasOwnProperty('platformRoles')) {
                 obj['platformRoles'] = ApiClient.convertToType(data['platformRoles'], ['String']);
             }
+            if (data.hasOwnProperty('organizations')) {
+                obj['organizations'] = ApiClient.convertToType(data['organizations'], [UserOrganization]);
+            }
         }
         return obj;
     }
@@ -85,6 +89,11 @@ User.prototype['name'] = undefined;
  * @member {Array.<module:model/User.PlatformRolesEnum>} platformRoles
  */
 User.prototype['platformRoles'] = undefined;
+
+/**
+ * @member {Array.<module:model/UserOrganization>} organizations
+ */
+User.prototype['organizations'] = undefined;
 
 
 

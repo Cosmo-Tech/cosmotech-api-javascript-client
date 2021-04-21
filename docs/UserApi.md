@@ -1,6 +1,6 @@
 # CosmotechApi.UserApi
 
-All URIs are relative to *https://api.azure.cosmo-platform.com*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -104,7 +104,7 @@ This endpoint does not need any parameter.
 
 ## findUserById
 
-> UserDetails findUserById(userId)
+> User findUserById(userId)
 
 Get the details of an user
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserDetails**](UserDetails.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## getCurrentUser
 
-> UserDetails getCurrentUser()
+> User getCurrentUser()
 
 Get the details of an user
 
@@ -180,7 +180,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UserDetails**](UserDetails.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -194,7 +194,7 @@ This endpoint does not need any parameter.
 
 ## getOrganizationCurrentUser
 
-> UserDetails getOrganizationCurrentUser(organizationId)
+> User getOrganizationCurrentUser(organizationId)
 
 Get the details of an user with roles for an Organization
 
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserDetails**](UserDetails.md)
+[**User**](User.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ## getWorkspaceCurrentUser
 
-> UserDetails getWorkspaceCurrentUser(organizationId, workspaceId)
+> User getWorkspaceCurrentUser(organizationId, workspaceId)
 
 Get the details of an user with roles for a Workspace
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserDetails**](UserDetails.md)
+[**User**](User.md)
 
 ### Authorization
 

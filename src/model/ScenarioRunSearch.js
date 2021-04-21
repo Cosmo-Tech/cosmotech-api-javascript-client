@@ -102,7 +102,7 @@ ScenarioRunSearch.prototype['scenarioId'] = undefined;
 
 /**
  * the state to search
- * @member {String} state
+ * @member {module:model/ScenarioRunSearch.StateEnum} state
  */
 ScenarioRunSearch.prototype['state'] = undefined;
 
@@ -120,6 +120,75 @@ ScenarioRunSearch.prototype['ownerId'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ScenarioRunSearch['StateEnum'] = {
+
+    /**
+     * value: "FetchingDatasets"
+     * @const
+     */
+    "FetchingDatasets": "FetchingDatasets",
+
+    /**
+     * value: "FetchingScenarioParameters"
+     * @const
+     */
+    "FetchingScenarioParameters": "FetchingScenarioParameters",
+
+    /**
+     * value: "ApplyingScenarioParameters"
+     * @const
+     */
+    "ApplyingScenarioParameters": "ApplyingScenarioParameters",
+
+    /**
+     * value: "ValidatingScenarioData"
+     * @const
+     */
+    "ValidatingScenarioData": "ValidatingScenarioData",
+
+    /**
+     * value: "SendingScenarioDataToDataWarehouse"
+     * @const
+     */
+    "SendingScenarioDataToDataWarehouse": "SendingScenarioDataToDataWarehouse",
+
+    /**
+     * value: "PreRun"
+     * @const
+     */
+    "PreRun": "PreRun",
+
+    /**
+     * value: "Running"
+     * @const
+     */
+    "Running": "Running",
+
+    /**
+     * value: "PostRun"
+     * @const
+     */
+    "PostRun": "PostRun",
+
+    /**
+     * value: "Success"
+     * @const
+     */
+    "Success": "Success",
+
+    /**
+     * value: "Failed"
+     * @const
+     */
+    "Failed": "Failed"
+};
 
 
 

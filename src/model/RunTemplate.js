@@ -81,11 +81,17 @@ class RunTemplate {
             if (data.hasOwnProperty('datasetValidatorResource')) {
                 obj['datasetValidatorResource'] = RunTemplateResourceStorage.constructFromObject(data['datasetValidatorResource']);
             }
+            if (data.hasOwnProperty('preRunResource')) {
+                obj['preRunResource'] = RunTemplateResourceStorage.constructFromObject(data['preRunResource']);
+            }
             if (data.hasOwnProperty('engineResource')) {
                 obj['engineResource'] = RunTemplateResourceStorage.constructFromObject(data['engineResource']);
             }
-            if (data.hasOwnProperty('datasetSchemaResource')) {
-                obj['datasetSchemaResource'] = RunTemplateResourceStorage.constructFromObject(data['datasetSchemaResource']);
+            if (data.hasOwnProperty('postRunResource')) {
+                obj['postRunResource'] = RunTemplateResourceStorage.constructFromObject(data['postRunResource']);
+            }
+            if (data.hasOwnProperty('sendInputToDataWarehouse')) {
+                obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
             }
             if (data.hasOwnProperty('parameterGroups')) {
                 obj['parameterGroups'] = ApiClient.convertToType(data['parameterGroups'], [RunTemplateParameterGroup]);
@@ -150,14 +156,26 @@ RunTemplate.prototype['parametersHandlerResource'] = undefined;
 RunTemplate.prototype['datasetValidatorResource'] = undefined;
 
 /**
+ * @member {module:model/RunTemplateResourceStorage} preRunResource
+ */
+RunTemplate.prototype['preRunResource'] = undefined;
+
+/**
  * @member {module:model/RunTemplateResourceStorage} engineResource
  */
 RunTemplate.prototype['engineResource'] = undefined;
 
 /**
- * @member {module:model/RunTemplateResourceStorage} datasetSchemaResource
+ * @member {module:model/RunTemplateResourceStorage} postRunResource
  */
-RunTemplate.prototype['datasetSchemaResource'] = undefined;
+RunTemplate.prototype['postRunResource'] = undefined;
+
+/**
+ * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * @member {Boolean} sendInputToDataWarehouse
+ * @default true
+ */
+RunTemplate.prototype['sendInputToDataWarehouse'] = true;
 
 /**
  * the list of parameters groups for the Run Template

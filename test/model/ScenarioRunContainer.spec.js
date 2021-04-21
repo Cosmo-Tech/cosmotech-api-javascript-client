@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.User();
+    instance = new CosmotechApi.ScenarioRunContainer();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,34 @@
       object[property] = value;
   }
 
-  describe('User', function() {
-    it('should create an instance of User', function() {
-      // uncomment below and update the code to test User
-      //var instane = new CosmotechApi.User();
-      //expect(instance).to.be.a(CosmotechApi.User);
+  describe('ScenarioRunContainer', function() {
+    it('should create an instance of ScenarioRunContainer', function() {
+      // uncomment below and update the code to test ScenarioRunContainer
+      //var instane = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be.a(CosmotechApi.ScenarioRunContainer);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.User();
+      //var instance = new CosmotechApi.ScenarioRunContainer();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.User();
+    it('should have the property envVars (base name: "envVars")', function() {
+      // uncomment below and update the code to test the property envVars
+      //var instance = new CosmotechApi.ScenarioRunContainer();
       //expect(instance).to.be();
     });
 
-    it('should have the property platformRoles (base name: "platformRoles")', function() {
-      // uncomment below and update the code to test the property platformRoles
-      //var instance = new CosmotechApi.User();
+    it('should have the property image (base name: "image")', function() {
+      // uncomment below and update the code to test the property image
+      //var instance = new CosmotechApi.ScenarioRunContainer();
       //expect(instance).to.be();
     });
 
-    it('should have the property organizations (base name: "organizations")', function() {
-      // uncomment below and update the code to test the property organizations
-      //var instance = new CosmotechApi.User();
+    it('should have the property runArgs (base name: "runArgs")', function() {
+      // uncomment below and update the code to test the property runArgs
+      //var instance = new CosmotechApi.ScenarioRunContainer();
       //expect(instance).to.be();
     });
 

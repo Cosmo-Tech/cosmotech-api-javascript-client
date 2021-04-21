@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunContainerLogs);
     });
 
-    it('should have the property containerId (base name: "containerId")', function() {
-      // uncomment below and update the code to test the property containerId
+    it('should have the property container (base name: "container")', function() {
+      // uncomment below and update the code to test the property container
       //var instance = new CosmotechApi.ScenarioRunContainerLogs();
       //expect(instance).to.be();
     });

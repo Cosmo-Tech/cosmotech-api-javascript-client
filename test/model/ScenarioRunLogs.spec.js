@@ -66,14 +66,50 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property initLogs (base name: "initLogs")', function() {
-      // uncomment below and update the code to test the property initLogs
+    it('should have the property fetchDatasetLogs (base name: "fetchDatasetLogs")', function() {
+      // uncomment below and update the code to test the property fetchDatasetLogs
       //var instance = new CosmotechApi.ScenarioRunLogs();
       //expect(instance).to.be();
     });
 
-    it('should have the property mainLogs (base name: "mainLogs")', function() {
-      // uncomment below and update the code to test the property mainLogs
+    it('should have the property fetchScenarioParametersLog (base name: "fetchScenarioParametersLog")', function() {
+      // uncomment below and update the code to test the property fetchScenarioParametersLog
+      //var instance = new CosmotechApi.ScenarioRunLogs();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property applyParametersLogs (base name: "applyParametersLogs")', function() {
+      // uncomment below and update the code to test the property applyParametersLogs
+      //var instance = new CosmotechApi.ScenarioRunLogs();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property validateDataLogs (base name: "validateDataLogs")', function() {
+      // uncomment below and update the code to test the property validateDataLogs
+      //var instance = new CosmotechApi.ScenarioRunLogs();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sendDataWarehouseLogs (base name: "sendDataWarehouseLogs")', function() {
+      // uncomment below and update the code to test the property sendDataWarehouseLogs
+      //var instance = new CosmotechApi.ScenarioRunLogs();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property preRunLogs (base name: "preRunLogs")', function() {
+      // uncomment below and update the code to test the property preRunLogs
+      //var instance = new CosmotechApi.ScenarioRunLogs();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property runLogs (base name: "runLogs")', function() {
+      // uncomment below and update the code to test the property runLogs
+      //var instance = new CosmotechApi.ScenarioRunLogs();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property postRunLogs (base name: "postRunLogs")', function() {
+      // uncomment below and update the code to test the property postRunLogs
       //var instance = new CosmotechApi.ScenarioRunLogs();
       //expect(instance).to.be();
     });

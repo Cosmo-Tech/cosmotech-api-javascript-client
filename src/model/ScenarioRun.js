@@ -13,9 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import RunTemplateParameterValue from './RunTemplateParameterValue';
-import ScenarioRunAllOf from './ScenarioRunAllOf';
-import ScenarioRunBase from './ScenarioRunBase';
-import ScenarioRunContainers from './ScenarioRunContainers';
+import ScenarioRunContainer from './ScenarioRunContainer';
 
 /**
  * The ScenarioRun model module.
@@ -25,12 +23,11 @@ import ScenarioRunContainers from './ScenarioRunContainers';
 class ScenarioRun {
     /**
      * Constructs a new <code>ScenarioRun</code>.
+     * a ScenarioRun with only base properties
      * @alias module:model/ScenarioRun
-     * @implements module:model/ScenarioRunBase
-     * @implements module:model/ScenarioRunAllOf
      */
     constructor() { 
-        ScenarioRunBase.initialize(this);ScenarioRunAllOf.initialize(this);
+        
         ScenarioRun.initialize(this);
     }
 
@@ -52,8 +49,6 @@ class ScenarioRun {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ScenarioRun();
-            ScenarioRunBase.constructFromObject(data, obj);
-            ScenarioRunAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -97,6 +92,12 @@ class ScenarioRun {
             if (data.hasOwnProperty('state')) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
+            if (data.hasOwnProperty('failedStep')) {
+                obj['failedStep'] = ApiClient.convertToType(data['failedStep'], 'String');
+            }
+            if (data.hasOwnProperty('failedContainerId')) {
+                obj['failedContainerId'] = ApiClient.convertToType(data['failedContainerId'], 'String');
+            }
             if (data.hasOwnProperty('startTime')) {
                 obj['startTime'] = ApiClient.convertToType(data['startTime'], 'String');
             }
@@ -124,11 +125,29 @@ class ScenarioRun {
             if (data.hasOwnProperty('nodeLabel')) {
                 obj['nodeLabel'] = ApiClient.convertToType(data['nodeLabel'], 'String');
             }
-            if (data.hasOwnProperty('initContainers')) {
-                obj['initContainers'] = ApiClient.convertToType(data['initContainers'], [ScenarioRunContainers]);
+            if (data.hasOwnProperty('fetchDatasetContainers')) {
+                obj['fetchDatasetContainers'] = ApiClient.convertToType(data['fetchDatasetContainers'], [ScenarioRunContainer]);
             }
-            if (data.hasOwnProperty('mainContainer')) {
-                obj['mainContainer'] = ScenarioRunContainers.constructFromObject(data['mainContainer']);
+            if (data.hasOwnProperty('fetchScenarioParametersContainer')) {
+                obj['fetchScenarioParametersContainer'] = ScenarioRunContainer.constructFromObject(data['fetchScenarioParametersContainer']);
+            }
+            if (data.hasOwnProperty('applyParametersContainer')) {
+                obj['applyParametersContainer'] = ScenarioRunContainer.constructFromObject(data['applyParametersContainer']);
+            }
+            if (data.hasOwnProperty('validateDataContainer')) {
+                obj['validateDataContainer'] = ScenarioRunContainer.constructFromObject(data['validateDataContainer']);
+            }
+            if (data.hasOwnProperty('sendDataWarehouseContainer')) {
+                obj['sendDataWarehouseContainer'] = ScenarioRunContainer.constructFromObject(data['sendDataWarehouseContainer']);
+            }
+            if (data.hasOwnProperty('preRunContainer')) {
+                obj['preRunContainer'] = ScenarioRunContainer.constructFromObject(data['preRunContainer']);
+            }
+            if (data.hasOwnProperty('runContainer')) {
+                obj['runContainer'] = ScenarioRunContainer.constructFromObject(data['runContainer']);
+            }
+            if (data.hasOwnProperty('postRunContainer')) {
+                obj['postRunContainer'] = ScenarioRunContainer.constructFromObject(data['postRunContainer']);
             }
         }
         return obj;
@@ -217,9 +236,21 @@ ScenarioRun.prototype['computeSize'] = undefined;
 
 /**
  * the ScenarioRun state
- * @member {String} state
+ * @member {module:model/ScenarioRun.StateEnum} state
  */
 ScenarioRun.prototype['state'] = undefined;
+
+/**
+ * the failed step if state is Failed
+ * @member {String} failedStep
+ */
+ScenarioRun.prototype['failedStep'] = undefined;
+
+/**
+ * the failed container Id if state is Failed
+ * @member {String} failedContainerId
+ */
+ScenarioRun.prototype['failedContainerId'] = undefined;
 
 /**
  * the ScenarioRun start Date Time
@@ -276,144 +307,117 @@ ScenarioRun.prototype['scenariorunEventBusResourceUri'] = undefined;
 ScenarioRun.prototype['nodeLabel'] = undefined;
 
 /**
- * the list of init containers
- * @member {Array.<module:model/ScenarioRunContainers>} initContainers
+ * the containers which fetch the Scenario Datasets
+ * @member {Array.<module:model/ScenarioRunContainer>} fetchDatasetContainers
  */
-ScenarioRun.prototype['initContainers'] = undefined;
+ScenarioRun.prototype['fetchDatasetContainers'] = undefined;
 
 /**
- * @member {module:model/ScenarioRunContainers} mainContainer
+ * @member {module:model/ScenarioRunContainer} fetchScenarioParametersContainer
  */
-ScenarioRun.prototype['mainContainer'] = undefined;
+ScenarioRun.prototype['fetchScenarioParametersContainer'] = undefined;
+
+/**
+ * @member {module:model/ScenarioRunContainer} applyParametersContainer
+ */
+ScenarioRun.prototype['applyParametersContainer'] = undefined;
+
+/**
+ * @member {module:model/ScenarioRunContainer} validateDataContainer
+ */
+ScenarioRun.prototype['validateDataContainer'] = undefined;
+
+/**
+ * @member {module:model/ScenarioRunContainer} sendDataWarehouseContainer
+ */
+ScenarioRun.prototype['sendDataWarehouseContainer'] = undefined;
+
+/**
+ * @member {module:model/ScenarioRunContainer} preRunContainer
+ */
+ScenarioRun.prototype['preRunContainer'] = undefined;
+
+/**
+ * @member {module:model/ScenarioRunContainer} runContainer
+ */
+ScenarioRun.prototype['runContainer'] = undefined;
+
+/**
+ * @member {module:model/ScenarioRunContainer} postRunContainer
+ */
+ScenarioRun.prototype['postRunContainer'] = undefined;
 
 
-// Implement ScenarioRunBase interface:
-/**
- * the ScenarioRun
- * @member {String} id
- */
-ScenarioRunBase.prototype['id'] = undefined;
-/**
- * the Platform compute cluster Job Id
- * @member {String} jobId
- */
-ScenarioRunBase.prototype['jobId'] = undefined;
-/**
- * the user id which own this scenariorun
- * @member {String} ownerId
- */
-ScenarioRunBase.prototype['ownerId'] = undefined;
-/**
- * the Workspace Id
- * @member {String} workspaceId
- */
-ScenarioRunBase.prototype['workspaceId'] = undefined;
-/**
- * the Workspace name
- * @member {String} workspaceName
- */
-ScenarioRunBase.prototype['workspaceName'] = undefined;
-/**
- * the Scenario Id
- * @member {String} scenarioId
- */
-ScenarioRunBase.prototype['scenarioId'] = undefined;
-/**
- * the Scenario name
- * @member {String} scenarioName
- */
-ScenarioRunBase.prototype['scenarioName'] = undefined;
-/**
- * the Solution Id
- * @member {String} solutionId
- */
-ScenarioRunBase.prototype['solutionId'] = undefined;
-/**
- * the Solution name
- * @member {String} solutionName
- */
-ScenarioRunBase.prototype['solutionName'] = undefined;
-/**
- * the Solution version
- * @member {String} solutionVersion
- */
-ScenarioRunBase.prototype['solutionVersion'] = undefined;
-/**
- * the Solution Run Template id
- * @member {String} runTemplateId
- */
-ScenarioRunBase.prototype['runTemplateId'] = undefined;
-/**
- * the Run Template name
- * @member {String} runTemplateName
- */
-ScenarioRunBase.prototype['runTemplateName'] = undefined;
-/**
- * the compute size needed for this Analysis. Standard sizes are basic and highcpu. Default is basic
- * @member {String} computeSize
- */
-ScenarioRunBase.prototype['computeSize'] = undefined;
-/**
- * the ScenarioRun state
- * @member {String} state
- */
-ScenarioRunBase.prototype['state'] = undefined;
-/**
- * the ScenarioRun start Date Time
- * @member {String} startTime
- */
-ScenarioRunBase.prototype['startTime'] = undefined;
-/**
- * the ScenarioRun end Date Time
- * @member {String} endTime
- */
-ScenarioRunBase.prototype['endTime'] = undefined;
-// Implement ScenarioRunAllOf interface:
-/**
- * the list of Dataset Id associated to this Analysis
- * @member {Array.<String>} datasetList
- */
-ScenarioRunAllOf.prototype['datasetList'] = undefined;
-/**
- * the list of Run Template parameters values
- * @member {Array.<module:model/RunTemplateParameterValue>} parametersValues
- */
-ScenarioRunAllOf.prototype['parametersValues'] = undefined;
-/**
- * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to ScenarioRun Run
- * @member {Boolean} sendInputToDataWarehouse
- */
-ScenarioRunAllOf.prototype['sendInputToDataWarehouse'] = undefined;
-/**
- * the DataWarehouse database name to send data if sendInputToDataWarehouse is set
- * @member {String} dataWarehouseDB
- */
-ScenarioRunAllOf.prototype['dataWarehouseDB'] = undefined;
-/**
- * the event bus which receive Workspace ScenarioRun results messages. Message won't be send if this is not set
- * @member {String} resultsEventBusResourceUri
- */
-ScenarioRunAllOf.prototype['resultsEventBusResourceUri'] = undefined;
-/**
- * the event bus which receive Workspace ScenarioRun events messages. Message won't be send if this is not set
- * @member {String} scenariorunEventBusResourceUri
- */
-ScenarioRunAllOf.prototype['scenariorunEventBusResourceUri'] = undefined;
-/**
- * the node label request
- * @member {String} nodeLabel
- */
-ScenarioRunAllOf.prototype['nodeLabel'] = undefined;
-/**
- * the list of init containers
- * @member {Array.<module:model/ScenarioRunContainers>} initContainers
- */
-ScenarioRunAllOf.prototype['initContainers'] = undefined;
-/**
- * @member {module:model/ScenarioRunContainers} mainContainer
- */
-ScenarioRunAllOf.prototype['mainContainer'] = undefined;
 
+
+
+/**
+ * Allowed values for the <code>state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+ScenarioRun['StateEnum'] = {
+
+    /**
+     * value: "FetchingDatasets"
+     * @const
+     */
+    "FetchingDatasets": "FetchingDatasets",
+
+    /**
+     * value: "FetchingScenarioParameters"
+     * @const
+     */
+    "FetchingScenarioParameters": "FetchingScenarioParameters",
+
+    /**
+     * value: "ApplyingScenarioParameters"
+     * @const
+     */
+    "ApplyingScenarioParameters": "ApplyingScenarioParameters",
+
+    /**
+     * value: "ValidatingScenarioData"
+     * @const
+     */
+    "ValidatingScenarioData": "ValidatingScenarioData",
+
+    /**
+     * value: "SendingScenarioDataToDataWarehouse"
+     * @const
+     */
+    "SendingScenarioDataToDataWarehouse": "SendingScenarioDataToDataWarehouse",
+
+    /**
+     * value: "PreRun"
+     * @const
+     */
+    "PreRun": "PreRun",
+
+    /**
+     * value: "Running"
+     * @const
+     */
+    "Running": "Running",
+
+    /**
+     * value: "PostRun"
+     * @const
+     */
+    "PostRun": "PostRun",
+
+    /**
+     * value: "Success"
+     * @const
+     */
+    "Success": "Success",
+
+    /**
+     * value: "Failed"
+     * @const
+     */
+    "Failed": "Failed"
+};
 
 
 

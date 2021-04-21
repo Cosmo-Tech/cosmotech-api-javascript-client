@@ -1,6 +1,6 @@
 # CosmotechApi.ScenariorunApi
 
-All URIs are relative to *https://api.azure.cosmo-platform.com*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## getScenarioScenarioRuns
 
-> [ScenarioRunBase] getScenarioScenarioRuns(organizationId, workspaceId, scenarioId)
+> [ScenarioRun] getScenarioScenarioRuns(organizationId, workspaceId, scenarioId)
 
 get the list of ScenarioRuns for the Scenario
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ScenarioRunBase]**](ScenarioRunBase.md)
+[**[ScenarioRun]**](ScenarioRun.md)
 
 ### Authorization
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ## getWorkspaceScenarioRuns
 
-> [ScenarioRunBase] getWorkspaceScenarioRuns(organizationId, workspaceId)
+> [ScenarioRun] getWorkspaceScenarioRuns(organizationId, workspaceId)
 
 get the list of ScenarioRuns for the Workspace
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ScenarioRunBase]**](ScenarioRunBase.md)
+[**[ScenarioRun]**](ScenarioRun.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ## runScenario
 
-> ScenarioRunBase runScenario(organizationId, workspaceId, scenarioId)
+> ScenarioRun runScenario(organizationId, workspaceId, scenarioId)
 
 run a ScenarioRun for the Scenario
 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScenarioRunBase**](ScenarioRunBase.md)
+[**ScenarioRun**](ScenarioRun.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ## searchScenarioRuns
 
-> [ScenarioRunBase] searchScenarioRuns(organizationId, scenarioRunSearch)
+> [ScenarioRun] searchScenarioRuns(organizationId, scenarioRunSearch)
 
 Search ScenarioRuns
 
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ScenarioRunBase]**](ScenarioRunBase.md)
+[**[ScenarioRun]**](ScenarioRun.md)
 
 ### Authorization
 

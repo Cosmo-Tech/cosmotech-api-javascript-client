@@ -33,16 +33,12 @@ import RunTemplateParameterGroup from './model/RunTemplateParameterGroup';
 import RunTemplateParameterValue from './model/RunTemplateParameterValue';
 import RunTemplateResourceStorage from './model/RunTemplateResourceStorage';
 import Scenario from './model/Scenario';
-import ScenarioAllOf from './model/ScenarioAllOf';
-import ScenarioBase from './model/ScenarioBase';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
 import ScenarioRun from './model/ScenarioRun';
-import ScenarioRunAllOf from './model/ScenarioRunAllOf';
-import ScenarioRunBase from './model/ScenarioRunBase';
+import ScenarioRunContainer from './model/ScenarioRunContainer';
 import ScenarioRunContainerLog from './model/ScenarioRunContainerLog';
 import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
-import ScenarioRunContainers from './model/ScenarioRunContainers';
 import ScenarioRunLogs from './model/ScenarioRunLogs';
 import ScenarioRunLogsOptions from './model/ScenarioRunLogsOptions';
 import ScenarioRunSearch from './model/ScenarioRunSearch';
@@ -53,8 +49,6 @@ import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParame
 import ScenarioUser from './model/ScenarioUser';
 import Solution from './model/Solution';
 import User from './model/User';
-import UserDetails from './model/UserDetails';
-import UserDetailsAllOf from './model/UserDetailsAllOf';
 import UserOrganization from './model/UserOrganization';
 import UserWorkspace from './model/UserWorkspace';
 import Validator from './model/Validator';
@@ -237,18 +231,6 @@ export {
     Scenario,
 
     /**
-     * The ScenarioAllOf model constructor.
-     * @property {module:model/ScenarioAllOf}
-     */
-    ScenarioAllOf,
-
-    /**
-     * The ScenarioBase model constructor.
-     * @property {module:model/ScenarioBase}
-     */
-    ScenarioBase,
-
-    /**
      * The ScenarioChangedParameterValue model constructor.
      * @property {module:model/ScenarioChangedParameterValue}
      */
@@ -267,16 +249,10 @@ export {
     ScenarioRun,
 
     /**
-     * The ScenarioRunAllOf model constructor.
-     * @property {module:model/ScenarioRunAllOf}
+     * The ScenarioRunContainer model constructor.
+     * @property {module:model/ScenarioRunContainer}
      */
-    ScenarioRunAllOf,
-
-    /**
-     * The ScenarioRunBase model constructor.
-     * @property {module:model/ScenarioRunBase}
-     */
-    ScenarioRunBase,
+    ScenarioRunContainer,
 
     /**
      * The ScenarioRunContainerLog model constructor.
@@ -289,12 +265,6 @@ export {
      * @property {module:model/ScenarioRunContainerLogs}
      */
     ScenarioRunContainerLogs,
-
-    /**
-     * The ScenarioRunContainers model constructor.
-     * @property {module:model/ScenarioRunContainers}
-     */
-    ScenarioRunContainers,
 
     /**
      * The ScenarioRunLogs model constructor.
@@ -355,18 +325,6 @@ export {
      * @property {module:model/User}
      */
     User,
-
-    /**
-     * The UserDetails model constructor.
-     * @property {module:model/UserDetails}
-     */
-    UserDetails,
-
-    /**
-     * The UserDetailsAllOf model constructor.
-     * @property {module:model/UserDetailsAllOf}
-     */
-    UserDetailsAllOf,
 
     /**
      * The UserOrganization model constructor.

@@ -14,7 +14,6 @@
 
 import ApiClient from "../ApiClient";
 import Scenario from '../model/Scenario';
-import ScenarioBase from '../model/ScenarioBase';
 import ScenarioComparisonResult from '../model/ScenarioComparisonResult';
 
 /**
@@ -309,7 +308,7 @@ export default class ScenarioApi {
      * Callback function to receive the result of the getScenariosTree operation.
      * @callback module:api/ScenarioApi~getScenariosTreeCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioBase>} data The data returned by the service call.
+     * @param {Array.<module:model/Scenario>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -318,7 +317,7 @@ export default class ScenarioApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {module:api/ScenarioApi~getScenariosTreeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioBase>}
+     * data is of type: {@link Array.<module:model/Scenario>}
      */
     getScenariosTree(organizationId, workspaceId, callback) {
       let postBody = null;
@@ -345,7 +344,7 @@ export default class ScenarioApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [ScenarioBase];
+      let returnType = [Scenario];
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

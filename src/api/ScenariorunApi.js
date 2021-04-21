@@ -14,7 +14,6 @@
 
 import ApiClient from "../ApiClient";
 import ScenarioRun from '../model/ScenarioRun';
-import ScenarioRunBase from '../model/ScenarioRunBase';
 import ScenarioRunLogs from '../model/ScenarioRunLogs';
 import ScenarioRunLogsOptions from '../model/ScenarioRunLogsOptions';
 import ScenarioRunSearch from '../model/ScenarioRunSearch';
@@ -261,7 +260,7 @@ export default class ScenariorunApi {
      * Callback function to receive the result of the getScenarioScenarioRuns operation.
      * @callback module:api/ScenariorunApi~getScenarioScenarioRunsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioRunBase>} data The data returned by the service call.
+     * @param {Array.<module:model/ScenarioRun>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -271,7 +270,7 @@ export default class ScenariorunApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
      * @param {module:api/ScenariorunApi~getScenarioScenarioRunsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioRunBase>}
+     * data is of type: {@link Array.<module:model/ScenarioRun>}
      */
     getScenarioScenarioRuns(organizationId, workspaceId, scenarioId, callback) {
       let postBody = null;
@@ -303,7 +302,7 @@ export default class ScenariorunApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [ScenarioRunBase];
+      let returnType = [ScenarioRun];
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -315,7 +314,7 @@ export default class ScenariorunApi {
      * Callback function to receive the result of the getWorkspaceScenarioRuns operation.
      * @callback module:api/ScenariorunApi~getWorkspaceScenarioRunsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioRunBase>} data The data returned by the service call.
+     * @param {Array.<module:model/ScenarioRun>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -324,7 +323,7 @@ export default class ScenariorunApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {module:api/ScenariorunApi~getWorkspaceScenarioRunsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioRunBase>}
+     * data is of type: {@link Array.<module:model/ScenarioRun>}
      */
     getWorkspaceScenarioRuns(organizationId, workspaceId, callback) {
       let postBody = null;
@@ -351,7 +350,7 @@ export default class ScenariorunApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [ScenarioRunBase];
+      let returnType = [ScenarioRun];
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarioruns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -363,7 +362,7 @@ export default class ScenariorunApi {
      * Callback function to receive the result of the runScenario operation.
      * @callback module:api/ScenariorunApi~runScenarioCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRunBase} data The data returned by the service call.
+     * @param {module:model/ScenarioRun} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -373,7 +372,7 @@ export default class ScenariorunApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
      * @param {module:api/ScenariorunApi~runScenarioCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRunBase}
+     * data is of type: {@link module:model/ScenarioRun}
      */
     runScenario(organizationId, workspaceId, scenarioId, callback) {
       let postBody = null;
@@ -405,7 +404,7 @@ export default class ScenariorunApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ScenarioRunBase;
+      let returnType = ScenarioRun;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -470,7 +469,7 @@ export default class ScenariorunApi {
      * Callback function to receive the result of the searchScenarioRuns operation.
      * @callback module:api/ScenariorunApi~searchScenarioRunsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioRunBase>} data The data returned by the service call.
+     * @param {Array.<module:model/ScenarioRun>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -479,7 +478,7 @@ export default class ScenariorunApi {
      * @param {String} organizationId the Organization identifier
      * @param {module:model/ScenarioRunSearch} scenarioRunSearch the ScenarioRun search parameters
      * @param {module:api/ScenariorunApi~searchScenarioRunsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioRunBase>}
+     * data is of type: {@link Array.<module:model/ScenarioRun>}
      */
     searchScenarioRuns(organizationId, scenarioRunSearch, callback) {
       let postBody = scenarioRunSearch;
@@ -505,7 +504,7 @@ export default class ScenariorunApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = [ScenarioRunBase];
+      let returnType = [ScenarioRun];
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,

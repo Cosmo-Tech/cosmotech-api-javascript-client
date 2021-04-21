@@ -108,14 +108,26 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property preRunResource (base name: "preRunResource")', function() {
+      // uncomment below and update the code to test the property preRunResource
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
     it('should have the property engineResource (base name: "engineResource")', function() {
       // uncomment below and update the code to test the property engineResource
       //var instance = new CosmotechApi.RunTemplate();
       //expect(instance).to.be();
     });
 
-    it('should have the property datasetSchemaResource (base name: "datasetSchemaResource")', function() {
-      // uncomment below and update the code to test the property datasetSchemaResource
+    it('should have the property postRunResource (base name: "postRunResource")', function() {
+      // uncomment below and update the code to test the property postRunResource
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sendInputToDataWarehouse (base name: "sendInputToDataWarehouse")', function() {
+      // uncomment below and update the code to test the property sendInputToDataWarehouse
       //var instance = new CosmotechApi.RunTemplate();
       //expect(instance).to.be();
     });

@@ -1,6 +1,6 @@
 # CosmotechApi.ScenarioApi
 
-All URIs are relative to *https://api.azure.cosmo-platform.com*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ## getScenariosTree
 
-> [ScenarioBase] getScenariosTree(organizationId, workspaceId)
+> [Scenario] getScenariosTree(organizationId, workspaceId)
 
 Get the Scenarios Tree
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ScenarioBase]**](ScenarioBase.md)
+[**[Scenario]**](Scenario.md)
 
 ### Authorization
 

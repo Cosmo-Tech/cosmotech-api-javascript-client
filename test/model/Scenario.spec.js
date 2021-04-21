@@ -150,12 +150,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property sendInputToDataWarehouse (base name: "sendInputToDataWarehouse")', function() {
-      // uncomment below and update the code to test the property sendInputToDataWarehouse
-      //var instance = new CosmotechApi.Scenario();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

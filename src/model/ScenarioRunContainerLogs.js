@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ScenarioRunContainer from './ScenarioRunContainer';
 import ScenarioRunContainerLog from './ScenarioRunContainerLog';
 
 /**
@@ -49,8 +50,8 @@ class ScenarioRunContainerLogs {
         if (data) {
             obj = obj || new ScenarioRunContainerLogs();
 
-            if (data.hasOwnProperty('containerId')) {
-                obj['containerId'] = ApiClient.convertToType(data['containerId'], 'String');
+            if (data.hasOwnProperty('container')) {
+                obj['container'] = ScenarioRunContainer.constructFromObject(data['container']);
             }
             if (data.hasOwnProperty('computer')) {
                 obj['computer'] = ApiClient.convertToType(data['computer'], 'String');
@@ -69,10 +70,9 @@ class ScenarioRunContainerLogs {
 }
 
 /**
- * container ID for log source as seen by Docker engine
- * @member {String} containerId
+ * @member {module:model/ScenarioRunContainer} container
  */
-ScenarioRunContainerLogs.prototype['containerId'] = undefined;
+ScenarioRunContainerLogs.prototype['container'] = undefined;
 
 /**
  * computer/node that's generating the log

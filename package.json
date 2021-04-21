@@ -2,7 +2,7 @@
   "name": "@cosmotech/api",
   "version": "0.0.1-SNAPSHOT",
   "description": "Cosmo Tech Platform API client",
-  "license": "Unlicense",
+  "license": "MIT License",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",

@@ -12,8 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import ScenarioAllOf from './ScenarioAllOf';
-import ScenarioBase from './ScenarioBase';
 import ScenarioRunTemplateParameterValue from './ScenarioRunTemplateParameterValue';
 import ScenarioUser from './ScenarioUser';
 
@@ -25,13 +23,12 @@ import ScenarioUser from './ScenarioUser';
 class Scenario {
     /**
      * Constructs a new <code>Scenario</code>.
+     * a Scenario with base information
      * @alias module:model/Scenario
-     * @implements module:model/ScenarioBase
-     * @implements module:model/ScenarioAllOf
      * @param name {String} the Scenario name
      */
     constructor(name) { 
-        ScenarioBase.initialize(this, name);ScenarioAllOf.initialize(this);
+        
         Scenario.initialize(this, name);
     }
 
@@ -54,8 +51,6 @@ class Scenario {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new Scenario();
-            ScenarioBase.constructFromObject(data, obj);
-            ScenarioAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
@@ -104,9 +99,6 @@ class Scenario {
             }
             if (data.hasOwnProperty('parametersValues')) {
                 obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [ScenarioRunTemplateParameterValue]);
-            }
-            if (data.hasOwnProperty('sendInputToDataWarehouse')) {
-                obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
             }
         }
         return obj;
@@ -211,100 +203,7 @@ Scenario.prototype['datasetList'] = undefined;
  */
 Scenario.prototype['parametersValues'] = undefined;
 
-/**
- * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
- * @member {Boolean} sendInputToDataWarehouse
- */
-Scenario.prototype['sendInputToDataWarehouse'] = undefined;
 
-
-// Implement ScenarioBase interface:
-/**
- * the Scenario unique identifier
- * @member {String} id
- */
-ScenarioBase.prototype['id'] = undefined;
-/**
- * the Scenario name
- * @member {String} name
- */
-ScenarioBase.prototype['name'] = undefined;
-/**
- * the Scenario description
- * @member {String} description
- */
-ScenarioBase.prototype['description'] = undefined;
-/**
- * the list of tags
- * @member {Array.<String>} tags
- */
-ScenarioBase.prototype['tags'] = undefined;
-/**
- * the Scenario parent id
- * @member {String} parentId
- */
-ScenarioBase.prototype['parentId'] = undefined;
-/**
- * the user id which own this Scenario
- * @member {String} ownerId
- */
-ScenarioBase.prototype['ownerId'] = undefined;
-/**
- * the Solution Id associated with this Scenario
- * @member {String} solutionId
- */
-ScenarioBase.prototype['solutionId'] = undefined;
-/**
- * the Solution Run Template Id associated with this Scenario
- * @member {String} runTemplateId
- */
-ScenarioBase.prototype['runTemplateId'] = undefined;
-/**
- * the list of users Id with their role
- * @member {Array.<module:model/ScenarioUser>} users
- */
-ScenarioBase.prototype['users'] = undefined;
-/**
- * the Scenario state
- * @member {module:model/ScenarioBase.StateEnum} state
- */
-ScenarioBase.prototype['state'] = undefined;
-/**
- * the Scenario creation date
- * @member {String} creationDate
- */
-ScenarioBase.prototype['creationDate'] = undefined;
-// Implement ScenarioAllOf interface:
-/**
- * the name of the owner
- * @member {String} ownerName
- */
-ScenarioAllOf.prototype['ownerName'] = undefined;
-/**
- * the Solution name
- * @member {String} solutionName
- */
-ScenarioAllOf.prototype['solutionName'] = undefined;
-/**
- * the Solution Run Template name associated with this Scenario
- * @member {String} runTemplateName
- */
-ScenarioAllOf.prototype['runTemplateName'] = undefined;
-/**
- * the list of Dataset Id associated to this Scenario Run Template
- * @member {Array.<String>} datasetList
- */
-ScenarioAllOf.prototype['datasetList'] = undefined;
-/**
- * the list of Solution Run Template parameters values
- * @member {Array.<module:model/ScenarioRunTemplateParameterValue>} parametersValues
- */
-ScenarioAllOf.prototype['parametersValues'] = undefined;
-/**
- * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
- * @member {Boolean} sendInputToDataWarehouse
- */
-ScenarioAllOf.prototype['sendInputToDataWarehouse'] = undefined;
 
 
 
