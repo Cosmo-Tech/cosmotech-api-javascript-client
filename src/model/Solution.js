@@ -13,6 +13,8 @@
 
 import ApiClient from '../ApiClient';
 import RunTemplate from './RunTemplate';
+import RunTemplateParameter from './RunTemplateParameter';
+import RunTemplateParameterGroup from './RunTemplateParameterGroup';
 
 /**
  * The Solution model module.
@@ -87,6 +89,12 @@ class Solution {
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
+            if (data.hasOwnProperty('parameters')) {
+                obj['parameters'] = ApiClient.convertToType(data['parameters'], [RunTemplateParameter]);
+            }
+            if (data.hasOwnProperty('parameterGroups')) {
+                obj['parameterGroups'] = ApiClient.convertToType(data['parameterGroups'], [RunTemplateParameterGroup]);
+            }
             if (data.hasOwnProperty('run_templates')) {
                 obj['run_templates'] = ApiClient.convertToType(data['run_templates'], [RunTemplate]);
             }
@@ -156,6 +164,18 @@ Solution.prototype['url'] = undefined;
  * @member {Array.<String>} tags
  */
 Solution.prototype['tags'] = undefined;
+
+/**
+ * the list of Run Template Parameters
+ * @member {Array.<module:model/RunTemplateParameter>} parameters
+ */
+Solution.prototype['parameters'] = undefined;
+
+/**
+ * the list of parameters groups for the Run Templates
+ * @member {Array.<module:model/RunTemplateParameterGroup>} parameterGroups
+ */
+Solution.prototype['parameterGroups'] = undefined;
 
 /**
  * list of Run Template

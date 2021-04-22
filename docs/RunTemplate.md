@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **id** | **String** | the Solution Run Template id | 
 **name** | **String** | the Run Template name | 
 **description** | **String** | the Run Template description | [optional] 
-**useDirectCsmSimulator** | **Boolean** | whether or not the Run Template use the main standard csmSimulator directly. False if there is an Engine set | [optional] [readonly] 
 **csmSimulation** | **String** | the Cosmo Tech simulation name. This information is send to the Engine. Mandatory information if no Engine is defined | [optional] 
 **tags** | **[String]** | the list of Run Template tags | [optional] 
 **computeSize** | **String** | the compute size needed for this Run Template. Standard sizes are basic and highcpu. Default is basic | [optional] 
@@ -16,7 +15,8 @@ Name | Type | Description | Notes
 **preRunResource** | [**RunTemplateResourceStorage**](RunTemplateResourceStorage.md) |  | [optional] 
 **engineResource** | [**RunTemplateResourceStorage**](RunTemplateResourceStorage.md) |  | [optional] 
 **postRunResource** | [**RunTemplateResourceStorage**](RunTemplateResourceStorage.md) |  | [optional] 
-**sendInputToDataWarehouse** | **Boolean** | whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run | [optional] [default to true]
-**parameterGroups** | [**[RunTemplateParameterGroup]**](RunTemplateParameterGroup.md) | the list of parameters groups for the Run Template | [optional] 
+**sendDatasetsToDataWarehouse** | **Boolean** | whether or not the Datasets values are send to the DataWarehouse prior to Simulation Run | [optional] [default to true]
+**sendInputParametersToDataWarehouse** | **Boolean** | whether or not the input parameters values are send to the DataWarehouse prior to Simulation Run | [optional] [default to true]
+**parameterGroups** | **[String]** | the ordered list of parameters groups for the Run Template | [optional] 
 
 

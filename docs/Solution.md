@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **ownerId** | **String** | the User id which own this Solution | [optional] [readonly] 
 **url** | **String** | an optional URL link to solution page | [optional] 
 **tags** | **[String]** | the list of tags | [optional] 
+**parameters** | [**[RunTemplateParameter]**](RunTemplateParameter.md) | the list of Run Template Parameters | [optional] 
+**parameterGroups** | [**[RunTemplateParameterGroup]**](RunTemplateParameterGroup.md) | the list of parameters groups for the Run Templates | [optional] 
 **runTemplates** | [**[RunTemplate]**](RunTemplate.md) | list of Run Template | [optional] 
 
 

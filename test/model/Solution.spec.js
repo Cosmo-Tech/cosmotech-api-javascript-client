@@ -114,6 +114,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property parameters (base name: "parameters")', function() {
+      // uncomment below and update the code to test the property parameters
+      //var instance = new CosmotechApi.Solution();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property parameterGroups (base name: "parameterGroups")', function() {
+      // uncomment below and update the code to test the property parameterGroups
+      //var instance = new CosmotechApi.Solution();
+      //expect(instance).to.be();
+    });
+
     it('should have the property runTemplates (base name: "run_templates")', function() {
       // uncomment below and update the code to test the property runTemplates
       //var instance = new CosmotechApi.Solution();

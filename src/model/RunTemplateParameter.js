@@ -25,7 +25,7 @@ class RunTemplateParameter {
      * @alias module:model/RunTemplateParameter
      * @param id {String} the Parameter id
      * @param labels {Object.<String, Object>} a translated label with key as ISO 639-1 code
-     * @param varType {String} the variable type for the parameter. Basic types or special type $DATASETID, $DATAPATH
+     * @param varType {String} the variable type for the parameter. Basic types or special type %DATASETID%
      */
     constructor(id, labels, varType) { 
         
@@ -89,7 +89,7 @@ RunTemplateParameter.prototype['id'] = undefined;
 RunTemplateParameter.prototype['labels'] = undefined;
 
 /**
- * the variable type for the parameter. Basic types or special type $DATASETID, $DATAPATH
+ * the variable type for the parameter. Basic types or special type %DATASETID%
  * @member {String} varType
  */
 RunTemplateParameter.prototype['varType'] = undefined;

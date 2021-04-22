@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import RunTemplateParameterGroup from './RunTemplateParameterGroup';
 import RunTemplateResourceStorage from './RunTemplateResourceStorage';
 
 /**
@@ -63,9 +62,6 @@ class RunTemplate {
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('useDirectCsmSimulator')) {
-                obj['useDirectCsmSimulator'] = ApiClient.convertToType(data['useDirectCsmSimulator'], 'Boolean');
-            }
             if (data.hasOwnProperty('csmSimulation')) {
                 obj['csmSimulation'] = ApiClient.convertToType(data['csmSimulation'], 'String');
             }
@@ -90,11 +86,14 @@ class RunTemplate {
             if (data.hasOwnProperty('postRunResource')) {
                 obj['postRunResource'] = RunTemplateResourceStorage.constructFromObject(data['postRunResource']);
             }
-            if (data.hasOwnProperty('sendInputToDataWarehouse')) {
-                obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
+            if (data.hasOwnProperty('sendDatasetsToDataWarehouse')) {
+                obj['sendDatasetsToDataWarehouse'] = ApiClient.convertToType(data['sendDatasetsToDataWarehouse'], 'Boolean');
+            }
+            if (data.hasOwnProperty('sendInputParametersToDataWarehouse')) {
+                obj['sendInputParametersToDataWarehouse'] = ApiClient.convertToType(data['sendInputParametersToDataWarehouse'], 'Boolean');
             }
             if (data.hasOwnProperty('parameterGroups')) {
-                obj['parameterGroups'] = ApiClient.convertToType(data['parameterGroups'], [RunTemplateParameterGroup]);
+                obj['parameterGroups'] = ApiClient.convertToType(data['parameterGroups'], ['String']);
             }
         }
         return obj;
@@ -120,12 +119,6 @@ RunTemplate.prototype['name'] = undefined;
  * @member {String} description
  */
 RunTemplate.prototype['description'] = undefined;
-
-/**
- * whether or not the Run Template use the main standard csmSimulator directly. False if there is an Engine set
- * @member {Boolean} useDirectCsmSimulator
- */
-RunTemplate.prototype['useDirectCsmSimulator'] = undefined;
 
 /**
  * the Cosmo Tech simulation name. This information is send to the Engine. Mandatory information if no Engine is defined
@@ -171,15 +164,22 @@ RunTemplate.prototype['engineResource'] = undefined;
 RunTemplate.prototype['postRunResource'] = undefined;
 
 /**
- * whether or not the Dataset values and the input parameters values are send to the DataWarehouse prior to Simulation Run
- * @member {Boolean} sendInputToDataWarehouse
+ * whether or not the Datasets values are send to the DataWarehouse prior to Simulation Run
+ * @member {Boolean} sendDatasetsToDataWarehouse
  * @default true
  */
-RunTemplate.prototype['sendInputToDataWarehouse'] = true;
+RunTemplate.prototype['sendDatasetsToDataWarehouse'] = true;
 
 /**
- * the list of parameters groups for the Run Template
- * @member {Array.<module:model/RunTemplateParameterGroup>} parameterGroups
+ * whether or not the input parameters values are send to the DataWarehouse prior to Simulation Run
+ * @member {Boolean} sendInputParametersToDataWarehouse
+ * @default true
+ */
+RunTemplate.prototype['sendInputParametersToDataWarehouse'] = true;
+
+/**
+ * the ordered list of parameters groups for the Run Template
+ * @member {Array.<String>} parameterGroups
  */
 RunTemplate.prototype['parameterGroups'] = undefined;
 

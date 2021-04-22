@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import RunTemplateParameter from './RunTemplateParameter';
 
 /**
  * The RunTemplateParameterGroup model module.
@@ -26,7 +25,7 @@ class RunTemplateParameterGroup {
      * @alias module:model/RunTemplateParameterGroup
      * @param id {String} the Parameter Group id
      * @param labels {Object.<String, Object>} a translated label with key as ISO 639-1 code
-     * @param parameters {Array.<module:model/RunTemplateParameter>} a list of Run Template Parameters
+     * @param parameters {Array.<String>} an ordered list of Run Template Parameters
      */
     constructor(id, labels, parameters) { 
         
@@ -74,7 +73,7 @@ class RunTemplateParameterGroup {
                 obj['parentId'] = ApiClient.convertToType(data['parentId'], 'String');
             }
             if (data.hasOwnProperty('parameters')) {
-                obj['parameters'] = ApiClient.convertToType(data['parameters'], [RunTemplateParameter]);
+                obj['parameters'] = ApiClient.convertToType(data['parameters'], ['String']);
             }
         }
         return obj;
@@ -120,8 +119,8 @@ RunTemplateParameterGroup.prototype['options'] = undefined;
 RunTemplateParameterGroup.prototype['parentId'] = undefined;
 
 /**
- * a list of Run Template Parameters
- * @member {Array.<module:model/RunTemplateParameter>} parameters
+ * an ordered list of Run Template Parameters
+ * @member {Array.<String>} parameters
  */
 RunTemplateParameterGroup.prototype['parameters'] = undefined;
 

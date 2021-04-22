@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **isTable** | **Boolean** | does the group define a table | [optional] 
 **options** | **{String: Object}** | freeform options | [optional] 
 **parentId** | **String** | the Run Template Group parent Id | [optional] 
-**parameters** | [**[RunTemplateParameter]**](RunTemplateParameter.md) | a list of Run Template Parameters | 
+**parameters** | **[String]** | an ordered list of Run Template Parameters | 
 
 
