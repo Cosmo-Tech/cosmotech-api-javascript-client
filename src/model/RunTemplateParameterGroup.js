@@ -60,9 +60,6 @@ class RunTemplateParameterGroup {
             if (data.hasOwnProperty('labels')) {
                 obj['labels'] = ApiClient.convertToType(data['labels'], {'String': Object});
             }
-            if (data.hasOwnProperty('order')) {
-                obj['order'] = ApiClient.convertToType(data['order'], 'Number');
-            }
             if (data.hasOwnProperty('isTable')) {
                 obj['isTable'] = ApiClient.convertToType(data['isTable'], 'Boolean');
             }
@@ -93,12 +90,6 @@ RunTemplateParameterGroup.prototype['id'] = undefined;
  * @member {Object.<String, Object>} labels
  */
 RunTemplateParameterGroup.prototype['labels'] = undefined;
-
-/**
- * the Parameter Group order
- * @member {Number} order
- */
-RunTemplateParameterGroup.prototype['order'] = undefined;
 
 /**
  * does the group define a table

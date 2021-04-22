@@ -63,9 +63,6 @@ class RunTemplateParameter {
             if (data.hasOwnProperty('varType')) {
                 obj['varType'] = ApiClient.convertToType(data['varType'], 'String');
             }
-            if (data.hasOwnProperty('order')) {
-                obj['order'] = ApiClient.convertToType(data['order'], 'Number');
-            }
             if (data.hasOwnProperty('options')) {
                 obj['options'] = ApiClient.convertToType(data['options'], {'String': Object});
             }
@@ -93,12 +90,6 @@ RunTemplateParameter.prototype['labels'] = undefined;
  * @member {String} varType
  */
 RunTemplateParameter.prototype['varType'] = undefined;
-
-/**
- * the Parameter Group order
- * @member {Number} order
- */
-RunTemplateParameter.prototype['order'] = undefined;
 
 /**
  * freeform options
