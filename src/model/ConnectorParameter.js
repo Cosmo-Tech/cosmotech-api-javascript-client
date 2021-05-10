@@ -25,11 +25,10 @@ class ConnectorParameter {
      * @alias module:model/ConnectorParameter
      * @param id {String} the connector parameter id
      * @param label {String} the list of translated parameter group labels
-     * @param valueType {String} the parameter value type
      */
-    constructor(id, label, valueType) { 
+    constructor(id, label) { 
         
-        ConnectorParameter.initialize(this, id, label, valueType);
+        ConnectorParameter.initialize(this, id, label);
     }
 
     /**
@@ -37,10 +36,9 @@ class ConnectorParameter {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, label, valueType) { 
+    static initialize(obj, id, label) { 
         obj['id'] = id;
         obj['label'] = label;
-        obj['valueType'] = valueType;
     }
 
     /**

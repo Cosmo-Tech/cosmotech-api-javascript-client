@@ -23,12 +23,11 @@ class OrganizationUser {
      * Constructs a new <code>OrganizationUser</code>.
      * a User
      * @alias module:model/OrganizationUser
-     * @param name {String} the User name
      * @param roles {Array.<module:model/OrganizationUser.RolesEnum>} the User's roles for the Organization
      */
-    constructor(name, roles) { 
+    constructor(roles) { 
         
-        OrganizationUser.initialize(this, name, roles);
+        OrganizationUser.initialize(this, roles);
     }
 
     /**
@@ -36,8 +35,7 @@ class OrganizationUser {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, roles) { 
-        obj['name'] = name;
+    static initialize(obj, roles) { 
         obj['roles'] = roles;
     }
 
@@ -57,9 +55,6 @@ class OrganizationUser {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('organizationId')) {
-                obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
             }
             if (data.hasOwnProperty('roles')) {
                 obj['roles'] = ApiClient.convertToType(data['roles'], ['String']);
@@ -82,12 +77,6 @@ OrganizationUser.prototype['id'] = undefined;
  * @member {String} name
  */
 OrganizationUser.prototype['name'] = undefined;
-
-/**
- * the Organization Id context
- * @member {String} organizationId
- */
-OrganizationUser.prototype['organizationId'] = undefined;
 
 /**
  * the User's roles for the Organization

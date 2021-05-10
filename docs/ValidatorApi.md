@@ -1,6 +1,6 @@
 # CosmotechApi.ValidatorApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
@@ -112,13 +112,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
 ## deleteValidator
 
-> Validator deleteValidator(organizationId, validatorId)
+> deleteValidator(organizationId, validatorId)
 
 Delete a validator
 
@@ -138,7 +138,7 @@ apiInstance.deleteValidator(organizationId, validatorId, (error, data, response)
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Validator**](Validator.md)
+null (empty response body)
 
 ### Authorization
 
@@ -162,12 +162,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## deleteValidatorRun
 
-> ValidatorRun deleteValidatorRun(organizationId, validatorId, validatorrunId)
+> deleteValidatorRun(organizationId, validatorId, validatorrunId)
 
 Delete a validator run
 
@@ -188,7 +188,7 @@ apiInstance.deleteValidatorRun(organizationId, validatorId, validatorrunId, (err
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ValidatorRun**](ValidatorRun.md)
+null (empty response body)
 
 ### Authorization
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## findAllValidatorRuns
@@ -459,6 +459,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 

@@ -54,7 +54,7 @@ class DatasetConnector {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('parametersValues')) {
-                obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], {'String': Object});
+                obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], {'String': 'String'});
             }
         }
         return obj;
@@ -70,7 +70,7 @@ class DatasetConnector {
 DatasetConnector.prototype['id'] = undefined;
 
 /**
- * @member {Object.<String, Object>} parametersValues
+ * @member {Object.<String, String>} parametersValues
  */
 DatasetConnector.prototype['parametersValues'] = undefined;
 

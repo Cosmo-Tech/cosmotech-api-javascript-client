@@ -72,7 +72,7 @@ export default class ValidatorApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = Validator;
       return this.apiClient.callApi(
@@ -125,7 +125,7 @@ export default class ValidatorApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = ValidatorRun;
       return this.apiClient.callApi(
@@ -139,7 +139,7 @@ export default class ValidatorApi {
      * Callback function to receive the result of the deleteValidator operation.
      * @callback module:api/ValidatorApi~deleteValidatorCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Validator} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -148,7 +148,6 @@ export default class ValidatorApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} validatorId the Validator identifier
      * @param {module:api/ValidatorApi~deleteValidatorCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Validator}
      */
     deleteValidator(organizationId, validatorId, callback) {
       let postBody = null;
@@ -174,8 +173,8 @@ export default class ValidatorApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = Validator;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -187,7 +186,7 @@ export default class ValidatorApi {
      * Callback function to receive the result of the deleteValidatorRun operation.
      * @callback module:api/ValidatorApi~deleteValidatorRunCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ValidatorRun} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -197,7 +196,6 @@ export default class ValidatorApi {
      * @param {String} validatorId the Validator identifier
      * @param {String} validatorrunId the Validator Run identifier
      * @param {module:api/ValidatorApi~deleteValidatorRunCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ValidatorRun}
      */
     deleteValidatorRun(organizationId, validatorId, validatorrunId, callback) {
       let postBody = null;
@@ -228,8 +226,8 @@ export default class ValidatorApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = ValidatorRun;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -472,7 +470,7 @@ export default class ValidatorApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = ValidatorRun;
       return this.apiClient.callApi(

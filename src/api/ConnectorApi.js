@@ -79,7 +79,7 @@ export default class ConnectorApi {
      */
 
     /**
-     * Get the details of an connector
+     * Get the details of a connector
      * @param {String} connectorId the Connector identifier
      * @param {module:api/ConnectorApi~findConnectorByIdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Connector}
@@ -143,7 +143,7 @@ export default class ConnectorApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = Connector;
       return this.apiClient.callApi(
@@ -157,15 +157,14 @@ export default class ConnectorApi {
      * Callback function to receive the result of the unregisterConnector operation.
      * @callback module:api/ConnectorApi~unregisterConnectorCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Connector} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Unregister an connector
+     * Unregister a connector
      * @param {String} connectorId the Connector identifier
      * @param {module:api/ConnectorApi~unregisterConnectorCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Connector}
      */
     unregisterConnector(connectorId, callback) {
       let postBody = null;
@@ -186,51 +185,10 @@ export default class ConnectorApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = Connector;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/connectors/{connector_id}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the uploadConnector operation.
-     * @callback module:api/ConnectorApi~uploadConnectorCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Connector} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Upload and register a new connector
-     * @param {File} body the Connector to upload and register
-     * @param {module:api/ConnectorApi~uploadConnectorCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Connector}
-     */
-    uploadConnector(body, callback) {
-      let postBody = body;
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling uploadConnector");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/yaml'];
-      let accepts = ['application/json'];
-      let returnType = Connector;
-      return this.apiClient.callApi(
-        '/connectors/upload', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

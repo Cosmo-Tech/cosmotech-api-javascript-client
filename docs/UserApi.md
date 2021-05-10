@@ -1,18 +1,18 @@
 # CosmotechApi.UserApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**authorizeUser**](UserApi.md#authorizeUser) | **GET** /oauth2/authorize | Authorize an User with OAuth2. Delegated to configured OAuth2 service
 [**findAllUsers**](UserApi.md#findAllUsers) | **GET** /users | List all Users
 [**findUserById**](UserApi.md#findUserById) | **GET** /users/{user_id} | Get the details of an user
-[**getCurrentUser**](UserApi.md#getCurrentUser) | **GET** /users/me | Get the details of an user
-[**getOrganizationCurrentUser**](UserApi.md#getOrganizationCurrentUser) | **GET** /organizations/{organization_id}/me | Get the details of an user with roles for an Organization
-[**getWorkspaceCurrentUser**](UserApi.md#getWorkspaceCurrentUser) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/me | Get the details of an user with roles for a Workspace
+[**getCurrentUser**](UserApi.md#getCurrentUser) | **GET** /users/me | Get the details of the logged-in User
+[**getOrganizationCurrentUser**](UserApi.md#getOrganizationCurrentUser) | **GET** /organizations/{organization_id}/me | Get the details of a logged-in User with roles for an Organization
+[**getWorkspaceCurrentUser**](UserApi.md#getWorkspaceCurrentUser) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/me | Get the details of the logged-in user with roles for a Workspace
 [**registerUser**](UserApi.md#registerUser) | **POST** /users | Register a new user
 [**unregisterUser**](UserApi.md#unregisterUser) | **DELETE** /users/{user_id} | Unregister an user
-[**updateUser**](UserApi.md#updateUser) | **PATCH** /users/{user_id} | Update an user
+[**updateUser**](UserApi.md#updateUser) | **PATCH** /users/{user_id} | Update a User
 
 
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 > User getCurrentUser()
 
-Get the details of an user
+Get the details of the logged-in User
 
 ### Example
 
@@ -196,7 +196,7 @@ This endpoint does not need any parameter.
 
 > User getOrganizationCurrentUser(organizationId)
 
-Get the details of an user with roles for an Organization
+Get the details of a logged-in User with roles for an Organization
 
 ### Example
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 > User getWorkspaceCurrentUser(organizationId, workspaceId)
 
-Get the details of an user with roles for a Workspace
+Get the details of the logged-in user with roles for a Workspace
 
 ### Example
 
@@ -331,13 +331,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
 ## unregisterUser
 
-> User unregisterUser(userId)
+> unregisterUser(userId)
 
 Unregister an user
 
@@ -356,7 +356,7 @@ apiInstance.unregisterUser(userId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+null (empty response body)
 
 ### Authorization
 
@@ -379,14 +379,14 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## updateUser
 
 > User updateUser(userId, user)
 
-Update an user
+Update a User
 
 ### Example
 
@@ -399,7 +399,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.UserApi();
 let userId = "userId_example"; // String | the User identifier
-let user = new CosmotechApi.User(); // User | the new User details. Organization membership is handled in Organzation service.
+let user = new CosmotechApi.User(); // User | the new User details. Organization membership is handled via the /organizations endpoint.
 apiInstance.updateUser(userId, user, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -415,7 +415,7 @@ apiInstance.updateUser(userId, user, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| the User identifier | 
- **user** | [**User**](User.md)| the new User details. Organization membership is handled in Organzation service. | 
+ **user** | [**User**](User.md)| the new User details. Organization membership is handled via the /organizations endpoint. | 
 
 ### Return type
 
@@ -427,6 +427,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 

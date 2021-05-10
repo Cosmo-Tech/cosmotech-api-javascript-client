@@ -1,16 +1,175 @@
 # CosmotechApi.SolutionApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addOrReplaceParameterGroups**](SolutionApi.md#addOrReplaceParameterGroups) | **POST** /organizations/{organization_id}/solutions/{solution_id}/parameterGroups | Add Parameter Groups. Any item with the same ID will be overwritten
+[**addOrReplaceParameters**](SolutionApi.md#addOrReplaceParameters) | **POST** /organizations/{organization_id}/solutions/{solution_id}/parameters | Add Parameters. Any item with the same ID will be overwritten
+[**addOrReplaceRunTemplates**](SolutionApi.md#addOrReplaceRunTemplates) | **POST** /organizations/{organization_id}/solutions/{solution_id}/runTemplates | Add Run Templates. Any item with the same ID will be overwritten
 [**createSolution**](SolutionApi.md#createSolution) | **POST** /organizations/{organization_id}/solutions | Register a new solution
 [**deleteSolution**](SolutionApi.md#deleteSolution) | **DELETE** /organizations/{organization_id}/solutions/{solution_id} | Delete a solution
 [**findAllSolutions**](SolutionApi.md#findAllSolutions) | **GET** /organizations/{organization_id}/solutions | List all Solutions
 [**findSolutionById**](SolutionApi.md#findSolutionById) | **GET** /organizations/{organization_id}/solutions/{solution_id} | Get the details of a solution
+[**removeAllRunTemplates**](SolutionApi.md#removeAllRunTemplates) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/runTemplates | Remove all Run Templates from the Solution specified
+[**removeAllSolutionParameterGroups**](SolutionApi.md#removeAllSolutionParameterGroups) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/parameterGroups | Remove all Parameter Groups from the Solution specified
+[**removeAllSolutionParameters**](SolutionApi.md#removeAllSolutionParameters) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/parameters | Remove all Parameters from the Solution specified
 [**updateSolution**](SolutionApi.md#updateSolution) | **PATCH** /organizations/{organization_id}/solutions/{solution_id} | Update a solution
-[**upload**](SolutionApi.md#upload) | **POST** /organizations/{organization_id}/solutions/upload | Upload and register a new solution
+[**uploadRunTemplateHandler**](SolutionApi.md#uploadRunTemplateHandler) | **POST** /organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/upload | Upload a Run Template step handler zip file
 
+
+
+## addOrReplaceParameterGroups
+
+> [RunTemplateParameterGroup] addOrReplaceParameterGroups(organizationId, solutionId, runTemplateParameterGroup)
+
+Add Parameter Groups. Any item with the same ID will be overwritten
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+let runTemplateParameterGroup = [new CosmotechApi.RunTemplateParameterGroup()]; // [RunTemplateParameterGroup] | the Parameter Groups
+apiInstance.addOrReplaceParameterGroups(organizationId, solutionId, runTemplateParameterGroup, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+ **runTemplateParameterGroup** | [**[RunTemplateParameterGroup]**](RunTemplateParameterGroup.md)| the Parameter Groups | 
+
+### Return type
+
+[**[RunTemplateParameterGroup]**](RunTemplateParameterGroup.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## addOrReplaceParameters
+
+> [RunTemplateParameter] addOrReplaceParameters(organizationId, solutionId, runTemplateParameter)
+
+Add Parameters. Any item with the same ID will be overwritten
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+let runTemplateParameter = [new CosmotechApi.RunTemplateParameter()]; // [RunTemplateParameter] | the Parameters
+apiInstance.addOrReplaceParameters(organizationId, solutionId, runTemplateParameter, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+ **runTemplateParameter** | [**[RunTemplateParameter]**](RunTemplateParameter.md)| the Parameters | 
+
+### Return type
+
+[**[RunTemplateParameter]**](RunTemplateParameter.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## addOrReplaceRunTemplates
+
+> [RunTemplate] addOrReplaceRunTemplates(organizationId, solutionId, runTemplate)
+
+Add Run Templates. Any item with the same ID will be overwritten
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+let runTemplate = [new CosmotechApi.RunTemplate()]; // [RunTemplate] | the Run Templates
+apiInstance.addOrReplaceRunTemplates(organizationId, solutionId, runTemplate, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+ **runTemplate** | [**[RunTemplate]**](RunTemplate.md)| the Run Templates | 
+
+### Return type
+
+[**[RunTemplate]**](RunTemplate.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## createSolution
@@ -58,13 +217,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
 ## deleteSolution
 
-> Solution deleteSolution(organizationId, solutionId)
+> deleteSolution(organizationId, solutionId)
 
 Delete a solution
 
@@ -84,7 +243,7 @@ apiInstance.deleteSolution(organizationId, solutionId, (error, data, response) =
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -99,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Solution**](Solution.md)
+null (empty response body)
 
 ### Authorization
 
@@ -108,7 +267,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## findAllSolutions
@@ -207,6 +366,153 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## removeAllRunTemplates
+
+> removeAllRunTemplates(organizationId, solutionId)
+
+Remove all Run Templates from the Solution specified
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+apiInstance.removeAllRunTemplates(organizationId, solutionId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## removeAllSolutionParameterGroups
+
+> removeAllSolutionParameterGroups(organizationId, solutionId)
+
+Remove all Parameter Groups from the Solution specified
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+apiInstance.removeAllSolutionParameterGroups(organizationId, solutionId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## removeAllSolutionParameters
+
+> removeAllSolutionParameters(organizationId, solutionId)
+
+Remove all Parameters from the Solution specified
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+apiInstance.removeAllSolutionParameters(organizationId, solutionId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
 ## updateSolution
 
 > Solution updateSolution(organizationId, solutionId, solution)
@@ -254,15 +560,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
-## upload
+## uploadRunTemplateHandler
 
-> Solution upload(organizationId, body)
+> uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, opts)
 
-Upload and register a new solution
+Upload a Run Template step handler zip file
 
 ### Example
 
@@ -275,12 +581,17 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let body = "/path/to/file"; // File | the Solution to upload and register
-apiInstance.upload(organizationId, body, (error, data, response) => {
+let solutionId = "solutionId_example"; // String | the Solution identifier
+let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
+let handlerId = "handlerId_example"; // String | the Handler id identifier
+let opts = {
+  'body': "/path/to/file" // File | 
+};
+apiInstance.uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -291,11 +602,14 @@ apiInstance.upload(organizationId, body, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **body** | **File**| the Solution to upload and register | 
+ **solutionId** | **String**| the Solution identifier | 
+ **runTemplateId** | **String**| the Run Template identifier | 
+ **handlerId** | **String**| the Handler id identifier | 
+ **body** | **File**|  | [optional] 
 
 ### Return type
 
-[**Solution**](Solution.md)
+null (empty response body)
 
 ### Authorization
 
@@ -303,6 +617,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/yaml
-- **Accept**: application/json
+- **Content-Type**: image/zip
+- **Accept**: Not defined
 

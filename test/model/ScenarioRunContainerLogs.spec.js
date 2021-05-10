@@ -54,26 +54,26 @@
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunContainerLogs);
     });
 
-    it('should have the property container (base name: "container")', function() {
-      // uncomment below and update the code to test the property container
+    it('should have the property nodeId (base name: "nodeId")', function() {
+      // uncomment below and update the code to test the property nodeId
       //var instance = new CosmotechApi.ScenarioRunContainerLogs();
       //expect(instance).to.be();
     });
 
-    it('should have the property computer (base name: "computer")', function() {
-      // uncomment below and update the code to test the property computer
+    it('should have the property containerName (base name: "containerName")', function() {
+      // uncomment below and update the code to test the property containerName
+      //var instance = new CosmotechApi.ScenarioRunContainerLogs();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property children (base name: "children")', function() {
+      // uncomment below and update the code to test the property children
       //var instance = new CosmotechApi.ScenarioRunContainerLogs();
       //expect(instance).to.be();
     });
 
     it('should have the property logs (base name: "logs")', function() {
       // uncomment below and update the code to test the property logs
-      //var instance = new CosmotechApi.ScenarioRunContainerLogs();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property textLog (base name: "textLog")', function() {
-      // uncomment below and update the code to test the property textLog
       //var instance = new CosmotechApi.ScenarioRunContainerLogs();
       //expect(instance).to.be();
     });

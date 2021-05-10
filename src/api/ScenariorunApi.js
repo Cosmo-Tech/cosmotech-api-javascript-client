@@ -15,11 +15,8 @@
 import ApiClient from "../ApiClient";
 import ScenarioRun from '../model/ScenarioRun';
 import ScenarioRunLogs from '../model/ScenarioRunLogs';
-import ScenarioRunLogsOptions from '../model/ScenarioRunLogsOptions';
 import ScenarioRunSearch from '../model/ScenarioRunSearch';
-import ScenarioRunStart from '../model/ScenarioRunStart';
 import ScenarioRunStartContainers from '../model/ScenarioRunStartContainers';
-import ScenarioRunStartSolution from '../model/ScenarioRunStartSolution';
 
 /**
 * Scenariorun service.
@@ -44,7 +41,7 @@ export default class ScenariorunApi {
      * Callback function to receive the result of the deleteScenarioRun operation.
      * @callback module:api/ScenariorunApi~deleteScenarioRunCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRun} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -53,7 +50,6 @@ export default class ScenariorunApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} scenariorunId the ScenarioRun identifier
      * @param {module:api/ScenariorunApi~deleteScenarioRunCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRun}
      */
     deleteScenarioRun(organizationId, scenariorunId, callback) {
       let postBody = null;
@@ -79,8 +75,8 @@ export default class ScenariorunApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = ScenarioRun;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/{scenariorun_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -137,45 +133,33 @@ export default class ScenariorunApi {
     }
 
     /**
-     * Callback function to receive the result of the getScenarioScenarioRun operation.
-     * @callback module:api/ScenariorunApi~getScenarioScenarioRunCallback
+     * Callback function to receive the result of the getScenarioRunCumulatedLogs operation.
+     * @callback module:api/ScenariorunApi~getScenarioRunCumulatedLogsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRun} data The data returned by the service call.
+     * @param {String} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * get the ScenarioRun for the Scenario
+     * Get the cumulated logs of a scenariorun
      * @param {String} organizationId the Organization identifier
-     * @param {String} workspaceId the Workspace identifier
-     * @param {String} scenarioId the Scenario identifier
      * @param {String} scenariorunId the ScenarioRun identifier
-     * @param {module:api/ScenariorunApi~getScenarioScenarioRunCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRun}
+     * @param {module:api/ScenariorunApi~getScenarioRunCumulatedLogsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
      */
-    getScenarioScenarioRun(organizationId, workspaceId, scenarioId, scenariorunId, callback) {
+    getScenarioRunCumulatedLogs(organizationId, scenariorunId, callback) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling getScenarioScenarioRun");
-      }
-      // verify the required parameter 'workspaceId' is set
-      if (workspaceId === undefined || workspaceId === null) {
-        throw new Error("Missing the required parameter 'workspaceId' when calling getScenarioScenarioRun");
-      }
-      // verify the required parameter 'scenarioId' is set
-      if (scenarioId === undefined || scenarioId === null) {
-        throw new Error("Missing the required parameter 'scenarioId' when calling getScenarioScenarioRun");
+        throw new Error("Missing the required parameter 'organizationId' when calling getScenarioRunCumulatedLogs");
       }
       // verify the required parameter 'scenariorunId' is set
       if (scenariorunId === undefined || scenariorunId === null) {
-        throw new Error("Missing the required parameter 'scenariorunId' when calling getScenarioScenarioRun");
+        throw new Error("Missing the required parameter 'scenariorunId' when calling getScenarioRunCumulatedLogs");
       }
 
       let pathParams = {
         'organization_id': organizationId,
-        'workspace_id': workspaceId,
-        'scenario_id': scenarioId,
         'scenariorun_id': scenariorunId
       };
       let queryParams = {
@@ -187,18 +171,18 @@ export default class ScenariorunApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = ScenarioRun;
+      let accepts = ['text/plain'];
+      let returnType = 'String';
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id}', 'GET',
+        '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/cumulatedlogs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getScenarioScenarioRunLogs operation.
-     * @callback module:api/ScenariorunApi~getScenarioScenarioRunLogsCallback
+     * Callback function to receive the result of the getScenarioRunLogs operation.
+     * @callback module:api/ScenariorunApi~getScenarioRunLogsCallback
      * @param {String} error Error message, if any.
      * @param {module:model/ScenarioRunLogs} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -207,35 +191,23 @@ export default class ScenariorunApi {
     /**
      * get the logs for the ScenarioRun
      * @param {String} organizationId the Organization identifier
-     * @param {String} workspaceId the Workspace identifier
-     * @param {String} scenarioId the Scenario identifier
      * @param {String} scenariorunId the ScenarioRun identifier
-     * @param {module:api/ScenariorunApi~getScenarioScenarioRunLogsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/ScenariorunApi~getScenarioRunLogsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScenarioRunLogs}
      */
-    getScenarioScenarioRunLogs(organizationId, workspaceId, scenarioId, scenariorunId, callback) {
+    getScenarioRunLogs(organizationId, scenariorunId, callback) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling getScenarioScenarioRunLogs");
-      }
-      // verify the required parameter 'workspaceId' is set
-      if (workspaceId === undefined || workspaceId === null) {
-        throw new Error("Missing the required parameter 'workspaceId' when calling getScenarioScenarioRunLogs");
-      }
-      // verify the required parameter 'scenarioId' is set
-      if (scenarioId === undefined || scenarioId === null) {
-        throw new Error("Missing the required parameter 'scenarioId' when calling getScenarioScenarioRunLogs");
+        throw new Error("Missing the required parameter 'organizationId' when calling getScenarioRunLogs");
       }
       // verify the required parameter 'scenariorunId' is set
       if (scenariorunId === undefined || scenariorunId === null) {
-        throw new Error("Missing the required parameter 'scenariorunId' when calling getScenarioScenarioRunLogs");
+        throw new Error("Missing the required parameter 'scenariorunId' when calling getScenarioRunLogs");
       }
 
       let pathParams = {
         'organization_id': organizationId,
-        'workspace_id': workspaceId,
-        'scenario_id': scenarioId,
         'scenariorun_id': scenariorunId
       };
       let queryParams = {
@@ -250,15 +222,15 @@ export default class ScenariorunApi {
       let accepts = ['application/json'];
       let returnType = ScenarioRunLogs;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id}/logs', 'GET',
+        '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/logs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getScenarioScenarioRuns operation.
-     * @callback module:api/ScenariorunApi~getScenarioScenarioRunsCallback
+     * Callback function to receive the result of the getScenarioRuns operation.
+     * @callback module:api/ScenariorunApi~getScenarioRunsCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/ScenarioRun>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -269,22 +241,22 @@ export default class ScenariorunApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:api/ScenariorunApi~getScenarioScenarioRunsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/ScenariorunApi~getScenarioRunsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ScenarioRun>}
      */
-    getScenarioScenarioRuns(organizationId, workspaceId, scenarioId, callback) {
+    getScenarioRuns(organizationId, workspaceId, scenarioId, callback) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling getScenarioScenarioRuns");
+        throw new Error("Missing the required parameter 'organizationId' when calling getScenarioRuns");
       }
       // verify the required parameter 'workspaceId' is set
       if (workspaceId === undefined || workspaceId === null) {
-        throw new Error("Missing the required parameter 'workspaceId' when calling getScenarioScenarioRuns");
+        throw new Error("Missing the required parameter 'workspaceId' when calling getScenarioRuns");
       }
       // verify the required parameter 'scenarioId' is set
       if (scenarioId === undefined || scenarioId === null) {
-        throw new Error("Missing the required parameter 'scenarioId' when calling getScenarioScenarioRuns");
+        throw new Error("Missing the required parameter 'scenarioId' when calling getScenarioRuns");
       }
 
       let pathParams = {
@@ -413,59 +385,6 @@ export default class ScenariorunApi {
     }
 
     /**
-     * Callback function to receive the result of the searchScenarioRunLogs operation.
-     * @callback module:api/ScenariorunApi~searchScenarioRunLogsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRunLogs} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Search the logs of a scenariorun
-     * @param {String} organizationId the Organization identifier
-     * @param {String} scenariorunId the ScenarioRun identifier
-     * @param {module:model/ScenarioRunLogsOptions} scenarioRunLogsOptions the options to search logs
-     * @param {module:api/ScenariorunApi~searchScenarioRunLogsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRunLogs}
-     */
-    searchScenarioRunLogs(organizationId, scenariorunId, scenarioRunLogsOptions, callback) {
-      let postBody = scenarioRunLogsOptions;
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling searchScenarioRunLogs");
-      }
-      // verify the required parameter 'scenariorunId' is set
-      if (scenariorunId === undefined || scenariorunId === null) {
-        throw new Error("Missing the required parameter 'scenariorunId' when calling searchScenarioRunLogs");
-      }
-      // verify the required parameter 'scenarioRunLogsOptions' is set
-      if (scenarioRunLogsOptions === undefined || scenarioRunLogsOptions === null) {
-        throw new Error("Missing the required parameter 'scenarioRunLogsOptions' when calling searchScenarioRunLogs");
-      }
-
-      let pathParams = {
-        'organization_id': organizationId,
-        'scenariorun_id': scenariorunId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = ScenarioRunLogs;
-      return this.apiClient.callApi(
-        '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/logs/search', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the searchScenarioRuns operation.
      * @callback module:api/ScenariorunApi~searchScenarioRunsCallback
      * @param {String} error Error message, if any.
@@ -502,7 +421,7 @@ export default class ScenariorunApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = [ScenarioRun];
       return this.apiClient.callApi(
@@ -549,105 +468,11 @@ export default class ScenariorunApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = ScenarioRun;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/startcontainers', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the startScenarioRunScenario operation.
-     * @callback module:api/ScenariorunApi~startScenarioRunScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRun} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Start a new scenariorun for a Scenario
-     * @param {String} organizationId the Organization identifier
-     * @param {module:model/ScenarioRunStart} scenarioRunStart the Scenario information to start
-     * @param {module:api/ScenariorunApi~startScenarioRunScenarioCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRun}
-     */
-    startScenarioRunScenario(organizationId, scenarioRunStart, callback) {
-      let postBody = scenarioRunStart;
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling startScenarioRunScenario");
-      }
-      // verify the required parameter 'scenarioRunStart' is set
-      if (scenarioRunStart === undefined || scenarioRunStart === null) {
-        throw new Error("Missing the required parameter 'scenarioRunStart' when calling startScenarioRunScenario");
-      }
-
-      let pathParams = {
-        'organization_id': organizationId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = ScenarioRun;
-      return this.apiClient.callApi(
-        '/organizations/{organization_id}/scenarioruns/start', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the startScenarioRunSolution operation.
-     * @callback module:api/ScenariorunApi~startScenarioRunSolutionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRun} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Start a new scenariorun for a Solution Run Template
-     * @param {String} organizationId the Organization identifier
-     * @param {module:model/ScenarioRunStartSolution} scenarioRunStartSolution the Solution Run Template information to start
-     * @param {module:api/ScenariorunApi~startScenarioRunSolutionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRun}
-     */
-    startScenarioRunSolution(organizationId, scenarioRunStartSolution, callback) {
-      let postBody = scenarioRunStartSolution;
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling startScenarioRunSolution");
-      }
-      // verify the required parameter 'scenarioRunStartSolution' is set
-      if (scenarioRunStartSolution === undefined || scenarioRunStartSolution === null) {
-        throw new Error("Missing the required parameter 'scenarioRunStartSolution' when calling startScenarioRunSolution");
-      }
-
-      let pathParams = {
-        'organization_id': organizationId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = ScenarioRun;
-      return this.apiClient.callApi(
-        '/organizations/{organization_id}/scenarioruns/startsolution', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

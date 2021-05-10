@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import Dataset from '../model/Dataset';
+import DatasetCompatibility from '../model/DatasetCompatibility';
 import DatasetCopyParameters from '../model/DatasetCopyParameters';
 
 /**
@@ -34,6 +35,59 @@ export default class DatasetApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the addOrReplaceDatasetCompatibilityElements operation.
+     * @callback module:api/DatasetApi~addOrReplaceDatasetCompatibilityElementsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/DatasetCompatibility>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add Dataset Compatibility elements. Any item with the same solutionKey will be overwritten
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @param {Array.<module:model/DatasetCompatibility>} datasetCompatibility the Dataset Compatibility elements
+     * @param {module:api/DatasetApi~addOrReplaceDatasetCompatibilityElementsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/DatasetCompatibility>}
+     */
+    addOrReplaceDatasetCompatibilityElements(organizationId, datasetId, datasetCompatibility, callback) {
+      let postBody = datasetCompatibility;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling addOrReplaceDatasetCompatibilityElements");
+      }
+      // verify the required parameter 'datasetId' is set
+      if (datasetId === undefined || datasetId === null) {
+        throw new Error("Missing the required parameter 'datasetId' when calling addOrReplaceDatasetCompatibilityElements");
+      }
+      // verify the required parameter 'datasetCompatibility' is set
+      if (datasetCompatibility === undefined || datasetCompatibility === null) {
+        throw new Error("Missing the required parameter 'datasetCompatibility' when calling addOrReplaceDatasetCompatibilityElements");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'dataset_id': datasetId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [DatasetCompatibility];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/datasets/{dataset_id}/compatibility', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the copyDataset operation.
@@ -72,7 +126,7 @@ export default class DatasetApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = DatasetCopyParameters;
       return this.apiClient.callApi(
@@ -91,7 +145,7 @@ export default class DatasetApi {
      */
 
     /**
-     * Create a new dataset
+     * Create a new Dataset
      * @param {String} organizationId the Organization identifier
      * @param {module:model/Dataset} dataset the Dataset to create
      * @param {module:api/DatasetApi~createDatasetCallback} callback The callback function, accepting three arguments: error, data, response
@@ -119,7 +173,7 @@ export default class DatasetApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = Dataset;
       return this.apiClient.callApi(
@@ -133,7 +187,7 @@ export default class DatasetApi {
      * Callback function to receive the result of the deleteDataset operation.
      * @callback module:api/DatasetApi~deleteDatasetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Dataset} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -142,7 +196,6 @@ export default class DatasetApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
      * @param {module:api/DatasetApi~deleteDatasetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Dataset}
      */
     deleteDataset(organizationId, datasetId, callback) {
       let postBody = null;
@@ -168,8 +221,8 @@ export default class DatasetApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = Dataset;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/{dataset_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -228,7 +281,7 @@ export default class DatasetApi {
      */
 
     /**
-     * Get the details of a dataset
+     * Get the details of a Dataset
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
      * @param {module:api/DatasetApi~findDatasetByIdCallback} callback The callback function, accepting three arguments: error, data, response
@@ -262,6 +315,53 @@ export default class DatasetApi {
       let returnType = Dataset;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/{dataset_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the removeAllDatasetCompatibilityElements operation.
+     * @callback module:api/DatasetApi~removeAllDatasetCompatibilityElementsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove all Dataset Compatibility elements from the Dataset specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @param {module:api/DatasetApi~removeAllDatasetCompatibilityElementsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeAllDatasetCompatibilityElements(organizationId, datasetId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling removeAllDatasetCompatibilityElements");
+      }
+      // verify the required parameter 'datasetId' is set
+      if (datasetId === undefined || datasetId === null) {
+        throw new Error("Missing the required parameter 'datasetId' when calling removeAllDatasetCompatibilityElements");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'dataset_id': datasetId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/datasets/{dataset_id}/compatibility', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -310,7 +410,7 @@ export default class DatasetApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = Dataset;
       return this.apiClient.callApi(

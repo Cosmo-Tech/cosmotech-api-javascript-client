@@ -5,8 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | the User unique identifier, in response | [optional] [readonly] 
-**name** | **String** | the User name | 
-**organizationId** | **String** | the Organization Id context | [optional] [readonly] 
+**name** | **String** | the User name | [optional] 
 **roles** | **[String]** | the User&#39;s roles for the Organization | 
 
 

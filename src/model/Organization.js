@@ -25,11 +25,10 @@ class Organization {
      * Constructs a new <code>Organization</code>.
      * an Organization
      * @alias module:model/Organization
-     * @param name {String} the Organization name
      */
-    constructor(name) { 
+    constructor() { 
         
-        Organization.initialize(this, name);
+        Organization.initialize(this);
     }
 
     /**
@@ -37,8 +36,7 @@ class Organization {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
-        obj['name'] = name;
+    static initialize(obj) { 
     }
 
     /**

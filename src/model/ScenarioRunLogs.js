@@ -13,7 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import ScenarioRunContainerLogs from './ScenarioRunContainerLogs';
-import ScenarioRunLogsOptions from './ScenarioRunLogsOptions';
 
 /**
  * The ScenarioRunLogs model module.
@@ -53,32 +52,8 @@ class ScenarioRunLogs {
             if (data.hasOwnProperty('scenariorunId')) {
                 obj['scenariorunId'] = ApiClient.convertToType(data['scenariorunId'], 'String');
             }
-            if (data.hasOwnProperty('options')) {
-                obj['options'] = ScenarioRunLogsOptions.constructFromObject(data['options']);
-            }
-            if (data.hasOwnProperty('fetchDatasetLogs')) {
-                obj['fetchDatasetLogs'] = ApiClient.convertToType(data['fetchDatasetLogs'], [ScenarioRunContainerLogs]);
-            }
-            if (data.hasOwnProperty('fetchScenarioParametersLog')) {
-                obj['fetchScenarioParametersLog'] = ScenarioRunContainerLogs.constructFromObject(data['fetchScenarioParametersLog']);
-            }
-            if (data.hasOwnProperty('applyParametersLogs')) {
-                obj['applyParametersLogs'] = ScenarioRunContainerLogs.constructFromObject(data['applyParametersLogs']);
-            }
-            if (data.hasOwnProperty('validateDataLogs')) {
-                obj['validateDataLogs'] = ScenarioRunContainerLogs.constructFromObject(data['validateDataLogs']);
-            }
-            if (data.hasOwnProperty('sendDataWarehouseLogs')) {
-                obj['sendDataWarehouseLogs'] = ScenarioRunContainerLogs.constructFromObject(data['sendDataWarehouseLogs']);
-            }
-            if (data.hasOwnProperty('preRunLogs')) {
-                obj['preRunLogs'] = ScenarioRunContainerLogs.constructFromObject(data['preRunLogs']);
-            }
-            if (data.hasOwnProperty('runLogs')) {
-                obj['runLogs'] = ScenarioRunContainerLogs.constructFromObject(data['runLogs']);
-            }
-            if (data.hasOwnProperty('postRunLogs')) {
-                obj['postRunLogs'] = ScenarioRunContainerLogs.constructFromObject(data['postRunLogs']);
+            if (data.hasOwnProperty('containers')) {
+                obj['containers'] = ApiClient.convertToType(data['containers'], {'String': ScenarioRunContainerLogs});
             }
         }
         return obj;
@@ -94,50 +69,10 @@ class ScenarioRunLogs {
 ScenarioRunLogs.prototype['scenariorunId'] = undefined;
 
 /**
- * @member {module:model/ScenarioRunLogsOptions} options
+ * the container map of logs
+ * @member {Object.<String, module:model/ScenarioRunContainerLogs>} containers
  */
-ScenarioRunLogs.prototype['options'] = undefined;
-
-/**
- * logs for the containers which fetch the Scenario Datasets
- * @member {Array.<module:model/ScenarioRunContainerLogs>} fetchDatasetLogs
- */
-ScenarioRunLogs.prototype['fetchDatasetLogs'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainerLogs} fetchScenarioParametersLog
- */
-ScenarioRunLogs.prototype['fetchScenarioParametersLog'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainerLogs} applyParametersLogs
- */
-ScenarioRunLogs.prototype['applyParametersLogs'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainerLogs} validateDataLogs
- */
-ScenarioRunLogs.prototype['validateDataLogs'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainerLogs} sendDataWarehouseLogs
- */
-ScenarioRunLogs.prototype['sendDataWarehouseLogs'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainerLogs} preRunLogs
- */
-ScenarioRunLogs.prototype['preRunLogs'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainerLogs} runLogs
- */
-ScenarioRunLogs.prototype['runLogs'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainerLogs} postRunLogs
- */
-ScenarioRunLogs.prototype['postRunLogs'] = undefined;
+ScenarioRunLogs.prototype['containers'] = undefined;
 
 
 

@@ -66,12 +66,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property order (base name: "order")', function() {
-      // uncomment below and update the code to test the property order
-      //var instance = new CosmotechApi.RunTemplateParameterGroup();
-      //expect(instance).to.be();
-    });
-
     it('should have the property isTable (base name: "isTable")', function() {
       // uncomment below and update the code to test the property isTable
       //var instance = new CosmotechApi.RunTemplateParameterGroup();

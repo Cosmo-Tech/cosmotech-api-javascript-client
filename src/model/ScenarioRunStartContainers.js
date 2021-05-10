@@ -24,10 +24,11 @@ class ScenarioRunStartContainers {
      * Constructs a new <code>ScenarioRunStartContainers</code>.
      * the parameters to run directly containers
      * @alias module:model/ScenarioRunStartContainers
+     * @param containers {Array.<module:model/ScenarioRunContainer>} the containers map with name and ScenarioRunContainer
      */
-    constructor() { 
+    constructor(containers) { 
         
-        ScenarioRunStartContainers.initialize(this);
+        ScenarioRunStartContainers.initialize(this, containers);
     }
 
     /**
@@ -35,7 +36,8 @@ class ScenarioRunStartContainers {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, containers) { 
+        obj['containers'] = containers;
     }
 
     /**
@@ -49,32 +51,14 @@ class ScenarioRunStartContainers {
         if (data) {
             obj = obj || new ScenarioRunStartContainers();
 
+            if (data.hasOwnProperty('generateName')) {
+                obj['generateName'] = ApiClient.convertToType(data['generateName'], 'String');
+            }
             if (data.hasOwnProperty('nodeLabel')) {
                 obj['nodeLabel'] = ApiClient.convertToType(data['nodeLabel'], 'String');
             }
-            if (data.hasOwnProperty('fetchDatasetContainers')) {
-                obj['fetchDatasetContainers'] = ApiClient.convertToType(data['fetchDatasetContainers'], [ScenarioRunContainer]);
-            }
-            if (data.hasOwnProperty('fetchScenarioParametersContainer')) {
-                obj['fetchScenarioParametersContainer'] = ScenarioRunContainer.constructFromObject(data['fetchScenarioParametersContainer']);
-            }
-            if (data.hasOwnProperty('applyParametersContainer')) {
-                obj['applyParametersContainer'] = ScenarioRunContainer.constructFromObject(data['applyParametersContainer']);
-            }
-            if (data.hasOwnProperty('validateDataContainer')) {
-                obj['validateDataContainer'] = ScenarioRunContainer.constructFromObject(data['validateDataContainer']);
-            }
-            if (data.hasOwnProperty('sendDataWarehouseContainer')) {
-                obj['sendDataWarehouseContainer'] = ScenarioRunContainer.constructFromObject(data['sendDataWarehouseContainer']);
-            }
-            if (data.hasOwnProperty('preRunContainer')) {
-                obj['preRunContainer'] = ScenarioRunContainer.constructFromObject(data['preRunContainer']);
-            }
-            if (data.hasOwnProperty('runContainer')) {
-                obj['runContainer'] = ScenarioRunContainer.constructFromObject(data['runContainer']);
-            }
-            if (data.hasOwnProperty('postRunContainer')) {
-                obj['postRunContainer'] = ScenarioRunContainer.constructFromObject(data['postRunContainer']);
+            if (data.hasOwnProperty('containers')) {
+                obj['containers'] = ApiClient.convertToType(data['containers'], [ScenarioRunContainer]);
             }
         }
         return obj;
@@ -84,51 +68,22 @@ class ScenarioRunStartContainers {
 }
 
 /**
+ * the base name for workflow name generation
+ * @member {String} generateName
+ */
+ScenarioRunStartContainers.prototype['generateName'] = undefined;
+
+/**
  * the node label request
  * @member {String} nodeLabel
  */
 ScenarioRunStartContainers.prototype['nodeLabel'] = undefined;
 
 /**
- * the containers which fetch the Scenario Datasets
- * @member {Array.<module:model/ScenarioRunContainer>} fetchDatasetContainers
+ * the containers map with name and ScenarioRunContainer
+ * @member {Array.<module:model/ScenarioRunContainer>} containers
  */
-ScenarioRunStartContainers.prototype['fetchDatasetContainers'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainer} fetchScenarioParametersContainer
- */
-ScenarioRunStartContainers.prototype['fetchScenarioParametersContainer'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainer} applyParametersContainer
- */
-ScenarioRunStartContainers.prototype['applyParametersContainer'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainer} validateDataContainer
- */
-ScenarioRunStartContainers.prototype['validateDataContainer'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainer} sendDataWarehouseContainer
- */
-ScenarioRunStartContainers.prototype['sendDataWarehouseContainer'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainer} preRunContainer
- */
-ScenarioRunStartContainers.prototype['preRunContainer'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainer} runContainer
- */
-ScenarioRunStartContainers.prototype['runContainer'] = undefined;
-
-/**
- * @member {module:model/ScenarioRunContainer} postRunContainer
- */
-ScenarioRunStartContainers.prototype['postRunContainer'] = undefined;
+ScenarioRunStartContainers.prototype['containers'] = undefined;
 
 
 

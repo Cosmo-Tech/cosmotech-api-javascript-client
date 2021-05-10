@@ -72,12 +72,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property order (base name: "order")', function() {
-      // uncomment below and update the code to test the property order
-      //var instance = new CosmotechApi.RunTemplateParameter();
-      //expect(instance).to.be();
-    });
-
     it('should have the property options (base name: "options")', function() {
       // uncomment below and update the code to test the property options
       //var instance = new CosmotechApi.RunTemplateParameter();

@@ -24,12 +24,10 @@ class User {
      * Constructs a new <code>User</code>.
      * a User
      * @alias module:model/User
-     * @param name {String} the User name
-     * @param platformRoles {Array.<module:model/User.PlatformRolesEnum>} the list of Platform roles
      */
-    constructor(name, platformRoles) { 
+    constructor() { 
         
-        User.initialize(this, name, platformRoles);
+        User.initialize(this);
     }
 
     /**
@@ -37,9 +35,7 @@ class User {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, platformRoles) { 
-        obj['name'] = name;
-        obj['platformRoles'] = platformRoles;
+    static initialize(obj) { 
     }
 
     /**

@@ -12,8 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import ScenarioRunContainer from './ScenarioRunContainer';
-import ScenarioRunContainerLog from './ScenarioRunContainerLog';
 
 /**
  * The ScenarioRunContainerLogs model module.
@@ -50,17 +48,17 @@ class ScenarioRunContainerLogs {
         if (data) {
             obj = obj || new ScenarioRunContainerLogs();
 
-            if (data.hasOwnProperty('container')) {
-                obj['container'] = ScenarioRunContainer.constructFromObject(data['container']);
+            if (data.hasOwnProperty('nodeId')) {
+                obj['nodeId'] = ApiClient.convertToType(data['nodeId'], 'String');
             }
-            if (data.hasOwnProperty('computer')) {
-                obj['computer'] = ApiClient.convertToType(data['computer'], 'String');
+            if (data.hasOwnProperty('containerName')) {
+                obj['containerName'] = ApiClient.convertToType(data['containerName'], 'String');
+            }
+            if (data.hasOwnProperty('children')) {
+                obj['children'] = ApiClient.convertToType(data['children'], ['String']);
             }
             if (data.hasOwnProperty('logs')) {
-                obj['logs'] = ApiClient.convertToType(data['logs'], [ScenarioRunContainerLog]);
-            }
-            if (data.hasOwnProperty('textLog')) {
-                obj['textLog'] = ApiClient.convertToType(data['textLog'], 'String');
+                obj['logs'] = ApiClient.convertToType(data['logs'], 'String');
             }
         }
         return obj;
@@ -70,27 +68,28 @@ class ScenarioRunContainerLogs {
 }
 
 /**
- * @member {module:model/ScenarioRunContainer} container
+ * the node Id which has executed this log
+ * @member {String} nodeId
  */
-ScenarioRunContainerLogs.prototype['container'] = undefined;
+ScenarioRunContainerLogs.prototype['nodeId'] = undefined;
 
 /**
- * computer/node that's generating the log
- * @member {String} computer
+ * the container name
+ * @member {String} containerName
  */
-ScenarioRunContainerLogs.prototype['computer'] = undefined;
+ScenarioRunContainerLogs.prototype['containerName'] = undefined;
 
 /**
- * the list of container logs in structured format
- * @member {Array.<module:model/ScenarioRunContainerLog>} logs
+ * the list of children node id
+ * @member {Array.<String>} children
+ */
+ScenarioRunContainerLogs.prototype['children'] = undefined;
+
+/**
+ * the node logs in plain text
+ * @member {String} logs
  */
 ScenarioRunContainerLogs.prototype['logs'] = undefined;
-
-/**
- * the plain text log if plainText option has been set
- * @member {String} textLog
- */
-ScenarioRunContainerLogs.prototype['textLog'] = undefined;
 
 
 

@@ -22,7 +22,7 @@ class RunTemplateResourceStorage {
     /**
      * Constructs a new <code>RunTemplateResourceStorage</code>.
      * @alias module:model/RunTemplateResourceStorage
-     * @param storageType {module:model/RunTemplateResourceStorage.StorageTypeEnum} the storage type. Use ${CSM_PROJECT_PATH} or ${CSM_STORAGE_SIMULATOR} behind the scene
+     * @param storageType {module:model/RunTemplateResourceStorage.StorageTypeEnum} the storage type
      * @param resourcePath {String} the resource path
      */
     constructor(storageType, resourcePath) { 
@@ -57,8 +57,8 @@ class RunTemplateResourceStorage {
             if (data.hasOwnProperty('resourcePath')) {
                 obj['resourcePath'] = ApiClient.convertToType(data['resourcePath'], 'String');
             }
-            if (data.hasOwnProperty('customUri')) {
-                obj['customUri'] = ApiClient.convertToType(data['customUri'], 'String');
+            if (data.hasOwnProperty('storageOptions')) {
+                obj['storageOptions'] = ApiClient.convertToType(data['storageOptions'], {'String': Object});
             }
         }
         return obj;
@@ -68,7 +68,7 @@ class RunTemplateResourceStorage {
 }
 
 /**
- * the storage type. Use ${CSM_PROJECT_PATH} or ${CSM_STORAGE_SIMULATOR} behind the scene
+ * the storage type
  * @member {module:model/RunTemplateResourceStorage.StorageTypeEnum} storageType
  */
 RunTemplateResourceStorage.prototype['storageType'] = undefined;
@@ -80,10 +80,10 @@ RunTemplateResourceStorage.prototype['storageType'] = undefined;
 RunTemplateResourceStorage.prototype['resourcePath'] = undefined;
 
 /**
- * a custom Uri to provide the resource in resourcePath
- * @member {String} customUri
+ * freeform options for storage
+ * @member {Object.<String, Object>} storageOptions
  */
-RunTemplateResourceStorage.prototype['customUri'] = undefined;
+RunTemplateResourceStorage.prototype['storageOptions'] = undefined;
 
 
 
@@ -103,16 +103,10 @@ RunTemplateResourceStorage['StorageTypeEnum'] = {
     "local": "local",
 
     /**
-     * value: "cloud"
+     * value: "cloudStorage"
      * @const
      */
-    "cloud": "cloud",
-
-    /**
-     * value: "customUri"
-     * @const
-     */
-    "customUri": "customUri"
+    "cloudStorage": "cloudStorage"
 };
 
 

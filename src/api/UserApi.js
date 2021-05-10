@@ -156,7 +156,7 @@ export default class UserApi {
      */
 
     /**
-     * Get the details of an user
+     * Get the details of the logged-in User
      * @param {module:api/UserApi~getCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -192,7 +192,7 @@ export default class UserApi {
      */
 
     /**
-     * Get the details of an user with roles for an Organization
+     * Get the details of a logged-in User with roles for an Organization
      * @param {String} organizationId the Organization identifier
      * @param {module:api/UserApi~getOrganizationCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
@@ -234,7 +234,7 @@ export default class UserApi {
      */
 
     /**
-     * Get the details of an user with roles for a Workspace
+     * Get the details of the logged-in user with roles for a Workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {module:api/UserApi~getWorkspaceCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
@@ -304,7 +304,7 @@ export default class UserApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = User;
       return this.apiClient.callApi(
@@ -318,7 +318,7 @@ export default class UserApi {
      * Callback function to receive the result of the unregisterUser operation.
      * @callback module:api/UserApi~unregisterUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -326,7 +326,6 @@ export default class UserApi {
      * Unregister an user
      * @param {String} userId the User identifier
      * @param {module:api/UserApi~unregisterUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
      */
     unregisterUser(userId, callback) {
       let postBody = null;
@@ -347,8 +346,8 @@ export default class UserApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = User;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/users/{user_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -365,9 +364,9 @@ export default class UserApi {
      */
 
     /**
-     * Update an user
+     * Update a User
      * @param {String} userId the User identifier
-     * @param {module:model/User} user the new User details. Organization membership is handled in Organzation service.
+     * @param {module:model/User} user the new User details. Organization membership is handled via the /organizations endpoint.
      * @param {module:api/UserApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
@@ -393,7 +392,7 @@ export default class UserApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = User;
       return this.apiClient.callApi(

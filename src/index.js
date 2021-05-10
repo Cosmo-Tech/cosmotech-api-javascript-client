@@ -24,9 +24,6 @@ import Organization from './model/Organization';
 import OrganizationService from './model/OrganizationService';
 import OrganizationServices from './model/OrganizationServices';
 import OrganizationUser from './model/OrganizationUser';
-import Platform from './model/Platform';
-import PlatformService from './model/PlatformService';
-import PlatformServices from './model/PlatformServices';
 import RunTemplate from './model/RunTemplate';
 import RunTemplateParameter from './model/RunTemplateParameter';
 import RunTemplateParameterGroup from './model/RunTemplateParameterGroup';
@@ -37,14 +34,10 @@ import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
 import ScenarioRun from './model/ScenarioRun';
 import ScenarioRunContainer from './model/ScenarioRunContainer';
-import ScenarioRunContainerLog from './model/ScenarioRunContainerLog';
 import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
 import ScenarioRunLogs from './model/ScenarioRunLogs';
-import ScenarioRunLogsOptions from './model/ScenarioRunLogsOptions';
 import ScenarioRunSearch from './model/ScenarioRunSearch';
-import ScenarioRunStart from './model/ScenarioRunStart';
 import ScenarioRunStartContainers from './model/ScenarioRunStartContainers';
-import ScenarioRunStartSolution from './model/ScenarioRunStartSolution';
 import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParameterValue';
 import ScenarioUser from './model/ScenarioUser';
 import Solution from './model/Solution';
@@ -63,7 +56,6 @@ import WorkspaceWebApp from './model/WorkspaceWebApp';
 import ConnectorApi from './api/ConnectorApi';
 import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
-import PlatformApi from './api/PlatformApi';
 import ScenarioApi from './api/ScenarioApi';
 import ScenariorunApi from './api/ScenariorunApi';
 import SolutionApi from './api/SolutionApi';
@@ -177,24 +169,6 @@ export {
     OrganizationUser,
 
     /**
-     * The Platform model constructor.
-     * @property {module:model/Platform}
-     */
-    Platform,
-
-    /**
-     * The PlatformService model constructor.
-     * @property {module:model/PlatformService}
-     */
-    PlatformService,
-
-    /**
-     * The PlatformServices model constructor.
-     * @property {module:model/PlatformServices}
-     */
-    PlatformServices,
-
-    /**
      * The RunTemplate model constructor.
      * @property {module:model/RunTemplate}
      */
@@ -255,12 +229,6 @@ export {
     ScenarioRunContainer,
 
     /**
-     * The ScenarioRunContainerLog model constructor.
-     * @property {module:model/ScenarioRunContainerLog}
-     */
-    ScenarioRunContainerLog,
-
-    /**
      * The ScenarioRunContainerLogs model constructor.
      * @property {module:model/ScenarioRunContainerLogs}
      */
@@ -273,34 +241,16 @@ export {
     ScenarioRunLogs,
 
     /**
-     * The ScenarioRunLogsOptions model constructor.
-     * @property {module:model/ScenarioRunLogsOptions}
-     */
-    ScenarioRunLogsOptions,
-
-    /**
      * The ScenarioRunSearch model constructor.
      * @property {module:model/ScenarioRunSearch}
      */
     ScenarioRunSearch,
 
     /**
-     * The ScenarioRunStart model constructor.
-     * @property {module:model/ScenarioRunStart}
-     */
-    ScenarioRunStart,
-
-    /**
      * The ScenarioRunStartContainers model constructor.
      * @property {module:model/ScenarioRunStartContainers}
      */
     ScenarioRunStartContainers,
-
-    /**
-     * The ScenarioRunStartSolution model constructor.
-     * @property {module:model/ScenarioRunStartSolution}
-     */
-    ScenarioRunStartSolution,
 
     /**
      * The ScenarioRunTemplateParameterValue model constructor.
@@ -409,12 +359,6 @@ export {
     * @property {module:api/OrganizationApi}
     */
     OrganizationApi,
-
-    /**
-    * The PlatformApi service constructor.
-    * @property {module:api/PlatformApi}
-    */
-    PlatformApi,
 
     /**
     * The ScenarioApi service constructor.

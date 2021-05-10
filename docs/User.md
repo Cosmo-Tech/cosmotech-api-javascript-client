@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | the User unique identifier | [optional] [readonly] 
-**name** | **String** | the User name | 
-**platformRoles** | **[String]** | the list of Platform roles | 
+**name** | **String** | the User name | [optional] 
+**platformRoles** | **[String]** | the list of Platform roles | [optional] 
 **organizations** | [**[UserOrganization]**](UserOrganization.md) |  | [optional] [readonly] 
 
 

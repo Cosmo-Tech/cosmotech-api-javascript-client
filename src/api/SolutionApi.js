@@ -13,6 +13,9 @@
 
 
 import ApiClient from "../ApiClient";
+import RunTemplate from '../model/RunTemplate';
+import RunTemplateParameter from '../model/RunTemplateParameter';
+import RunTemplateParameterGroup from '../model/RunTemplateParameterGroup';
 import Solution from '../model/Solution';
 
 /**
@@ -33,6 +36,165 @@ export default class SolutionApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the addOrReplaceParameterGroups operation.
+     * @callback module:api/SolutionApi~addOrReplaceParameterGroupsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/RunTemplateParameterGroup>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add Parameter Groups. Any item with the same ID will be overwritten
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {Array.<module:model/RunTemplateParameterGroup>} runTemplateParameterGroup the Parameter Groups
+     * @param {module:api/SolutionApi~addOrReplaceParameterGroupsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/RunTemplateParameterGroup>}
+     */
+    addOrReplaceParameterGroups(organizationId, solutionId, runTemplateParameterGroup, callback) {
+      let postBody = runTemplateParameterGroup;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling addOrReplaceParameterGroups");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling addOrReplaceParameterGroups");
+      }
+      // verify the required parameter 'runTemplateParameterGroup' is set
+      if (runTemplateParameterGroup === undefined || runTemplateParameterGroup === null) {
+        throw new Error("Missing the required parameter 'runTemplateParameterGroup' when calling addOrReplaceParameterGroups");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [RunTemplateParameterGroup];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/parameterGroups', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the addOrReplaceParameters operation.
+     * @callback module:api/SolutionApi~addOrReplaceParametersCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/RunTemplateParameter>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add Parameters. Any item with the same ID will be overwritten
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {Array.<module:model/RunTemplateParameter>} runTemplateParameter the Parameters
+     * @param {module:api/SolutionApi~addOrReplaceParametersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/RunTemplateParameter>}
+     */
+    addOrReplaceParameters(organizationId, solutionId, runTemplateParameter, callback) {
+      let postBody = runTemplateParameter;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling addOrReplaceParameters");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling addOrReplaceParameters");
+      }
+      // verify the required parameter 'runTemplateParameter' is set
+      if (runTemplateParameter === undefined || runTemplateParameter === null) {
+        throw new Error("Missing the required parameter 'runTemplateParameter' when calling addOrReplaceParameters");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [RunTemplateParameter];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/parameters', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the addOrReplaceRunTemplates operation.
+     * @callback module:api/SolutionApi~addOrReplaceRunTemplatesCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/RunTemplate>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add Run Templates. Any item with the same ID will be overwritten
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {Array.<module:model/RunTemplate>} runTemplate the Run Templates
+     * @param {module:api/SolutionApi~addOrReplaceRunTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/RunTemplate>}
+     */
+    addOrReplaceRunTemplates(organizationId, solutionId, runTemplate, callback) {
+      let postBody = runTemplate;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling addOrReplaceRunTemplates");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling addOrReplaceRunTemplates");
+      }
+      // verify the required parameter 'runTemplate' is set
+      if (runTemplate === undefined || runTemplate === null) {
+        throw new Error("Missing the required parameter 'runTemplate' when calling addOrReplaceRunTemplates");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [RunTemplate];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/runTemplates', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the createSolution operation.
@@ -71,7 +233,7 @@ export default class SolutionApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = Solution;
       return this.apiClient.callApi(
@@ -85,7 +247,7 @@ export default class SolutionApi {
      * Callback function to receive the result of the deleteSolution operation.
      * @callback module:api/SolutionApi~deleteSolutionCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Solution} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -94,7 +256,6 @@ export default class SolutionApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
      * @param {module:api/SolutionApi~deleteSolutionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Solution}
      */
     deleteSolution(organizationId, solutionId, callback) {
       let postBody = null;
@@ -120,8 +281,8 @@ export default class SolutionApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = Solution;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -220,6 +381,147 @@ export default class SolutionApi {
     }
 
     /**
+     * Callback function to receive the result of the removeAllRunTemplates operation.
+     * @callback module:api/SolutionApi~removeAllRunTemplatesCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove all Run Templates from the Solution specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {module:api/SolutionApi~removeAllRunTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeAllRunTemplates(organizationId, solutionId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling removeAllRunTemplates");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling removeAllRunTemplates");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/runTemplates', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the removeAllSolutionParameterGroups operation.
+     * @callback module:api/SolutionApi~removeAllSolutionParameterGroupsCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove all Parameter Groups from the Solution specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {module:api/SolutionApi~removeAllSolutionParameterGroupsCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeAllSolutionParameterGroups(organizationId, solutionId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling removeAllSolutionParameterGroups");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling removeAllSolutionParameterGroups");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/parameterGroups', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the removeAllSolutionParameters operation.
+     * @callback module:api/SolutionApi~removeAllSolutionParametersCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove all Parameters from the Solution specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {module:api/SolutionApi~removeAllSolutionParametersCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeAllSolutionParameters(organizationId, solutionId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling removeAllSolutionParameters");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling removeAllSolutionParameters");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/parameters', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the updateSolution operation.
      * @callback module:api/SolutionApi~updateSolutionCallback
      * @param {String} error Error message, if any.
@@ -262,7 +564,7 @@ export default class SolutionApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = Solution;
       return this.apiClient.callApi(
@@ -273,33 +575,48 @@ export default class SolutionApi {
     }
 
     /**
-     * Callback function to receive the result of the upload operation.
-     * @callback module:api/SolutionApi~uploadCallback
+     * Callback function to receive the result of the uploadRunTemplateHandler operation.
+     * @callback module:api/SolutionApi~uploadRunTemplateHandlerCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Solution} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Upload and register a new solution
+     * Upload a Run Template step handler zip file
      * @param {String} organizationId the Organization identifier
-     * @param {File} body the Solution to upload and register
-     * @param {module:api/SolutionApi~uploadCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Solution}
+     * @param {String} solutionId the Solution identifier
+     * @param {String} runTemplateId the Run Template identifier
+     * @param {module:model/String} handlerId the Handler id identifier
+     * @param {Object} opts Optional parameters
+     * @param {File} opts.body 
+     * @param {module:api/SolutionApi~uploadRunTemplateHandlerCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    upload(organizationId, body, callback) {
-      let postBody = body;
+    uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['body'];
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling upload");
+        throw new Error("Missing the required parameter 'organizationId' when calling uploadRunTemplateHandler");
       }
-      // verify the required parameter 'body' is set
-      if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling upload");
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling uploadRunTemplateHandler");
+      }
+      // verify the required parameter 'runTemplateId' is set
+      if (runTemplateId === undefined || runTemplateId === null) {
+        throw new Error("Missing the required parameter 'runTemplateId' when calling uploadRunTemplateHandler");
+      }
+      // verify the required parameter 'handlerId' is set
+      if (handlerId === undefined || handlerId === null) {
+        throw new Error("Missing the required parameter 'handlerId' when calling uploadRunTemplateHandler");
       }
 
       let pathParams = {
-        'organization_id': organizationId
+        'organization_id': organizationId,
+        'solution_id': solutionId,
+        'run_template_id': runTemplateId,
+        'handler_id': handlerId
       };
       let queryParams = {
       };
@@ -309,11 +626,11 @@ export default class SolutionApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/yaml'];
-      let accepts = ['application/json'];
-      let returnType = Solution;
+      let contentTypes = ['image/zip'];
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/solutions/upload', 'POST',
+        '/organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/upload', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

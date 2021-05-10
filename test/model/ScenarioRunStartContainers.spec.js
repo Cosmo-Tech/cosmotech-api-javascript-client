@@ -54,56 +54,20 @@
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunStartContainers);
     });
 
+    it('should have the property generateName (base name: "generateName")', function() {
+      // uncomment below and update the code to test the property generateName
+      //var instance = new CosmotechApi.ScenarioRunStartContainers();
+      //expect(instance).to.be();
+    });
+
     it('should have the property nodeLabel (base name: "nodeLabel")', function() {
       // uncomment below and update the code to test the property nodeLabel
       //var instance = new CosmotechApi.ScenarioRunStartContainers();
       //expect(instance).to.be();
     });
 
-    it('should have the property fetchDatasetContainers (base name: "fetchDatasetContainers")', function() {
-      // uncomment below and update the code to test the property fetchDatasetContainers
-      //var instance = new CosmotechApi.ScenarioRunStartContainers();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property fetchScenarioParametersContainer (base name: "fetchScenarioParametersContainer")', function() {
-      // uncomment below and update the code to test the property fetchScenarioParametersContainer
-      //var instance = new CosmotechApi.ScenarioRunStartContainers();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property applyParametersContainer (base name: "applyParametersContainer")', function() {
-      // uncomment below and update the code to test the property applyParametersContainer
-      //var instance = new CosmotechApi.ScenarioRunStartContainers();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property validateDataContainer (base name: "validateDataContainer")', function() {
-      // uncomment below and update the code to test the property validateDataContainer
-      //var instance = new CosmotechApi.ScenarioRunStartContainers();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property sendDataWarehouseContainer (base name: "sendDataWarehouseContainer")', function() {
-      // uncomment below and update the code to test the property sendDataWarehouseContainer
-      //var instance = new CosmotechApi.ScenarioRunStartContainers();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property preRunContainer (base name: "preRunContainer")', function() {
-      // uncomment below and update the code to test the property preRunContainer
-      //var instance = new CosmotechApi.ScenarioRunStartContainers();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property runContainer (base name: "runContainer")', function() {
-      // uncomment below and update the code to test the property runContainer
-      //var instance = new CosmotechApi.ScenarioRunStartContainers();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property postRunContainer (base name: "postRunContainer")', function() {
-      // uncomment below and update the code to test the property postRunContainer
+    it('should have the property containers (base name: "containers")', function() {
+      // uncomment below and update the code to test the property containers
       //var instance = new CosmotechApi.ScenarioRunStartContainers();
       //expect(instance).to.be();
     });

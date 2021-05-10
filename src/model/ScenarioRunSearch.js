@@ -63,8 +63,11 @@ class ScenarioRunSearch {
             if (data.hasOwnProperty('state')) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
-            if (data.hasOwnProperty('jobId')) {
-                obj['jobId'] = ApiClient.convertToType(data['jobId'], 'String');
+            if (data.hasOwnProperty('workflowId')) {
+                obj['workflowId'] = ApiClient.convertToType(data['workflowId'], 'String');
+            }
+            if (data.hasOwnProperty('workflowName')) {
+                obj['workflowName'] = ApiClient.convertToType(data['workflowName'], 'String');
             }
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
@@ -107,10 +110,16 @@ ScenarioRunSearch.prototype['scenarioId'] = undefined;
 ScenarioRunSearch.prototype['state'] = undefined;
 
 /**
- * the Cosmo Tech compute cluster Job Id to search
- * @member {String} jobId
+ * the Cosmo Tech compute cluster Argo Workflow Id to search
+ * @member {String} workflowId
  */
-ScenarioRunSearch.prototype['jobId'] = undefined;
+ScenarioRunSearch.prototype['workflowId'] = undefined;
+
+/**
+ * the Cosmo Tech compute cluster Argo Workflow Name
+ * @member {String} workflowName
+ */
+ScenarioRunSearch.prototype['workflowName'] = undefined;
 
 /**
  * the owner Id to search

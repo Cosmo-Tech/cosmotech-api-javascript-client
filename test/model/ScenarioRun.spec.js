@@ -60,8 +60,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property jobId (base name: "jobId")', function() {
-      // uncomment below and update the code to test the property jobId
+    it('should have the property workflowId (base name: "workflowId")', function() {
+      // uncomment below and update the code to test the property workflowId
+      //var instance = new CosmotechApi.ScenarioRun();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property workflowName (base name: "workflowName")', function() {
+      // uncomment below and update the code to test the property workflowName
       //var instance = new CosmotechApi.ScenarioRun();
       //expect(instance).to.be();
     });

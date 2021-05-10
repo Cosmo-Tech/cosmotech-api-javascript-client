@@ -66,8 +66,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property customUri (base name: "customUri")', function() {
-      // uncomment below and update the code to test the property customUri
+    it('should have the property storageOptions (base name: "storageOptions")', function() {
+      // uncomment below and update the code to test the property storageOptions
       //var instance = new CosmotechApi.RunTemplateResourceStorage();
       //expect(instance).to.be();
     });

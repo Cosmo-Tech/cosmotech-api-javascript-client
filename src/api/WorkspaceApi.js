@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import Workspace from '../model/Workspace';
 import WorkspaceFile from '../model/WorkspaceFile';
+import WorkspaceUser from '../model/WorkspaceUser';
 
 /**
 * Workspace service.
@@ -34,6 +35,59 @@ export default class WorkspaceApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the addUsersToOrganizationWorkspace operation.
+     * @callback module:api/WorkspaceApi~addUsersToOrganizationWorkspaceCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/WorkspaceUser>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add (or replace) users to the Workspace specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {Array.<module:model/WorkspaceUser>} workspaceUser the Users to add. Any User with the same ID is overwritten
+     * @param {module:api/WorkspaceApi~addUsersToOrganizationWorkspaceCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/WorkspaceUser>}
+     */
+    addUsersToOrganizationWorkspace(organizationId, workspaceId, workspaceUser, callback) {
+      let postBody = workspaceUser;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling addUsersToOrganizationWorkspace");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling addUsersToOrganizationWorkspace");
+      }
+      // verify the required parameter 'workspaceUser' is set
+      if (workspaceUser === undefined || workspaceUser === null) {
+        throw new Error("Missing the required parameter 'workspaceUser' when calling addUsersToOrganizationWorkspace");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [WorkspaceUser];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/users', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the createWorkspace operation.
@@ -72,7 +126,7 @@ export default class WorkspaceApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = Workspace;
       return this.apiClient.callApi(
@@ -322,6 +376,53 @@ export default class WorkspaceApi {
     }
 
     /**
+     * Callback function to receive the result of the removeAllUsersOfWorkspace operation.
+     * @callback module:api/WorkspaceApi~removeAllUsersOfWorkspaceCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove all users from the Workspace specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {module:api/WorkspaceApi~removeAllUsersOfWorkspaceCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeAllUsersOfWorkspace(organizationId, workspaceId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling removeAllUsersOfWorkspace");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling removeAllUsersOfWorkspace");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/users', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the updateWorkspace operation.
      * @callback module:api/WorkspaceApi~updateWorkspaceCallback
      * @param {String} error Error message, if any.
@@ -364,7 +465,7 @@ export default class WorkspaceApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = ['application/json', 'application/yaml'];
       let accepts = ['application/json'];
       let returnType = Workspace;
       return this.apiClient.callApi(

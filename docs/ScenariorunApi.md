@@ -1,27 +1,24 @@
 # CosmotechApi.ScenariorunApi
 
-All URIs are relative to *http://localhost:8080*
+All URIs are relative to *https://api.azure.cosmo-platform.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteScenarioRun**](ScenariorunApi.md#deleteScenarioRun) | **DELETE** /organizations/{organization_id}/scenarioruns/{scenariorun_id} | Delete a scenariorun
 [**findScenarioRunById**](ScenariorunApi.md#findScenarioRunById) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id} | Get the details of a scenariorun
-[**getScenarioScenarioRun**](ScenariorunApi.md#getScenarioScenarioRun) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id} | get the ScenarioRun for the Scenario
-[**getScenarioScenarioRunLogs**](ScenariorunApi.md#getScenarioScenarioRunLogs) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id}/logs | get the logs for the ScenarioRun
-[**getScenarioScenarioRuns**](ScenariorunApi.md#getScenarioScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns | get the list of ScenarioRuns for the Scenario
+[**getScenarioRunCumulatedLogs**](ScenariorunApi.md#getScenarioRunCumulatedLogs) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/cumulatedlogs | Get the cumulated logs of a scenariorun
+[**getScenarioRunLogs**](ScenariorunApi.md#getScenarioRunLogs) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/logs | get the logs for the ScenarioRun
+[**getScenarioRuns**](ScenariorunApi.md#getScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns | get the list of ScenarioRuns for the Scenario
 [**getWorkspaceScenarioRuns**](ScenariorunApi.md#getWorkspaceScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarioruns | get the list of ScenarioRuns for the Workspace
 [**runScenario**](ScenariorunApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | run a ScenarioRun for the Scenario
-[**searchScenarioRunLogs**](ScenariorunApi.md#searchScenarioRunLogs) | **POST** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/logs/search | Search the logs of a scenariorun
 [**searchScenarioRuns**](ScenariorunApi.md#searchScenarioRuns) | **POST** /organizations/{organization_id}/scenarioruns/search | Search ScenarioRuns
 [**startScenarioRunContainers**](ScenariorunApi.md#startScenarioRunContainers) | **POST** /organizations/{organization_id}/scenarioruns/startcontainers | Start a new scenariorun with raw containers definition
-[**startScenarioRunScenario**](ScenariorunApi.md#startScenarioRunScenario) | **POST** /organizations/{organization_id}/scenarioruns/start | Start a new scenariorun for a Scenario
-[**startScenarioRunSolution**](ScenariorunApi.md#startScenarioRunSolution) | **POST** /organizations/{organization_id}/scenarioruns/startsolution | Start a new scenariorun for a Solution Run Template
 
 
 
 ## deleteScenarioRun
 
-> ScenarioRun deleteScenarioRun(organizationId, scenariorunId)
+> deleteScenarioRun(organizationId, scenariorunId)
 
 Delete a scenariorun
 
@@ -41,7 +38,7 @@ apiInstance.deleteScenarioRun(organizationId, scenariorunId, (error, data, respo
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -56,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ScenarioRun**](ScenarioRun.md)
+null (empty response body)
 
 ### Authorization
 
@@ -65,7 +62,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## findScenarioRunById
@@ -117,11 +114,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getScenarioScenarioRun
+## getScenarioRunCumulatedLogs
 
-> ScenarioRun getScenarioScenarioRun(organizationId, workspaceId, scenarioId, scenariorunId)
+> String getScenarioRunCumulatedLogs(organizationId, scenariorunId)
 
-get the ScenarioRun for the Scenario
+Get the cumulated logs of a scenariorun
 
 ### Example
 
@@ -134,10 +131,8 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let scenarioId = "scenarioId_example"; // String | the Scenario identifier
 let scenariorunId = "scenariorunId_example"; // String | the ScenarioRun identifier
-apiInstance.getScenarioScenarioRun(organizationId, workspaceId, scenarioId, scenariorunId, (error, data, response) => {
+apiInstance.getScenarioRunCumulatedLogs(organizationId, scenariorunId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -152,13 +147,11 @@ apiInstance.getScenarioScenarioRun(organizationId, workspaceId, scenarioId, scen
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
- **scenarioId** | **String**| the Scenario identifier | 
  **scenariorunId** | **String**| the ScenarioRun identifier | 
 
 ### Return type
 
-[**ScenarioRun**](ScenarioRun.md)
+**String**
 
 ### Authorization
 
@@ -167,12 +160,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: text/plain
 
 
-## getScenarioScenarioRunLogs
+## getScenarioRunLogs
 
-> ScenarioRunLogs getScenarioScenarioRunLogs(organizationId, workspaceId, scenarioId, scenariorunId)
+> ScenarioRunLogs getScenarioRunLogs(organizationId, scenariorunId)
 
 get the logs for the ScenarioRun
 
@@ -187,10 +180,8 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let scenarioId = "scenarioId_example"; // String | the Scenario identifier
 let scenariorunId = "scenariorunId_example"; // String | the ScenarioRun identifier
-apiInstance.getScenarioScenarioRunLogs(organizationId, workspaceId, scenarioId, scenariorunId, (error, data, response) => {
+apiInstance.getScenarioRunLogs(organizationId, scenariorunId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -205,8 +196,6 @@ apiInstance.getScenarioScenarioRunLogs(organizationId, workspaceId, scenarioId, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
- **scenarioId** | **String**| the Scenario identifier | 
  **scenariorunId** | **String**| the ScenarioRun identifier | 
 
 ### Return type
@@ -223,9 +212,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getScenarioScenarioRuns
+## getScenarioRuns
 
-> [ScenarioRun] getScenarioScenarioRuns(organizationId, workspaceId, scenarioId)
+> [ScenarioRun] getScenarioRuns(organizationId, workspaceId, scenarioId)
 
 get the list of ScenarioRuns for the Scenario
 
@@ -242,7 +231,7 @@ let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.getScenarioScenarioRuns(organizationId, workspaceId, scenarioId, (error, data, response) => {
+apiInstance.getScenarioRuns(organizationId, workspaceId, scenarioId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -374,57 +363,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## searchScenarioRunLogs
-
-> ScenarioRunLogs searchScenarioRunLogs(organizationId, scenariorunId, scenarioRunLogsOptions)
-
-Search the logs of a scenariorun
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.ScenariorunApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let scenariorunId = "scenariorunId_example"; // String | the ScenarioRun identifier
-let scenarioRunLogsOptions = new CosmotechApi.ScenarioRunLogsOptions(); // ScenarioRunLogsOptions | the options to search logs
-apiInstance.searchScenarioRunLogs(organizationId, scenariorunId, scenarioRunLogsOptions, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **scenariorunId** | **String**| the ScenarioRun identifier | 
- **scenarioRunLogsOptions** | [**ScenarioRunLogsOptions**](ScenarioRunLogsOptions.md)| the options to search logs | 
-
-### Return type
-
-[**ScenarioRunLogs**](ScenarioRunLogs.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## searchScenarioRuns
 
 > [ScenarioRun] searchScenarioRuns(organizationId, scenarioRunSearch)
@@ -470,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
@@ -519,104 +457,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## startScenarioRunScenario
-
-> ScenarioRun startScenarioRunScenario(organizationId, scenarioRunStart)
-
-Start a new scenariorun for a Scenario
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.ScenariorunApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let scenarioRunStart = new CosmotechApi.ScenarioRunStart(); // ScenarioRunStart | the Scenario information to start
-apiInstance.startScenarioRunScenario(organizationId, scenarioRunStart, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **scenarioRunStart** | [**ScenarioRunStart**](ScenarioRunStart.md)| the Scenario information to start | 
-
-### Return type
-
-[**ScenarioRun**](ScenarioRun.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## startScenarioRunSolution
-
-> ScenarioRun startScenarioRunSolution(organizationId, scenarioRunStartSolution)
-
-Start a new scenariorun for a Solution Run Template
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.ScenariorunApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let scenarioRunStartSolution = new CosmotechApi.ScenarioRunStartSolution(); // ScenarioRunStartSolution | the Solution Run Template information to start
-apiInstance.startScenarioRunSolution(organizationId, scenarioRunStartSolution, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **scenarioRunStartSolution** | [**ScenarioRunStartSolution**](ScenarioRunStartSolution.md)| the Solution Run Template information to start | 
-
-### Return type
-
-[**ScenarioRun**](ScenarioRun.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 

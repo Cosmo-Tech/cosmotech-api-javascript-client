@@ -23,10 +23,12 @@ class ScenarioRunContainer {
      * Constructs a new <code>ScenarioRunContainer</code>.
      * a ScenarioRun container description
      * @alias module:model/ScenarioRunContainer
+     * @param name {String} the container name
+     * @param image {String} the container image URI
      */
-    constructor() { 
+    constructor(name, image) { 
         
-        ScenarioRunContainer.initialize(this);
+        ScenarioRunContainer.initialize(this, name, image);
     }
 
     /**
@@ -34,7 +36,9 @@ class ScenarioRunContainer {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name, image) { 
+        obj['name'] = name;
+        obj['image'] = image;
     }
 
     /**
@@ -51,14 +55,23 @@ class ScenarioRunContainer {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
             if (data.hasOwnProperty('envVars')) {
-                obj['envVars'] = ApiClient.convertToType(data['envVars'], {'String': Object});
+                obj['envVars'] = ApiClient.convertToType(data['envVars'], {'String': 'String'});
             }
             if (data.hasOwnProperty('image')) {
                 obj['image'] = ApiClient.convertToType(data['image'], 'String');
             }
+            if (data.hasOwnProperty('entrypoint')) {
+                obj['entrypoint'] = ApiClient.convertToType(data['entrypoint'], 'String');
+            }
             if (data.hasOwnProperty('runArgs')) {
                 obj['runArgs'] = ApiClient.convertToType(data['runArgs'], ['String']);
+            }
+            if (data.hasOwnProperty('dependencies')) {
+                obj['dependencies'] = ApiClient.convertToType(data['dependencies'], ['String']);
             }
         }
         return obj;
@@ -74,8 +87,14 @@ class ScenarioRunContainer {
 ScenarioRunContainer.prototype['id'] = undefined;
 
 /**
- * a freeform environment variable map
- * @member {Object.<String, Object>} envVars
+ * the container name
+ * @member {String} name
+ */
+ScenarioRunContainer.prototype['name'] = undefined;
+
+/**
+ * environment variable map
+ * @member {Object.<String, String>} envVars
  */
 ScenarioRunContainer.prototype['envVars'] = undefined;
 
@@ -86,10 +105,22 @@ ScenarioRunContainer.prototype['envVars'] = undefined;
 ScenarioRunContainer.prototype['image'] = undefined;
 
 /**
+ * the container entry point
+ * @member {String} entrypoint
+ */
+ScenarioRunContainer.prototype['entrypoint'] = undefined;
+
+/**
  * the list of run arguments for the container
  * @member {Array.<String>} runArgs
  */
 ScenarioRunContainer.prototype['runArgs'] = undefined;
+
+/**
+ * the list of dependencies container name to run this container
+ * @member {Array.<String>} dependencies
+ */
+ScenarioRunContainer.prototype['dependencies'] = undefined;
 
 
 

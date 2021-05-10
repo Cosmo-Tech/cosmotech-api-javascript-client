@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be();
+    });
+
     it('should have the property envVars (base name: "envVars")', function() {
       // uncomment below and update the code to test the property envVars
       //var instance = new CosmotechApi.ScenarioRunContainer();
@@ -72,8 +78,20 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property entrypoint (base name: "entrypoint")', function() {
+      // uncomment below and update the code to test the property entrypoint
+      //var instance = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be();
+    });
+
     it('should have the property runArgs (base name: "runArgs")', function() {
       // uncomment below and update the code to test the property runArgs
+      //var instance = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dependencies (base name: "dependencies")', function() {
+      // uncomment below and update the code to test the property dependencies
       //var instance = new CosmotechApi.ScenarioRunContainer();
       //expect(instance).to.be();
     });
