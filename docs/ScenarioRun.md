@@ -1,0 +1,57 @@
+# CosmotechApi.ScenarioRun
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **String** | the ScenarioRun | [optional] [readonly] 
+**workflowId** | **String** | the Cosmo Tech compute cluster Argo Workflow Id to search | [optional] 
+**generateName** | **String** | the base name for workflow name generation | [optional] 
+**workflowName** | **String** | the Cosmo Tech compute cluster Argo Workflow Name | [optional] 
+**ownerId** | **String** | the user id which own this scenariorun | [optional] [readonly] 
+**workspaceId** | **String** | the Workspace Id | [optional] [readonly] 
+**workspaceKey** | **String** | technical key for resource name convention and version grouping. Must be unique | [optional] [readonly] 
+**scenarioId** | **String** | the Scenario Id | [optional] [readonly] 
+**solutionId** | **String** | the Solution Id | [optional] [readonly] 
+**runTemplateId** | **String** | the Solution Run Template id | [optional] [readonly] 
+**computeSize** | **String** | the compute size needed for this Analysis. Standard sizes are basic and highcpu. Default is basic | [optional] [readonly] 
+**state** | **String** | the ScenarioRun state | [optional] [readonly] 
+**failedStep** | **String** | the failed step if state is Failed | [optional] [readonly] 
+**failedContainerId** | **String** | the failed container Id if state is Failed | [optional] [readonly] 
+**startTime** | **String** | the ScenarioRun start Date Time | [optional] [readonly] 
+**endTime** | **String** | the ScenarioRun end Date Time | [optional] [readonly] 
+**datasetList** | **[String]** | the list of Dataset Id associated to this Analysis | [optional] [readonly] 
+**parametersValues** | [**[RunTemplateParameterValue]**](RunTemplateParameterValue.md) | the list of Run Template parameters values | [optional] [readonly] 
+**sendDatasetsToDataWarehouse** | **Boolean** | whether or not the Datasets values are send to the DataWarehouse prior to Simulation Run. If not set follow the Workspace setting | [optional] [readonly] 
+**sendInputParametersToDataWarehouse** | **Boolean** | whether or not the input parameters values are send to the DataWarehouse prior to Simulation Run. If not set follow the Workspace setting | [optional] [readonly] 
+**nodeLabel** | **String** | the node label request | [optional] [readonly] 
+**containers** | [**[ScenarioRunContainer]**](ScenarioRunContainer.md) | the containers list | [optional] 
+
+
+
+## Enum: StateEnum
+
+
+* `FetchingDatasets` (value: `"FetchingDatasets"`)
+
+* `FetchingScenarioParameters` (value: `"FetchingScenarioParameters"`)
+
+* `ApplyingScenarioParameters` (value: `"ApplyingScenarioParameters"`)
+
+* `ValidatingScenarioData` (value: `"ValidatingScenarioData"`)
+
+* `SendingScenarioDataToDataWarehouse` (value: `"SendingScenarioDataToDataWarehouse"`)
+
+* `PreRun` (value: `"PreRun"`)
+
+* `Running` (value: `"Running"`)
+
+* `PostRun` (value: `"PostRun"`)
+
+* `Success` (value: `"Success"`)
+
+* `Failed` (value: `"Failed"`)
+
+
+
+
