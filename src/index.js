@@ -25,6 +25,7 @@ import OrganizationService from './model/OrganizationService';
 import OrganizationServices from './model/OrganizationServices';
 import OrganizationUser from './model/OrganizationUser';
 import RunTemplate from './model/RunTemplate';
+import RunTemplateHandlerId from './model/RunTemplateHandlerId';
 import RunTemplateParameter from './model/RunTemplateParameter';
 import RunTemplateParameterGroup from './model/RunTemplateParameterGroup';
 import RunTemplateParameterValue from './model/RunTemplateParameterValue';
@@ -38,6 +39,8 @@ import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
 import ScenarioRunLogs from './model/ScenarioRunLogs';
 import ScenarioRunSearch from './model/ScenarioRunSearch';
 import ScenarioRunStartContainers from './model/ScenarioRunStartContainers';
+import ScenarioRunStatus from './model/ScenarioRunStatus';
+import ScenarioRunStatusNode from './model/ScenarioRunStatusNode';
 import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParameterValue';
 import ScenarioUser from './model/ScenarioUser';
 import Solution from './model/Solution';
@@ -173,6 +176,12 @@ export {
     RunTemplate,
 
     /**
+     * The RunTemplateHandlerId model constructor.
+     * @property {module:model/RunTemplateHandlerId}
+     */
+    RunTemplateHandlerId,
+
+    /**
      * The RunTemplateParameter model constructor.
      * @property {module:model/RunTemplateParameter}
      */
@@ -249,6 +258,18 @@ export {
      * @property {module:model/ScenarioRunStartContainers}
      */
     ScenarioRunStartContainers,
+
+    /**
+     * The ScenarioRunStatus model constructor.
+     * @property {module:model/ScenarioRunStatus}
+     */
+    ScenarioRunStatus,
+
+    /**
+     * The ScenarioRunStatusNode model constructor.
+     * @property {module:model/ScenarioRunStatusNode}
+     */
+    ScenarioRunStatusNode,
 
     /**
      * The ScenarioRunTemplateParameterValue model constructor.

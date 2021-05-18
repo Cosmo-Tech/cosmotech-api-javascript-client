@@ -17,6 +17,7 @@ import ScenarioRun from '../model/ScenarioRun';
 import ScenarioRunLogs from '../model/ScenarioRunLogs';
 import ScenarioRunSearch from '../model/ScenarioRunSearch';
 import ScenarioRunStartContainers from '../model/ScenarioRunStartContainers';
+import ScenarioRunStatus from '../model/ScenarioRunStatus';
 
 /**
 * Scenariorun service.
@@ -223,6 +224,54 @@ export default class ScenariorunApi {
       let returnType = ScenarioRunLogs;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/logs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getScenarioRunStatus operation.
+     * @callback module:api/ScenariorunApi~getScenarioRunStatusCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ScenarioRunStatus} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * get the status for the ScenarioRun
+     * @param {String} organizationId the Organization identifier
+     * @param {String} scenariorunId the ScenarioRun identifier
+     * @param {module:api/ScenariorunApi~getScenarioRunStatusCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ScenarioRunStatus}
+     */
+    getScenarioRunStatus(organizationId, scenariorunId, callback) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getScenarioRunStatus");
+      }
+      // verify the required parameter 'scenariorunId' is set
+      if (scenariorunId === undefined || scenariorunId === null) {
+        throw new Error("Missing the required parameter 'scenariorunId' when calling getScenarioRunStatus");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'scenariorun_id': scenariorunId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ScenarioRunStatus;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

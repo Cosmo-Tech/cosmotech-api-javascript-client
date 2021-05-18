@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property organizationId (base name: "organizationId")', function() {
+      // uncomment below and update the code to test the property organizationId
+      //var instance = new CosmotechApi.ScenarioRun();
+      //expect(instance).to.be();
+    });
+
     it('should have the property workflowId (base name: "workflowId")', function() {
       // uncomment below and update the code to test the property workflowId
       //var instance = new CosmotechApi.ScenarioRun();
@@ -116,36 +122,6 @@
 
     it('should have the property computeSize (base name: "computeSize")', function() {
       // uncomment below and update the code to test the property computeSize
-      //var instance = new CosmotechApi.ScenarioRun();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property state (base name: "state")', function() {
-      // uncomment below and update the code to test the property state
-      //var instance = new CosmotechApi.ScenarioRun();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property failedStep (base name: "failedStep")', function() {
-      // uncomment below and update the code to test the property failedStep
-      //var instance = new CosmotechApi.ScenarioRun();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property failedContainerId (base name: "failedContainerId")', function() {
-      // uncomment below and update the code to test the property failedContainerId
-      //var instance = new CosmotechApi.ScenarioRun();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property startTime (base name: "startTime")', function() {
-      // uncomment below and update the code to test the property startTime
-      //var instance = new CosmotechApi.ScenarioRun();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property endTime (base name: "endTime")', function() {
-      // uncomment below and update the code to test the property endTime
       //var instance = new CosmotechApi.ScenarioRun();
       //expect(instance).to.be();
     });

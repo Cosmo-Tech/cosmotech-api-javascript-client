@@ -53,6 +53,9 @@ class ScenarioRun {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('organizationId')) {
+                obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
+            }
             if (data.hasOwnProperty('workflowId')) {
                 obj['workflowId'] = ApiClient.convertToType(data['workflowId'], 'String');
             }
@@ -82,21 +85,6 @@ class ScenarioRun {
             }
             if (data.hasOwnProperty('computeSize')) {
                 obj['computeSize'] = ApiClient.convertToType(data['computeSize'], 'String');
-            }
-            if (data.hasOwnProperty('state')) {
-                obj['state'] = ApiClient.convertToType(data['state'], 'String');
-            }
-            if (data.hasOwnProperty('failedStep')) {
-                obj['failedStep'] = ApiClient.convertToType(data['failedStep'], 'String');
-            }
-            if (data.hasOwnProperty('failedContainerId')) {
-                obj['failedContainerId'] = ApiClient.convertToType(data['failedContainerId'], 'String');
-            }
-            if (data.hasOwnProperty('startTime')) {
-                obj['startTime'] = ApiClient.convertToType(data['startTime'], 'String');
-            }
-            if (data.hasOwnProperty('endTime')) {
-                obj['endTime'] = ApiClient.convertToType(data['endTime'], 'String');
             }
             if (data.hasOwnProperty('datasetList')) {
                 obj['datasetList'] = ApiClient.convertToType(data['datasetList'], ['String']);
@@ -128,6 +116,12 @@ class ScenarioRun {
  * @member {String} id
  */
 ScenarioRun.prototype['id'] = undefined;
+
+/**
+ * the Organization id
+ * @member {String} organizationId
+ */
+ScenarioRun.prototype['organizationId'] = undefined;
 
 /**
  * the Cosmo Tech compute cluster Argo Workflow Id to search
@@ -190,36 +184,6 @@ ScenarioRun.prototype['runTemplateId'] = undefined;
 ScenarioRun.prototype['computeSize'] = undefined;
 
 /**
- * the ScenarioRun state
- * @member {module:model/ScenarioRun.StateEnum} state
- */
-ScenarioRun.prototype['state'] = undefined;
-
-/**
- * the failed step if state is Failed
- * @member {String} failedStep
- */
-ScenarioRun.prototype['failedStep'] = undefined;
-
-/**
- * the failed container Id if state is Failed
- * @member {String} failedContainerId
- */
-ScenarioRun.prototype['failedContainerId'] = undefined;
-
-/**
- * the ScenarioRun start Date Time
- * @member {String} startTime
- */
-ScenarioRun.prototype['startTime'] = undefined;
-
-/**
- * the ScenarioRun end Date Time
- * @member {String} endTime
- */
-ScenarioRun.prototype['endTime'] = undefined;
-
-/**
  * the list of Dataset Id associated to this Analysis
  * @member {Array.<String>} datasetList
  */
@@ -257,75 +221,6 @@ ScenarioRun.prototype['containers'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>state</code> property.
- * @enum {String}
- * @readonly
- */
-ScenarioRun['StateEnum'] = {
-
-    /**
-     * value: "FetchingDatasets"
-     * @const
-     */
-    "FetchingDatasets": "FetchingDatasets",
-
-    /**
-     * value: "FetchingScenarioParameters"
-     * @const
-     */
-    "FetchingScenarioParameters": "FetchingScenarioParameters",
-
-    /**
-     * value: "ApplyingScenarioParameters"
-     * @const
-     */
-    "ApplyingScenarioParameters": "ApplyingScenarioParameters",
-
-    /**
-     * value: "ValidatingScenarioData"
-     * @const
-     */
-    "ValidatingScenarioData": "ValidatingScenarioData",
-
-    /**
-     * value: "SendingScenarioDataToDataWarehouse"
-     * @const
-     */
-    "SendingScenarioDataToDataWarehouse": "SendingScenarioDataToDataWarehouse",
-
-    /**
-     * value: "PreRun"
-     * @const
-     */
-    "PreRun": "PreRun",
-
-    /**
-     * value: "Running"
-     * @const
-     */
-    "Running": "Running",
-
-    /**
-     * value: "PostRun"
-     * @const
-     */
-    "PostRun": "PostRun",
-
-    /**
-     * value: "Success"
-     * @const
-     */
-    "Success": "Success",
-
-    /**
-     * value: "Failed"
-     * @const
-     */
-    "Failed": "Failed"
-};
 
 
 

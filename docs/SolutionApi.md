@@ -9,12 +9,14 @@ Method | HTTP request | Description
 [**addOrReplaceRunTemplates**](SolutionApi.md#addOrReplaceRunTemplates) | **POST** /organizations/{organization_id}/solutions/{solution_id}/runTemplates | Add Run Templates. Any item with the same ID will be overwritten
 [**createSolution**](SolutionApi.md#createSolution) | **POST** /organizations/{organization_id}/solutions | Register a new solution
 [**deleteSolution**](SolutionApi.md#deleteSolution) | **DELETE** /organizations/{organization_id}/solutions/{solution_id} | Delete a solution
+[**deleteSolutionRunTemplate**](SolutionApi.md#deleteSolutionRunTemplate) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/runTemplates/{run_template_id} | Remove the specified Solution Run Template
 [**findAllSolutions**](SolutionApi.md#findAllSolutions) | **GET** /organizations/{organization_id}/solutions | List all Solutions
 [**findSolutionById**](SolutionApi.md#findSolutionById) | **GET** /organizations/{organization_id}/solutions/{solution_id} | Get the details of a solution
 [**removeAllRunTemplates**](SolutionApi.md#removeAllRunTemplates) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/runTemplates | Remove all Run Templates from the Solution specified
 [**removeAllSolutionParameterGroups**](SolutionApi.md#removeAllSolutionParameterGroups) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/parameterGroups | Remove all Parameter Groups from the Solution specified
 [**removeAllSolutionParameters**](SolutionApi.md#removeAllSolutionParameters) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/parameters | Remove all Parameters from the Solution specified
 [**updateSolution**](SolutionApi.md#updateSolution) | **PATCH** /organizations/{organization_id}/solutions/{solution_id} | Update a solution
+[**updateSolutionRunTemplate**](SolutionApi.md#updateSolutionRunTemplate) | **PATCH** /organizations/{organization_id}/solutions/{solution_id}/runTemplates/{run_template_id} | Update the specified Solution Run Template
 [**uploadRunTemplateHandler**](SolutionApi.md#uploadRunTemplateHandler) | **POST** /organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/upload | Upload a Run Template step handler zip file
 
 
@@ -255,6 +257,57 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **solutionId** | **String**| the Solution identifier | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## deleteSolutionRunTemplate
+
+> deleteSolutionRunTemplate(organizationId, solutionId, runTemplateId)
+
+Remove the specified Solution Run Template
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
+apiInstance.deleteSolutionRunTemplate(organizationId, solutionId, runTemplateId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+ **runTemplateId** | **String**| the Run Template identifier | 
 
 ### Return type
 
@@ -564,9 +617,62 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## updateSolutionRunTemplate
+
+> [RunTemplate] updateSolutionRunTemplate(organizationId, solutionId, runTemplateId, runTemplate)
+
+Update the specified Solution Run Template
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
+let runTemplate = new CosmotechApi.RunTemplate(); // RunTemplate | the Run Templates
+apiInstance.updateSolutionRunTemplate(organizationId, solutionId, runTemplateId, runTemplate, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+ **runTemplateId** | **String**| the Run Template identifier | 
+ **runTemplate** | [**RunTemplate**](RunTemplate.md)| the Run Templates | 
+
+### Return type
+
+[**[RunTemplate]**](RunTemplate.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
+
+
 ## uploadRunTemplateHandler
 
-> uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, opts)
+> uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, body, opts)
 
 Upload a Run Template step handler zip file
 
@@ -583,11 +689,12 @@ let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
 let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
-let handlerId = "handlerId_example"; // String | the Handler id identifier
+let handlerId = new CosmotechApi.RunTemplateHandlerId(); // RunTemplateHandlerId | the Handler identifier
+let body = "/path/to/file"; // File | 
 let opts = {
-  'body': "/path/to/file" // File | 
+  'overwrite': false // Boolean | whether to overwrite any existing handler resource
 };
-apiInstance.uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, opts, (error, data, response) => {
+apiInstance.uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, body, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -604,8 +711,9 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **solutionId** | **String**| the Solution identifier | 
  **runTemplateId** | **String**| the Run Template identifier | 
- **handlerId** | **String**| the Handler id identifier | 
- **body** | **File**|  | [optional] 
+ **handlerId** | [**RunTemplateHandlerId**](.md)| the Handler identifier | 
+ **body** | **File**|  | 
+ **overwrite** | **Boolean**| whether to overwrite any existing handler resource | [optional] [default to false]
 
 ### Return type
 
@@ -617,6 +725,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: image/zip
+- **Content-Type**: application/octet-stream
 - **Accept**: Not defined
 
