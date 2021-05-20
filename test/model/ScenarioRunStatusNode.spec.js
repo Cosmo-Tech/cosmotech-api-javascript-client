@@ -66,8 +66,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property displayName (base name: "displayName")', function() {
-      // uncomment below and update the code to test the property displayName
+    it('should have the property containerName (base name: "containerName")', function() {
+      // uncomment below and update the code to test the property containerName
       //var instance = new CosmotechApi.ScenarioRunStatusNode();
       //expect(instance).to.be();
     });

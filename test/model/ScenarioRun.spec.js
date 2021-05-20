@@ -72,6 +72,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property csmSimulationRun (base name: "csmSimulationRun")', function() {
+      // uncomment below and update the code to test the property csmSimulationRun
+      //var instance = new CosmotechApi.ScenarioRun();
+      //expect(instance).to.be();
+    });
+
     it('should have the property generateName (base name: "generateName")', function() {
       // uncomment below and update the code to test the property generateName
       //var instance = new CosmotechApi.ScenarioRun();

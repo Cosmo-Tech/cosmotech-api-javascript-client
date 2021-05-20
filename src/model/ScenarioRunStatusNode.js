@@ -54,8 +54,8 @@ class ScenarioRunStatusNode {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('displayName')) {
-                obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
+            if (data.hasOwnProperty('containerName')) {
+                obj['containerName'] = ApiClient.convertToType(data['containerName'], 'String');
             }
             if (data.hasOwnProperty('estimatedDuration')) {
                 obj['estimatedDuration'] = ApiClient.convertToType(data['estimatedDuration'], 'Number');
@@ -98,10 +98,10 @@ ScenarioRunStatusNode.prototype['id'] = undefined;
 ScenarioRunStatusNode.prototype['name'] = undefined;
 
 /**
- * the display name, equivalent to ScenarioRun Container name
- * @member {String} displayName
+ * the ScenarioRun container name
+ * @member {String} containerName
  */
-ScenarioRunStatusNode.prototype['displayName'] = undefined;
+ScenarioRunStatusNode.prototype['containerName'] = undefined;
 
 /**
  * estimatedDuration in seconds

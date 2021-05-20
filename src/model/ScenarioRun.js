@@ -59,6 +59,9 @@ class ScenarioRun {
             if (data.hasOwnProperty('workflowId')) {
                 obj['workflowId'] = ApiClient.convertToType(data['workflowId'], 'String');
             }
+            if (data.hasOwnProperty('csmSimulationRun')) {
+                obj['csmSimulationRun'] = ApiClient.convertToType(data['csmSimulationRun'], 'String');
+            }
             if (data.hasOwnProperty('generateName')) {
                 obj['generateName'] = ApiClient.convertToType(data['generateName'], 'String');
             }
@@ -128,6 +131,12 @@ ScenarioRun.prototype['organizationId'] = undefined;
  * @member {String} workflowId
  */
 ScenarioRun.prototype['workflowId'] = undefined;
+
+/**
+ * the Cosmo Tech Simulation Run Id
+ * @member {String} csmSimulationRun
+ */
+ScenarioRun.prototype['csmSimulationRun'] = undefined;
 
 /**
  * the base name for workflow name generation

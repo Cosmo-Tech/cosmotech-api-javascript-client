@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property csmSimulationId (base name: "csmSimulationId")', function() {
+      // uncomment below and update the code to test the property csmSimulationId
+      //var instance = new CosmotechApi.ScenarioRunStartContainers();
+      //expect(instance).to.be();
+    });
+
     it('should have the property nodeLabel (base name: "nodeLabel")', function() {
       // uncomment below and update the code to test the property nodeLabel
       //var instance = new CosmotechApi.ScenarioRunStartContainers();

@@ -24,11 +24,12 @@ class ScenarioRunStartContainers {
      * Constructs a new <code>ScenarioRunStartContainers</code>.
      * the parameters to run directly containers
      * @alias module:model/ScenarioRunStartContainers
+     * @param csmSimulationId {String} Cosmo Tech Simulation Run Id
      * @param containers {Array.<module:model/ScenarioRunContainer>} the containerslist
      */
-    constructor(containers) { 
+    constructor(csmSimulationId, containers) { 
         
-        ScenarioRunStartContainers.initialize(this, containers);
+        ScenarioRunStartContainers.initialize(this, csmSimulationId, containers);
     }
 
     /**
@@ -36,7 +37,8 @@ class ScenarioRunStartContainers {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, containers) { 
+    static initialize(obj, csmSimulationId, containers) { 
+        obj['csmSimulationId'] = csmSimulationId;
         obj['containers'] = containers;
     }
 
@@ -53,6 +55,9 @@ class ScenarioRunStartContainers {
 
             if (data.hasOwnProperty('generateName')) {
                 obj['generateName'] = ApiClient.convertToType(data['generateName'], 'String');
+            }
+            if (data.hasOwnProperty('csmSimulationId')) {
+                obj['csmSimulationId'] = ApiClient.convertToType(data['csmSimulationId'], 'String');
             }
             if (data.hasOwnProperty('nodeLabel')) {
                 obj['nodeLabel'] = ApiClient.convertToType(data['nodeLabel'], 'String');
@@ -72,6 +77,12 @@ class ScenarioRunStartContainers {
  * @member {String} generateName
  */
 ScenarioRunStartContainers.prototype['generateName'] = undefined;
+
+/**
+ * Cosmo Tech Simulation Run Id
+ * @member {String} csmSimulationId
+ */
+ScenarioRunStartContainers.prototype['csmSimulationId'] = undefined;
 
 /**
  * the node label request
