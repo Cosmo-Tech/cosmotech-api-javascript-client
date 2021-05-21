@@ -190,6 +190,7 @@ Class | Method | HTTP request | Description
 *CosmotechApi.UserApi* | [**getOrganizationCurrentUser**](docs/UserApi.md#getOrganizationCurrentUser) | **GET** /organizations/{organization_id}/me | Get the details of a logged-in User with roles for an Organization
 *CosmotechApi.UserApi* | [**getWorkspaceCurrentUser**](docs/UserApi.md#getWorkspaceCurrentUser) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/me | Get the details of the logged-in user with roles for a Workspace
 *CosmotechApi.UserApi* | [**registerUser**](docs/UserApi.md#registerUser) | **POST** /users | Register a new user
+*CosmotechApi.UserApi* | [**testPlatform**](docs/UserApi.md#testPlatform) | **GET** /test | test platform API call
 *CosmotechApi.UserApi* | [**unregisterUser**](docs/UserApi.md#unregisterUser) | **DELETE** /users/{user_id} | Unregister an user
 *CosmotechApi.UserApi* | [**updateUser**](docs/UserApi.md#updateUser) | **PATCH** /users/{user_id} | Update a User
 *CosmotechApi.ValidatorApi* | [**createValidator**](docs/ValidatorApi.md#createValidator) | **POST** /organizations/{organization_id}/datasets/validators | Register a new validator

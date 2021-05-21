@@ -98,6 +98,9 @@ class RunTemplate {
             if (data.hasOwnProperty('postRun')) {
                 obj['postRun'] = ApiClient.convertToType(data['postRun'], 'Boolean');
             }
+            if (data.hasOwnProperty('parametersJson')) {
+                obj['parametersJson'] = ApiClient.convertToType(data['parametersJson'], 'Boolean');
+            }
             if (data.hasOwnProperty('parametersHandlerSource')) {
                 obj['parametersHandlerSource'] = RunTemplateStepSource.constructFromObject(data['parametersHandlerSource']);
             }
@@ -212,6 +215,12 @@ RunTemplate.prototype['run'] = undefined;
  * @member {Boolean} postRun
  */
 RunTemplate.prototype['postRun'] = undefined;
+
+/**
+ * whether or not to store the scenario parameters in json instead of csv
+ * @member {Boolean} parametersJson
+ */
+RunTemplate.prototype['parametersJson'] = undefined;
 
 /**
  * @member {module:model/RunTemplateStepSource} parametersHandlerSource

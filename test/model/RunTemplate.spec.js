@@ -144,6 +144,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property parametersJson (base name: "parametersJson")', function() {
+      // uncomment below and update the code to test the property parametersJson
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
     it('should have the property parametersHandlerSource (base name: "parametersHandlerSource")', function() {
       // uncomment below and update the code to test the property parametersHandlerSource
       //var instance = new CosmotechApi.RunTemplate();

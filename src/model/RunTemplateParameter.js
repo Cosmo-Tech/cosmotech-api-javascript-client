@@ -63,6 +63,18 @@ class RunTemplateParameter {
             if (data.hasOwnProperty('varType')) {
                 obj['varType'] = ApiClient.convertToType(data['varType'], 'String');
             }
+            if (data.hasOwnProperty('defaultValue')) {
+                obj['defaultValue'] = ApiClient.convertToType(data['defaultValue'], 'String');
+            }
+            if (data.hasOwnProperty('minValue')) {
+                obj['minValue'] = ApiClient.convertToType(data['minValue'], 'String');
+            }
+            if (data.hasOwnProperty('maxValue')) {
+                obj['maxValue'] = ApiClient.convertToType(data['maxValue'], 'String');
+            }
+            if (data.hasOwnProperty('regexValidation')) {
+                obj['regexValidation'] = ApiClient.convertToType(data['regexValidation'], 'String');
+            }
             if (data.hasOwnProperty('options')) {
                 obj['options'] = ApiClient.convertToType(data['options'], {'String': Object});
             }
@@ -90,6 +102,30 @@ RunTemplateParameter.prototype['labels'] = undefined;
  * @member {String} varType
  */
 RunTemplateParameter.prototype['varType'] = undefined;
+
+/**
+ * the default value for this parameter
+ * @member {String} defaultValue
+ */
+RunTemplateParameter.prototype['defaultValue'] = undefined;
+
+/**
+ * the minimum value for this parameter
+ * @member {String} minValue
+ */
+RunTemplateParameter.prototype['minValue'] = undefined;
+
+/**
+ * the maximum value for this parameter
+ * @member {String} maxValue
+ */
+RunTemplateParameter.prototype['maxValue'] = undefined;
+
+/**
+ * a regex to validate the value
+ * @member {String} regexValidation
+ */
+RunTemplateParameter.prototype['regexValidation'] = undefined;
 
 /**
  * freeform options

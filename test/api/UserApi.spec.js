@@ -118,6 +118,16 @@
         done();
       });
     });
+    describe('testPlatform', function() {
+      it('should call testPlatform successfully', function(done) {
+        //uncomment below and update the code to test testPlatform
+        //instance.testPlatform(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('unregisterUser', function() {
       it('should call unregisterUser successfully', function(done) {
         //uncomment below and update the code to test unregisterUser

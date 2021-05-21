@@ -72,6 +72,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property defaultValue (base name: "defaultValue")', function() {
+      // uncomment below and update the code to test the property defaultValue
+      //var instance = new CosmotechApi.RunTemplateParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property minValue (base name: "minValue")', function() {
+      // uncomment below and update the code to test the property minValue
+      //var instance = new CosmotechApi.RunTemplateParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maxValue (base name: "maxValue")', function() {
+      // uncomment below and update the code to test the property maxValue
+      //var instance = new CosmotechApi.RunTemplateParameter();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property regexValidation (base name: "regexValidation")', function() {
+      // uncomment below and update the code to test the property regexValidation
+      //var instance = new CosmotechApi.RunTemplateParameter();
+      //expect(instance).to.be();
+    });
+
     it('should have the property options (base name: "options")', function() {
       // uncomment below and update the code to test the property options
       //var instance = new CosmotechApi.RunTemplateParameter();

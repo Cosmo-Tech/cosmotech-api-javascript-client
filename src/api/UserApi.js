@@ -315,6 +315,42 @@ export default class UserApi {
     }
 
     /**
+     * Callback function to receive the result of the testPlatform operation.
+     * @callback module:api/UserApi~testPlatformCallback
+     * @param {String} error Error message, if any.
+     * @param {String} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * test platform API call
+     * @param {module:api/UserApi~testPlatformCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link String}
+     */
+    testPlatform(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['text/plain'];
+      let returnType = 'String';
+      return this.apiClient.callApi(
+        '/test', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the unregisterUser operation.
      * @callback module:api/UserApi~unregisterUserCallback
      * @param {String} error Error message, if any.
