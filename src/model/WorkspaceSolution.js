@@ -23,11 +23,10 @@ class WorkspaceSolution {
      * Constructs a new <code>WorkspaceSolution</code>.
      * the Workspace Solution configuration
      * @alias module:model/WorkspaceSolution
-     * @param solutionId {String} the Solution Id attached to this workspace
      */
-    constructor(solutionId) { 
+    constructor() { 
         
-        WorkspaceSolution.initialize(this, solutionId);
+        WorkspaceSolution.initialize(this);
     }
 
     /**
@@ -35,8 +34,7 @@ class WorkspaceSolution {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, solutionId) { 
-        obj['solutionId'] = solutionId;
+    static initialize(obj) { 
     }
 
     /**

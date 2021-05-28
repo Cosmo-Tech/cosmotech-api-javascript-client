@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**solutionId** | **String** | the Solution Id attached to this workspace | 
+**solutionId** | **String** | the Solution Id attached to this workspace | [optional] 
 **runTemplateFilter** | **[String]** | the list of Solution Run Template Id to filter | [optional] 
 **defaultRunTemplateDataset** | **{String: Object}** | a map of RunTemplateId/DatasetId to set a default dataset for a Run Template | [optional] 
 
