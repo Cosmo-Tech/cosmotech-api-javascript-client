@@ -636,7 +636,8 @@ let organizationId = "organizationId_example"; // String | the Organization iden
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let file = "/path/to/file"; // File | 
 let opts = {
-  'overwrite': false // Boolean | 
+  'overwrite': false, // Boolean | 
+  'destination': "destination_example" // String | Destination path. Must end with a '/' if specifying a folder. Note that paths may or may not start with a '/', but they are always treated as relative to the Workspace root location. 
 };
 apiInstance.uploadWorkspaceFile(organizationId, workspaceId, file, opts, (error, data, response) => {
   if (error) {
@@ -656,6 +657,7 @@ Name | Type | Description  | Notes
  **workspaceId** | **String**| the Workspace identifier | 
  **file** | **File**|  | 
  **overwrite** | **Boolean**|  | [optional] [default to false]
+ **destination** | **String**| Destination path. Must end with a &#39;/&#39; if specifying a folder. Note that paths may or may not start with a &#39;/&#39;, but they are always treated as relative to the Workspace root location.  | [optional] 
 
 ### Return type
 

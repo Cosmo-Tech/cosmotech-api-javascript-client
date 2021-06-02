@@ -644,6 +644,7 @@ export default class WorkspaceApi {
      * @param {File} file 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.overwrite  (default to false)
+     * @param {String} opts.destination Destination path. Must end with a '/' if specifying a folder. Note that paths may or may not start with a '/', but they are always treated as relative to the Workspace root location. 
      * @param {module:api/WorkspaceApi~uploadWorkspaceFileCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WorkspaceFile}
      */
@@ -673,6 +674,7 @@ export default class WorkspaceApi {
       };
       let formParams = {
         'overwrite': opts['overwrite'],
+        'destination': opts['destination'],
         'file': file
       };
 
