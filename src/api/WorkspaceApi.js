@@ -263,10 +263,10 @@ export default class WorkspaceApi {
 
       let pathParams = {
         'organization_id': organizationId,
-        'workspace_id': workspaceId,
-        'file_name': fileName
+        'workspace_id': workspaceId
       };
       let queryParams = {
+        'file_name': fileName
       };
       let headerParams = {
       };
@@ -278,7 +278,7 @@ export default class WorkspaceApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/workspaces/{workspace_id}/files/{file_name}', 'DELETE',
+        '/organizations/{organization_id}/workspaces/{workspace_id}/files/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -317,10 +317,10 @@ export default class WorkspaceApi {
 
       let pathParams = {
         'organization_id': organizationId,
-        'workspace_id': workspaceId,
-        'file_name': fileName
+        'workspace_id': workspaceId
       };
       let queryParams = {
+        'file_name': fileName
       };
       let headerParams = {
       };
@@ -332,7 +332,7 @@ export default class WorkspaceApi {
       let accepts = ['application/octet-stream'];
       let returnType = File;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/workspaces/{workspace_id}/files/{file_name}', 'GET',
+        '/organizations/{organization_id}/workspaces/{workspace_id}/files/download', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
