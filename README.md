@@ -239,6 +239,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.Scenario](docs/Scenario.md)
  - [CosmotechApi.ScenarioChangedParameterValue](docs/ScenarioChangedParameterValue.md)
  - [CosmotechApi.ScenarioComparisonResult](docs/ScenarioComparisonResult.md)
+ - [CosmotechApi.ScenarioLastRun](docs/ScenarioLastRun.md)
  - [CosmotechApi.ScenarioRun](docs/ScenarioRun.md)
  - [CosmotechApi.ScenarioRunContainer](docs/ScenarioRunContainer.md)
  - [CosmotechApi.ScenarioRunContainerLogs](docs/ScenarioRunContainerLogs.md)

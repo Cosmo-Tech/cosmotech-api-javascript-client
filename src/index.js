@@ -33,6 +33,7 @@ import RunTemplateStepSource from './model/RunTemplateStepSource';
 import Scenario from './model/Scenario';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
+import ScenarioLastRun from './model/ScenarioLastRun';
 import ScenarioRun from './model/ScenarioRun';
 import ScenarioRunContainer from './model/ScenarioRunContainer';
 import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
@@ -222,6 +223,12 @@ export {
      * @property {module:model/ScenarioComparisonResult}
      */
     ScenarioComparisonResult,
+
+    /**
+     * The ScenarioLastRun model constructor.
+     * @property {module:model/ScenarioLastRun}
+     */
+    ScenarioLastRun,
 
     /**
      * The ScenarioRun model constructor.

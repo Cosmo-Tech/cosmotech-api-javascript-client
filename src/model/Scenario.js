@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ScenarioLastRun from './ScenarioLastRun';
 import ScenarioRunTemplateParameterValue from './ScenarioRunTemplateParameterValue';
 import ScenarioUser from './ScenarioUser';
 
@@ -103,6 +104,9 @@ class Scenario {
             }
             if (data.hasOwnProperty('parametersValues')) {
                 obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [ScenarioRunTemplateParameterValue]);
+            }
+            if (data.hasOwnProperty('lastRun')) {
+                obj['lastRun'] = ScenarioLastRun.constructFromObject(data['lastRun']);
             }
         }
         return obj;
@@ -218,6 +222,11 @@ Scenario.prototype['datasetList'] = undefined;
  * @member {Array.<module:model/ScenarioRunTemplateParameterValue>} parametersValues
  */
 Scenario.prototype['parametersValues'] = undefined;
+
+/**
+ * @member {module:model/ScenarioLastRun} lastRun
+ */
+Scenario.prototype['lastRun'] = undefined;
 
 
 
