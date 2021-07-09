@@ -32,9 +32,9 @@ class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://api.azure.cosmo-platform.com
+         * @default https://api.cosmotech.com
          */
-        this.basePath = 'https://api.azure.cosmo-platform.com'.replace(/\/+$/, '');
+        this.basePath = 'https://api.cosmotech.com'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.
@@ -588,7 +588,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "https://api.azure.cosmo-platform.com",
+              'url': "https://api.cosmotech.com",
               'description': "Production",
             }
       ];

@@ -62,7 +62,7 @@ class ScenarioRunTemplateParameterValue {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
             if (data.hasOwnProperty('isInherited')) {
-                obj['isInherited'] = ApiClient.convertToType(data['isInherited'], 'String');
+                obj['isInherited'] = ApiClient.convertToType(data['isInherited'], 'Boolean');
             }
         }
         return obj;
@@ -91,7 +91,7 @@ ScenarioRunTemplateParameterValue.prototype['value'] = undefined;
 
 /**
  * whether or not the value is inherited from parent or has been changed
- * @member {String} isInherited
+ * @member {Boolean} isInherited
  */
 ScenarioRunTemplateParameterValue.prototype['isInherited'] = undefined;
 

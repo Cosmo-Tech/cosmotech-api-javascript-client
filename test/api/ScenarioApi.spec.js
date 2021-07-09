@@ -88,6 +88,16 @@
         done();
       });
     });
+    describe('deleteAllScenarios', function() {
+      it('should call deleteAllScenarios successfully', function(done) {
+        //uncomment below and update the code to test deleteAllScenarios
+        //instance.deleteAllScenarios(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('deleteScenario', function() {
       it('should call deleteScenario successfully', function(done) {
         //uncomment below and update the code to test deleteScenario

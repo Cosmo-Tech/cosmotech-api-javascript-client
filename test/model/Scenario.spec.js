@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property rootId (base name: "rootId")', function() {
+      // uncomment below and update the code to test the property rootId
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
     it('should have the property solutionId (base name: "solutionId")', function() {
       // uncomment below and update the code to test the property solutionId
       //var instance = new CosmotechApi.Scenario();
@@ -158,6 +164,12 @@
 
     it('should have the property parametersValues (base name: "parametersValues")', function() {
       // uncomment below and update the code to test the property parametersValues
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastRun (base name: "lastRun")', function() {
+      // uncomment below and update the code to test the property lastRun
       //var instance = new CosmotechApi.Scenario();
       //expect(instance).to.be();
     });

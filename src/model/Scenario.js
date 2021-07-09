@@ -69,6 +69,9 @@ class Scenario {
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
             }
+            if (data.hasOwnProperty('rootId')) {
+                obj['rootId'] = ApiClient.convertToType(data['rootId'], 'String');
+            }
             if (data.hasOwnProperty('solutionId')) {
                 obj['solutionId'] = ApiClient.convertToType(data['solutionId'], 'String');
             }
@@ -150,6 +153,12 @@ Scenario.prototype['parentId'] = undefined;
  * @member {String} ownerId
  */
 Scenario.prototype['ownerId'] = undefined;
+
+/**
+ * the scenario root id
+ * @member {String} rootId
+ */
+Scenario.prototype['rootId'] = undefined;
 
 /**
  * the Solution Id associated with this Scenario

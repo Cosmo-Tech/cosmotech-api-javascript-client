@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(CosmotechApi.ScenarioLastRun);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
+    it('should have the property scenarioRunId (base name: "scenarioRunId")', function() {
+      // uncomment below and update the code to test the property scenarioRunId
       //var instance = new CosmotechApi.ScenarioLastRun();
       //expect(instance).to.be();
     });
