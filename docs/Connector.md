@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **tags** | **[String]** | the list of tags | [optional] 
 **ownerId** | **String** | the user id which own this connector version | [optional] [readonly] 
 **url** | **String** | an optional URL link to connector page | [optional] 
+**azureManagedIdentity** | **Boolean** | whether or not the connector uses Azure Managed Identity | [optional] 
 **ioTypes** | **[String]** |  | 
 **parameterGroups** | [**[ConnectorParameterGroup]**](ConnectorParameterGroup.md) | the list of connector parameters groups | [optional] 
 

@@ -108,6 +108,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property azureManagedIdentity (base name: "azureManagedIdentity")', function() {
+      // uncomment below and update the code to test the property azureManagedIdentity
+      //var instance = new CosmotechApi.Connector();
+      //expect(instance).to.be();
+    });
+
     it('should have the property ioTypes (base name: "ioTypes")', function() {
       // uncomment below and update the code to test the property ioTypes
       //var instance = new CosmotechApi.Connector();

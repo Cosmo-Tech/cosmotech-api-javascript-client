@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property labels (base name: "labels")', function() {
+      // uncomment below and update the code to test the property labels
+      //var instance = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be();
+    });
+
     it('should have the property envVars (base name: "envVars")', function() {
       // uncomment below and update the code to test the property envVars
       //var instance = new CosmotechApi.ScenarioRunContainer();

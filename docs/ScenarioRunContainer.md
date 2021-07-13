@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | the container Id | [optional] [readonly] 
 **name** | **String** | the container name | 
+**labels** | **{String: String}** | the metadata labels | [optional] 
 **envVars** | **{String: String}** | environment variable map | [optional] 
 **image** | **String** | the container image URI | 
 **entrypoint** | **String** | the container entry point | [optional] 

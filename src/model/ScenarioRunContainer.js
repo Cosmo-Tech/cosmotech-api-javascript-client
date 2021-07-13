@@ -58,6 +58,9 @@ class ScenarioRunContainer {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('labels')) {
+                obj['labels'] = ApiClient.convertToType(data['labels'], {'String': 'String'});
+            }
             if (data.hasOwnProperty('envVars')) {
                 obj['envVars'] = ApiClient.convertToType(data['envVars'], {'String': 'String'});
             }
@@ -91,6 +94,12 @@ ScenarioRunContainer.prototype['id'] = undefined;
  * @member {String} name
  */
 ScenarioRunContainer.prototype['name'] = undefined;
+
+/**
+ * the metadata labels
+ * @member {Object.<String, String>} labels
+ */
+ScenarioRunContainer.prototype['labels'] = undefined;
 
 /**
  * environment variable map
