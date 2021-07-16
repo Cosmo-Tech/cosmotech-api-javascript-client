@@ -38,6 +38,8 @@ Name | Type | Description | Notes
 
 * `Failed` (value: `"Failed"`)
 
+* `Unknown` (value: `"Unknown"`)
+
 
 
 

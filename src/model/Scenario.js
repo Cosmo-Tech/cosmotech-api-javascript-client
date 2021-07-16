@@ -270,7 +270,13 @@ Scenario['StateEnum'] = {
      * value: "Failed"
      * @const
      */
-    "Failed": "Failed"
+    "Failed": "Failed",
+
+    /**
+     * value: "Unknown"
+     * @const
+     */
+    "Unknown": "Unknown"
 };
 
 
