@@ -36,23 +36,15 @@ export default class DatasetApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the addOrReplaceDatasetCompatibilityElements operation.
-     * @callback module:api/DatasetApi~addOrReplaceDatasetCompatibilityElementsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/DatasetCompatibility>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add Dataset Compatibility elements.
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
      * @param {Array.<module:model/DatasetCompatibility>} datasetCompatibility the Dataset Compatibility elements
-     * @param {module:api/DatasetApi~addOrReplaceDatasetCompatibilityElementsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/DatasetCompatibility>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/DatasetCompatibility>} and HTTP response
      */
-    addOrReplaceDatasetCompatibilityElements(organizationId, datasetId, datasetCompatibility, callback) {
+    addOrReplaceDatasetCompatibilityElementsWithHttpInfo(organizationId, datasetId, datasetCompatibility) {
       let postBody = datasetCompatibility;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -85,26 +77,32 @@ export default class DatasetApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/{dataset_id}/compatibility', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the copyDataset operation.
-     * @callback module:api/DatasetApi~copyDatasetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/DatasetCopyParameters} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Add Dataset Compatibility elements.
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @param {Array.<module:model/DatasetCompatibility>} datasetCompatibility the Dataset Compatibility elements
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/DatasetCompatibility>}
      */
+    addOrReplaceDatasetCompatibilityElements(organizationId, datasetId, datasetCompatibility) {
+      return this.addOrReplaceDatasetCompatibilityElementsWithHttpInfo(organizationId, datasetId, datasetCompatibility)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Copy a Dataset to another Dataset. Source must have a read capable connector and Target a write capable connector.
      * @param {String} organizationId the Organization identifier
      * @param {module:model/DatasetCopyParameters} datasetCopyParameters the Dataset copy parameters
-     * @param {module:api/DatasetApi~copyDatasetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/DatasetCopyParameters}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DatasetCopyParameters} and HTTP response
      */
-    copyDataset(organizationId, datasetCopyParameters, callback) {
+    copyDatasetWithHttpInfo(organizationId, datasetCopyParameters) {
       let postBody = datasetCopyParameters;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -132,26 +130,31 @@ export default class DatasetApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/copy', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the createDataset operation.
-     * @callback module:api/DatasetApi~createDatasetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Dataset} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Copy a Dataset to another Dataset. Source must have a read capable connector and Target a write capable connector.
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/DatasetCopyParameters} datasetCopyParameters the Dataset copy parameters
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DatasetCopyParameters}
      */
+    copyDataset(organizationId, datasetCopyParameters) {
+      return this.copyDatasetWithHttpInfo(organizationId, datasetCopyParameters)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Create a new Dataset
      * @param {String} organizationId the Organization identifier
      * @param {module:model/Dataset} dataset the Dataset to create
-     * @param {module:api/DatasetApi~createDatasetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Dataset}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Dataset} and HTTP response
      */
-    createDataset(organizationId, dataset, callback) {
+    createDatasetWithHttpInfo(organizationId, dataset) {
       let postBody = dataset;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -179,25 +182,31 @@ export default class DatasetApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteDataset operation.
-     * @callback module:api/DatasetApi~deleteDatasetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a new Dataset
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/Dataset} dataset the Dataset to create
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Dataset}
      */
+    createDataset(organizationId, dataset) {
+      return this.createDatasetWithHttpInfo(organizationId, dataset)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete a dataset
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
-     * @param {module:api/DatasetApi~deleteDatasetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteDataset(organizationId, datasetId, callback) {
+    deleteDatasetWithHttpInfo(organizationId, datasetId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -226,25 +235,30 @@ export default class DatasetApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/{dataset_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllDatasets operation.
-     * @callback module:api/DatasetApi~findAllDatasetsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Dataset>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a dataset
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteDataset(organizationId, datasetId) {
+      return this.deleteDatasetWithHttpInfo(organizationId, datasetId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Datasets
      * @param {String} organizationId the Organization identifier
-     * @param {module:api/DatasetApi~findAllDatasetsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Dataset>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Dataset>} and HTTP response
      */
-    findAllDatasets(organizationId, callback) {
+    findAllDatasetsWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -268,26 +282,30 @@ export default class DatasetApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findDatasetById operation.
-     * @callback module:api/DatasetApi~findDatasetByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Dataset} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Datasets
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Dataset>}
      */
+    findAllDatasets(organizationId) {
+      return this.findAllDatasetsWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of a Dataset
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
-     * @param {module:api/DatasetApi~findDatasetByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Dataset}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Dataset} and HTTP response
      */
-    findDatasetById(organizationId, datasetId, callback) {
+    findDatasetByIdWithHttpInfo(organizationId, datasetId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -316,25 +334,31 @@ export default class DatasetApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/{dataset_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeAllDatasetCompatibilityElements operation.
-     * @callback module:api/DatasetApi~removeAllDatasetCompatibilityElementsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Get the details of a Dataset
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Dataset}
      */
+    findDatasetById(organizationId, datasetId) {
+      return this.findDatasetByIdWithHttpInfo(organizationId, datasetId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all Dataset Compatibility elements from the Dataset specified
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
-     * @param {module:api/DatasetApi~removeAllDatasetCompatibilityElementsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeAllDatasetCompatibilityElements(organizationId, datasetId, callback) {
+    removeAllDatasetCompatibilityElementsWithHttpInfo(organizationId, datasetId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -363,27 +387,32 @@ export default class DatasetApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/{dataset_id}/compatibility', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateDataset operation.
-     * @callback module:api/DatasetApi~updateDatasetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Dataset} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Remove all Dataset Compatibility elements from the Dataset specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeAllDatasetCompatibilityElements(organizationId, datasetId) {
+      return this.removeAllDatasetCompatibilityElementsWithHttpInfo(organizationId, datasetId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update a dataset
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
      * @param {module:model/Dataset} dataset the new Dataset details.
-     * @param {module:api/DatasetApi~updateDatasetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Dataset}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Dataset} and HTTP response
      */
-    updateDataset(organizationId, datasetId, dataset, callback) {
+    updateDatasetWithHttpInfo(organizationId, datasetId, dataset) {
       let postBody = dataset;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -416,8 +445,22 @@ export default class DatasetApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/{dataset_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update a dataset
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @param {module:model/Dataset} dataset the new Dataset details.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Dataset}
+     */
+    updateDataset(organizationId, datasetId, dataset) {
+      return this.updateDatasetWithHttpInfo(organizationId, datasetId, dataset)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

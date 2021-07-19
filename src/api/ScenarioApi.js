@@ -37,13 +37,6 @@ export default class ScenarioApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the addOrReplaceScenarioParameterValues operation.
-     * @callback module:api/ScenarioApi~addOrReplaceScenarioParameterValuesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioRunTemplateParameterValue>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add (or replace) Parameter Values for the Scenario specified
@@ -51,10 +44,9 @@ export default class ScenarioApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
      * @param {Array.<module:model/ScenarioRunTemplateParameterValue>} scenarioRunTemplateParameterValue the Parameter Value to add. Any Parameter Value with the same ID is overwritten
-     * @param {module:api/ScenarioApi~addOrReplaceScenarioParameterValuesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioRunTemplateParameterValue>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ScenarioRunTemplateParameterValue>} and HTTP response
      */
-    addOrReplaceScenarioParameterValues(organizationId, workspaceId, scenarioId, scenarioRunTemplateParameterValue, callback) {
+    addOrReplaceScenarioParameterValuesWithHttpInfo(organizationId, workspaceId, scenarioId, scenarioRunTemplateParameterValue) {
       let postBody = scenarioRunTemplateParameterValue;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -92,17 +84,25 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/parameterValues', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the addOrReplaceUsersInScenario operation.
-     * @callback module:api/ScenarioApi~addOrReplaceUsersInScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioUser>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Add (or replace) Parameter Values for the Scenario specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @param {Array.<module:model/ScenarioRunTemplateParameterValue>} scenarioRunTemplateParameterValue the Parameter Value to add. Any Parameter Value with the same ID is overwritten
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ScenarioRunTemplateParameterValue>}
      */
+    addOrReplaceScenarioParameterValues(organizationId, workspaceId, scenarioId, scenarioRunTemplateParameterValue) {
+      return this.addOrReplaceScenarioParameterValuesWithHttpInfo(organizationId, workspaceId, scenarioId, scenarioRunTemplateParameterValue)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Add (or replace) users in the Scenario specified
@@ -110,10 +110,9 @@ export default class ScenarioApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
      * @param {Array.<module:model/ScenarioUser>} scenarioUser the Users to add. Any User with the same ID is overwritten
-     * @param {module:api/ScenarioApi~addOrReplaceUsersInScenarioCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioUser>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ScenarioUser>} and HTTP response
      */
-    addOrReplaceUsersInScenario(organizationId, workspaceId, scenarioId, scenarioUser, callback) {
+    addOrReplaceUsersInScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, scenarioUser) {
       let postBody = scenarioUser;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -151,17 +150,25 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/users', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the compareScenarios operation.
-     * @callback module:api/ScenarioApi~compareScenariosCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioComparisonResult} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Add (or replace) users in the Scenario specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @param {Array.<module:model/ScenarioUser>} scenarioUser the Users to add. Any User with the same ID is overwritten
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ScenarioUser>}
      */
+    addOrReplaceUsersInScenario(organizationId, workspaceId, scenarioId, scenarioUser) {
+      return this.addOrReplaceUsersInScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, scenarioUser)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Compare the Scenario with another one and returns the difference for parameters values
@@ -169,10 +176,9 @@ export default class ScenarioApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
      * @param {String} comparedScenarioId the Scenario identifier to compare to
-     * @param {module:api/ScenarioApi~compareScenariosCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioComparisonResult}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioComparisonResult} and HTTP response
      */
-    compareScenarios(organizationId, workspaceId, scenarioId, comparedScenarioId, callback) {
+    compareScenariosWithHttpInfo(organizationId, workspaceId, scenarioId, comparedScenarioId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -211,27 +217,34 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/compare/{compared_scenario_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the createScenario operation.
-     * @callback module:api/ScenarioApi~createScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Scenario} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Compare the Scenario with another one and returns the difference for parameters values
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @param {String} comparedScenarioId the Scenario identifier to compare to
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioComparisonResult}
      */
+    compareScenarios(organizationId, workspaceId, scenarioId, comparedScenarioId) {
+      return this.compareScenariosWithHttpInfo(organizationId, workspaceId, scenarioId, comparedScenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Create a new Scenario
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {module:model/Scenario} scenario the Scenario to create
-     * @param {module:api/ScenarioApi~createScenarioCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Scenario}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Scenario} and HTTP response
      */
-    createScenario(organizationId, workspaceId, scenario, callback) {
+    createScenarioWithHttpInfo(organizationId, workspaceId, scenario) {
       let postBody = scenario;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -264,25 +277,32 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteAllScenarios operation.
-     * @callback module:api/ScenarioApi~deleteAllScenariosCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a new Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {module:model/Scenario} scenario the Scenario to create
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Scenario}
      */
+    createScenario(organizationId, workspaceId, scenario) {
+      return this.createScenarioWithHttpInfo(organizationId, workspaceId, scenario)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete all Scenarios of the Workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/ScenarioApi~deleteAllScenariosCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteAllScenarios(organizationId, workspaceId, callback) {
+    deleteAllScenariosWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -311,26 +331,32 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteScenario operation.
-     * @callback module:api/ScenarioApi~deleteScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Delete all Scenarios of the Workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteAllScenarios(organizationId, workspaceId) {
+      return this.deleteAllScenariosWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete a scenario
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:api/ScenarioApi~deleteScenarioCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteScenario(organizationId, workspaceId, scenarioId, callback) {
+    deleteScenarioWithHttpInfo(organizationId, workspaceId, scenarioId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -364,26 +390,32 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllScenarios operation.
-     * @callback module:api/ScenarioApi~findAllScenariosCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Scenario>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteScenario(organizationId, workspaceId, scenarioId) {
+      return this.deleteScenarioWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Scenarios
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/ScenarioApi~findAllScenariosCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Scenario>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Scenario>} and HTTP response
      */
-    findAllScenarios(organizationId, workspaceId, callback) {
+    findAllScenariosWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -412,27 +444,32 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findScenarioById operation.
-     * @callback module:api/ScenarioApi~findScenarioByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Scenario} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Scenarios
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Scenario>}
      */
+    findAllScenarios(organizationId, workspaceId) {
+      return this.findAllScenariosWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of an scenario
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:api/ScenarioApi~findScenarioByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Scenario}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Scenario} and HTTP response
      */
-    findScenarioById(organizationId, workspaceId, scenarioId, callback) {
+    findScenarioByIdWithHttpInfo(organizationId, workspaceId, scenarioId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -466,26 +503,32 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getScenariosTree operation.
-     * @callback module:api/ScenarioApi~getScenariosTreeCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Scenario>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of an scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Scenario}
      */
+    findScenarioById(organizationId, workspaceId, scenarioId) {
+      return this.findScenarioByIdWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the Scenarios Tree
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/ScenarioApi~getScenariosTreeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Scenario>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Scenario>} and HTTP response
      */
-    getScenariosTree(organizationId, workspaceId, callback) {
+    getScenariosTreeWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -514,26 +557,32 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeAllScenarioParameterValues operation.
-     * @callback module:api/ScenarioApi~removeAllScenarioParameterValuesCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Get the Scenarios Tree
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Scenario>}
      */
+    getScenariosTree(organizationId, workspaceId) {
+      return this.getScenariosTreeWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all Parameter Values from the Scenario specified
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:api/ScenarioApi~removeAllScenarioParameterValuesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeAllScenarioParameterValues(organizationId, workspaceId, scenarioId, callback) {
+    removeAllScenarioParameterValuesWithHttpInfo(organizationId, workspaceId, scenarioId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -567,26 +616,33 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/parameterValues', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeAllUsersOfScenario operation.
-     * @callback module:api/ScenarioApi~removeAllUsersOfScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Remove all Parameter Values from the Scenario specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeAllScenarioParameterValues(organizationId, workspaceId, scenarioId) {
+      return this.removeAllScenarioParameterValuesWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all users from the Scenario specified
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:api/ScenarioApi~removeAllUsersOfScenarioCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeAllUsersOfScenario(organizationId, workspaceId, scenarioId, callback) {
+    removeAllUsersOfScenarioWithHttpInfo(organizationId, workspaceId, scenarioId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -620,17 +676,24 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/users', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeUserFromScenario operation.
-     * @callback module:api/ScenarioApi~removeUserFromScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Remove all users from the Scenario specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeAllUsersOfScenario(organizationId, workspaceId, scenarioId) {
+      return this.removeAllUsersOfScenarioWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove the specified user from the given Scenario
@@ -638,9 +701,9 @@ export default class ScenarioApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
      * @param {String} userId the User identifier
-     * @param {module:api/ScenarioApi~removeUserFromScenarioCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeUserFromScenario(organizationId, workspaceId, scenarioId, userId, callback) {
+    removeUserFromScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, userId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -679,17 +742,25 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/users/{user_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateScenario operation.
-     * @callback module:api/ScenarioApi~updateScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Scenario} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Remove the specified user from the given Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @param {String} userId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeUserFromScenario(organizationId, workspaceId, scenarioId, userId) {
+      return this.removeUserFromScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, userId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update a scenario
@@ -697,10 +768,9 @@ export default class ScenarioApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
      * @param {module:model/Scenario} scenario the new Scenario details.
-     * @param {module:api/ScenarioApi~updateScenarioCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Scenario}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Scenario} and HTTP response
      */
-    updateScenario(organizationId, workspaceId, scenarioId, scenario, callback) {
+    updateScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, scenario) {
       let postBody = scenario;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -738,8 +808,23 @@ export default class ScenarioApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update a scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @param {module:model/Scenario} scenario the new Scenario details.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Scenario}
+     */
+    updateScenario(organizationId, workspaceId, scenarioId, scenario) {
+      return this.updateScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, scenario)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

@@ -38,21 +38,14 @@ export default class ScenariorunApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the deleteScenarioRun operation.
-     * @callback module:api/ScenariorunApi~deleteScenarioRunCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Delete a scenariorun
      * @param {String} organizationId the Organization identifier
      * @param {String} scenariorunId the ScenarioRun identifier
-     * @param {module:api/ScenariorunApi~deleteScenarioRunCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteScenarioRun(organizationId, scenariorunId, callback) {
+    deleteScenarioRunWithHttpInfo(organizationId, scenariorunId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -81,26 +74,31 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/{scenariorun_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findScenarioRunById operation.
-     * @callback module:api/ScenariorunApi~findScenarioRunByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRun} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a scenariorun
+     * @param {String} organizationId the Organization identifier
+     * @param {String} scenariorunId the ScenarioRun identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteScenarioRun(organizationId, scenariorunId) {
+      return this.deleteScenarioRunWithHttpInfo(organizationId, scenariorunId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of a scenariorun
      * @param {String} organizationId the Organization identifier
      * @param {String} scenariorunId the ScenarioRun identifier
-     * @param {module:api/ScenariorunApi~findScenarioRunByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRun}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioRun} and HTTP response
      */
-    findScenarioRunById(organizationId, scenariorunId, callback) {
+    findScenarioRunByIdWithHttpInfo(organizationId, scenariorunId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -129,26 +127,31 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/{scenariorun_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getScenarioRunCumulatedLogs operation.
-     * @callback module:api/ScenariorunApi~getScenarioRunCumulatedLogsCallback
-     * @param {String} error Error message, if any.
-     * @param {String} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of a scenariorun
+     * @param {String} organizationId the Organization identifier
+     * @param {String} scenariorunId the ScenarioRun identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioRun}
      */
+    findScenarioRunById(organizationId, scenariorunId) {
+      return this.findScenarioRunByIdWithHttpInfo(organizationId, scenariorunId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the cumulated logs of a scenariorun
      * @param {String} organizationId the Organization identifier
      * @param {String} scenariorunId the ScenarioRun identifier
-     * @param {module:api/ScenariorunApi~getScenarioRunCumulatedLogsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link String}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
      */
-    getScenarioRunCumulatedLogs(organizationId, scenariorunId, callback) {
+    getScenarioRunCumulatedLogsWithHttpInfo(organizationId, scenariorunId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -177,26 +180,31 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/cumulatedlogs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getScenarioRunLogs operation.
-     * @callback module:api/ScenariorunApi~getScenarioRunLogsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRunLogs} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the cumulated logs of a scenariorun
+     * @param {String} organizationId the Organization identifier
+     * @param {String} scenariorunId the ScenarioRun identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
      */
+    getScenarioRunCumulatedLogs(organizationId, scenariorunId) {
+      return this.getScenarioRunCumulatedLogsWithHttpInfo(organizationId, scenariorunId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * get the logs for the ScenarioRun
      * @param {String} organizationId the Organization identifier
      * @param {String} scenariorunId the ScenarioRun identifier
-     * @param {module:api/ScenariorunApi~getScenarioRunLogsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRunLogs}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioRunLogs} and HTTP response
      */
-    getScenarioRunLogs(organizationId, scenariorunId, callback) {
+    getScenarioRunLogsWithHttpInfo(organizationId, scenariorunId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -225,26 +233,31 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/logs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getScenarioRunStatus operation.
-     * @callback module:api/ScenariorunApi~getScenarioRunStatusCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRunStatus} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * get the logs for the ScenarioRun
+     * @param {String} organizationId the Organization identifier
+     * @param {String} scenariorunId the ScenarioRun identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioRunLogs}
      */
+    getScenarioRunLogs(organizationId, scenariorunId) {
+      return this.getScenarioRunLogsWithHttpInfo(organizationId, scenariorunId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * get the status for the ScenarioRun
      * @param {String} organizationId the Organization identifier
      * @param {String} scenariorunId the ScenarioRun identifier
-     * @param {module:api/ScenariorunApi~getScenarioRunStatusCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRunStatus}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioRunStatus} and HTTP response
      */
-    getScenarioRunStatus(organizationId, scenariorunId, callback) {
+    getScenarioRunStatusWithHttpInfo(organizationId, scenariorunId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -273,27 +286,32 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getScenarioRuns operation.
-     * @callback module:api/ScenariorunApi~getScenarioRunsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioRun>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * get the status for the ScenarioRun
+     * @param {String} organizationId the Organization identifier
+     * @param {String} scenariorunId the ScenarioRun identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioRunStatus}
      */
+    getScenarioRunStatus(organizationId, scenariorunId) {
+      return this.getScenarioRunStatusWithHttpInfo(organizationId, scenariorunId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * get the list of ScenarioRuns for the Scenario
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:api/ScenariorunApi~getScenarioRunsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioRun>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ScenarioRun>} and HTTP response
      */
-    getScenarioRuns(organizationId, workspaceId, scenarioId, callback) {
+    getScenarioRunsWithHttpInfo(organizationId, workspaceId, scenarioId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -327,26 +345,32 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getWorkspaceScenarioRuns operation.
-     * @callback module:api/ScenariorunApi~getWorkspaceScenarioRunsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioRun>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * get the list of ScenarioRuns for the Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ScenarioRun>}
      */
+    getScenarioRuns(organizationId, workspaceId, scenarioId) {
+      return this.getScenarioRunsWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * get the list of ScenarioRuns for the Workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/ScenariorunApi~getWorkspaceScenarioRunsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioRun>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ScenarioRun>} and HTTP response
      */
-    getWorkspaceScenarioRuns(organizationId, workspaceId, callback) {
+    getWorkspaceScenarioRunsWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -375,27 +399,32 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarioruns', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the runScenario operation.
-     * @callback module:api/ScenariorunApi~runScenarioCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRun} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * get the list of ScenarioRuns for the Workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ScenarioRun>}
      */
+    getWorkspaceScenarioRuns(organizationId, workspaceId) {
+      return this.getWorkspaceScenarioRunsWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * run a ScenarioRun for the Scenario
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:api/ScenariorunApi~runScenarioCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRun}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioRun} and HTTP response
      */
-    runScenario(organizationId, workspaceId, scenarioId, callback) {
+    runScenarioWithHttpInfo(organizationId, workspaceId, scenarioId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -429,26 +458,32 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the searchScenarioRuns operation.
-     * @callback module:api/ScenariorunApi~searchScenarioRunsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ScenarioRun>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * run a ScenarioRun for the Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioRun}
      */
+    runScenario(organizationId, workspaceId, scenarioId) {
+      return this.runScenarioWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Search ScenarioRuns
      * @param {String} organizationId the Organization identifier
      * @param {module:model/ScenarioRunSearch} scenarioRunSearch the ScenarioRun search parameters
-     * @param {module:api/ScenariorunApi~searchScenarioRunsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ScenarioRun>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ScenarioRun>} and HTTP response
      */
-    searchScenarioRuns(organizationId, scenarioRunSearch, callback) {
+    searchScenarioRunsWithHttpInfo(organizationId, scenarioRunSearch) {
       let postBody = scenarioRunSearch;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -476,26 +511,31 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the startScenarioRunContainers operation.
-     * @callback module:api/ScenariorunApi~startScenarioRunContainersCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ScenarioRun} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Search ScenarioRuns
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/ScenarioRunSearch} scenarioRunSearch the ScenarioRun search parameters
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ScenarioRun>}
      */
+    searchScenarioRuns(organizationId, scenarioRunSearch) {
+      return this.searchScenarioRunsWithHttpInfo(organizationId, scenarioRunSearch)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Start a new scenariorun with raw containers definition
      * @param {String} organizationId the Organization identifier
      * @param {module:model/ScenarioRunStartContainers} scenarioRunStartContainers the raw containers definition
-     * @param {module:api/ScenariorunApi~startScenarioRunContainersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ScenarioRun}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioRun} and HTTP response
      */
-    startScenarioRunContainers(organizationId, scenarioRunStartContainers, callback) {
+    startScenarioRunContainersWithHttpInfo(organizationId, scenarioRunStartContainers) {
       let postBody = scenarioRunStartContainers;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -523,8 +563,21 @@ export default class ScenariorunApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/scenarioruns/startcontainers', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Start a new scenariorun with raw containers definition
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/ScenarioRunStartContainers} scenarioRunStartContainers the raw containers definition
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioRun}
+     */
+    startScenarioRunContainers(organizationId, scenarioRunStartContainers) {
+      return this.startScenarioRunContainersWithHttpInfo(organizationId, scenarioRunStartContainers)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

@@ -36,22 +36,14 @@ export default class OrganizationApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the addOrReplaceUsersInOrganization operation.
-     * @callback module:api/OrganizationApi~addOrReplaceUsersInOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/OrganizationUser>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add (or replace) users in the Organization specified
      * @param {String} organizationId the Organization identifier
      * @param {Array.<module:model/OrganizationUser>} organizationUser the Users to add. Any User with the same ID is overwritten
-     * @param {module:api/OrganizationApi~addOrReplaceUsersInOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/OrganizationUser>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/OrganizationUser>} and HTTP response
      */
-    addOrReplaceUsersInOrganization(organizationId, organizationUser, callback) {
+    addOrReplaceUsersInOrganizationWithHttpInfo(organizationId, organizationUser) {
       let postBody = organizationUser;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -79,24 +71,29 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/users', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllOrganizations operation.
-     * @callback module:api/OrganizationApi~findAllOrganizationsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Organization>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Add (or replace) users in the Organization specified
+     * @param {String} organizationId the Organization identifier
+     * @param {Array.<module:model/OrganizationUser>} organizationUser the Users to add. Any User with the same ID is overwritten
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/OrganizationUser>}
      */
+    addOrReplaceUsersInOrganization(organizationId, organizationUser) {
+      return this.addOrReplaceUsersInOrganizationWithHttpInfo(organizationId, organizationUser)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Organizations
-     * @param {module:api/OrganizationApi~findAllOrganizationsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Organization>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Organization>} and HTTP response
      */
-    findAllOrganizations(callback) {
+    findAllOrganizationsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -115,25 +112,28 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findOrganizationById operation.
-     * @callback module:api/OrganizationApi~findOrganizationByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Organization} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Organizations
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Organization>}
      */
+    findAllOrganizations() {
+      return this.findAllOrganizationsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of an Organization
      * @param {String} organizationId the Organization identifier
-     * @param {module:api/OrganizationApi~findOrganizationByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Organization}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Organization} and HTTP response
      */
-    findOrganizationById(organizationId, callback) {
+    findOrganizationByIdWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -157,25 +157,29 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the registerOrganization operation.
-     * @callback module:api/OrganizationApi~registerOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Organization} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of an Organization
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Organization}
      */
+    findOrganizationById(organizationId) {
+      return this.findOrganizationByIdWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Register a new organization
      * @param {module:model/Organization} organization the Organization to register
-     * @param {module:api/OrganizationApi~registerOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Organization}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Organization} and HTTP response
      */
-    registerOrganization(organization, callback) {
+    registerOrganizationWithHttpInfo(organization) {
       let postBody = organization;
       // verify the required parameter 'organization' is set
       if (organization === undefined || organization === null) {
@@ -198,24 +202,29 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeAllUsersInOrganization operation.
-     * @callback module:api/OrganizationApi~removeAllUsersInOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Register a new organization
+     * @param {module:model/Organization} organization the Organization to register
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Organization}
      */
+    registerOrganization(organization) {
+      return this.registerOrganizationWithHttpInfo(organization)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all users from the Organization specified
      * @param {String} organizationId the Organization identifier
-     * @param {module:api/OrganizationApi~removeAllUsersInOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeAllUsersInOrganization(organizationId, callback) {
+    removeAllUsersInOrganizationWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -239,25 +248,30 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/users', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeUserFromOrganization operation.
-     * @callback module:api/OrganizationApi~removeUserFromOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Remove all users from the Organization specified
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeAllUsersInOrganization(organizationId) {
+      return this.removeAllUsersInOrganizationWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove the specified user from the given Organization
      * @param {String} organizationId the Organization identifier
      * @param {String} userId the User identifier
-     * @param {module:api/OrganizationApi~removeUserFromOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeUserFromOrganization(organizationId, userId, callback) {
+    removeUserFromOrganizationWithHttpInfo(organizationId, userId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -286,24 +300,30 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/users/{user_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the unregisterOrganization operation.
-     * @callback module:api/OrganizationApi~unregisterOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Remove the specified user from the given Organization
+     * @param {String} organizationId the Organization identifier
+     * @param {String} userId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeUserFromOrganization(organizationId, userId) {
+      return this.removeUserFromOrganizationWithHttpInfo(organizationId, userId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Unregister an organization
      * @param {String} organizationId the Organization identifier
-     * @param {module:api/OrganizationApi~unregisterOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    unregisterOrganization(organizationId, callback) {
+    unregisterOrganizationWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -327,26 +347,30 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateOrganization operation.
-     * @callback module:api/OrganizationApi~updateOrganizationCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Organization} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Unregister an organization
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    unregisterOrganization(organizationId) {
+      return this.unregisterOrganizationWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update an Organization
      * @param {String} organizationId the Organization identifier
      * @param {module:model/Organization} organization the new Organization details
-     * @param {module:api/OrganizationApi~updateOrganizationCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Organization}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Organization} and HTTP response
      */
-    updateOrganization(organizationId, organization, callback) {
+    updateOrganizationWithHttpInfo(organizationId, organization) {
       let postBody = organization;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -374,26 +398,31 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateSolutionsContainerRegistryByOrganizationId operation.
-     * @callback module:api/OrganizationApi~updateSolutionsContainerRegistryByOrganizationIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/OrganizationService} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Update an Organization
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/Organization} organization the new Organization details
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Organization}
      */
+    updateOrganization(organizationId, organization) {
+      return this.updateOrganizationWithHttpInfo(organizationId, organization)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update the solutions container registry configuration for the Organization specified
      * @param {String} organizationId the Organization identifier
      * @param {module:model/OrganizationService} organizationService the new solutions container registry configuration to use
-     * @param {module:api/OrganizationApi~updateSolutionsContainerRegistryByOrganizationIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/OrganizationService}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationService} and HTTP response
      */
-    updateSolutionsContainerRegistryByOrganizationId(organizationId, organizationService, callback) {
+    updateSolutionsContainerRegistryByOrganizationIdWithHttpInfo(organizationId, organizationService) {
       let postBody = organizationService;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -421,26 +450,31 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/services/solutionsContainerRegistry', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateStorageByOrganizationId operation.
-     * @callback module:api/OrganizationApi~updateStorageByOrganizationIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/OrganizationService} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Update the solutions container registry configuration for the Organization specified
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/OrganizationService} organizationService the new solutions container registry configuration to use
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationService}
      */
+    updateSolutionsContainerRegistryByOrganizationId(organizationId, organizationService) {
+      return this.updateSolutionsContainerRegistryByOrganizationIdWithHttpInfo(organizationId, organizationService)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update storage configuration for the Organization specified
      * @param {String} organizationId the Organization identifier
      * @param {module:model/OrganizationService} organizationService the new Storage configuration to use
-     * @param {module:api/OrganizationApi~updateStorageByOrganizationIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/OrganizationService}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/OrganizationService} and HTTP response
      */
-    updateStorageByOrganizationId(organizationId, organizationService, callback) {
+    updateStorageByOrganizationIdWithHttpInfo(organizationId, organizationService) {
       let postBody = organizationService;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -468,26 +502,31 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/services/storage', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateTenantCredentialsByOrganizationId operation.
-     * @callback module:api/OrganizationApi~updateTenantCredentialsByOrganizationIdCallback
-     * @param {String} error Error message, if any.
-     * @param {Object.<String, {String: Object}>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Update storage configuration for the Organization specified
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/OrganizationService} organizationService the new Storage configuration to use
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/OrganizationService}
      */
+    updateStorageByOrganizationId(organizationId, organizationService) {
+      return this.updateStorageByOrganizationIdWithHttpInfo(organizationId, organizationService)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update tenant credentials for the Organization specified
      * @param {String} organizationId the Organization identifier
      * @param {Object.<String, {String: Object}>} requestBody the new Tenant Credentials to use
-     * @param {module:api/OrganizationApi~updateTenantCredentialsByOrganizationIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object.<String, {String: Object}>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object.<String, {String: Object}>} and HTTP response
      */
-    updateTenantCredentialsByOrganizationId(organizationId, requestBody, callback) {
+    updateTenantCredentialsByOrganizationIdWithHttpInfo(organizationId, requestBody) {
       let postBody = requestBody;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -515,8 +554,21 @@ export default class OrganizationApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/services/tenantCredentials', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update tenant credentials for the Organization specified
+     * @param {String} organizationId the Organization identifier
+     * @param {Object.<String, {String: Object}>} requestBody the new Tenant Credentials to use
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object.<String, {String: Object}>}
+     */
+    updateTenantCredentialsByOrganizationId(organizationId, requestBody) {
+      return this.updateTenantCredentialsByOrganizationIdWithHttpInfo(organizationId, requestBody)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

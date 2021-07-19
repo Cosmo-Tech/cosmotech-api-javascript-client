@@ -35,13 +35,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenariorunId = "scenariorunId_example"; // String | the ScenarioRun identifier
-apiInstance.deleteScenarioRun(organizationId, scenariorunId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteScenarioRun(organizationId, scenariorunId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -84,13 +83,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenariorunId = "scenariorunId_example"; // String | the ScenarioRun identifier
-apiInstance.findScenarioRunById(organizationId, scenariorunId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findScenarioRunById(organizationId, scenariorunId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -133,13 +131,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenariorunId = "scenariorunId_example"; // String | the ScenarioRun identifier
-apiInstance.getScenarioRunCumulatedLogs(organizationId, scenariorunId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getScenarioRunCumulatedLogs(organizationId, scenariorunId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -182,13 +179,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenariorunId = "scenariorunId_example"; // String | the ScenarioRun identifier
-apiInstance.getScenarioRunLogs(organizationId, scenariorunId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getScenarioRunLogs(organizationId, scenariorunId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -231,13 +227,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenariorunId = "scenariorunId_example"; // String | the ScenarioRun identifier
-apiInstance.getScenarioRunStatus(organizationId, scenariorunId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getScenarioRunStatus(organizationId, scenariorunId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -281,13 +276,12 @@ let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.getScenarioRuns(organizationId, workspaceId, scenarioId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getScenarioRuns(organizationId, workspaceId, scenarioId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -331,13 +325,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.getWorkspaceScenarioRuns(organizationId, workspaceId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getWorkspaceScenarioRuns(organizationId, workspaceId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -381,13 +374,12 @@ let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.runScenario(organizationId, workspaceId, scenarioId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.runScenario(organizationId, workspaceId, scenarioId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -431,13 +423,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenarioRunSearch = new CosmotechApi.ScenarioRunSearch(); // ScenarioRunSearch | the ScenarioRun search parameters
-apiInstance.searchScenarioRuns(organizationId, scenarioRunSearch, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.searchScenarioRuns(organizationId, scenarioRunSearch).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -480,13 +471,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenarioRunStartContainers = new CosmotechApi.ScenarioRunStartContainers(); // ScenarioRunStartContainers | the raw containers definition
-apiInstance.startScenarioRunContainers(organizationId, scenarioRunStartContainers, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.startScenarioRunContainers(organizationId, scenarioRunStartContainers).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

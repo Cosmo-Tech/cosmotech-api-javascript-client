@@ -40,13 +40,12 @@ let organizationId = "organizationId_example"; // String | the Organization iden
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
 let scenarioRunTemplateParameterValue = [new CosmotechApi.ScenarioRunTemplateParameterValue()]; // [ScenarioRunTemplateParameterValue] | the Parameter Value to add. Any Parameter Value with the same ID is overwritten
-apiInstance.addOrReplaceScenarioParameterValues(organizationId, workspaceId, scenarioId, scenarioRunTemplateParameterValue, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addOrReplaceScenarioParameterValues(organizationId, workspaceId, scenarioId, scenarioRunTemplateParameterValue).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -93,13 +92,12 @@ let organizationId = "organizationId_example"; // String | the Organization iden
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
 let scenarioUser = [new CosmotechApi.ScenarioUser()]; // [ScenarioUser] | the Users to add. Any User with the same ID is overwritten
-apiInstance.addOrReplaceUsersInScenario(organizationId, workspaceId, scenarioId, scenarioUser, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addOrReplaceUsersInScenario(organizationId, workspaceId, scenarioId, scenarioUser).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -146,13 +144,12 @@ let organizationId = "organizationId_example"; // String | the Organization iden
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
 let comparedScenarioId = "comparedScenarioId_example"; // String | the Scenario identifier to compare to
-apiInstance.compareScenarios(organizationId, workspaceId, scenarioId, comparedScenarioId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.compareScenarios(organizationId, workspaceId, scenarioId, comparedScenarioId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -198,13 +195,12 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenario = new CosmotechApi.Scenario(); // Scenario | the Scenario to create
-apiInstance.createScenario(organizationId, workspaceId, scenario, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createScenario(organizationId, workspaceId, scenario).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -248,13 +244,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.deleteAllScenarios(organizationId, workspaceId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteAllScenarios(organizationId, workspaceId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -298,13 +293,12 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.deleteScenario(organizationId, workspaceId, scenarioId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteScenario(organizationId, workspaceId, scenarioId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -348,13 +342,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.findAllScenarios(organizationId, workspaceId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findAllScenarios(organizationId, workspaceId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -398,13 +391,12 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.findScenarioById(organizationId, workspaceId, scenarioId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findScenarioById(organizationId, workspaceId, scenarioId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -448,13 +440,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.getScenariosTree(organizationId, workspaceId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getScenariosTree(organizationId, workspaceId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -498,13 +489,12 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.removeAllScenarioParameterValues(organizationId, workspaceId, scenarioId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeAllScenarioParameterValues(organizationId, workspaceId, scenarioId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -549,13 +539,12 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.removeAllUsersOfScenario(organizationId, workspaceId, scenarioId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeAllUsersOfScenario(organizationId, workspaceId, scenarioId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -601,13 +590,12 @@ let organizationId = "organizationId_example"; // String | the Organization iden
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
 let userId = "userId_example"; // String | the User identifier
-apiInstance.removeUserFromScenario(organizationId, workspaceId, scenarioId, userId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeUserFromScenario(organizationId, workspaceId, scenarioId, userId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -654,13 +642,12 @@ let organizationId = "organizationId_example"; // String | the Organization iden
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
 let scenario = new CosmotechApi.Scenario(); // Scenario | the new Scenario details.
-apiInstance.updateScenario(organizationId, workspaceId, scenarioId, scenario, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateScenario(organizationId, workspaceId, scenarioId, scenario).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

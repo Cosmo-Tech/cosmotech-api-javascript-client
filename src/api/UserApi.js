@@ -34,19 +34,12 @@ export default class UserApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the authorizeUser operation.
-     * @callback module:api/UserApi~authorizeUserCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Authorize an User with OAuth2. Delegated to configured OAuth2 service
-     * @param {module:api/UserApi~authorizeUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    authorizeUser(callback) {
+    authorizeUserWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -65,24 +58,27 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/oauth2/authorize', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllUsers operation.
-     * @callback module:api/UserApi~findAllUsersCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/User>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Authorize an User with OAuth2. Delegated to configured OAuth2 service
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    authorizeUser() {
+      return this.authorizeUserWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Users
-     * @param {module:api/UserApi~findAllUsersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/User>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/User>} and HTTP response
      */
-    findAllUsers(callback) {
+    findAllUsersWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -101,25 +97,28 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/users', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findUserById operation.
-     * @callback module:api/UserApi~findUserByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Users
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/User>}
      */
+    findAllUsers() {
+      return this.findAllUsersWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of an user
      * @param {String} userId the User identifier
-     * @param {module:api/UserApi~findUserByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    findUserById(userId, callback) {
+    findUserByIdWithHttpInfo(userId) {
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -143,24 +142,28 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/users/{user_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getCurrentUser operation.
-     * @callback module:api/UserApi~getCurrentUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of an user
+     * @param {String} userId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
+    findUserById(userId) {
+      return this.findUserByIdWithHttpInfo(userId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of the logged-in User
-     * @param {module:api/UserApi~getCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    getCurrentUser(callback) {
+    getCurrentUserWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -179,25 +182,28 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/users/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getOrganizationCurrentUser operation.
-     * @callback module:api/UserApi~getOrganizationCurrentUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of the logged-in User
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
+    getCurrentUser() {
+      return this.getCurrentUserWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of a logged-in User with roles for an Organization
      * @param {String} organizationId the Organization identifier
-     * @param {module:api/UserApi~getOrganizationCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    getOrganizationCurrentUser(organizationId, callback) {
+    getOrganizationCurrentUserWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -221,26 +227,30 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the getWorkspaceCurrentUser operation.
-     * @callback module:api/UserApi~getWorkspaceCurrentUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of a logged-in User with roles for an Organization
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
+    getOrganizationCurrentUser(organizationId) {
+      return this.getOrganizationCurrentUserWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of the logged-in user with roles for a Workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/UserApi~getWorkspaceCurrentUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    getWorkspaceCurrentUser(organizationId, workspaceId, callback) {
+    getWorkspaceCurrentUserWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -269,25 +279,30 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/me', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the registerUser operation.
-     * @callback module:api/UserApi~registerUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of the logged-in user with roles for a Workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
+    getWorkspaceCurrentUser(organizationId, workspaceId) {
+      return this.getWorkspaceCurrentUserWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Register a new user
      * @param {module:model/User} user the User to register
-     * @param {module:api/UserApi~registerUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    registerUser(user, callback) {
+    registerUserWithHttpInfo(user) {
       let postBody = user;
       // verify the required parameter 'user' is set
       if (user === undefined || user === null) {
@@ -310,24 +325,28 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/users', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the testPlatform operation.
-     * @callback module:api/UserApi~testPlatformCallback
-     * @param {String} error Error message, if any.
-     * @param {String} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Register a new user
+     * @param {module:model/User} user the User to register
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
      */
+    registerUser(user) {
+      return this.registerUserWithHttpInfo(user)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * test platform API call
-     * @param {module:api/UserApi~testPlatformCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link String}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
      */
-    testPlatform(callback) {
+    testPlatformWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -346,24 +365,28 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/test', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the unregisterUser operation.
-     * @callback module:api/UserApi~unregisterUserCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * test platform API call
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
      */
+    testPlatform() {
+      return this.testPlatformWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Unregister an user
      * @param {String} userId the User identifier
-     * @param {module:api/UserApi~unregisterUserCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    unregisterUser(userId, callback) {
+    unregisterUserWithHttpInfo(userId) {
       let postBody = null;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -387,26 +410,30 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/users/{user_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateUser operation.
-     * @callback module:api/UserApi~updateUserCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Unregister an user
+     * @param {String} userId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    unregisterUser(userId) {
+      return this.unregisterUserWithHttpInfo(userId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update a User
      * @param {String} userId the User identifier
      * @param {module:model/User} user the new User details. Organization membership is handled via the /organizations endpoint.
-     * @param {module:api/UserApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
      */
-    updateUser(userId, user, callback) {
+    updateUserWithHttpInfo(userId, user) {
       let postBody = user;
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -434,8 +461,21 @@ export default class UserApi {
       return this.apiClient.callApi(
         '/users/{user_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Update a User
+     * @param {String} userId the User identifier
+     * @param {module:model/User} user the new User details. Organization membership is handled via the /organizations endpoint.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
+     */
+    updateUser(userId, user) {
+      return this.updateUserWithHttpInfo(userId, user)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

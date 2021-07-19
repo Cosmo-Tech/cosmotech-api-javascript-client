@@ -34,13 +34,12 @@ let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetId = "datasetId_example"; // String | the Dataset identifier
 let datasetCompatibility = [new CosmotechApi.DatasetCompatibility()]; // [DatasetCompatibility] | the Dataset Compatibility elements
-apiInstance.addOrReplaceDatasetCompatibilityElements(organizationId, datasetId, datasetCompatibility, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addOrReplaceDatasetCompatibilityElements(organizationId, datasetId, datasetCompatibility).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -84,13 +83,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetCopyParameters = new CosmotechApi.DatasetCopyParameters(); // DatasetCopyParameters | the Dataset copy parameters
-apiInstance.copyDataset(organizationId, datasetCopyParameters, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.copyDataset(organizationId, datasetCopyParameters).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -133,13 +131,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let dataset = new CosmotechApi.Dataset(); // Dataset | the Dataset to create
-apiInstance.createDataset(organizationId, dataset, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createDataset(organizationId, dataset).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -182,13 +179,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetId = "datasetId_example"; // String | the Dataset identifier
-apiInstance.deleteDataset(organizationId, datasetId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteDataset(organizationId, datasetId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -230,13 +226,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findAllDatasets(organizationId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findAllDatasets(organizationId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -278,13 +273,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetId = "datasetId_example"; // String | the Dataset identifier
-apiInstance.findDatasetById(organizationId, datasetId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findDatasetById(organizationId, datasetId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -327,13 +321,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetId = "datasetId_example"; // String | the Dataset identifier
-apiInstance.removeAllDatasetCompatibilityElements(organizationId, datasetId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeAllDatasetCompatibilityElements(organizationId, datasetId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -377,13 +370,12 @@ let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetId = "datasetId_example"; // String | the Dataset identifier
 let dataset = new CosmotechApi.Dataset(); // Dataset | the new Dataset details.
-apiInstance.updateDataset(organizationId, datasetId, dataset, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateDataset(organizationId, datasetId, dataset).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

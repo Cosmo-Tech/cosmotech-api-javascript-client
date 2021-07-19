@@ -38,23 +38,15 @@ export default class SolutionApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the addOrReplaceParameterGroups operation.
-     * @callback module:api/SolutionApi~addOrReplaceParameterGroupsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/RunTemplateParameterGroup>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add Parameter Groups. Any item with the same ID will be overwritten
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
      * @param {Array.<module:model/RunTemplateParameterGroup>} runTemplateParameterGroup the Parameter Groups
-     * @param {module:api/SolutionApi~addOrReplaceParameterGroupsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/RunTemplateParameterGroup>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RunTemplateParameterGroup>} and HTTP response
      */
-    addOrReplaceParameterGroups(organizationId, solutionId, runTemplateParameterGroup, callback) {
+    addOrReplaceParameterGroupsWithHttpInfo(organizationId, solutionId, runTemplateParameterGroup) {
       let postBody = runTemplateParameterGroup;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -87,27 +79,33 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/parameterGroups', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the addOrReplaceParameters operation.
-     * @callback module:api/SolutionApi~addOrReplaceParametersCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/RunTemplateParameter>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Add Parameter Groups. Any item with the same ID will be overwritten
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {Array.<module:model/RunTemplateParameterGroup>} runTemplateParameterGroup the Parameter Groups
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RunTemplateParameterGroup>}
      */
+    addOrReplaceParameterGroups(organizationId, solutionId, runTemplateParameterGroup) {
+      return this.addOrReplaceParameterGroupsWithHttpInfo(organizationId, solutionId, runTemplateParameterGroup)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Add Parameters. Any item with the same ID will be overwritten
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
      * @param {Array.<module:model/RunTemplateParameter>} runTemplateParameter the Parameters
-     * @param {module:api/SolutionApi~addOrReplaceParametersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/RunTemplateParameter>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RunTemplateParameter>} and HTTP response
      */
-    addOrReplaceParameters(organizationId, solutionId, runTemplateParameter, callback) {
+    addOrReplaceParametersWithHttpInfo(organizationId, solutionId, runTemplateParameter) {
       let postBody = runTemplateParameter;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -140,27 +138,33 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/parameters', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the addOrReplaceRunTemplates operation.
-     * @callback module:api/SolutionApi~addOrReplaceRunTemplatesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/RunTemplate>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Add Parameters. Any item with the same ID will be overwritten
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {Array.<module:model/RunTemplateParameter>} runTemplateParameter the Parameters
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RunTemplateParameter>}
      */
+    addOrReplaceParameters(organizationId, solutionId, runTemplateParameter) {
+      return this.addOrReplaceParametersWithHttpInfo(organizationId, solutionId, runTemplateParameter)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Add Run Templates. Any item with the same ID will be overwritten
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
      * @param {Array.<module:model/RunTemplate>} runTemplate the Run Templates
-     * @param {module:api/SolutionApi~addOrReplaceRunTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/RunTemplate>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RunTemplate>} and HTTP response
      */
-    addOrReplaceRunTemplates(organizationId, solutionId, runTemplate, callback) {
+    addOrReplaceRunTemplatesWithHttpInfo(organizationId, solutionId, runTemplate) {
       let postBody = runTemplate;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -193,26 +197,32 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/runTemplates', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the createSolution operation.
-     * @callback module:api/SolutionApi~createSolutionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Solution} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Add Run Templates. Any item with the same ID will be overwritten
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {Array.<module:model/RunTemplate>} runTemplate the Run Templates
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RunTemplate>}
      */
+    addOrReplaceRunTemplates(organizationId, solutionId, runTemplate) {
+      return this.addOrReplaceRunTemplatesWithHttpInfo(organizationId, solutionId, runTemplate)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Register a new solution
      * @param {String} organizationId the Organization identifier
      * @param {module:model/Solution} solution the Solution to create
-     * @param {module:api/SolutionApi~createSolutionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Solution}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Solution} and HTTP response
      */
-    createSolution(organizationId, solution, callback) {
+    createSolutionWithHttpInfo(organizationId, solution) {
       let postBody = solution;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -240,25 +250,31 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteSolution operation.
-     * @callback module:api/SolutionApi~deleteSolutionCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Register a new solution
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/Solution} solution the Solution to create
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Solution}
      */
+    createSolution(organizationId, solution) {
+      return this.createSolutionWithHttpInfo(organizationId, solution)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete a solution
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
-     * @param {module:api/SolutionApi~deleteSolutionCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteSolution(organizationId, solutionId, callback) {
+    deleteSolutionWithHttpInfo(organizationId, solutionId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -287,26 +303,32 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteSolutionRunTemplate operation.
-     * @callback module:api/SolutionApi~deleteSolutionRunTemplateCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Delete a solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteSolution(organizationId, solutionId) {
+      return this.deleteSolutionWithHttpInfo(organizationId, solutionId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove the specified Solution Run Template
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
      * @param {String} runTemplateId the Run Template identifier
-     * @param {module:api/SolutionApi~deleteSolutionRunTemplateCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteSolutionRunTemplate(organizationId, solutionId, runTemplateId, callback) {
+    deleteSolutionRunTemplateWithHttpInfo(organizationId, solutionId, runTemplateId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -340,25 +362,31 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/runTemplates/{run_template_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllSolutions operation.
-     * @callback module:api/SolutionApi~findAllSolutionsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Solution>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Remove the specified Solution Run Template
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} runTemplateId the Run Template identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteSolutionRunTemplate(organizationId, solutionId, runTemplateId) {
+      return this.deleteSolutionRunTemplateWithHttpInfo(organizationId, solutionId, runTemplateId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Solutions
      * @param {String} organizationId the Organization identifier
-     * @param {module:api/SolutionApi~findAllSolutionsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Solution>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Solution>} and HTTP response
      */
-    findAllSolutions(organizationId, callback) {
+    findAllSolutionsWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -382,26 +410,30 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findSolutionById operation.
-     * @callback module:api/SolutionApi~findSolutionByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Solution} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Solutions
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Solution>}
      */
+    findAllSolutions(organizationId) {
+      return this.findAllSolutionsWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of a solution
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
-     * @param {module:api/SolutionApi~findSolutionByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Solution}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Solution} and HTTP response
      */
-    findSolutionById(organizationId, solutionId, callback) {
+    findSolutionByIdWithHttpInfo(organizationId, solutionId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -430,25 +462,31 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeAllRunTemplates operation.
-     * @callback module:api/SolutionApi~removeAllRunTemplatesCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Get the details of a solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Solution}
      */
+    findSolutionById(organizationId, solutionId) {
+      return this.findSolutionByIdWithHttpInfo(organizationId, solutionId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all Run Templates from the Solution specified
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
-     * @param {module:api/SolutionApi~removeAllRunTemplatesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeAllRunTemplates(organizationId, solutionId, callback) {
+    removeAllRunTemplatesWithHttpInfo(organizationId, solutionId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -477,25 +515,31 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/runTemplates', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeAllSolutionParameterGroups operation.
-     * @callback module:api/SolutionApi~removeAllSolutionParameterGroupsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Remove all Run Templates from the Solution specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeAllRunTemplates(organizationId, solutionId) {
+      return this.removeAllRunTemplatesWithHttpInfo(organizationId, solutionId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all Parameter Groups from the Solution specified
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
-     * @param {module:api/SolutionApi~removeAllSolutionParameterGroupsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeAllSolutionParameterGroups(organizationId, solutionId, callback) {
+    removeAllSolutionParameterGroupsWithHttpInfo(organizationId, solutionId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -524,25 +568,31 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/parameterGroups', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeAllSolutionParameters operation.
-     * @callback module:api/SolutionApi~removeAllSolutionParametersCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Remove all Parameter Groups from the Solution specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeAllSolutionParameterGroups(organizationId, solutionId) {
+      return this.removeAllSolutionParameterGroupsWithHttpInfo(organizationId, solutionId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all Parameters from the Solution specified
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
-     * @param {module:api/SolutionApi~removeAllSolutionParametersCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeAllSolutionParameters(organizationId, solutionId, callback) {
+    removeAllSolutionParametersWithHttpInfo(organizationId, solutionId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -571,27 +621,32 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/parameters', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateSolution operation.
-     * @callback module:api/SolutionApi~updateSolutionCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Solution} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Remove all Parameters from the Solution specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeAllSolutionParameters(organizationId, solutionId) {
+      return this.removeAllSolutionParametersWithHttpInfo(organizationId, solutionId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update a solution
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
      * @param {module:model/Solution} solution the new Solution details.
-     * @param {module:api/SolutionApi~updateSolutionCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Solution}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Solution} and HTTP response
      */
-    updateSolution(organizationId, solutionId, solution, callback) {
+    updateSolutionWithHttpInfo(organizationId, solutionId, solution) {
       let postBody = solution;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -624,17 +679,24 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateSolutionRunTemplate operation.
-     * @callback module:api/SolutionApi~updateSolutionRunTemplateCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/RunTemplate>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Update a solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {module:model/Solution} solution the new Solution details.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Solution}
      */
+    updateSolution(organizationId, solutionId, solution) {
+      return this.updateSolutionWithHttpInfo(organizationId, solutionId, solution)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update the specified Solution Run Template
@@ -642,10 +704,9 @@ export default class SolutionApi {
      * @param {String} solutionId the Solution identifier
      * @param {String} runTemplateId the Run Template identifier
      * @param {module:model/RunTemplate} runTemplate the Run Templates
-     * @param {module:api/SolutionApi~updateSolutionRunTemplateCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/RunTemplate>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RunTemplate>} and HTTP response
      */
-    updateSolutionRunTemplate(organizationId, solutionId, runTemplateId, runTemplate, callback) {
+    updateSolutionRunTemplateWithHttpInfo(organizationId, solutionId, runTemplateId, runTemplate) {
       let postBody = runTemplate;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -683,17 +744,25 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/runTemplates/{run_template_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the uploadRunTemplateHandler operation.
-     * @callback module:api/SolutionApi~uploadRunTemplateHandlerCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Update the specified Solution Run Template
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} runTemplateId the Run Template identifier
+     * @param {module:model/RunTemplate} runTemplate the Run Templates
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RunTemplate>}
      */
+    updateSolutionRunTemplate(organizationId, solutionId, runTemplateId, runTemplate) {
+      return this.updateSolutionRunTemplateWithHttpInfo(organizationId, solutionId, runTemplateId, runTemplate)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Upload a Run Template step handler zip file
@@ -704,9 +773,9 @@ export default class SolutionApi {
      * @param {File} body 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.overwrite whether to overwrite any existing handler resource (default to false)
-     * @param {module:api/SolutionApi~uploadRunTemplateHandlerCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, body, opts, callback) {
+    uploadRunTemplateHandlerWithHttpInfo(organizationId, solutionId, runTemplateId, handlerId, body, opts) {
       opts = opts || {};
       let postBody = body;
       // verify the required parameter 'organizationId' is set
@@ -751,8 +820,26 @@ export default class SolutionApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/upload', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Upload a Run Template step handler zip file
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} runTemplateId the Run Template identifier
+     * @param {module:model/RunTemplateHandlerId} handlerId the Handler identifier
+     * @param {File} body 
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.overwrite whether to overwrite any existing handler resource (default to false)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, body, opts) {
+      return this.uploadRunTemplateHandlerWithHttpInfo(organizationId, solutionId, runTemplateId, handlerId, body, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

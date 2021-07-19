@@ -34,20 +34,12 @@ export default class ConnectorApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the findAllConnectors operation.
-     * @callback module:api/ConnectorApi~findAllConnectorsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Connector>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * List all Connectors
-     * @param {module:api/ConnectorApi~findAllConnectorsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Connector>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Connector>} and HTTP response
      */
-    findAllConnectors(callback) {
+    findAllConnectorsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -66,25 +58,28 @@ export default class ConnectorApi {
       return this.apiClient.callApi(
         '/connectors', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findConnectorById operation.
-     * @callback module:api/ConnectorApi~findConnectorByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Connector} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Connectors
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Connector>}
      */
+    findAllConnectors() {
+      return this.findAllConnectorsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of a connector
      * @param {String} connectorId the Connector identifier
-     * @param {module:api/ConnectorApi~findConnectorByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Connector}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Connector} and HTTP response
      */
-    findConnectorById(connectorId, callback) {
+    findConnectorByIdWithHttpInfo(connectorId) {
       let postBody = null;
       // verify the required parameter 'connectorId' is set
       if (connectorId === undefined || connectorId === null) {
@@ -108,25 +103,29 @@ export default class ConnectorApi {
       return this.apiClient.callApi(
         '/connectors/{connector_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the registerConnector operation.
-     * @callback module:api/ConnectorApi~registerConnectorCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Connector} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of a connector
+     * @param {String} connectorId the Connector identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Connector}
      */
+    findConnectorById(connectorId) {
+      return this.findConnectorByIdWithHttpInfo(connectorId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Register a new connector
      * @param {module:model/Connector} connector the Connector to register
-     * @param {module:api/ConnectorApi~registerConnectorCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Connector}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Connector} and HTTP response
      */
-    registerConnector(connector, callback) {
+    registerConnectorWithHttpInfo(connector) {
       let postBody = connector;
       // verify the required parameter 'connector' is set
       if (connector === undefined || connector === null) {
@@ -149,24 +148,29 @@ export default class ConnectorApi {
       return this.apiClient.callApi(
         '/connectors', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the unregisterConnector operation.
-     * @callback module:api/ConnectorApi~unregisterConnectorCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Register a new connector
+     * @param {module:model/Connector} connector the Connector to register
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Connector}
      */
+    registerConnector(connector) {
+      return this.registerConnectorWithHttpInfo(connector)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Unregister a connector
      * @param {String} connectorId the Connector identifier
-     * @param {module:api/ConnectorApi~unregisterConnectorCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    unregisterConnector(connectorId, callback) {
+    unregisterConnectorWithHttpInfo(connectorId) {
       let postBody = null;
       // verify the required parameter 'connectorId' is set
       if (connectorId === undefined || connectorId === null) {
@@ -190,8 +194,20 @@ export default class ConnectorApi {
       return this.apiClient.callApi(
         '/connectors/{connector_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Unregister a connector
+     * @param {String} connectorId the Connector identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    unregisterConnector(connectorId) {
+      return this.unregisterConnectorWithHttpInfo(connectorId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

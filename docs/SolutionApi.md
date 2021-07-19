@@ -40,13 +40,12 @@ let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
 let runTemplateParameterGroup = [new CosmotechApi.RunTemplateParameterGroup()]; // [RunTemplateParameterGroup] | the Parameter Groups
-apiInstance.addOrReplaceParameterGroups(organizationId, solutionId, runTemplateParameterGroup, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addOrReplaceParameterGroups(organizationId, solutionId, runTemplateParameterGroup).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -91,13 +90,12 @@ let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
 let runTemplateParameter = [new CosmotechApi.RunTemplateParameter()]; // [RunTemplateParameter] | the Parameters
-apiInstance.addOrReplaceParameters(organizationId, solutionId, runTemplateParameter, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addOrReplaceParameters(organizationId, solutionId, runTemplateParameter).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -142,13 +140,12 @@ let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
 let runTemplate = [new CosmotechApi.RunTemplate()]; // [RunTemplate] | the Run Templates
-apiInstance.addOrReplaceRunTemplates(organizationId, solutionId, runTemplate, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addOrReplaceRunTemplates(organizationId, solutionId, runTemplate).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -192,13 +189,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solution = new CosmotechApi.Solution(); // Solution | the Solution to create
-apiInstance.createSolution(organizationId, solution, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createSolution(organizationId, solution).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -241,13 +237,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
-apiInstance.deleteSolution(organizationId, solutionId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteSolution(organizationId, solutionId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -291,13 +286,12 @@ let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
 let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
-apiInstance.deleteSolutionRunTemplate(organizationId, solutionId, runTemplateId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteSolutionRunTemplate(organizationId, solutionId, runTemplateId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -340,13 +334,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findAllSolutions(organizationId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findAllSolutions(organizationId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -388,13 +381,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
-apiInstance.findSolutionById(organizationId, solutionId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findSolutionById(organizationId, solutionId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -437,13 +429,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
-apiInstance.removeAllRunTemplates(organizationId, solutionId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeAllRunTemplates(organizationId, solutionId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -486,13 +477,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
-apiInstance.removeAllSolutionParameterGroups(organizationId, solutionId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeAllSolutionParameterGroups(organizationId, solutionId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -535,13 +525,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
-apiInstance.removeAllSolutionParameters(organizationId, solutionId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeAllSolutionParameters(organizationId, solutionId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -585,13 +574,12 @@ let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
 let solution = new CosmotechApi.Solution(); // Solution | the new Solution details.
-apiInstance.updateSolution(organizationId, solutionId, solution, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateSolution(organizationId, solutionId, solution).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -637,13 +625,12 @@ let organizationId = "organizationId_example"; // String | the Organization iden
 let solutionId = "solutionId_example"; // String | the Solution identifier
 let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
 let runTemplate = new CosmotechApi.RunTemplate(); // RunTemplate | the Run Templates
-apiInstance.updateSolutionRunTemplate(organizationId, solutionId, runTemplateId, runTemplate, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateSolutionRunTemplate(organizationId, solutionId, runTemplateId, runTemplate).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -694,13 +681,12 @@ let body = "/path/to/file"; // File |
 let opts = {
   'overwrite': false // Boolean | whether to overwrite any existing handler resource
 };
-apiInstance.uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, body, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, body, opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

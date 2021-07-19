@@ -36,13 +36,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let organizationUser = [{"id":"2","roles":["User"]},{"id":"3","roles":["Developer"]}]; // [OrganizationUser] | the Users to add. Any User with the same ID is overwritten
-apiInstance.addOrReplaceUsersInOrganization(organizationId, organizationUser, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.addOrReplaceUsersInOrganization(organizationId, organizationUser).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -83,13 +82,12 @@ let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
 oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
-apiInstance.findAllOrganizations((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findAllOrganizations().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -127,13 +125,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findOrganizationById(organizationId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findOrganizationById(organizationId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -174,13 +171,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organization = new CosmotechApi.Organization(); // Organization | the Organization to register
-apiInstance.registerOrganization(organization, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.registerOrganization(organization).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -221,13 +217,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.removeAllUsersInOrganization(organizationId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeAllUsersInOrganization(organizationId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -269,13 +264,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let userId = "userId_example"; // String | the User identifier
-apiInstance.removeUserFromOrganization(organizationId, userId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.removeUserFromOrganization(organizationId, userId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -317,13 +311,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.unregisterOrganization(organizationId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.unregisterOrganization(organizationId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -365,13 +358,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let organization = {"name":"CosmoTech Digital Twins Engine"}; // Organization | the new Organization details
-apiInstance.updateOrganization(organizationId, organization, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateOrganization(organizationId, organization).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -414,13 +406,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let organizationService = {"baseUri":"mysolutiontwinengines.azurecr.io"}; // OrganizationService | the new solutions container registry configuration to use
-apiInstance.updateSolutionsContainerRegistryByOrganizationId(organizationId, organizationService, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateSolutionsContainerRegistryByOrganizationId(organizationId, organizationService).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -463,13 +454,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let organizationService = {"baseUri":"https://csmphoenixcontainer.blob.core.windows.net"}; // OrganizationService | the new Storage configuration to use
-apiInstance.updateStorageByOrganizationId(organizationId, organizationService, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateStorageByOrganizationId(organizationId, organizationService).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -512,13 +502,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let requestBody = {"azureTenantId":"<my_azure_tenant_id>","azureClientId":"<my_azure_client_id>","azureClientSecret":"<my_azure_client_secret>"}; // {String: Object} | the new Tenant Credentials to use
-apiInstance.updateTenantCredentialsByOrganizationId(organizationId, requestBody, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.updateTenantCredentialsByOrganizationId(organizationId, requestBody).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

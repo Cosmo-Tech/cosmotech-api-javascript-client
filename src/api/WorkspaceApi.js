@@ -36,23 +36,15 @@ export default class WorkspaceApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the addOrReplaceUsersInOrganizationWorkspace operation.
-     * @callback module:api/WorkspaceApi~addOrReplaceUsersInOrganizationWorkspaceCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/WorkspaceUser>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add (or replace) users to the Workspace specified
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {Array.<module:model/WorkspaceUser>} workspaceUser the Users to add. Any User with the same ID is overwritten
-     * @param {module:api/WorkspaceApi~addOrReplaceUsersInOrganizationWorkspaceCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/WorkspaceUser>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/WorkspaceUser>} and HTTP response
      */
-    addOrReplaceUsersInOrganizationWorkspace(organizationId, workspaceId, workspaceUser, callback) {
+    addOrReplaceUsersInOrganizationWorkspaceWithHttpInfo(organizationId, workspaceId, workspaceUser) {
       let postBody = workspaceUser;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -85,26 +77,32 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/users', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the createWorkspace operation.
-     * @callback module:api/WorkspaceApi~createWorkspaceCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Workspace} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Add (or replace) users to the Workspace specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {Array.<module:model/WorkspaceUser>} workspaceUser the Users to add. Any User with the same ID is overwritten
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WorkspaceUser>}
      */
+    addOrReplaceUsersInOrganizationWorkspace(organizationId, workspaceId, workspaceUser) {
+      return this.addOrReplaceUsersInOrganizationWorkspaceWithHttpInfo(organizationId, workspaceId, workspaceUser)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Create a new workspace
      * @param {String} organizationId the Organization identifier
      * @param {module:model/Workspace} workspace the Workspace to create
-     * @param {module:api/WorkspaceApi~createWorkspaceCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Workspace}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Workspace} and HTTP response
      */
-    createWorkspace(organizationId, workspace, callback) {
+    createWorkspaceWithHttpInfo(organizationId, workspace) {
       let postBody = workspace;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -132,25 +130,31 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteAllWorkspaceFiles operation.
-     * @callback module:api/WorkspaceApi~deleteAllWorkspaceFilesCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Create a new workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/Workspace} workspace the Workspace to create
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Workspace}
      */
+    createWorkspace(organizationId, workspace) {
+      return this.createWorkspaceWithHttpInfo(organizationId, workspace)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete all Workspace files
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/WorkspaceApi~deleteAllWorkspaceFilesCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteAllWorkspaceFiles(organizationId, workspaceId, callback) {
+    deleteAllWorkspaceFilesWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -179,26 +183,31 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/files', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteWorkspace operation.
-     * @callback module:api/WorkspaceApi~deleteWorkspaceCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Workspace} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete all Workspace files
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteAllWorkspaceFiles(organizationId, workspaceId) {
+      return this.deleteAllWorkspaceFilesWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete a workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/WorkspaceApi~deleteWorkspaceCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Workspace}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Workspace} and HTTP response
      */
-    deleteWorkspace(organizationId, workspaceId, callback) {
+    deleteWorkspaceWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -227,26 +236,32 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteWorkspaceFile operation.
-     * @callback module:api/WorkspaceApi~deleteWorkspaceFileCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Delete a workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Workspace}
      */
+    deleteWorkspace(organizationId, workspaceId) {
+      return this.deleteWorkspaceWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete a workspace file
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} fileName the file name
-     * @param {module:api/WorkspaceApi~deleteWorkspaceFileCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteWorkspaceFile(organizationId, workspaceId, fileName, callback) {
+    deleteWorkspaceFileWithHttpInfo(organizationId, workspaceId, fileName) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -280,27 +295,33 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/files/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the downloadWorkspaceFile operation.
-     * @callback module:api/WorkspaceApi~downloadWorkspaceFileCallback
-     * @param {String} error Error message, if any.
-     * @param {File} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a workspace file
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} fileName the file name
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteWorkspaceFile(organizationId, workspaceId, fileName) {
+      return this.deleteWorkspaceFileWithHttpInfo(organizationId, workspaceId, fileName)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Download the Workspace File specified
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} fileName the file name
-     * @param {module:api/WorkspaceApi~downloadWorkspaceFileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link File}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
      */
-    downloadWorkspaceFile(organizationId, workspaceId, fileName, callback) {
+    downloadWorkspaceFileWithHttpInfo(organizationId, workspaceId, fileName) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -334,26 +355,32 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/files/download', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllWorkspaceFiles operation.
-     * @callback module:api/WorkspaceApi~findAllWorkspaceFilesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/WorkspaceFile>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Download the Workspace File specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} fileName the file name
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
      */
+    downloadWorkspaceFile(organizationId, workspaceId, fileName) {
+      return this.downloadWorkspaceFileWithHttpInfo(organizationId, workspaceId, fileName)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Workspace files
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/WorkspaceApi~findAllWorkspaceFilesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/WorkspaceFile>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/WorkspaceFile>} and HTTP response
      */
-    findAllWorkspaceFiles(organizationId, workspaceId, callback) {
+    findAllWorkspaceFilesWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -382,25 +409,30 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllWorkspaces operation.
-     * @callback module:api/WorkspaceApi~findAllWorkspacesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Workspace>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Workspace files
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WorkspaceFile>}
      */
+    findAllWorkspaceFiles(organizationId, workspaceId) {
+      return this.findAllWorkspaceFilesWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Workspaces
      * @param {String} organizationId the Organization identifier
-     * @param {module:api/WorkspaceApi~findAllWorkspacesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Workspace>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Workspace>} and HTTP response
      */
-    findAllWorkspaces(organizationId, callback) {
+    findAllWorkspacesWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -424,26 +456,30 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findWorkspaceById operation.
-     * @callback module:api/WorkspaceApi~findWorkspaceByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Workspace} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Workspaces
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Workspace>}
      */
+    findAllWorkspaces(organizationId) {
+      return this.findAllWorkspacesWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of an workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/WorkspaceApi~findWorkspaceByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Workspace}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Workspace} and HTTP response
      */
-    findWorkspaceById(organizationId, workspaceId, callback) {
+    findWorkspaceByIdWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -472,25 +508,31 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeAllUsersOfWorkspace operation.
-     * @callback module:api/WorkspaceApi~removeAllUsersOfWorkspaceCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Get the details of an workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Workspace}
      */
+    findWorkspaceById(organizationId, workspaceId) {
+      return this.findWorkspaceByIdWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all users from the Workspace specified
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:api/WorkspaceApi~removeAllUsersOfWorkspaceCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeAllUsersOfWorkspace(organizationId, workspaceId, callback) {
+    removeAllUsersOfWorkspaceWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -519,26 +561,32 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/users', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the removeUserFromOrganizationWorkspace operation.
-     * @callback module:api/WorkspaceApi~removeUserFromOrganizationWorkspaceCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Remove all users from the Workspace specified
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeAllUsersOfWorkspace(organizationId, workspaceId) {
+      return this.removeAllUsersOfWorkspaceWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove the specified user from the given Organization Workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} userId the User identifier
-     * @param {module:api/WorkspaceApi~removeUserFromOrganizationWorkspaceCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    removeUserFromOrganizationWorkspace(organizationId, workspaceId, userId, callback) {
+    removeUserFromOrganizationWorkspaceWithHttpInfo(organizationId, workspaceId, userId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -572,27 +620,33 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/users/{user_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the updateWorkspace operation.
-     * @callback module:api/WorkspaceApi~updateWorkspaceCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Workspace} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Remove the specified user from the given Organization Workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} userId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    removeUserFromOrganizationWorkspace(organizationId, workspaceId, userId) {
+      return this.removeUserFromOrganizationWorkspaceWithHttpInfo(organizationId, workspaceId, userId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Update a workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {module:model/Workspace} workspace the new Workspace details.
-     * @param {module:api/WorkspaceApi~updateWorkspaceCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Workspace}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Workspace} and HTTP response
      */
-    updateWorkspace(organizationId, workspaceId, workspace, callback) {
+    updateWorkspaceWithHttpInfo(organizationId, workspaceId, workspace) {
       let postBody = workspace;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -625,17 +679,24 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the uploadWorkspaceFile operation.
-     * @callback module:api/WorkspaceApi~uploadWorkspaceFileCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/WorkspaceFile} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Update a workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {module:model/Workspace} workspace the new Workspace details.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Workspace}
      */
+    updateWorkspace(organizationId, workspaceId, workspace) {
+      return this.updateWorkspaceWithHttpInfo(organizationId, workspaceId, workspace)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Upload a file for the Workspace
@@ -645,10 +706,9 @@ export default class WorkspaceApi {
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.overwrite  (default to false)
      * @param {String} opts.destination Destination path. Must end with a '/' if specifying a folder. Note that paths may or may not start with a '/', but they are always treated as relative to the Workspace root location. 
-     * @param {module:api/WorkspaceApi~uploadWorkspaceFileCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/WorkspaceFile}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/WorkspaceFile} and HTTP response
      */
-    uploadWorkspaceFile(organizationId, workspaceId, file, opts, callback) {
+    uploadWorkspaceFileWithHttpInfo(organizationId, workspaceId, file, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'organizationId' is set
@@ -685,8 +745,25 @@ export default class WorkspaceApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/files', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Upload a file for the Workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {File} file 
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.overwrite  (default to false)
+     * @param {String} opts.destination Destination path. Must end with a '/' if specifying a folder. Note that paths may or may not start with a '/', but they are always treated as relative to the Workspace root location. 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WorkspaceFile}
+     */
+    uploadWorkspaceFile(organizationId, workspaceId, file, opts) {
+      return this.uploadWorkspaceFileWithHttpInfo(organizationId, workspaceId, file, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

@@ -34,13 +34,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let validator = new CosmotechApi.Validator(); // Validator | the Validator to create
-apiInstance.createValidator(organizationId, validator, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createValidator(organizationId, validator).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -84,13 +83,12 @@ let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let validatorId = "validatorId_example"; // String | the ValidatorRun identifier
 let validatorRun = new CosmotechApi.ValidatorRun(); // ValidatorRun | the Validator Run to create
-apiInstance.createValidatorRun(organizationId, validatorId, validatorRun, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.createValidatorRun(organizationId, validatorId, validatorRun).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -134,13 +132,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let validatorId = "validatorId_example"; // String | the Validator identifier
-apiInstance.deleteValidator(organizationId, validatorId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteValidator(organizationId, validatorId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -184,13 +181,12 @@ let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let validatorId = "validatorId_example"; // String | the Validator identifier
 let validatorrunId = "validatorrunId_example"; // String | the Validator Run identifier
-apiInstance.deleteValidatorRun(organizationId, validatorId, validatorrunId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteValidatorRun(organizationId, validatorId, validatorrunId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -234,13 +230,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let validatorId = "validatorId_example"; // String | the ValidatorRun identifier
-apiInstance.findAllValidatorRuns(organizationId, validatorId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findAllValidatorRuns(organizationId, validatorId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -282,13 +277,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findAllValidators(organizationId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findAllValidators(organizationId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -330,13 +324,12 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let validatorId = "validatorId_example"; // String | the Validator identifier
-apiInstance.findValidatorById(organizationId, validatorId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findValidatorById(organizationId, validatorId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -380,13 +373,12 @@ let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let validatorId = "validatorId_example"; // String | the Validator identifier
 let validatorrunId = "validatorrunId_example"; // String | the Validator Run identifier
-apiInstance.findValidatorRunById(organizationId, validatorId, validatorrunId, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.findValidatorRunById(organizationId, validatorId, validatorrunId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -431,13 +423,12 @@ let apiInstance = new CosmotechApi.ValidatorApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let validatorId = "validatorId_example"; // String | the ValidatorRun identifier
 let validatorRun = new CosmotechApi.ValidatorRun(); // ValidatorRun | the Validator to run
-apiInstance.runValidator(organizationId, validatorId, validatorRun, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.runValidator(organizationId, validatorId, validatorRun).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

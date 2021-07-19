@@ -35,22 +35,14 @@ export default class ValidatorApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the createValidator operation.
-     * @callback module:api/ValidatorApi~createValidatorCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Validator} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Register a new validator
      * @param {String} organizationId the Organization identifier
      * @param {module:model/Validator} validator the Validator to create
-     * @param {module:api/ValidatorApi~createValidatorCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Validator}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Validator} and HTTP response
      */
-    createValidator(organizationId, validator, callback) {
+    createValidatorWithHttpInfo(organizationId, validator) {
       let postBody = validator;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -78,27 +70,32 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the createValidatorRun operation.
-     * @callback module:api/ValidatorApi~createValidatorRunCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ValidatorRun} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Register a new validator
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/Validator} validator the Validator to create
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Validator}
      */
+    createValidator(organizationId, validator) {
+      return this.createValidatorWithHttpInfo(organizationId, validator)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Register a new validator run
      * @param {String} organizationId the Organization identifier
      * @param {String} validatorId the ValidatorRun identifier
      * @param {module:model/ValidatorRun} validatorRun the Validator Run to create
-     * @param {module:api/ValidatorApi~createValidatorRunCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ValidatorRun}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ValidatorRun} and HTTP response
      */
-    createValidatorRun(organizationId, validatorId, validatorRun, callback) {
+    createValidatorRunWithHttpInfo(organizationId, validatorId, validatorRun) {
       let postBody = validatorRun;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -131,25 +128,32 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}/history', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteValidator operation.
-     * @callback module:api/ValidatorApi~deleteValidatorCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Register a new validator run
+     * @param {String} organizationId the Organization identifier
+     * @param {String} validatorId the ValidatorRun identifier
+     * @param {module:model/ValidatorRun} validatorRun the Validator Run to create
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ValidatorRun}
      */
+    createValidatorRun(organizationId, validatorId, validatorRun) {
+      return this.createValidatorRunWithHttpInfo(organizationId, validatorId, validatorRun)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete a validator
      * @param {String} organizationId the Organization identifier
      * @param {String} validatorId the Validator identifier
-     * @param {module:api/ValidatorApi~deleteValidatorCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteValidator(organizationId, validatorId, callback) {
+    deleteValidatorWithHttpInfo(organizationId, validatorId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -178,26 +182,32 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteValidatorRun operation.
-     * @callback module:api/ValidatorApi~deleteValidatorRunCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Delete a validator
+     * @param {String} organizationId the Organization identifier
+     * @param {String} validatorId the Validator identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteValidator(organizationId, validatorId) {
+      return this.deleteValidatorWithHttpInfo(organizationId, validatorId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Delete a validator run
      * @param {String} organizationId the Organization identifier
      * @param {String} validatorId the Validator identifier
      * @param {String} validatorrunId the Validator Run identifier
-     * @param {module:api/ValidatorApi~deleteValidatorRunCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteValidatorRun(organizationId, validatorId, validatorrunId, callback) {
+    deleteValidatorRunWithHttpInfo(organizationId, validatorId, validatorrunId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -231,26 +241,32 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllValidatorRuns operation.
-     * @callback module:api/ValidatorApi~findAllValidatorRunsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ValidatorRun>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Delete a validator run
+     * @param {String} organizationId the Organization identifier
+     * @param {String} validatorId the Validator identifier
+     * @param {String} validatorrunId the Validator Run identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteValidatorRun(organizationId, validatorId, validatorrunId) {
+      return this.deleteValidatorRunWithHttpInfo(organizationId, validatorId, validatorrunId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Validator Runs
      * @param {String} organizationId the Organization identifier
      * @param {String} validatorId the ValidatorRun identifier
-     * @param {module:api/ValidatorApi~findAllValidatorRunsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ValidatorRun>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ValidatorRun>} and HTTP response
      */
-    findAllValidatorRuns(organizationId, validatorId, callback) {
+    findAllValidatorRunsWithHttpInfo(organizationId, validatorId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -279,25 +295,30 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}/history', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findAllValidators operation.
-     * @callback module:api/ValidatorApi~findAllValidatorsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Validator>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Validator Runs
+     * @param {String} organizationId the Organization identifier
+     * @param {String} validatorId the ValidatorRun identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ValidatorRun>}
      */
+    findAllValidatorRuns(organizationId, validatorId) {
+      return this.findAllValidatorRunsWithHttpInfo(organizationId, validatorId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * List all Validators
      * @param {String} organizationId the Organization identifier
-     * @param {module:api/ValidatorApi~findAllValidatorsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Validator>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Validator>} and HTTP response
      */
-    findAllValidators(organizationId, callback) {
+    findAllValidatorsWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -321,26 +342,30 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findValidatorById operation.
-     * @callback module:api/ValidatorApi~findValidatorByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Validator} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * List all Validators
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Validator>}
      */
+    findAllValidators(organizationId) {
+      return this.findAllValidatorsWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of a validator
      * @param {String} organizationId the Organization identifier
      * @param {String} validatorId the Validator identifier
-     * @param {module:api/ValidatorApi~findValidatorByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Validator}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Validator} and HTTP response
      */
-    findValidatorById(organizationId, validatorId, callback) {
+    findValidatorByIdWithHttpInfo(organizationId, validatorId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -369,27 +394,32 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the findValidatorRunById operation.
-     * @callback module:api/ValidatorApi~findValidatorRunByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ValidatorRun} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of a validator
+     * @param {String} organizationId the Organization identifier
+     * @param {String} validatorId the Validator identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Validator}
      */
+    findValidatorById(organizationId, validatorId) {
+      return this.findValidatorByIdWithHttpInfo(organizationId, validatorId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Get the details of a validator run
      * @param {String} organizationId the Organization identifier
      * @param {String} validatorId the Validator identifier
      * @param {String} validatorrunId the Validator Run identifier
-     * @param {module:api/ValidatorApi~findValidatorRunByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ValidatorRun}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ValidatorRun} and HTTP response
      */
-    findValidatorRunById(organizationId, validatorId, validatorrunId, callback) {
+    findValidatorRunByIdWithHttpInfo(organizationId, validatorId, validatorrunId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -423,27 +453,33 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the runValidator operation.
-     * @callback module:api/ValidatorApi~runValidatorCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ValidatorRun} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Get the details of a validator run
+     * @param {String} organizationId the Organization identifier
+     * @param {String} validatorId the Validator identifier
+     * @param {String} validatorrunId the Validator Run identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ValidatorRun}
      */
+    findValidatorRunById(organizationId, validatorId, validatorrunId) {
+      return this.findValidatorRunByIdWithHttpInfo(organizationId, validatorId, validatorrunId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Run a Validator
      * @param {String} organizationId the Organization identifier
      * @param {String} validatorId the ValidatorRun identifier
      * @param {module:model/ValidatorRun} validatorRun the Validator to run
-     * @param {module:api/ValidatorApi~runValidatorCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ValidatorRun}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ValidatorRun} and HTTP response
      */
-    runValidator(organizationId, validatorId, validatorRun, callback) {
+    runValidatorWithHttpInfo(organizationId, validatorId, validatorRun) {
       let postBody = validatorRun;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -476,8 +512,22 @@ export default class ValidatorApi {
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/validators/{validator_id}/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Run a Validator
+     * @param {String} organizationId the Organization identifier
+     * @param {String} validatorId the ValidatorRun identifier
+     * @param {module:model/ValidatorRun} validatorRun the Validator to run
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ValidatorRun}
+     */
+    runValidator(organizationId, validatorId, validatorRun) {
+      return this.runValidatorWithHttpInfo(organizationId, validatorId, validatorRun)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

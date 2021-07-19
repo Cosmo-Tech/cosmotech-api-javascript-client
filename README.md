@@ -107,14 +107,12 @@ var oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
 oAuth2AuthCode.accessToken = "YOUR ACCESS TOKEN"
 
 var api = new CosmotechApi.ConnectorApi()
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.findAllConnectors(callback);
+api.findAllConnectors().then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
 
 ```
 
