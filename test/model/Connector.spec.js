@@ -114,6 +114,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property azureAuthenticationWithCustomerAppRegistration (base name: "azureAuthenticationWithCustomerAppRegistration")', function() {
+      // uncomment below and update the code to test the property azureAuthenticationWithCustomerAppRegistration
+      //var instance = new CosmotechApi.Connector();
+      //expect(instance).to.be();
+    });
+
     it('should have the property ioTypes (base name: "ioTypes")', function() {
       // uncomment below and update the code to test the property ioTypes
       //var instance = new CosmotechApi.Connector();
