@@ -354,9 +354,12 @@ export default class ScenarioApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.waitRelationshipPropagation whether to wait until child scenarios are effectively updated (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteScenarioWithHttpInfo(organizationId, workspaceId, scenarioId) {
+    deleteScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, opts) {
+      opts = opts || {};
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -377,6 +380,7 @@ export default class ScenarioApi {
         'scenario_id': scenarioId
       };
       let queryParams = {
+        'wait_relationship_propagation': opts['waitRelationshipPropagation']
       };
       let headerParams = {
       };
@@ -399,10 +403,12 @@ export default class ScenarioApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.waitRelationshipPropagation whether to wait until child scenarios are effectively updated (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    deleteScenario(organizationId, workspaceId, scenarioId) {
-      return this.deleteScenarioWithHttpInfo(organizationId, workspaceId, scenarioId)
+    deleteScenario(organizationId, workspaceId, scenarioId, opts) {
+      return this.deleteScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
