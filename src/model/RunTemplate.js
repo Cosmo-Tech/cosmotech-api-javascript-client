@@ -119,6 +119,9 @@ class RunTemplate {
             if (data.hasOwnProperty('parameterGroups')) {
                 obj['parameterGroups'] = ApiClient.convertToType(data['parameterGroups'], ['String']);
             }
+            if (data.hasOwnProperty('stackSteps')) {
+                obj['stackSteps'] = ApiClient.convertToType(data['stackSteps'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -252,6 +255,12 @@ RunTemplate.prototype['postRunSource'] = undefined;
  * @member {Array.<String>} parameterGroups
  */
 RunTemplate.prototype['parameterGroups'] = undefined;
+
+/**
+ * whether or not to stack adjacent scenario run steps in one container run which will chain steps
+ * @member {Boolean} stackSteps
+ */
+RunTemplate.prototype['stackSteps'] = undefined;
 
 
 

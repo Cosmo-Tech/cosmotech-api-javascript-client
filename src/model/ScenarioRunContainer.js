@@ -76,6 +76,9 @@ class ScenarioRunContainer {
             if (data.hasOwnProperty('dependencies')) {
                 obj['dependencies'] = ApiClient.convertToType(data['dependencies'], ['String']);
             }
+            if (data.hasOwnProperty('solutionContainer')) {
+                obj['solutionContainer'] = ApiClient.convertToType(data['solutionContainer'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -130,6 +133,12 @@ ScenarioRunContainer.prototype['runArgs'] = undefined;
  * @member {Array.<String>} dependencies
  */
 ScenarioRunContainer.prototype['dependencies'] = undefined;
+
+/**
+ * whether or not this container is a Cosmo Tech solution container
+ * @member {Boolean} solutionContainer
+ */
+ScenarioRunContainer.prototype['solutionContainer'] = undefined;
 
 
 

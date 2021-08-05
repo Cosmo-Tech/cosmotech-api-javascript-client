@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **entrypoint** | **String** | the container entry point | [optional] 
 **runArgs** | **[String]** | the list of run arguments for the container | [optional] 
 **dependencies** | **[String]** | the list of dependencies container name to run this container | [optional] 
+**solutionContainer** | **Boolean** | whether or not this container is a Cosmo Tech solution container | [optional] [readonly] 
 
 

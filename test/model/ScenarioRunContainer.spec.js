@@ -102,6 +102,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property solutionContainer (base name: "solutionContainer")', function() {
+      // uncomment below and update the code to test the property solutionContainer
+      //var instance = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

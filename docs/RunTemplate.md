@@ -26,5 +26,6 @@ Name | Type | Description | Notes
 **runSource** | [**RunTemplateStepSource**](RunTemplateStepSource.md) |  | [optional] 
 **postRunSource** | [**RunTemplateStepSource**](RunTemplateStepSource.md) |  | [optional] 
 **parameterGroups** | **[String]** | the ordered list of parameters groups for the Run Template | [optional] 
+**stackSteps** | **Boolean** | whether or not to stack adjacent scenario run steps in one container run which will chain steps | [optional] 
 
 

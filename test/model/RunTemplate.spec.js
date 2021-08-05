@@ -186,6 +186,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property stackSteps (base name: "stackSteps")', function() {
+      // uncomment below and update the code to test the property stackSteps
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
