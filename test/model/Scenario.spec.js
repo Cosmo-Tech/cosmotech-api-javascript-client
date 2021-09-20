@@ -174,6 +174,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property parentLastRun (base name: "parentLastRun")', function() {
+      // uncomment below and update the code to test the property parentLastRun
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property rootLastRun (base name: "rootLastRun")', function() {
+      // uncomment below and update the code to test the property rootLastRun
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

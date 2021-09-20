@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **datasetList** | **[String]** | the list of Dataset Id associated to this Scenario Run Template | [optional] 
 **parametersValues** | [**[ScenarioRunTemplateParameterValue]**](ScenarioRunTemplateParameterValue.md) | the list of Solution Run Template parameters values | [optional] 
 **lastRun** | [**ScenarioLastRun**](ScenarioLastRun.md) |  | [optional] 
+**parentLastRun** | [**ScenarioLastRun**](ScenarioLastRun.md) |  | [optional] 
+**rootLastRun** | [**ScenarioLastRun**](ScenarioLastRun.md) |  | [optional] 
 
 
 

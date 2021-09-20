@@ -109,7 +109,13 @@ class Scenario {
                 obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [ScenarioRunTemplateParameterValue]);
             }
             if (data.hasOwnProperty('lastRun')) {
-                obj['lastRun'] = ScenarioLastRun.constructFromObject(data['lastRun']);
+                obj['lastRun'] = ApiClient.convertToType(data['lastRun'], ScenarioLastRun);
+            }
+            if (data.hasOwnProperty('parentLastRun')) {
+                obj['parentLastRun'] = ApiClient.convertToType(data['parentLastRun'], ScenarioLastRun);
+            }
+            if (data.hasOwnProperty('rootLastRun')) {
+                obj['rootLastRun'] = ApiClient.convertToType(data['rootLastRun'], ScenarioLastRun);
             }
         }
         return obj;
@@ -236,6 +242,16 @@ Scenario.prototype['parametersValues'] = undefined;
  * @member {module:model/ScenarioLastRun} lastRun
  */
 Scenario.prototype['lastRun'] = undefined;
+
+/**
+ * @member {module:model/ScenarioLastRun} parentLastRun
+ */
+Scenario.prototype['parentLastRun'] = undefined;
+
+/**
+ * @member {module:model/ScenarioLastRun} rootLastRun
+ */
+Scenario.prototype['rootLastRun'] = undefined;
 
 
 

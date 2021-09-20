@@ -21,7 +21,6 @@ import ApiClient from '../ApiClient';
 class ScenarioLastRun {
     /**
      * Constructs a new <code>ScenarioLastRun</code>.
-     * the last Scenarion Run for this Scenario
      * @alias module:model/ScenarioLastRun
      */
     constructor() { 
