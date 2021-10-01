@@ -108,6 +108,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property artifacts (base name: "artifacts")', function() {
+      // uncomment below and update the code to test the property artifacts
+      //var instance = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

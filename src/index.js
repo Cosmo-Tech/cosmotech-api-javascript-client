@@ -33,9 +33,13 @@ import RunTemplateStepSource from './model/RunTemplateStepSource';
 import Scenario from './model/Scenario';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
+import ScenarioDataDownloadInfo from './model/ScenarioDataDownloadInfo';
+import ScenarioDataDownloadJob from './model/ScenarioDataDownloadJob';
+import ScenarioJobState from './model/ScenarioJobState';
 import ScenarioLastRun from './model/ScenarioLastRun';
 import ScenarioRun from './model/ScenarioRun';
 import ScenarioRunContainer from './model/ScenarioRunContainer';
+import ScenarioRunContainerArtifact from './model/ScenarioRunContainerArtifact';
 import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
 import ScenarioRunLogs from './model/ScenarioRunLogs';
 import ScenarioRunSearch from './model/ScenarioRunSearch';
@@ -225,6 +229,24 @@ export {
     ScenarioComparisonResult,
 
     /**
+     * The ScenarioDataDownloadInfo model constructor.
+     * @property {module:model/ScenarioDataDownloadInfo}
+     */
+    ScenarioDataDownloadInfo,
+
+    /**
+     * The ScenarioDataDownloadJob model constructor.
+     * @property {module:model/ScenarioDataDownloadJob}
+     */
+    ScenarioDataDownloadJob,
+
+    /**
+     * The ScenarioJobState model constructor.
+     * @property {module:model/ScenarioJobState}
+     */
+    ScenarioJobState,
+
+    /**
      * The ScenarioLastRun model constructor.
      * @property {module:model/ScenarioLastRun}
      */
@@ -241,6 +263,12 @@ export {
      * @property {module:model/ScenarioRunContainer}
      */
     ScenarioRunContainer,
+
+    /**
+     * The ScenarioRunContainerArtifact model constructor.
+     * @property {module:model/ScenarioRunContainerArtifact}
+     */
+    ScenarioRunContainerArtifact,
 
     /**
      * The ScenarioRunContainerLogs model constructor.

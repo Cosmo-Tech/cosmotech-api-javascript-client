@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ScenarioRunContainerArtifact from './ScenarioRunContainerArtifact';
 
 /**
  * The ScenarioRunContainer model module.
@@ -79,6 +80,9 @@ class ScenarioRunContainer {
             if (data.hasOwnProperty('solutionContainer')) {
                 obj['solutionContainer'] = ApiClient.convertToType(data['solutionContainer'], 'Boolean');
             }
+            if (data.hasOwnProperty('artifacts')) {
+                obj['artifacts'] = ApiClient.convertToType(data['artifacts'], [ScenarioRunContainerArtifact]);
+            }
         }
         return obj;
     }
@@ -139,6 +143,12 @@ ScenarioRunContainer.prototype['dependencies'] = undefined;
  * @member {Boolean} solutionContainer
  */
 ScenarioRunContainer.prototype['solutionContainer'] = undefined;
+
+/**
+ * the list of artifacts
+ * @member {Array.<module:model/ScenarioRunContainerArtifact>} artifacts
+ */
+ScenarioRunContainer.prototype['artifacts'] = undefined;
 
 
 

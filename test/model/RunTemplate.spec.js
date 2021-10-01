@@ -96,6 +96,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property scenarioDataDownloadTransform (base name: "scenarioDataDownloadTransform")', function() {
+      // uncomment below and update the code to test the property scenarioDataDownloadTransform
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
     it('should have the property fetchScenarioParameters (base name: "fetchScenarioParameters")', function() {
       // uncomment below and update the code to test the property fetchScenarioParameters
       //var instance = new CosmotechApi.RunTemplate();
@@ -176,6 +182,12 @@
 
     it('should have the property postRunSource (base name: "postRunSource")', function() {
       // uncomment below and update the code to test the property postRunSource
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property scenariodataTransformSource (base name: "scenariodataTransformSource")', function() {
+      // uncomment below and update the code to test the property scenariodataTransformSource
       //var instance = new CosmotechApi.RunTemplate();
       //expect(instance).to.be();
     });

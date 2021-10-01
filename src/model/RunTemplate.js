@@ -74,6 +74,9 @@ class RunTemplate {
             if (data.hasOwnProperty('fetchDatasets')) {
                 obj['fetchDatasets'] = ApiClient.convertToType(data['fetchDatasets'], 'Boolean');
             }
+            if (data.hasOwnProperty('scenarioDataDownloadTransform')) {
+                obj['scenarioDataDownloadTransform'] = ApiClient.convertToType(data['scenarioDataDownloadTransform'], 'Boolean');
+            }
             if (data.hasOwnProperty('fetchScenarioParameters')) {
                 obj['fetchScenarioParameters'] = ApiClient.convertToType(data['fetchScenarioParameters'], 'Boolean');
             }
@@ -115,6 +118,9 @@ class RunTemplate {
             }
             if (data.hasOwnProperty('postRunSource')) {
                 obj['postRunSource'] = RunTemplateStepSource.constructFromObject(data['postRunSource']);
+            }
+            if (data.hasOwnProperty('scenariodataTransformSource')) {
+                obj['scenariodataTransformSource'] = RunTemplateStepSource.constructFromObject(data['scenariodataTransformSource']);
             }
             if (data.hasOwnProperty('parameterGroups')) {
                 obj['parameterGroups'] = ApiClient.convertToType(data['parameterGroups'], ['String']);
@@ -170,6 +176,12 @@ RunTemplate.prototype['computeSize'] = undefined;
  * @member {Boolean} fetchDatasets
  */
 RunTemplate.prototype['fetchDatasets'] = undefined;
+
+/**
+ * whether or not the scenario data download transform step step is done
+ * @member {Boolean} scenarioDataDownloadTransform
+ */
+RunTemplate.prototype['scenarioDataDownloadTransform'] = undefined;
 
 /**
  * whether or not the fetch parameters step is done
@@ -249,6 +261,11 @@ RunTemplate.prototype['runSource'] = undefined;
  * @member {module:model/RunTemplateStepSource} postRunSource
  */
 RunTemplate.prototype['postRunSource'] = undefined;
+
+/**
+ * @member {module:model/RunTemplateStepSource} scenariodataTransformSource
+ */
+RunTemplate.prototype['scenariodataTransformSource'] = undefined;
 
 /**
  * the ordered list of parameters groups for the Run Template

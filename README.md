@@ -151,8 +151,10 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ScenarioApi* | [**createScenario**](docs/ScenarioApi.md#createScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | Create a new Scenario
 *CosmotechApi.ScenarioApi* | [**deleteAllScenarios**](docs/ScenarioApi.md#deleteAllScenarios) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | Delete all Scenarios of the Workspace
 *CosmotechApi.ScenarioApi* | [**deleteScenario**](docs/ScenarioApi.md#deleteScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Delete a scenario
+*CosmotechApi.ScenarioApi* | [**downloadScenarioData**](docs/ScenarioApi.md#downloadScenarioData) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/downloads | Download Scenario data
 *CosmotechApi.ScenarioApi* | [**findAllScenarios**](docs/ScenarioApi.md#findAllScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | List all Scenarios
 *CosmotechApi.ScenarioApi* | [**findScenarioById**](docs/ScenarioApi.md#findScenarioById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Get the details of an scenario
+*CosmotechApi.ScenarioApi* | [**getScenarioDataDownloadJobInfo**](docs/ScenarioApi.md#getScenarioDataDownloadJobInfo) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/downloads/{download_id} | Get Scenario data download URL
 *CosmotechApi.ScenarioApi* | [**getScenariosTree**](docs/ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
 *CosmotechApi.ScenarioApi* | [**removeAllScenarioParameterValues**](docs/ScenarioApi.md#removeAllScenarioParameterValues) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/parameterValues | Remove all Parameter Values from the Scenario specified
 *CosmotechApi.ScenarioApi* | [**removeAllUsersOfScenario**](docs/ScenarioApi.md#removeAllUsersOfScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/users | Remove all users from the Scenario specified
@@ -238,9 +240,13 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.Scenario](docs/Scenario.md)
  - [CosmotechApi.ScenarioChangedParameterValue](docs/ScenarioChangedParameterValue.md)
  - [CosmotechApi.ScenarioComparisonResult](docs/ScenarioComparisonResult.md)
+ - [CosmotechApi.ScenarioDataDownloadInfo](docs/ScenarioDataDownloadInfo.md)
+ - [CosmotechApi.ScenarioDataDownloadJob](docs/ScenarioDataDownloadJob.md)
+ - [CosmotechApi.ScenarioJobState](docs/ScenarioJobState.md)
  - [CosmotechApi.ScenarioLastRun](docs/ScenarioLastRun.md)
  - [CosmotechApi.ScenarioRun](docs/ScenarioRun.md)
  - [CosmotechApi.ScenarioRunContainer](docs/ScenarioRunContainer.md)
+ - [CosmotechApi.ScenarioRunContainerArtifact](docs/ScenarioRunContainerArtifact.md)
  - [CosmotechApi.ScenarioRunContainerLogs](docs/ScenarioRunContainerLogs.md)
  - [CosmotechApi.ScenarioRunLogs](docs/ScenarioRunLogs.md)
  - [CosmotechApi.ScenarioRunSearch](docs/ScenarioRunSearch.md)

@@ -108,6 +108,16 @@
         done();
       });
     });
+    describe('downloadScenarioData', function() {
+      it('should call downloadScenarioData successfully', function(done) {
+        //uncomment below and update the code to test downloadScenarioData
+        //instance.downloadScenarioData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('findAllScenarios', function() {
       it('should call findAllScenarios successfully', function(done) {
         //uncomment below and update the code to test findAllScenarios
@@ -122,6 +132,16 @@
       it('should call findScenarioById successfully', function(done) {
         //uncomment below and update the code to test findScenarioById
         //instance.findScenarioById(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getScenarioDataDownloadJobInfo', function() {
+      it('should call getScenarioDataDownloadJobInfo successfully', function(done) {
+        //uncomment below and update the code to test getScenarioDataDownloadJobInfo
+        //instance.getScenarioDataDownloadJobInfo(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

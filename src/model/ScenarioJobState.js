@@ -13,59 +13,52 @@
 
 import ApiClient from '../ApiClient';
 /**
-* Enum class RunTemplateHandlerId.
+* Enum class ScenarioJobState.
 * @enum {}
 * @readonly
 */
-export default class RunTemplateHandlerId {
+export default class ScenarioJobState {
     
         /**
-         * value: "parameters_handler"
+         * value: "Created"
          * @const
          */
-        "parameters_handler" = "parameters_handler";
+        "Created" = "Created";
 
     
         /**
-         * value: "validator"
+         * value: "Running"
          * @const
          */
-        "validator" = "validator";
+        "Running" = "Running";
 
     
         /**
-         * value: "prerun"
+         * value: "Successful"
          * @const
          */
-        "prerun" = "prerun";
+        "Successful" = "Successful";
 
     
         /**
-         * value: "engine"
+         * value: "Failed"
          * @const
          */
-        "engine" = "engine";
+        "Failed" = "Failed";
 
     
         /**
-         * value: "postrun"
+         * value: "Unknown"
          * @const
          */
-        "postrun" = "postrun";
-
-    
-        /**
-         * value: "scenariodata_transform"
-         * @const
-         */
-        "scenariodata_transform" = "scenariodata_transform";
+        "Unknown" = "Unknown";
 
     
 
     /**
-    * Returns a <code>RunTemplateHandlerId</code> enum value from a Javascript object name.
+    * Returns a <code>ScenarioJobState</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/RunTemplateHandlerId} The enum <code>RunTemplateHandlerId</code> value.
+    * @return {module:model/ScenarioJobState} The enum <code>ScenarioJobState</code> value.
     */
     static constructFromObject(object) {
         return object;

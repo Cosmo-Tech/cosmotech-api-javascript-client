@@ -62,6 +62,9 @@ class ScenarioRunStartContainers {
             if (data.hasOwnProperty('nodeLabel')) {
                 obj['nodeLabel'] = ApiClient.convertToType(data['nodeLabel'], 'String');
             }
+            if (data.hasOwnProperty('labels')) {
+                obj['labels'] = ApiClient.convertToType(data['labels'], {'String': 'String'});
+            }
             if (data.hasOwnProperty('containers')) {
                 obj['containers'] = ApiClient.convertToType(data['containers'], [ScenarioRunContainer]);
             }
@@ -89,6 +92,12 @@ ScenarioRunStartContainers.prototype['csmSimulationId'] = undefined;
  * @member {String} nodeLabel
  */
 ScenarioRunStartContainers.prototype['nodeLabel'] = undefined;
+
+/**
+ * the workflow labels
+ * @member {Object.<String, String>} labels
+ */
+ScenarioRunStartContainers.prototype['labels'] = undefined;
 
 /**
  * the containerslist

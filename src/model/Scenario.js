@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ScenarioJobState from './ScenarioJobState';
 import ScenarioLastRun from './ScenarioLastRun';
 import ScenarioRunTemplateParameterValue from './ScenarioRunTemplateParameterValue';
 import ScenarioUser from './ScenarioUser';
@@ -85,7 +86,7 @@ class Scenario {
                 obj['users'] = ApiClient.convertToType(data['users'], [ScenarioUser]);
             }
             if (data.hasOwnProperty('state')) {
-                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+                obj['state'] = ScenarioJobState.constructFromObject(data['state']);
             }
             if (data.hasOwnProperty('creationDate')) {
                 obj['creationDate'] = ApiClient.convertToType(data['creationDate'], 'Date');
@@ -191,8 +192,7 @@ Scenario.prototype['workspaceId'] = undefined;
 Scenario.prototype['users'] = undefined;
 
 /**
- * the Scenario state
- * @member {module:model/Scenario.StateEnum} state
+ * @member {module:model/ScenarioJobState} state
  */
 Scenario.prototype['state'] = undefined;
 
@@ -255,45 +255,6 @@ Scenario.prototype['rootLastRun'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>state</code> property.
- * @enum {String}
- * @readonly
- */
-Scenario['StateEnum'] = {
-
-    /**
-     * value: "Created"
-     * @const
-     */
-    "Created": "Created",
-
-    /**
-     * value: "Running"
-     * @const
-     */
-    "Running": "Running",
-
-    /**
-     * value: "Successful"
-     * @const
-     */
-    "Successful": "Successful",
-
-    /**
-     * value: "Failed"
-     * @const
-     */
-    "Failed": "Failed",
-
-    /**
-     * value: "Unknown"
-     * @const
-     */
-    "Unknown": "Unknown"
-};
 
 
 

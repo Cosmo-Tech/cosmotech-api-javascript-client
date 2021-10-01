@@ -15,6 +15,8 @@
 import ApiClient from "../ApiClient";
 import Scenario from '../model/Scenario';
 import ScenarioComparisonResult from '../model/ScenarioComparisonResult';
+import ScenarioDataDownloadInfo from '../model/ScenarioDataDownloadInfo';
+import ScenarioDataDownloadJob from '../model/ScenarioDataDownloadJob';
 import ScenarioRunTemplateParameterValue from '../model/ScenarioRunTemplateParameterValue';
 import ScenarioUser from '../model/ScenarioUser';
 
@@ -416,6 +418,66 @@ export default class ScenarioApi {
 
 
     /**
+     * Download Scenario data
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioDataDownloadJob} and HTTP response
+     */
+    downloadScenarioDataWithHttpInfo(organizationId, workspaceId, scenarioId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling downloadScenarioData");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling downloadScenarioData");
+      }
+      // verify the required parameter 'scenarioId' is set
+      if (scenarioId === undefined || scenarioId === null) {
+        throw new Error("Missing the required parameter 'scenarioId' when calling downloadScenarioData");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId,
+        'scenario_id': scenarioId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ScenarioDataDownloadJob;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/downloads', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Download Scenario data
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioDataDownloadJob}
+     */
+    downloadScenarioData(organizationId, workspaceId, scenarioId) {
+      return this.downloadScenarioDataWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * List all Scenarios
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
@@ -522,6 +584,73 @@ export default class ScenarioApi {
      */
     findScenarioById(organizationId, workspaceId, scenarioId) {
       return this.findScenarioByIdWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get Scenario data download URL
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @param {String} downloadId the Scenario Download identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioDataDownloadInfo} and HTTP response
+     */
+    getScenarioDataDownloadJobInfoWithHttpInfo(organizationId, workspaceId, scenarioId, downloadId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getScenarioDataDownloadJobInfo");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling getScenarioDataDownloadJobInfo");
+      }
+      // verify the required parameter 'scenarioId' is set
+      if (scenarioId === undefined || scenarioId === null) {
+        throw new Error("Missing the required parameter 'scenarioId' when calling getScenarioDataDownloadJobInfo");
+      }
+      // verify the required parameter 'downloadId' is set
+      if (downloadId === undefined || downloadId === null) {
+        throw new Error("Missing the required parameter 'downloadId' when calling getScenarioDataDownloadJobInfo");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId,
+        'scenario_id': scenarioId,
+        'download_id': downloadId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ScenarioDataDownloadInfo;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/downloads/{download_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get Scenario data download URL
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @param {String} downloadId the Scenario Download identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioDataDownloadInfo}
+     */
+    getScenarioDataDownloadJobInfo(organizationId, workspaceId, scenarioId, downloadId) {
+      return this.getScenarioDataDownloadJobInfoWithHttpInfo(organizationId, workspaceId, scenarioId, downloadId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
