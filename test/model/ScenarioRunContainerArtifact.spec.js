@@ -50,7 +50,7 @@
   describe('ScenarioRunContainerArtifact', function() {
     it('should create an instance of ScenarioRunContainerArtifact', function() {
       // uncomment below and update the code to test ScenarioRunContainerArtifact
-      //var instane = new CosmotechApi.ScenarioRunContainerArtifact();
+      //var instance = new CosmotechApi.ScenarioRunContainerArtifact();
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunContainerArtifact);
     });
 

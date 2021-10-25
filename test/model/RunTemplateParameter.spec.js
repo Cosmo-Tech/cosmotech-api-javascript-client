@@ -50,7 +50,7 @@
   describe('RunTemplateParameter', function() {
     it('should create an instance of RunTemplateParameter', function() {
       // uncomment below and update the code to test RunTemplateParameter
-      //var instane = new CosmotechApi.RunTemplateParameter();
+      //var instance = new CosmotechApi.RunTemplateParameter();
       //expect(instance).to.be.a(CosmotechApi.RunTemplateParameter);
     });
 

@@ -50,7 +50,7 @@
   describe('DatasetCompatibility', function() {
     it('should create an instance of DatasetCompatibility', function() {
       // uncomment below and update the code to test DatasetCompatibility
-      //var instane = new CosmotechApi.DatasetCompatibility();
+      //var instance = new CosmotechApi.DatasetCompatibility();
       //expect(instance).to.be.a(CosmotechApi.DatasetCompatibility);
     });
 

@@ -50,7 +50,7 @@
   describe('ScenarioComparisonResult', function() {
     it('should create an instance of ScenarioComparisonResult', function() {
       // uncomment below and update the code to test ScenarioComparisonResult
-      //var instane = new CosmotechApi.ScenarioComparisonResult();
+      //var instance = new CosmotechApi.ScenarioComparisonResult();
       //expect(instance).to.be.a(CosmotechApi.ScenarioComparisonResult);
     });
 

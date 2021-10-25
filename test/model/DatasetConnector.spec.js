@@ -50,7 +50,7 @@
   describe('DatasetConnector', function() {
     it('should create an instance of DatasetConnector', function() {
       // uncomment below and update the code to test DatasetConnector
-      //var instane = new CosmotechApi.DatasetConnector();
+      //var instance = new CosmotechApi.DatasetConnector();
       //expect(instance).to.be.a(CosmotechApi.DatasetConnector);
     });
 

@@ -49,7 +49,7 @@
   describe('RunTemplateStepSource', function() {
     it('should create an instance of RunTemplateStepSource', function() {
       // uncomment below and update the code to test RunTemplateStepSource
-      //var instane = new CosmotechApi.RunTemplateStepSource();
+      //var instance = new CosmotechApi.RunTemplateStepSource();
       //expect(instance).to.be.a(CosmotechApi.RunTemplateStepSource);
     });
 

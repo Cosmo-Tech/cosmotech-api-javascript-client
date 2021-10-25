@@ -50,7 +50,7 @@
   describe('ScenarioRunLogs', function() {
     it('should create an instance of ScenarioRunLogs', function() {
       // uncomment below and update the code to test ScenarioRunLogs
-      //var instane = new CosmotechApi.ScenarioRunLogs();
+      //var instance = new CosmotechApi.ScenarioRunLogs();
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunLogs);
     });
 

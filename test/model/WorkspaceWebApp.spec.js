@@ -50,7 +50,7 @@
   describe('WorkspaceWebApp', function() {
     it('should create an instance of WorkspaceWebApp', function() {
       // uncomment below and update the code to test WorkspaceWebApp
-      //var instane = new CosmotechApi.WorkspaceWebApp();
+      //var instance = new CosmotechApi.WorkspaceWebApp();
       //expect(instance).to.be.a(CosmotechApi.WorkspaceWebApp);
     });
 

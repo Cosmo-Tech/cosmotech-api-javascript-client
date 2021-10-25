@@ -50,7 +50,7 @@
   describe('DatasetCopyParameters', function() {
     it('should create an instance of DatasetCopyParameters', function() {
       // uncomment below and update the code to test DatasetCopyParameters
-      //var instane = new CosmotechApi.DatasetCopyParameters();
+      //var instance = new CosmotechApi.DatasetCopyParameters();
       //expect(instance).to.be.a(CosmotechApi.DatasetCopyParameters);
     });
 

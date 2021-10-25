@@ -50,7 +50,7 @@
   describe('ScenarioRunSearch', function() {
     it('should create an instance of ScenarioRunSearch', function() {
       // uncomment below and update the code to test ScenarioRunSearch
-      //var instane = new CosmotechApi.ScenarioRunSearch();
+      //var instance = new CosmotechApi.ScenarioRunSearch();
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunSearch);
     });
 

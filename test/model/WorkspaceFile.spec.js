@@ -50,7 +50,7 @@
   describe('WorkspaceFile', function() {
     it('should create an instance of WorkspaceFile', function() {
       // uncomment below and update the code to test WorkspaceFile
-      //var instane = new CosmotechApi.WorkspaceFile();
+      //var instance = new CosmotechApi.WorkspaceFile();
       //expect(instance).to.be.a(CosmotechApi.WorkspaceFile);
     });
 

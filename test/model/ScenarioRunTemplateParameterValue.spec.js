@@ -50,7 +50,7 @@
   describe('ScenarioRunTemplateParameterValue', function() {
     it('should create an instance of ScenarioRunTemplateParameterValue', function() {
       // uncomment below and update the code to test ScenarioRunTemplateParameterValue
-      //var instane = new CosmotechApi.ScenarioRunTemplateParameterValue();
+      //var instance = new CosmotechApi.ScenarioRunTemplateParameterValue();
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunTemplateParameterValue);
     });
 

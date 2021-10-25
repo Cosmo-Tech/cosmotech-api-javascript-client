@@ -50,7 +50,7 @@
   describe('ScenarioLastRun', function() {
     it('should create an instance of ScenarioLastRun', function() {
       // uncomment below and update the code to test ScenarioLastRun
-      //var instane = new CosmotechApi.ScenarioLastRun();
+      //var instance = new CosmotechApi.ScenarioLastRun();
       //expect(instance).to.be.a(CosmotechApi.ScenarioLastRun);
     });
 

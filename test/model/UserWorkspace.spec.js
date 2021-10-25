@@ -50,7 +50,7 @@
   describe('UserWorkspace', function() {
     it('should create an instance of UserWorkspace', function() {
       // uncomment below and update the code to test UserWorkspace
-      //var instane = new CosmotechApi.UserWorkspace();
+      //var instance = new CosmotechApi.UserWorkspace();
       //expect(instance).to.be.a(CosmotechApi.UserWorkspace);
     });
 

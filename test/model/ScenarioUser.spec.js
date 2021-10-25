@@ -50,7 +50,7 @@
   describe('ScenarioUser', function() {
     it('should create an instance of ScenarioUser', function() {
       // uncomment below and update the code to test ScenarioUser
-      //var instane = new CosmotechApi.ScenarioUser();
+      //var instance = new CosmotechApi.ScenarioUser();
       //expect(instance).to.be.a(CosmotechApi.ScenarioUser);
     });
 

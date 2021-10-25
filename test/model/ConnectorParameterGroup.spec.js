@@ -50,7 +50,7 @@
   describe('ConnectorParameterGroup', function() {
     it('should create an instance of ConnectorParameterGroup', function() {
       // uncomment below and update the code to test ConnectorParameterGroup
-      //var instane = new CosmotechApi.ConnectorParameterGroup();
+      //var instance = new CosmotechApi.ConnectorParameterGroup();
       //expect(instance).to.be.a(CosmotechApi.ConnectorParameterGroup);
     });
 

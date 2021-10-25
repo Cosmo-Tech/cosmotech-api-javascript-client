@@ -49,7 +49,7 @@
   describe('ScenarioJobState', function() {
     it('should create an instance of ScenarioJobState', function() {
       // uncomment below and update the code to test ScenarioJobState
-      //var instane = new CosmotechApi.ScenarioJobState();
+      //var instance = new CosmotechApi.ScenarioJobState();
       //expect(instance).to.be.a(CosmotechApi.ScenarioJobState);
     });
 

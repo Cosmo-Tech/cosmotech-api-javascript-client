@@ -50,7 +50,7 @@
   describe('ScenarioDataDownloadJob', function() {
     it('should create an instance of ScenarioDataDownloadJob', function() {
       // uncomment below and update the code to test ScenarioDataDownloadJob
-      //var instane = new CosmotechApi.ScenarioDataDownloadJob();
+      //var instance = new CosmotechApi.ScenarioDataDownloadJob();
       //expect(instance).to.be.a(CosmotechApi.ScenarioDataDownloadJob);
     });
 

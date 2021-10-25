@@ -50,7 +50,7 @@
   describe('ValidatorRun', function() {
     it('should create an instance of ValidatorRun', function() {
       // uncomment below and update the code to test ValidatorRun
-      //var instane = new CosmotechApi.ValidatorRun();
+      //var instance = new CosmotechApi.ValidatorRun();
       //expect(instance).to.be.a(CosmotechApi.ValidatorRun);
     });
 

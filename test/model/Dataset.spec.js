@@ -50,7 +50,7 @@
   describe('Dataset', function() {
     it('should create an instance of Dataset', function() {
       // uncomment below and update the code to test Dataset
-      //var instane = new CosmotechApi.Dataset();
+      //var instance = new CosmotechApi.Dataset();
       //expect(instance).to.be.a(CosmotechApi.Dataset);
     });
 

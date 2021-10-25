@@ -50,7 +50,7 @@
   describe('ScenarioChangedParameterValue', function() {
     it('should create an instance of ScenarioChangedParameterValue', function() {
       // uncomment below and update the code to test ScenarioChangedParameterValue
-      //var instane = new CosmotechApi.ScenarioChangedParameterValue();
+      //var instance = new CosmotechApi.ScenarioChangedParameterValue();
       //expect(instance).to.be.a(CosmotechApi.ScenarioChangedParameterValue);
     });
 

@@ -50,7 +50,7 @@
   describe('ScenarioRunStatusNode', function() {
     it('should create an instance of ScenarioRunStatusNode', function() {
       // uncomment below and update the code to test ScenarioRunStatusNode
-      //var instane = new CosmotechApi.ScenarioRunStatusNode();
+      //var instance = new CosmotechApi.ScenarioRunStatusNode();
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunStatusNode);
     });
 

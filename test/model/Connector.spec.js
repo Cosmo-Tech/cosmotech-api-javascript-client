@@ -50,7 +50,7 @@
   describe('Connector', function() {
     it('should create an instance of Connector', function() {
       // uncomment below and update the code to test Connector
-      //var instane = new CosmotechApi.Connector();
+      //var instance = new CosmotechApi.Connector();
       //expect(instance).to.be.a(CosmotechApi.Connector);
     });
 

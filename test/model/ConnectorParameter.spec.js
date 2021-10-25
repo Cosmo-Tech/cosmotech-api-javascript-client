@@ -50,7 +50,7 @@
   describe('ConnectorParameter', function() {
     it('should create an instance of ConnectorParameter', function() {
       // uncomment below and update the code to test ConnectorParameter
-      //var instane = new CosmotechApi.ConnectorParameter();
+      //var instance = new CosmotechApi.ConnectorParameter();
       //expect(instance).to.be.a(CosmotechApi.ConnectorParameter);
     });
 

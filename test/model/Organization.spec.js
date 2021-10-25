@@ -50,7 +50,7 @@
   describe('Organization', function() {
     it('should create an instance of Organization', function() {
       // uncomment below and update the code to test Organization
-      //var instane = new CosmotechApi.Organization();
+      //var instance = new CosmotechApi.Organization();
       //expect(instance).to.be.a(CosmotechApi.Organization);
     });
 

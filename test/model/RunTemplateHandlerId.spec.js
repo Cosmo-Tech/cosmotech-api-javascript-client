@@ -49,7 +49,7 @@
   describe('RunTemplateHandlerId', function() {
     it('should create an instance of RunTemplateHandlerId', function() {
       // uncomment below and update the code to test RunTemplateHandlerId
-      //var instane = new CosmotechApi.RunTemplateHandlerId();
+      //var instance = new CosmotechApi.RunTemplateHandlerId();
       //expect(instance).to.be.a(CosmotechApi.RunTemplateHandlerId);
     });
 

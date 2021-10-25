@@ -50,7 +50,7 @@
   describe('ScenarioRunStartContainers', function() {
     it('should create an instance of ScenarioRunStartContainers', function() {
       // uncomment below and update the code to test ScenarioRunStartContainers
-      //var instane = new CosmotechApi.ScenarioRunStartContainers();
+      //var instance = new CosmotechApi.ScenarioRunStartContainers();
       //expect(instance).to.be.a(CosmotechApi.ScenarioRunStartContainers);
     });
 
