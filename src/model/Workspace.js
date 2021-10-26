@@ -90,6 +90,9 @@ class Workspace {
             if (data.hasOwnProperty('sendInputToDataWarehouse')) {
                 obj['sendInputToDataWarehouse'] = ApiClient.convertToType(data['sendInputToDataWarehouse'], 'Boolean');
             }
+            if (data.hasOwnProperty('useDedicatedEventHubNamespace')) {
+                obj['useDedicatedEventHubNamespace'] = ApiClient.convertToType(data['useDedicatedEventHubNamespace'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -160,6 +163,13 @@ Workspace.prototype['webApp'] = undefined;
  * @member {Boolean} sendInputToDataWarehouse
  */
 Workspace.prototype['sendInputToDataWarehouse'] = undefined;
+
+/**
+ * Set this property to true to use a dedicated Azure Event Hub Namespace for this Workspace. The Event Hub Namespace must be named \\'<organization_id\\>-<workspace_id\\>\\' (in lower case). This Namespace must also contain two Event Hubs named \\'probesmeasures\\' and \\'scenariorun\\'.
+ * @member {Boolean} useDedicatedEventHubNamespace
+ * @default false
+ */
+Workspace.prototype['useDedicatedEventHubNamespace'] = false;
 
 
 

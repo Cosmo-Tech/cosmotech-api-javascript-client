@@ -120,6 +120,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property useDedicatedEventHubNamespace (base name: "useDedicatedEventHubNamespace")', function() {
+      // uncomment below and update the code to test the property useDedicatedEventHubNamespace
+      //var instance = new CosmotechApi.Workspace();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
