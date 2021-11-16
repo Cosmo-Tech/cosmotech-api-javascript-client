@@ -108,6 +108,16 @@
         done();
       });
     });
+    describe('downloadRunTemplateHandler', function() {
+      it('should call downloadRunTemplateHandler successfully', function(done) {
+        //uncomment below and update the code to test downloadRunTemplateHandler
+        //instance.downloadRunTemplateHandler(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('findAllSolutions', function() {
       it('should call findAllSolutions successfully', function(done) {
         //uncomment below and update the code to test findAllSolutions

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**createSolution**](SolutionApi.md#createSolution) | **POST** /organizations/{organization_id}/solutions | Register a new solution
 [**deleteSolution**](SolutionApi.md#deleteSolution) | **DELETE** /organizations/{organization_id}/solutions/{solution_id} | Delete a solution
 [**deleteSolutionRunTemplate**](SolutionApi.md#deleteSolutionRunTemplate) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/runTemplates/{run_template_id} | Remove the specified Solution Run Template
+[**downloadRunTemplateHandler**](SolutionApi.md#downloadRunTemplateHandler) | **GET** /organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/download | Download a Run Template step handler zip file
 [**findAllSolutions**](SolutionApi.md#findAllSolutions) | **GET** /organizations/{organization_id}/solutions | List all Solutions
 [**findSolutionById**](SolutionApi.md#findSolutionById) | **GET** /organizations/{organization_id}/solutions/{solution_id} | Get the details of a solution
 [**removeAllRunTemplates**](SolutionApi.md#removeAllRunTemplates) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/runTemplates | Remove all Run Templates from the Solution specified
@@ -315,6 +316,58 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+
+## downloadRunTemplateHandler
+
+> File downloadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId)
+
+Download a Run Template step handler zip file
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.SolutionApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let solutionId = "solutionId_example"; // String | the Solution identifier
+let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
+let handlerId = new CosmotechApi.RunTemplateHandlerId(); // RunTemplateHandlerId | the Handler identifier
+apiInstance.downloadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **solutionId** | **String**| the Solution identifier | 
+ **runTemplateId** | **String**| the Run Template identifier | 
+ **handlerId** | [**RunTemplateHandlerId**](.md)| the Handler identifier | 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
 
 
 ## findAllSolutions

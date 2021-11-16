@@ -382,6 +382,73 @@ export default class SolutionApi {
 
 
     /**
+     * Download a Run Template step handler zip file
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} runTemplateId the Run Template identifier
+     * @param {module:model/RunTemplateHandlerId} handlerId the Handler identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
+     */
+    downloadRunTemplateHandlerWithHttpInfo(organizationId, solutionId, runTemplateId, handlerId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling downloadRunTemplateHandler");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling downloadRunTemplateHandler");
+      }
+      // verify the required parameter 'runTemplateId' is set
+      if (runTemplateId === undefined || runTemplateId === null) {
+        throw new Error("Missing the required parameter 'runTemplateId' when calling downloadRunTemplateHandler");
+      }
+      // verify the required parameter 'handlerId' is set
+      if (handlerId === undefined || handlerId === null) {
+        throw new Error("Missing the required parameter 'handlerId' when calling downloadRunTemplateHandler");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId,
+        'run_template_id': runTemplateId,
+        'handler_id': handlerId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/octet-stream'];
+      let returnType = File;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/download', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Download a Run Template step handler zip file
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} runTemplateId the Run Template identifier
+     * @param {module:model/RunTemplateHandlerId} handlerId the Handler identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
+     */
+    downloadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId) {
+      return this.downloadRunTemplateHandlerWithHttpInfo(organizationId, solutionId, runTemplateId, handlerId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * List all Solutions
      * @param {String} organizationId the Organization identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Solution>} and HTTP response
