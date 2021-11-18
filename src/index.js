@@ -20,6 +20,7 @@ import Dataset from './model/Dataset';
 import DatasetCompatibility from './model/DatasetCompatibility';
 import DatasetConnector from './model/DatasetConnector';
 import DatasetCopyParameters from './model/DatasetCopyParameters';
+import DatasetSearch from './model/DatasetSearch';
 import Organization from './model/Organization';
 import OrganizationService from './model/OrganizationService';
 import OrganizationServices from './model/OrganizationServices';
@@ -149,6 +150,12 @@ export {
      * @property {module:model/DatasetCopyParameters}
      */
     DatasetCopyParameters,
+
+    /**
+     * The DatasetSearch model constructor.
+     * @property {module:model/DatasetSearch}
+     */
+    DatasetSearch,
 
     /**
      * The Organization model constructor.

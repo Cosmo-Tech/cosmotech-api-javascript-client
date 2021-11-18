@@ -118,6 +118,16 @@
         done();
       });
     });
+    describe('searchDatasets', function() {
+      it('should call searchDatasets successfully', function(done) {
+        //uncomment below and update the code to test searchDatasets
+        //instance.searchDatasets(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('updateDataset', function() {
       it('should call updateDataset successfully', function(done) {
         //uncomment below and update the code to test updateDataset

@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *CosmotechApi.DatasetApi* | [**findAllDatasets**](docs/DatasetApi.md#findAllDatasets) | **GET** /organizations/{organization_id}/datasets | List all Datasets
 *CosmotechApi.DatasetApi* | [**findDatasetById**](docs/DatasetApi.md#findDatasetById) | **GET** /organizations/{organization_id}/datasets/{dataset_id} | Get the details of a Dataset
 *CosmotechApi.DatasetApi* | [**removeAllDatasetCompatibilityElements**](docs/DatasetApi.md#removeAllDatasetCompatibilityElements) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id}/compatibility | Remove all Dataset Compatibility elements from the Dataset specified
+*CosmotechApi.DatasetApi* | [**searchDatasets**](docs/DatasetApi.md#searchDatasets) | **POST** /organizations/{organization_id}/datasets/search | Search Datasets
 *CosmotechApi.DatasetApi* | [**updateDataset**](docs/DatasetApi.md#updateDataset) | **PATCH** /organizations/{organization_id}/datasets/{dataset_id} | Update a dataset
 *CosmotechApi.OrganizationApi* | [**addOrReplaceUsersInOrganization**](docs/OrganizationApi.md#addOrReplaceUsersInOrganization) | **POST** /organizations/{organization_id}/users | Add (or replace) users in the Organization specified
 *CosmotechApi.OrganizationApi* | [**findAllOrganizations**](docs/OrganizationApi.md#findAllOrganizations) | **GET** /organizations | List all Organizations
@@ -228,6 +229,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.DatasetCompatibility](docs/DatasetCompatibility.md)
  - [CosmotechApi.DatasetConnector](docs/DatasetConnector.md)
  - [CosmotechApi.DatasetCopyParameters](docs/DatasetCopyParameters.md)
+ - [CosmotechApi.DatasetSearch](docs/DatasetSearch.md)
  - [CosmotechApi.Organization](docs/Organization.md)
  - [CosmotechApi.OrganizationService](docs/OrganizationService.md)
  - [CosmotechApi.OrganizationServices](docs/OrganizationServices.md)

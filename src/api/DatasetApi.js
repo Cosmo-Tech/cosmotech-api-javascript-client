@@ -16,6 +16,7 @@ import ApiClient from "../ApiClient";
 import Dataset from '../model/Dataset';
 import DatasetCompatibility from '../model/DatasetCompatibility';
 import DatasetCopyParameters from '../model/DatasetCopyParameters';
+import DatasetSearch from '../model/DatasetSearch';
 
 /**
 * Dataset service.
@@ -399,6 +400,58 @@ export default class DatasetApi {
      */
     removeAllDatasetCompatibilityElements(organizationId, datasetId) {
       return this.removeAllDatasetCompatibilityElementsWithHttpInfo(organizationId, datasetId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Search Datasets
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/DatasetSearch} datasetSearch the Dataset search parameters
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Dataset>} and HTTP response
+     */
+    searchDatasetsWithHttpInfo(organizationId, datasetSearch) {
+      let postBody = datasetSearch;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling searchDatasets");
+      }
+      // verify the required parameter 'datasetSearch' is set
+      if (datasetSearch === undefined || datasetSearch === null) {
+        throw new Error("Missing the required parameter 'datasetSearch' when calling searchDatasets");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json', 'application/yaml'];
+      let accepts = ['application/json'];
+      let returnType = [Dataset];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/datasets/search', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Search Datasets
+     * @param {String} organizationId the Organization identifier
+     * @param {module:model/DatasetSearch} datasetSearch the Dataset search parameters
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Dataset>}
+     */
+    searchDatasets(organizationId, datasetSearch) {
+      return this.searchDatasetsWithHttpInfo(organizationId, datasetSearch)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
