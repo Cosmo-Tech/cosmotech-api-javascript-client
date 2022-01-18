@@ -600,6 +600,10 @@ class ApiClient {
             {
               'url': "https://api.cosmotech.com",
               'description': "Production",
+            },
+            {
+              'url': "https://staging.api.cosmotech.com",
+              'description': "Staging",
             }
       ];
     }
