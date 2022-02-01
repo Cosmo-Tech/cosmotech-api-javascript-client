@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import RunTemplateParameterValue from './RunTemplateParameterValue';
 import ScenarioRunContainer from './ScenarioRunContainer';
+import ScenarioRunState from './ScenarioRunState';
 
 /**
  * The ScenarioRun model module.
@@ -52,6 +53,9 @@ class ScenarioRun {
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ScenarioRunState.constructFromObject(data['state']);
             }
             if (data.hasOwnProperty('organizationId')) {
                 obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
@@ -119,6 +123,11 @@ class ScenarioRun {
  * @member {String} id
  */
 ScenarioRun.prototype['id'] = undefined;
+
+/**
+ * @member {module:model/ScenarioRunState} state
+ */
+ScenarioRun.prototype['state'] = undefined;
 
 /**
  * the Organization id

@@ -13,18 +13,11 @@
 
 import ApiClient from '../ApiClient';
 /**
-* Enum class ScenarioJobState.
+* Enum class ScenarioRunState.
 * @enum {}
 * @readonly
 */
-export default class ScenarioJobState {
-    
-        /**
-         * value: "Created"
-         * @const
-         */
-        "Created" = "Created";
-
+export default class ScenarioRunState {
     
         /**
          * value: "Running"
@@ -61,11 +54,18 @@ export default class ScenarioJobState {
         "DataIngestionInProgress" = "DataIngestionInProgress";
 
     
+        /**
+         * value: "DataIngestionFailure"
+         * @const
+         */
+        "DataIngestionFailure" = "DataIngestionFailure";
+
+    
 
     /**
-    * Returns a <code>ScenarioJobState</code> enum value from a Javascript object name.
+    * Returns a <code>ScenarioRunState</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/ScenarioJobState} The enum <code>ScenarioJobState</code> value.
+    * @return {module:model/ScenarioRunState} The enum <code>ScenarioRunState</code> value.
     */
     static constructFromObject(object) {
         return object;

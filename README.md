@@ -254,6 +254,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ScenarioRunLogs](docs/ScenarioRunLogs.md)
  - [CosmotechApi.ScenarioRunSearch](docs/ScenarioRunSearch.md)
  - [CosmotechApi.ScenarioRunStartContainers](docs/ScenarioRunStartContainers.md)
+ - [CosmotechApi.ScenarioRunState](docs/ScenarioRunState.md)
  - [CosmotechApi.ScenarioRunStatus](docs/ScenarioRunStatus.md)
  - [CosmotechApi.ScenarioRunStatusNode](docs/ScenarioRunStatusNode.md)
  - [CosmotechApi.ScenarioRunTemplateParameterValue](docs/ScenarioRunTemplateParameterValue.md)

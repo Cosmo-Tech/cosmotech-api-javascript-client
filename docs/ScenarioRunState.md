@@ -1,9 +1,7 @@
-# CosmotechApi.ScenarioJobState
+# CosmotechApi.ScenarioRunState
 
 ## Enum
 
-
-* `Created` (value: `"Created"`)
 
 * `Running` (value: `"Running"`)
 
@@ -14,5 +12,7 @@
 * `Unknown` (value: `"Unknown"`)
 
 * `DataIngestionInProgress` (value: `"DataIngestionInProgress"`)
+
+* `DataIngestionFailure` (value: `"DataIngestionFailure"`)
 
 

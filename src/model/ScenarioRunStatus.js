@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ScenarioRunState from './ScenarioRunState';
 import ScenarioRunStatusNode from './ScenarioRunStatusNode';
 
 /**
@@ -81,6 +82,9 @@ class ScenarioRunStatus {
             }
             if (data.hasOwnProperty('nodes')) {
                 obj['nodes'] = ApiClient.convertToType(data['nodes'], [ScenarioRunStatusNode]);
+            }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ScenarioRunState.constructFromObject(data['state']);
             }
         }
         return obj;
@@ -154,6 +158,11 @@ ScenarioRunStatus.prototype['estimatedDuration'] = undefined;
  * @member {Array.<module:model/ScenarioRunStatusNode>} nodes
  */
 ScenarioRunStatus.prototype['nodes'] = undefined;
+
+/**
+ * @member {module:model/ScenarioRunState} state
+ */
+ScenarioRunStatus.prototype['state'] = undefined;
 
 
 

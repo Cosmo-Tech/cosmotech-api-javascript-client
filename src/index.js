@@ -45,6 +45,7 @@ import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
 import ScenarioRunLogs from './model/ScenarioRunLogs';
 import ScenarioRunSearch from './model/ScenarioRunSearch';
 import ScenarioRunStartContainers from './model/ScenarioRunStartContainers';
+import ScenarioRunState from './model/ScenarioRunState';
 import ScenarioRunStatus from './model/ScenarioRunStatus';
 import ScenarioRunStatusNode from './model/ScenarioRunStatusNode';
 import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParameterValue';
@@ -300,6 +301,12 @@ export {
      * @property {module:model/ScenarioRunStartContainers}
      */
     ScenarioRunStartContainers,
+
+    /**
+     * The ScenarioRunState model constructor.
+     * @property {module:model/ScenarioRunState}
+     */
+    ScenarioRunState,
 
     /**
      * The ScenarioRunStatus model constructor.
