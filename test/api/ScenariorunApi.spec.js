@@ -148,6 +148,16 @@
         done();
       });
     });
+    describe('stopScenarioRun', function() {
+      it('should call stopScenarioRun successfully', function(done) {
+        //uncomment below and update the code to test stopScenarioRun
+        //instance.stopScenarioRun(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

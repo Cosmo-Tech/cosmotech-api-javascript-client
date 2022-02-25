@@ -581,4 +581,57 @@ export default class ScenariorunApi {
     }
 
 
+    /**
+     * stop a ScenarioRun for the Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} scenariorunId the scenariorun identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioRunStatus} and HTTP response
+     */
+    stopScenarioRunWithHttpInfo(organizationId, scenariorunId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling stopScenarioRun");
+      }
+      // verify the required parameter 'scenariorunId' is set
+      if (scenariorunId === undefined || scenariorunId === null) {
+        throw new Error("Missing the required parameter 'scenariorunId' when calling stopScenarioRun");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'scenariorun_id': scenariorunId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ScenarioRunStatus;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/scenarioruns/{scenariorun_id}/stop', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * stop a ScenarioRun for the Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} scenariorunId the scenariorun identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioRunStatus}
+     */
+    stopScenarioRun(organizationId, scenariorunId) {
+      return this.stopScenarioRunWithHttpInfo(organizationId, scenariorunId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
 }
