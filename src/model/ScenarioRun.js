@@ -232,7 +232,7 @@ ScenarioRun.prototype['sendInputParametersToDataWarehouse'] = undefined;
 ScenarioRun.prototype['nodeLabel'] = undefined;
 
 /**
- * the containers list
+ * the containers list. This information is not returned by the API.
  * @member {Array.<module:model/ScenarioRunContainer>} containers
  */
 ScenarioRun.prototype['containers'] = undefined;
