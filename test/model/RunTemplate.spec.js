@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property noDataIngestionState (base name: "noDataIngestionState")', function() {
+      // uncomment below and update the code to test the property noDataIngestionState
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
     it('should have the property fetchDatasets (base name: "fetchDatasets")', function() {
       // uncomment below and update the code to test the property fetchDatasets
       //var instance = new CosmotechApi.RunTemplate();

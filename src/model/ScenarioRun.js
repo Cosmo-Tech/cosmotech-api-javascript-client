@@ -93,6 +93,12 @@ class ScenarioRun {
             if (data.hasOwnProperty('computeSize')) {
                 obj['computeSize'] = ApiClient.convertToType(data['computeSize'], 'String');
             }
+            if (data.hasOwnProperty('sdkVersion')) {
+                obj['sdkVersion'] = ApiClient.convertToType(data['sdkVersion'], 'String');
+            }
+            if (data.hasOwnProperty('noDataIngestionState')) {
+                obj['noDataIngestionState'] = ApiClient.convertToType(data['noDataIngestionState'], 'Boolean');
+            }
             if (data.hasOwnProperty('datasetList')) {
                 obj['datasetList'] = ApiClient.convertToType(data['datasetList'], ['String']);
             }
@@ -200,6 +206,18 @@ ScenarioRun.prototype['runTemplateId'] = undefined;
  * @member {String} computeSize
  */
 ScenarioRun.prototype['computeSize'] = undefined;
+
+/**
+ * the MAJOR.MINOR version used to build the solution solution
+ * @member {String} sdkVersion
+ */
+ScenarioRun.prototype['sdkVersion'] = undefined;
+
+/**
+ * set to true if the run template does not use any Datawarehouse consumers (AMQP consumers for Azure)
+ * @member {Boolean} noDataIngestionState
+ */
+ScenarioRun.prototype['noDataIngestionState'] = undefined;
 
 /**
  * the list of Dataset Id associated to this Analysis

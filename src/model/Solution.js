@@ -85,6 +85,9 @@ class Solution {
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
             }
+            if (data.hasOwnProperty('sdkVersion')) {
+                obj['sdkVersion'] = ApiClient.convertToType(data['sdkVersion'], 'String');
+            }
             if (data.hasOwnProperty('url')) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
@@ -154,6 +157,12 @@ Solution.prototype['version'] = undefined;
  * @member {String} ownerId
  */
 Solution.prototype['ownerId'] = undefined;
+
+/**
+ * the MAJOR.MINOR version used to build this solution
+ * @member {String} sdkVersion
+ */
+Solution.prototype['sdkVersion'] = undefined;
 
 /**
  * an optional URL link to solution page

@@ -71,6 +71,9 @@ class RunTemplate {
             if (data.hasOwnProperty('computeSize')) {
                 obj['computeSize'] = ApiClient.convertToType(data['computeSize'], 'String');
             }
+            if (data.hasOwnProperty('noDataIngestionState')) {
+                obj['noDataIngestionState'] = ApiClient.convertToType(data['noDataIngestionState'], 'Boolean');
+            }
             if (data.hasOwnProperty('fetchDatasets')) {
                 obj['fetchDatasets'] = ApiClient.convertToType(data['fetchDatasets'], 'Boolean');
             }
@@ -170,6 +173,12 @@ RunTemplate.prototype['tags'] = undefined;
  * @member {String} computeSize
  */
 RunTemplate.prototype['computeSize'] = undefined;
+
+/**
+ * set to true if the run template does not want to check data ingestion state (no probes or not control plane)
+ * @member {Boolean} noDataIngestionState
+ */
+RunTemplate.prototype['noDataIngestionState'] = undefined;
 
 /**
  * whether or not the fetch dataset step is done

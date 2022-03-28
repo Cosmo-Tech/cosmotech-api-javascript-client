@@ -138,6 +138,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sdkVersion (base name: "sdkVersion")', function() {
+      // uncomment below and update the code to test the property sdkVersion
+      //var instance = new CosmotechApi.ScenarioRun();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property noDataIngestionState (base name: "noDataIngestionState")', function() {
+      // uncomment below and update the code to test the property noDataIngestionState
+      //var instance = new CosmotechApi.ScenarioRun();
+      //expect(instance).to.be();
+    });
+
     it('should have the property datasetList (base name: "datasetList")', function() {
       // uncomment below and update the code to test the property datasetList
       //var instance = new CosmotechApi.ScenarioRun();

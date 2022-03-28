@@ -102,6 +102,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sdkVersion (base name: "sdkVersion")', function() {
+      // uncomment below and update the code to test the property sdkVersion
+      //var instance = new CosmotechApi.Solution();
+      //expect(instance).to.be();
+    });
+
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
       //var instance = new CosmotechApi.Solution();
