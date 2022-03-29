@@ -131,6 +131,15 @@ class RunTemplate {
             if (data.hasOwnProperty('stackSteps')) {
                 obj['stackSteps'] = ApiClient.convertToType(data['stackSteps'], 'Boolean');
             }
+            if (data.hasOwnProperty('gitRepositoryUrl')) {
+                obj['gitRepositoryUrl'] = ApiClient.convertToType(data['gitRepositoryUrl'], 'String');
+            }
+            if (data.hasOwnProperty('gitBranchName')) {
+                obj['gitBranchName'] = ApiClient.convertToType(data['gitBranchName'], 'String');
+            }
+            if (data.hasOwnProperty('runTemplateSourceDir')) {
+                obj['runTemplateSourceDir'] = ApiClient.convertToType(data['runTemplateSourceDir'], 'String');
+            }
         }
         return obj;
     }
@@ -287,6 +296,24 @@ RunTemplate.prototype['parameterGroups'] = undefined;
  * @member {Boolean} stackSteps
  */
 RunTemplate.prototype['stackSteps'] = undefined;
+
+/**
+ * an optional URL to the git repository
+ * @member {String} gitRepositoryUrl
+ */
+RunTemplate.prototype['gitRepositoryUrl'] = undefined;
+
+/**
+ * an optional git branch name
+ * @member {String} gitBranchName
+ */
+RunTemplate.prototype['gitBranchName'] = undefined;
+
+/**
+ * an optional directory where to find the run template source
+ * @member {String} runTemplateSourceDir
+ */
+RunTemplate.prototype['runTemplateSourceDir'] = undefined;
 
 
 

@@ -20,6 +20,20 @@ import ApiClient from '../ApiClient';
 export default class RunTemplateStepSource {
     
         /**
+         * value: "cloud"
+         * @const
+         */
+        "cloud" = "cloud";
+
+    
+        /**
+         * value: "git"
+         * @const
+         */
+        "git" = "git";
+
+    
+        /**
          * value: "local"
          * @const
          */
@@ -27,10 +41,10 @@ export default class RunTemplateStepSource {
 
     
         /**
-         * value: "cloud"
+         * value: "platform"
          * @const
          */
-        "cloud" = "cloud";
+        "platform" = "platform";
 
     
 

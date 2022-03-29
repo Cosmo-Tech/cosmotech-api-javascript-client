@@ -210,6 +210,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property gitRepositoryUrl (base name: "gitRepositoryUrl")', function() {
+      // uncomment below and update the code to test the property gitRepositoryUrl
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property gitBranchName (base name: "gitBranchName")', function() {
+      // uncomment below and update the code to test the property gitBranchName
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property runTemplateSourceDir (base name: "runTemplateSourceDir")', function() {
+      // uncomment below and update the code to test the property runTemplateSourceDir
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

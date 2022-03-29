@@ -3,8 +3,12 @@
 ## Enum
 
 
+* `cloud` (value: `"cloud"`)
+
+* `git` (value: `"git"`)
+
 * `local` (value: `"local"`)
 
-* `cloud` (value: `"cloud"`)
+* `platform` (value: `"platform"`)
 
 
