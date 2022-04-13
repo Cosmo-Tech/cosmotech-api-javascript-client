@@ -28,7 +28,6 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.ScenarioRunLogs();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,23 +46,11 @@
       object[property] = value;
   }
 
-  describe('ScenarioRunLogs', function() {
-    it('should create an instance of ScenarioRunLogs', function() {
-      // uncomment below and update the code to test ScenarioRunLogs
-      //var instance = new CosmotechApi.ScenarioRunLogs();
-      //expect(instance).to.be.a(CosmotechApi.ScenarioRunLogs);
-    });
-
-    it('should have the property scenariorunId (base name: "scenariorunId")', function() {
-      // uncomment below and update the code to test the property scenariorunId
-      //var instance = new CosmotechApi.ScenarioRunLogs();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property containers (base name: "containers")', function() {
-      // uncomment below and update the code to test the property containers
-      //var instance = new CosmotechApi.ScenarioRunLogs();
-      //expect(instance).to.be();
+  describe('ScenarioValidationStatus', function() {
+    it('should create an instance of ScenarioValidationStatus', function() {
+      // uncomment below and update the code to test ScenarioValidationStatus
+      //var instance = new CosmotechApi.ScenarioValidationStatus();
+      //expect(instance).to.be.a(CosmotechApi.ScenarioValidationStatus);
     });
 
   });

@@ -13,38 +13,24 @@
 
 import ApiClient from '../ApiClient';
 /**
-* Enum class ScenarioJobState.
+* Enum class ScenarioValidationStatus.
 * @enum {}
 * @readonly
 */
-export default class ScenarioJobState {
+export default class ScenarioValidationStatus {
     
         /**
-         * value: "Created"
+         * value: "Draft"
          * @const
          */
-        "Created" = "Created";
+        "Draft" = "Draft";
 
     
         /**
-         * value: "Running"
+         * value: "Rejected"
          * @const
          */
-        "Running" = "Running";
-
-    
-        /**
-         * value: "Successful"
-         * @const
-         */
-        "Successful" = "Successful";
-
-    
-        /**
-         * value: "Failed"
-         * @const
-         */
-        "Failed" = "Failed";
+        "Rejected" = "Rejected";
 
     
         /**
@@ -55,17 +41,17 @@ export default class ScenarioJobState {
 
     
         /**
-         * value: "DataIngestionInProgress"
+         * value: "Validated"
          * @const
          */
-        "DataIngestionInProgress" = "DataIngestionInProgress";
+        "Validated" = "Validated";
 
     
 
     /**
-    * Returns a <code>ScenarioJobState</code> enum value from a Javascript object name.
+    * Returns a <code>ScenarioValidationStatus</code> enum value from a Javascript object name.
     * @param {Object} data The plain JavaScript object containing the name of the enum value.
-    * @return {module:model/ScenarioJobState} The enum <code>ScenarioJobState</code> value.
+    * @return {module:model/ScenarioValidationStatus} The enum <code>ScenarioValidationStatus</code> value.
     */
     static constructFromObject(object) {
         return object;
