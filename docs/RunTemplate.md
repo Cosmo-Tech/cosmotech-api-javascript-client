@@ -33,5 +33,6 @@ Name | Type | Description | Notes
 **gitRepositoryUrl** | **String** | an optional URL to the git repository | [optional] 
 **gitBranchName** | **String** | an optional git branch name | [optional] 
 **runTemplateSourceDir** | **String** | an optional directory where to find the run template source | [optional] 
+**executionTimeout** | **Number** | an optional duration in seconds in which a workflow is allowed to run | [optional] 
 
 

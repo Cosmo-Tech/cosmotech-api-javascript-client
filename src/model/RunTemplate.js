@@ -140,6 +140,9 @@ class RunTemplate {
             if (data.hasOwnProperty('runTemplateSourceDir')) {
                 obj['runTemplateSourceDir'] = ApiClient.convertToType(data['runTemplateSourceDir'], 'String');
             }
+            if (data.hasOwnProperty('executionTimeout')) {
+                obj['executionTimeout'] = ApiClient.convertToType(data['executionTimeout'], 'Number');
+            }
         }
         return obj;
     }
@@ -314,6 +317,12 @@ RunTemplate.prototype['gitBranchName'] = undefined;
  * @member {String} runTemplateSourceDir
  */
 RunTemplate.prototype['runTemplateSourceDir'] = undefined;
+
+/**
+ * an optional duration in seconds in which a workflow is allowed to run
+ * @member {Number} executionTimeout
+ */
+RunTemplate.prototype['executionTimeout'] = undefined;
 
 
 

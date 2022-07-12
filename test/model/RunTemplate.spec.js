@@ -228,6 +228,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property executionTimeout (base name: "executionTimeout")', function() {
+      // uncomment below and update the code to test the property executionTimeout
+      //var instance = new CosmotechApi.RunTemplate();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
