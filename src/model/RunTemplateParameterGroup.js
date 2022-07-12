@@ -24,12 +24,10 @@ class RunTemplateParameterGroup {
      * a Parameter Group for a Run Template
      * @alias module:model/RunTemplateParameterGroup
      * @param id {String} the Parameter Group id
-     * @param labels {Object.<String, String>} a translated label with key as ISO 639-1 code
-     * @param parameters {Array.<String>} an ordered list of Run Template Parameters
      */
-    constructor(id, labels, parameters) { 
+    constructor(id) { 
         
-        RunTemplateParameterGroup.initialize(this, id, labels, parameters);
+        RunTemplateParameterGroup.initialize(this, id);
     }
 
     /**
@@ -37,10 +35,8 @@ class RunTemplateParameterGroup {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, labels, parameters) { 
+    static initialize(obj, id) { 
         obj['id'] = id;
-        obj['labels'] = labels;
-        obj['parameters'] = parameters;
     }
 
     /**

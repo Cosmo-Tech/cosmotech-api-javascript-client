@@ -25,11 +25,10 @@ class RunTemplate {
      * a Solution Run Template
      * @alias module:model/RunTemplate
      * @param id {String} the Solution Run Template id
-     * @param name {String} the Run Template name
      */
-    constructor(id, name) { 
+    constructor(id) { 
         
-        RunTemplate.initialize(this, id, name);
+        RunTemplate.initialize(this, id);
     }
 
     /**
@@ -37,9 +36,8 @@ class RunTemplate {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name) { 
+    static initialize(obj, id) { 
         obj['id'] = id;
-        obj['name'] = name;
     }
 
     /**

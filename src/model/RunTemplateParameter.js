@@ -24,12 +24,10 @@ class RunTemplateParameter {
      * a Run Template Parameter
      * @alias module:model/RunTemplateParameter
      * @param id {String} the Parameter id
-     * @param labels {Object.<String, String>} a translated label with key as ISO 639-1 code
-     * @param varType {String} the variable type for the parameter. Basic types or special type %DATASETID%
      */
-    constructor(id, labels, varType) { 
+    constructor(id) { 
         
-        RunTemplateParameter.initialize(this, id, labels, varType);
+        RunTemplateParameter.initialize(this, id);
     }
 
     /**
@@ -37,10 +35,8 @@ class RunTemplateParameter {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, labels, varType) { 
+    static initialize(obj, id) { 
         obj['id'] = id;
-        obj['labels'] = labels;
-        obj['varType'] = varType;
     }
 
     /**

@@ -26,15 +26,10 @@ class Solution {
      * Constructs a new <code>Solution</code>.
      * a version of a Solution
      * @alias module:model/Solution
-     * @param key {String} the Solution key which group Solution versions
-     * @param name {String} the Solution name
-     * @param repository {String} the registry repository containing the image
-     * @param version {String} the Solution version MAJOR.MINOR.PATCH. Must be aligned with an existing repository tag
-     * @param runTemplates {Array.<module:model/RunTemplate>} list of Run Template
      */
-    constructor(key, name, repository, version, runTemplates) { 
+    constructor() { 
         
-        Solution.initialize(this, key, name, repository, version, runTemplates);
+        Solution.initialize(this);
     }
 
     /**
@@ -42,12 +37,7 @@ class Solution {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, key, name, repository, version, runTemplates) { 
-        obj['key'] = key;
-        obj['name'] = name;
-        obj['repository'] = repository;
-        obj['version'] = version;
-        obj['runTemplates'] = runTemplates;
+    static initialize(obj) { 
     }
 
     /**
