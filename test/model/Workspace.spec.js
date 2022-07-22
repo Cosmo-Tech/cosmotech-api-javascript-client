@@ -126,6 +126,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property sendScenarioMetadataToEventHub (base name: "sendScenarioMetadataToEventHub")', function() {
+      // uncomment below and update the code to test the property sendScenarioMetadataToEventHub
+      //var instance = new CosmotechApi.Workspace();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

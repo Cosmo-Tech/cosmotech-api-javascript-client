@@ -93,6 +93,9 @@ class Workspace {
             if (data.hasOwnProperty('useDedicatedEventHubNamespace')) {
                 obj['useDedicatedEventHubNamespace'] = ApiClient.convertToType(data['useDedicatedEventHubNamespace'], 'Boolean');
             }
+            if (data.hasOwnProperty('sendScenarioMetadataToEventHub')) {
+                obj['sendScenarioMetadataToEventHub'] = ApiClient.convertToType(data['sendScenarioMetadataToEventHub'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -170,6 +173,13 @@ Workspace.prototype['sendInputToDataWarehouse'] = undefined;
  * @default false
  */
 Workspace.prototype['useDedicatedEventHubNamespace'] = false;
+
+/**
+ * Set this property to false to not send scenario metada to Azure Event Hub Namespace for this Workspace. The Event Hub Namespace must be named \\'<organization_id\\>-<workspace_id\\>\\' (in lower case). This Namespace must also contain two Event Hubs named \\'scenariometadata\\' and \\'scenariorunmetadata\\'.
+ * @member {Boolean} sendScenarioMetadataToEventHub
+ * @default false
+ */
+Workspace.prototype['sendScenarioMetadataToEventHub'] = false;
 
 
 
