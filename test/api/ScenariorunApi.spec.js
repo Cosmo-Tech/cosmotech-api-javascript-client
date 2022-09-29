@@ -48,6 +48,26 @@
   }
 
   describe('ScenariorunApi', function() {
+    describe('deleteHistoricalDataOrganization', function() {
+      it('should call deleteHistoricalDataOrganization successfully', function(done) {
+        //uncomment below and update the code to test deleteHistoricalDataOrganization
+        //instance.deleteHistoricalDataOrganization(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('deleteHistoricalScenarioRunsByScenario', function() {
+      it('should call deleteHistoricalScenarioRunsByScenario successfully', function(done) {
+        //uncomment below and update the code to test deleteHistoricalScenarioRunsByScenario
+        //instance.deleteHistoricalScenarioRunsByScenario(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('deleteScenarioRun', function() {
       it('should call deleteScenarioRun successfully', function(done) {
         //uncomment below and update the code to test deleteScenarioRun

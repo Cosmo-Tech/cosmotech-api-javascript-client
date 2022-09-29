@@ -40,6 +40,112 @@ export default class ScenariorunApi {
 
 
     /**
+     * Delete all historical ScenarioRuns in the database
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    deleteHistoricalDataOrganizationWithHttpInfo(organizationId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling deleteHistoricalDataOrganization");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/scenarioruns/deletehistoricaldata', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Delete all historical ScenarioRuns in the database
+     * @param {String} organizationId the Organization identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    deleteHistoricalDataOrganization(organizationId) {
+      return this.deleteHistoricalDataOrganizationWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Delete all historical ScenarioRuns for the Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    deleteHistoricalScenarioRunsByScenarioWithHttpInfo(organizationId, workspaceId, scenarioId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling deleteHistoricalScenarioRunsByScenario");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling deleteHistoricalScenarioRunsByScenario");
+      }
+      // verify the required parameter 'scenarioId' is set
+      if (scenarioId === undefined || scenarioId === null) {
+        throw new Error("Missing the required parameter 'scenarioId' when calling deleteHistoricalScenarioRunsByScenario");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId,
+        'scenario_id': scenarioId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Delete all historical ScenarioRuns for the Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    deleteHistoricalScenarioRunsByScenario(organizationId, workspaceId, scenarioId) {
+      return this.deleteHistoricalScenarioRunsByScenarioWithHttpInfo(organizationId, workspaceId, scenarioId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Delete a scenariorun
      * @param {String} organizationId the Organization identifier
      * @param {String} scenariorunId the ScenarioRun identifier
