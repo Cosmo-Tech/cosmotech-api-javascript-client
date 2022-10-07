@@ -4,7 +4,7 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addWorkspaceAccessControl**](WorkspaceApi.md#addWorkspaceAccessControl) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/access | add a control acccess to the Workspace
+[**addOrReplaceUsersInOrganizationWorkspace**](WorkspaceApi.md#addOrReplaceUsersInOrganizationWorkspace) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/users | Add (or replace) users to the Workspace specified
 [**createWorkspace**](WorkspaceApi.md#createWorkspace) | **POST** /organizations/{organization_id}/workspaces | Create a new workspace
 [**deleteAllWorkspaceFiles**](WorkspaceApi.md#deleteAllWorkspaceFiles) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/files | Delete all Workspace files
 [**deleteWorkspace**](WorkspaceApi.md#deleteWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id} | Delete a workspace
@@ -13,22 +13,18 @@ Method | HTTP request | Description
 [**findAllWorkspaceFiles**](WorkspaceApi.md#findAllWorkspaceFiles) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/files | List all Workspace files
 [**findAllWorkspaces**](WorkspaceApi.md#findAllWorkspaces) | **GET** /organizations/{organization_id}/workspaces | List all Workspaces
 [**findWorkspaceById**](WorkspaceApi.md#findWorkspaceById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id} | Get the details of an workspace
-[**getWorkspaceAccessControl**](WorkspaceApi.md#getWorkspaceAccessControl) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security/access/{identity_id} | get a control acccess for the Workspace
-[**getWorkspacePermissions**](WorkspaceApi.md#getWorkspacePermissions) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/permissions/{role} | Get the Workspace permission by given role
-[**getWorkspaceSecurity**](WorkspaceApi.md#getWorkspaceSecurity) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security | Get the Workspace security information
-[**getWorkspaceSecurityUsers**](WorkspaceApi.md#getWorkspaceSecurityUsers) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security/users | Get the Workspace security users list
-[**removeWorkspaceAccessControl**](WorkspaceApi.md#removeWorkspaceAccessControl) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/security/access/{identity_id} | Remove the specified access from the given Organization Workspace
-[**setWorkspaceDefaultSecurity**](WorkspaceApi.md#setWorkspaceDefaultSecurity) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/default | set the Workspace default security
+[**removeAllUsersOfWorkspace**](WorkspaceApi.md#removeAllUsersOfWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/users | Remove all users from the Workspace specified
+[**removeUserFromOrganizationWorkspace**](WorkspaceApi.md#removeUserFromOrganizationWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/users/{user_id} | Remove the specified user from the given Organization Workspace
 [**updateWorkspace**](WorkspaceApi.md#updateWorkspace) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id} | Update a workspace
 [**uploadWorkspaceFile**](WorkspaceApi.md#uploadWorkspaceFile) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/files | Upload a file for the Workspace
 
 
 
-## addWorkspaceAccessControl
+## addOrReplaceUsersInOrganizationWorkspace
 
-> WorkspaceAccessControl addWorkspaceAccessControl(organizationId, workspaceId, workspaceAccessControl)
+> [WorkspaceUser] addOrReplaceUsersInOrganizationWorkspace(organizationId, workspaceId, workspaceUser)
 
-add a control acccess to the Workspace
+Add (or replace) users to the Workspace specified
 
 ### Example
 
@@ -42,8 +38,8 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let workspaceAccessControl = new CosmotechApi.WorkspaceAccessControl(); // WorkspaceAccessControl | the new Workspace security access to add.
-apiInstance.addWorkspaceAccessControl(organizationId, workspaceId, workspaceAccessControl).then((data) => {
+let workspaceUser = [new CosmotechApi.WorkspaceUser()]; // [WorkspaceUser] | the Users to add. Any User with the same ID is overwritten
+apiInstance.addOrReplaceUsersInOrganizationWorkspace(organizationId, workspaceId, workspaceUser).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -58,11 +54,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **workspaceAccessControl** | [**WorkspaceAccessControl**](WorkspaceAccessControl.md)| the new Workspace security access to add. | 
+ **workspaceUser** | [**[WorkspaceUser]**](WorkspaceUser.md)| the Users to add. Any User with the same ID is overwritten | 
 
 ### Return type
 
-[**WorkspaceAccessControl**](WorkspaceAccessControl.md)
+[**[WorkspaceUser]**](WorkspaceUser.md)
 
 ### Authorization
 
@@ -70,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/yaml
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -460,61 +456,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getWorkspaceAccessControl
+## removeAllUsersOfWorkspace
 
-> WorkspaceAccessControl getWorkspaceAccessControl(organizationId, workspaceId, identityId)
+> removeAllUsersOfWorkspace(organizationId, workspaceId)
 
-get a control acccess for the Workspace
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.WorkspaceApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let identityId = "identityId_example"; // String | the User identifier
-apiInstance.getWorkspaceAccessControl(organizationId, workspaceId, identityId).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
- **identityId** | **String**| the User identifier | 
-
-### Return type
-
-[**WorkspaceAccessControl**](WorkspaceAccessControl.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getWorkspacePermissions
-
-> [String] getWorkspacePermissions(organizationId, workspaceId, role)
-
-Get the Workspace permission by given role
+Remove all users from the Workspace specified
 
 ### Example
 
@@ -528,154 +474,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let role = "role_example"; // String | the Role
-apiInstance.getWorkspacePermissions(organizationId, workspaceId, role).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
- **role** | **String**| the Role | 
-
-### Return type
-
-**[String]**
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getWorkspaceSecurity
-
-> WorkspaceSecurity getWorkspaceSecurity(organizationId, workspaceId)
-
-Get the Workspace security information
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.WorkspaceApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.getWorkspaceSecurity(organizationId, workspaceId).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
-
-### Return type
-
-[**WorkspaceSecurity**](WorkspaceSecurity.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## getWorkspaceSecurityUsers
-
-> [String] getWorkspaceSecurityUsers(organizationId, workspaceId)
-
-Get the Workspace security users list
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.WorkspaceApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.getWorkspaceSecurityUsers(organizationId, workspaceId).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
-
-### Return type
-
-**[String]**
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## removeWorkspaceAccessControl
-
-> removeWorkspaceAccessControl(organizationId, workspaceId, identityId)
-
-Remove the specified access from the given Organization Workspace
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.WorkspaceApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let identityId = "identityId_example"; // String | the User identifier
-apiInstance.removeWorkspaceAccessControl(organizationId, workspaceId, identityId).then(() => {
+apiInstance.removeAllUsersOfWorkspace(organizationId, workspaceId).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -690,7 +489,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **identityId** | **String**| the User identifier | 
 
 ### Return type
 
@@ -706,11 +504,11 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## setWorkspaceDefaultSecurity
+## removeUserFromOrganizationWorkspace
 
-> WorkspaceSecurity setWorkspaceDefaultSecurity(organizationId, workspaceId, body)
+> removeUserFromOrganizationWorkspace(organizationId, workspaceId, userId)
 
-set the Workspace default security
+Remove the specified user from the given Organization Workspace
 
 ### Example
 
@@ -724,9 +522,9 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let body = commonrolewriter; // String | the new Workspace default security.
-apiInstance.setWorkspaceDefaultSecurity(organizationId, workspaceId, body).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
+let userId = "userId_example"; // String | the User identifier
+apiInstance.removeUserFromOrganizationWorkspace(organizationId, workspaceId, userId).then(() => {
+  console.log('API called successfully.');
 }, (error) => {
   console.error(error);
 });
@@ -740,11 +538,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **body** | **String**| the new Workspace default security. | 
+ **userId** | **String**| the User identifier | 
 
 ### Return type
 
-[**WorkspaceSecurity**](WorkspaceSecurity.md)
+null (empty response body)
 
 ### Authorization
 
@@ -752,8 +550,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, application/yaml
-- **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## updateWorkspace
