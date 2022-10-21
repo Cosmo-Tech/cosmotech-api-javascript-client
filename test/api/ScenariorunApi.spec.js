@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('deleteHistoricalDataWorkspace', function() {
+      it('should call deleteHistoricalDataWorkspace successfully', function(done) {
+        //uncomment below and update the code to test deleteHistoricalDataWorkspace
+        //instance.deleteHistoricalDataWorkspace(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('deleteHistoricalScenarioRunsByScenario', function() {
       it('should call deleteHistoricalScenarioRunsByScenario successfully', function(done) {
         //uncomment below and update the code to test deleteHistoricalScenarioRunsByScenario
