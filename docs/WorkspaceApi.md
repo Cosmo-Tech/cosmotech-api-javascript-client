@@ -4,7 +4,7 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addWorkspaceAccessControl**](WorkspaceApi.md#addWorkspaceAccessControl) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/access | add a control acccess to the Workspace
+[**addWorkspaceAccessControl**](WorkspaceApi.md#addWorkspaceAccessControl) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/access | Add a control access to the Workspace
 [**createWorkspace**](WorkspaceApi.md#createWorkspace) | **POST** /organizations/{organization_id}/workspaces | Create a new workspace
 [**deleteAllWorkspaceFiles**](WorkspaceApi.md#deleteAllWorkspaceFiles) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/files | Delete all Workspace files
 [**deleteWorkspace**](WorkspaceApi.md#deleteWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id} | Delete a workspace
@@ -13,13 +13,14 @@ Method | HTTP request | Description
 [**findAllWorkspaceFiles**](WorkspaceApi.md#findAllWorkspaceFiles) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/files | List all Workspace files
 [**findAllWorkspaces**](WorkspaceApi.md#findAllWorkspaces) | **GET** /organizations/{organization_id}/workspaces | List all Workspaces
 [**findWorkspaceById**](WorkspaceApi.md#findWorkspaceById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id} | Get the details of an workspace
-[**getWorkspaceAccessControl**](WorkspaceApi.md#getWorkspaceAccessControl) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security/access/{identity_id} | get a control acccess for the Workspace
+[**getWorkspaceAccessControl**](WorkspaceApi.md#getWorkspaceAccessControl) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security/access/{identity_id} | Get a control access for the Workspace
 [**getWorkspacePermissions**](WorkspaceApi.md#getWorkspacePermissions) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/permissions/{role} | Get the Workspace permission by given role
 [**getWorkspaceSecurity**](WorkspaceApi.md#getWorkspaceSecurity) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security | Get the Workspace security information
 [**getWorkspaceSecurityUsers**](WorkspaceApi.md#getWorkspaceSecurityUsers) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security/users | Get the Workspace security users list
 [**removeWorkspaceAccessControl**](WorkspaceApi.md#removeWorkspaceAccessControl) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/security/access/{identity_id} | Remove the specified access from the given Organization Workspace
-[**setWorkspaceDefaultSecurity**](WorkspaceApi.md#setWorkspaceDefaultSecurity) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/default | set the Workspace default security
+[**setWorkspaceDefaultSecurity**](WorkspaceApi.md#setWorkspaceDefaultSecurity) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/default | Set the Workspace default security
 [**updateWorkspace**](WorkspaceApi.md#updateWorkspace) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id} | Update a workspace
+[**updateWorkspaceAccessControl**](WorkspaceApi.md#updateWorkspaceAccessControl) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/security/access/{identity_id} | Update the specified access to User for a Workspace
 [**uploadWorkspaceFile**](WorkspaceApi.md#uploadWorkspaceFile) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/files | Upload a file for the Workspace
 
 
@@ -28,7 +29,7 @@ Method | HTTP request | Description
 
 > WorkspaceAccessControl addWorkspaceAccessControl(organizationId, workspaceId, workspaceAccessControl)
 
-add a control acccess to the Workspace
+Add a control access to the Workspace
 
 ### Example
 
@@ -464,7 +465,7 @@ Name | Type | Description  | Notes
 
 > WorkspaceAccessControl getWorkspaceAccessControl(organizationId, workspaceId, identityId)
 
-get a control acccess for the Workspace
+Get a control access for the Workspace
 
 ### Example
 
@@ -708,9 +709,9 @@ null (empty response body)
 
 ## setWorkspaceDefaultSecurity
 
-> WorkspaceSecurity setWorkspaceDefaultSecurity(organizationId, workspaceId, body)
+> WorkspaceSecurity setWorkspaceDefaultSecurity(organizationId, workspaceId, workspaceRole)
 
-set the Workspace default security
+Set the Workspace default security
 
 ### Example
 
@@ -724,8 +725,8 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let body = writer; // String | the new Workspace default security.
-apiInstance.setWorkspaceDefaultSecurity(organizationId, workspaceId, body).then((data) => {
+let workspaceRole = new CosmotechApi.WorkspaceRole(); // WorkspaceRole | the new Workspace default security.
+apiInstance.setWorkspaceDefaultSecurity(organizationId, workspaceId, workspaceRole).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -740,7 +741,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **body** | **String**| the new Workspace default security. | 
+ **workspaceRole** | [**WorkspaceRole**](WorkspaceRole.md)| the new Workspace default security. | 
 
 ### Return type
 
@@ -774,7 +775,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let workspace = new CosmotechApi.Workspace(); // Workspace | the new Workspace details.
+let workspace = new CosmotechApi.Workspace(); // Workspace | The new Workspace details.
 apiInstance.updateWorkspace(organizationId, workspaceId, workspace).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -790,7 +791,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **workspace** | [**Workspace**](Workspace.md)| the new Workspace details. | 
+ **workspace** | [**Workspace**](Workspace.md)| The new Workspace details. | 
 
 ### Return type
 
@@ -803,6 +804,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
+
+
+## updateWorkspaceAccessControl
+
+> WorkspaceAccessControl updateWorkspaceAccessControl(organizationId, workspaceId, identityId, workspaceRole)
+
+Update the specified access to User for a Workspace
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.WorkspaceApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let identityId = "identityId_example"; // String | the User identifier
+let workspaceRole = new CosmotechApi.WorkspaceRole(); // WorkspaceRole | The new Workspace Access Control
+apiInstance.updateWorkspaceAccessControl(organizationId, workspaceId, identityId, workspaceRole).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **identityId** | **String**| the User identifier | 
+ **workspaceRole** | [**WorkspaceRole**](WorkspaceRole.md)| The new Workspace Access Control | 
+
+### Return type
+
+[**WorkspaceAccessControl**](WorkspaceAccessControl.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
