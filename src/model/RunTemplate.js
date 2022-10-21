@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import RunTemplateResourceSizing from './RunTemplateResourceSizing';
 import RunTemplateStepSource from './RunTemplateStepSource';
 
 /**
@@ -68,6 +69,9 @@ class RunTemplate {
             }
             if (data.hasOwnProperty('computeSize')) {
                 obj['computeSize'] = ApiClient.convertToType(data['computeSize'], 'String');
+            }
+            if (data.hasOwnProperty('runSizing')) {
+                obj['runSizing'] = RunTemplateResourceSizing.constructFromObject(data['runSizing']);
             }
             if (data.hasOwnProperty('noDataIngestionState')) {
                 obj['noDataIngestionState'] = ApiClient.convertToType(data['noDataIngestionState'], 'Boolean');
@@ -183,6 +187,11 @@ RunTemplate.prototype['tags'] = undefined;
  * @member {String} computeSize
  */
 RunTemplate.prototype['computeSize'] = undefined;
+
+/**
+ * @member {module:model/RunTemplateResourceSizing} runSizing
+ */
+RunTemplate.prototype['runSizing'] = undefined;
 
 /**
  * set to true if the run template does not want to check data ingestion state (no probes or not control plane)

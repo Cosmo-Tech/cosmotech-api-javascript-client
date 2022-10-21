@@ -13,31 +13,39 @@
 
 
 import ApiClient from './ApiClient';
+import ComponentRolePermissions from './model/ComponentRolePermissions';
 import Connector from './model/Connector';
 import ConnectorParameter from './model/ConnectorParameter';
 import ConnectorParameterGroup from './model/ConnectorParameterGroup';
+import ContainerResourceSizeInfo from './model/ContainerResourceSizeInfo';
+import ContainerResourceSizing from './model/ContainerResourceSizing';
 import Dataset from './model/Dataset';
 import DatasetCompatibility from './model/DatasetCompatibility';
 import DatasetConnector from './model/DatasetConnector';
 import DatasetCopyParameters from './model/DatasetCopyParameters';
 import DatasetSearch from './model/DatasetSearch';
 import Organization from './model/Organization';
+import OrganizationAccessControl from './model/OrganizationAccessControl';
+import OrganizationSecurity from './model/OrganizationSecurity';
 import OrganizationService from './model/OrganizationService';
 import OrganizationServices from './model/OrganizationServices';
-import OrganizationUser from './model/OrganizationUser';
+import ResourceSizeInfo from './model/ResourceSizeInfo';
 import RunTemplate from './model/RunTemplate';
 import RunTemplateHandlerId from './model/RunTemplateHandlerId';
 import RunTemplateParameter from './model/RunTemplateParameter';
 import RunTemplateParameterGroup from './model/RunTemplateParameterGroup';
 import RunTemplateParameterValue from './model/RunTemplateParameterValue';
+import RunTemplateResourceSizing from './model/RunTemplateResourceSizing';
 import RunTemplateStepSource from './model/RunTemplateStepSource';
 import Scenario from './model/Scenario';
+import ScenarioAccessControl from './model/ScenarioAccessControl';
 import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
 import ScenarioComparisonResult from './model/ScenarioComparisonResult';
 import ScenarioDataDownloadInfo from './model/ScenarioDataDownloadInfo';
 import ScenarioDataDownloadJob from './model/ScenarioDataDownloadJob';
 import ScenarioJobState from './model/ScenarioJobState';
 import ScenarioLastRun from './model/ScenarioLastRun';
+import ScenarioResourceSizing from './model/ScenarioResourceSizing';
 import ScenarioRun from './model/ScenarioRun';
 import ScenarioRunContainer from './model/ScenarioRunContainer';
 import ScenarioRunContainerArtifact from './model/ScenarioRunContainerArtifact';
@@ -49,7 +57,7 @@ import ScenarioRunState from './model/ScenarioRunState';
 import ScenarioRunStatus from './model/ScenarioRunStatus';
 import ScenarioRunStatusNode from './model/ScenarioRunStatusNode';
 import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParameterValue';
-import ScenarioUser from './model/ScenarioUser';
+import ScenarioSecurity from './model/ScenarioSecurity';
 import ScenarioValidationStatus from './model/ScenarioValidationStatus';
 import Solution from './model/Solution';
 import User from './model/User';
@@ -58,9 +66,10 @@ import UserWorkspace from './model/UserWorkspace';
 import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
 import Workspace from './model/Workspace';
+import WorkspaceAccessControl from './model/WorkspaceAccessControl';
 import WorkspaceFile from './model/WorkspaceFile';
+import WorkspaceSecurity from './model/WorkspaceSecurity';
 import WorkspaceSolution from './model/WorkspaceSolution';
-import WorkspaceUser from './model/WorkspaceUser';
 import WorkspaceWebApp from './model/WorkspaceWebApp';
 import ConnectorApi from './api/ConnectorApi';
 import DatasetApi from './api/DatasetApi';
@@ -112,6 +121,12 @@ export {
     ApiClient,
 
     /**
+     * The ComponentRolePermissions model constructor.
+     * @property {module:model/ComponentRolePermissions}
+     */
+    ComponentRolePermissions,
+
+    /**
      * The Connector model constructor.
      * @property {module:model/Connector}
      */
@@ -128,6 +143,18 @@ export {
      * @property {module:model/ConnectorParameterGroup}
      */
     ConnectorParameterGroup,
+
+    /**
+     * The ContainerResourceSizeInfo model constructor.
+     * @property {module:model/ContainerResourceSizeInfo}
+     */
+    ContainerResourceSizeInfo,
+
+    /**
+     * The ContainerResourceSizing model constructor.
+     * @property {module:model/ContainerResourceSizing}
+     */
+    ContainerResourceSizing,
 
     /**
      * The Dataset model constructor.
@@ -166,6 +193,18 @@ export {
     Organization,
 
     /**
+     * The OrganizationAccessControl model constructor.
+     * @property {module:model/OrganizationAccessControl}
+     */
+    OrganizationAccessControl,
+
+    /**
+     * The OrganizationSecurity model constructor.
+     * @property {module:model/OrganizationSecurity}
+     */
+    OrganizationSecurity,
+
+    /**
      * The OrganizationService model constructor.
      * @property {module:model/OrganizationService}
      */
@@ -178,10 +217,10 @@ export {
     OrganizationServices,
 
     /**
-     * The OrganizationUser model constructor.
-     * @property {module:model/OrganizationUser}
+     * The ResourceSizeInfo model constructor.
+     * @property {module:model/ResourceSizeInfo}
      */
-    OrganizationUser,
+    ResourceSizeInfo,
 
     /**
      * The RunTemplate model constructor.
@@ -214,6 +253,12 @@ export {
     RunTemplateParameterValue,
 
     /**
+     * The RunTemplateResourceSizing model constructor.
+     * @property {module:model/RunTemplateResourceSizing}
+     */
+    RunTemplateResourceSizing,
+
+    /**
      * The RunTemplateStepSource model constructor.
      * @property {module:model/RunTemplateStepSource}
      */
@@ -224,6 +269,12 @@ export {
      * @property {module:model/Scenario}
      */
     Scenario,
+
+    /**
+     * The ScenarioAccessControl model constructor.
+     * @property {module:model/ScenarioAccessControl}
+     */
+    ScenarioAccessControl,
 
     /**
      * The ScenarioChangedParameterValue model constructor.
@@ -260,6 +311,12 @@ export {
      * @property {module:model/ScenarioLastRun}
      */
     ScenarioLastRun,
+
+    /**
+     * The ScenarioResourceSizing model constructor.
+     * @property {module:model/ScenarioResourceSizing}
+     */
+    ScenarioResourceSizing,
 
     /**
      * The ScenarioRun model constructor.
@@ -328,10 +385,10 @@ export {
     ScenarioRunTemplateParameterValue,
 
     /**
-     * The ScenarioUser model constructor.
-     * @property {module:model/ScenarioUser}
+     * The ScenarioSecurity model constructor.
+     * @property {module:model/ScenarioSecurity}
      */
-    ScenarioUser,
+    ScenarioSecurity,
 
     /**
      * The ScenarioValidationStatus model constructor.
@@ -382,22 +439,28 @@ export {
     Workspace,
 
     /**
+     * The WorkspaceAccessControl model constructor.
+     * @property {module:model/WorkspaceAccessControl}
+     */
+    WorkspaceAccessControl,
+
+    /**
      * The WorkspaceFile model constructor.
      * @property {module:model/WorkspaceFile}
      */
     WorkspaceFile,
 
     /**
+     * The WorkspaceSecurity model constructor.
+     * @property {module:model/WorkspaceSecurity}
+     */
+    WorkspaceSecurity,
+
+    /**
      * The WorkspaceSolution model constructor.
      * @property {module:model/WorkspaceSolution}
      */
     WorkspaceSolution,
-
-    /**
-     * The WorkspaceUser model constructor.
-     * @property {module:model/WorkspaceUser}
-     */
-    WorkspaceUser,
 
     /**
      * The WorkspaceWebApp model constructor.

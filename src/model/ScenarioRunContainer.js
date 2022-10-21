@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ContainerResourceSizing from './ContainerResourceSizing';
 import ScenarioRunContainerArtifact from './ScenarioRunContainerArtifact';
 
 /**
@@ -80,6 +81,12 @@ class ScenarioRunContainer {
             if (data.hasOwnProperty('solutionContainer')) {
                 obj['solutionContainer'] = ApiClient.convertToType(data['solutionContainer'], 'Boolean');
             }
+            if (data.hasOwnProperty('nodeLabel')) {
+                obj['nodeLabel'] = ApiClient.convertToType(data['nodeLabel'], 'String');
+            }
+            if (data.hasOwnProperty('runSizing')) {
+                obj['runSizing'] = ContainerResourceSizing.constructFromObject(data['runSizing']);
+            }
             if (data.hasOwnProperty('artifacts')) {
                 obj['artifacts'] = ApiClient.convertToType(data['artifacts'], [ScenarioRunContainerArtifact]);
             }
@@ -143,6 +150,17 @@ ScenarioRunContainer.prototype['dependencies'] = undefined;
  * @member {Boolean} solutionContainer
  */
 ScenarioRunContainer.prototype['solutionContainer'] = undefined;
+
+/**
+ * the node label request
+ * @member {String} nodeLabel
+ */
+ScenarioRunContainer.prototype['nodeLabel'] = undefined;
+
+/**
+ * @member {module:model/ContainerResourceSizing} runSizing
+ */
+ScenarioRunContainer.prototype['runSizing'] = undefined;
 
 /**
  * the list of artifacts
