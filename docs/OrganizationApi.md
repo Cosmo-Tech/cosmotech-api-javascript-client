@@ -4,25 +4,31 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addOrReplaceUsersInOrganization**](OrganizationApi.md#addOrReplaceUsersInOrganization) | **POST** /organizations/{organization_id}/users | Add (or replace) users in the Organization specified
+[**addOrganizationAccessControl**](OrganizationApi.md#addOrganizationAccessControl) | **POST** /organizations/{organization_id}/security/access | Add a control access to the Organization
 [**findAllOrganizations**](OrganizationApi.md#findAllOrganizations) | **GET** /organizations | List all Organizations
 [**findOrganizationById**](OrganizationApi.md#findOrganizationById) | **GET** /organizations/{organization_id} | Get the details of an Organization
+[**getAllPermissions**](OrganizationApi.md#getAllPermissions) | **GET** /organizations/permissions | Get all permissions per components
+[**getOrganizationAccessControl**](OrganizationApi.md#getOrganizationAccessControl) | **GET** /organizations/{organization_id}/security/access/{identity_id} | Get a control access for the Organization
+[**getOrganizationPermissions**](OrganizationApi.md#getOrganizationPermissions) | **GET** /organizations/{organization_id}/permissions/{role} | Get the Organization permissions by given role
+[**getOrganizationSecurity**](OrganizationApi.md#getOrganizationSecurity) | **GET** /organizations/{organization_id}/security | Get the Organization security information
+[**getOrganizationSecurityUsers**](OrganizationApi.md#getOrganizationSecurityUsers) | **GET** /organizations/{organization_id}/security/users | Get the Organization security users list
 [**registerOrganization**](OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
-[**removeAllUsersInOrganization**](OrganizationApi.md#removeAllUsersInOrganization) | **DELETE** /organizations/{organization_id}/users | Remove all users from the Organization specified
-[**removeUserFromOrganization**](OrganizationApi.md#removeUserFromOrganization) | **DELETE** /organizations/{organization_id}/users/{user_id} | Remove the specified user from the given Organization
+[**removeOrganizationAccessControl**](OrganizationApi.md#removeOrganizationAccessControl) | **DELETE** /organizations/{organization_id}/security/access/{identity_id} | Remove the specified access from the given Organization
+[**setOrganizationDefaultSecurity**](OrganizationApi.md#setOrganizationDefaultSecurity) | **POST** /organizations/{organization_id}/security/default | Set the Organization default security
 [**unregisterOrganization**](OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
 [**updateOrganization**](OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an Organization
+[**updateOrganizationAccessControl**](OrganizationApi.md#updateOrganizationAccessControl) | **PATCH** /organizations/{organization_id}/security/access/{identity_id} | Update the specified access to User for an Organization
 [**updateSolutionsContainerRegistryByOrganizationId**](OrganizationApi.md#updateSolutionsContainerRegistryByOrganizationId) | **PATCH** /organizations/{organization_id}/services/solutionsContainerRegistry | Update the solutions container registry configuration for the Organization specified
 [**updateStorageByOrganizationId**](OrganizationApi.md#updateStorageByOrganizationId) | **PATCH** /organizations/{organization_id}/services/storage | Update storage configuration for the Organization specified
 [**updateTenantCredentialsByOrganizationId**](OrganizationApi.md#updateTenantCredentialsByOrganizationId) | **PATCH** /organizations/{organization_id}/services/tenantCredentials | Update tenant credentials for the Organization specified
 
 
 
-## addOrReplaceUsersInOrganization
+## addOrganizationAccessControl
 
-> [OrganizationUser] addOrReplaceUsersInOrganization(organizationId, organizationUser)
+> OrganizationAccessControl addOrganizationAccessControl(organizationId, organizationAccessControl)
 
-Add (or replace) users in the Organization specified
+Add a control access to the Organization
 
 ### Example
 
@@ -35,8 +41,8 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let organizationUser = [{"id":"2","roles":["User"]},{"id":"3","roles":["Developer"]}]; // [OrganizationUser] | the Users to add. Any User with the same ID is overwritten
-apiInstance.addOrReplaceUsersInOrganization(organizationId, organizationUser).then((data) => {
+let organizationAccessControl = new CosmotechApi.OrganizationAccessControl(); // OrganizationAccessControl | the new Organization security access to add.
+apiInstance.addOrganizationAccessControl(organizationId, organizationAccessControl).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -50,11 +56,11 @@ apiInstance.addOrReplaceUsersInOrganization(organizationId, organizationUser).th
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **organizationUser** | [**[OrganizationUser]**](OrganizationUser.md)| the Users to add. Any User with the same ID is overwritten | 
+ **organizationAccessControl** | [**OrganizationAccessControl**](OrganizationAccessControl.md)| the new Organization security access to add. | 
 
 ### Return type
 
-[**[OrganizationUser]**](OrganizationUser.md)
+[**OrganizationAccessControl**](OrganizationAccessControl.md)
 
 ### Authorization
 
@@ -62,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
@@ -154,6 +160,236 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getAllPermissions
+
+> [ComponentRolePermissions] getAllPermissions()
+
+Get all permissions per components
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.OrganizationApi();
+apiInstance.getAllPermissions().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[ComponentRolePermissions]**](ComponentRolePermissions.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationAccessControl
+
+> OrganizationAccessControl getOrganizationAccessControl(organizationId, identityId)
+
+Get a control access for the Organization
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.OrganizationApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let identityId = "identityId_example"; // String | the User identifier
+apiInstance.getOrganizationAccessControl(organizationId, identityId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **identityId** | **String**| the User identifier | 
+
+### Return type
+
+[**OrganizationAccessControl**](OrganizationAccessControl.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationPermissions
+
+> [String] getOrganizationPermissions(organizationId, role)
+
+Get the Organization permissions by given role
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.OrganizationApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let role = "role_example"; // String | the Role
+apiInstance.getOrganizationPermissions(organizationId, role).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **role** | **String**| the Role | 
+
+### Return type
+
+**[String]**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationSecurity
+
+> OrganizationSecurity getOrganizationSecurity(organizationId)
+
+Get the Organization security information
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.OrganizationApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+apiInstance.getOrganizationSecurity(organizationId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+
+### Return type
+
+[**OrganizationSecurity**](OrganizationSecurity.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getOrganizationSecurityUsers
+
+> [String] getOrganizationSecurityUsers(organizationId)
+
+Get the Organization security users list
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.OrganizationApi();
+let organizationId = "organizationId_example"; // String | The Organization identifier
+apiInstance.getOrganizationSecurityUsers(organizationId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| The Organization identifier | 
+
+### Return type
+
+**[String]**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## registerOrganization
 
 > Organization registerOrganization(organization)
@@ -200,11 +436,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## removeAllUsersInOrganization
+## removeOrganizationAccessControl
 
-> removeAllUsersInOrganization(organizationId)
+> removeOrganizationAccessControl(organizationId, identityId)
 
-Remove all users from the Organization specified
+Remove the specified access from the given Organization
 
 ### Example
 
@@ -217,7 +453,8 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.removeAllUsersInOrganization(organizationId).then(() => {
+let identityId = "identityId_example"; // String | the User identifier
+apiInstance.removeOrganizationAccessControl(organizationId, identityId).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -231,6 +468,7 @@ apiInstance.removeAllUsersInOrganization(organizationId).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **identityId** | **String**| the User identifier | 
 
 ### Return type
 
@@ -246,11 +484,11 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## removeUserFromOrganization
+## setOrganizationDefaultSecurity
 
-> removeUserFromOrganization(organizationId, userId)
+> OrganizationSecurity setOrganizationDefaultSecurity(organizationId, organizationRole)
 
-Remove the specified user from the given Organization
+Set the Organization default security
 
 ### Example
 
@@ -263,9 +501,9 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let userId = "userId_example"; // String | the User identifier
-apiInstance.removeUserFromOrganization(organizationId, userId).then(() => {
-  console.log('API called successfully.');
+let organizationRole = new CosmotechApi.OrganizationRole(); // OrganizationRole | the new Organization default security.
+apiInstance.setOrganizationDefaultSecurity(organizationId, organizationRole).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -278,11 +516,11 @@ apiInstance.removeUserFromOrganization(organizationId, userId).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **userId** | **String**| the User identifier | 
+ **organizationRole** | [**OrganizationRole**](OrganizationRole.md)| the new Organization default security. | 
 
 ### Return type
 
-null (empty response body)
+[**OrganizationSecurity**](OrganizationSecurity.md)
 
 ### Authorization
 
@@ -290,8 +528,8 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
 
 
 ## unregisterOrganization
@@ -385,6 +623,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
+
+
+## updateOrganizationAccessControl
+
+> OrganizationAccessControl updateOrganizationAccessControl(organizationId, identityId, organizationRole)
+
+Update the specified access to User for an Organization
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.OrganizationApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let identityId = "identityId_example"; // String | the User identifier
+let organizationRole = new CosmotechApi.OrganizationRole(); // OrganizationRole | The new Organization Access Control
+apiInstance.updateOrganizationAccessControl(organizationId, identityId, organizationRole).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **identityId** | **String**| the User identifier | 
+ **organizationRole** | [**OrganizationRole**](OrganizationRole.md)| The new Organization Access Control | 
+
+### Return type
+
+[**OrganizationAccessControl**](OrganizationAccessControl.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
