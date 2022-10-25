@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.OrganizationUser();
+    instance = new CosmotechApi.DeleteHistoricalData();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,28 @@
       object[property] = value;
   }
 
-  describe('OrganizationUser', function() {
-    it('should create an instance of OrganizationUser', function() {
-      // uncomment below and update the code to test OrganizationUser
-      //var instance = new CosmotechApi.OrganizationUser();
-      //expect(instance).to.be.a(CosmotechApi.OrganizationUser);
+  describe('DeleteHistoricalData', function() {
+    it('should create an instance of DeleteHistoricalData', function() {
+      // uncomment below and update the code to test DeleteHistoricalData
+      //var instance = new CosmotechApi.DeleteHistoricalData();
+      //expect(instance).to.be.a(CosmotechApi.DeleteHistoricalData);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new CosmotechApi.OrganizationUser();
+    it('should have the property enable (base name: "enable")', function() {
+      // uncomment below and update the code to test the property enable
+      //var instance = new CosmotechApi.DeleteHistoricalData();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new CosmotechApi.OrganizationUser();
+    it('should have the property pollFrequency (base name: "pollFrequency")', function() {
+      // uncomment below and update the code to test the property pollFrequency
+      //var instance = new CosmotechApi.DeleteHistoricalData();
       //expect(instance).to.be();
     });
 
-    it('should have the property roles (base name: "roles")', function() {
-      // uncomment below and update the code to test the property roles
-      //var instance = new CosmotechApi.OrganizationUser();
+    it('should have the property timeOut (base name: "timeOut")', function() {
+      // uncomment below and update the code to test the property timeOut
+      //var instance = new CosmotechApi.DeleteHistoricalData();
       //expect(instance).to.be();
     });
 
