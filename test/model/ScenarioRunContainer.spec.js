@@ -108,6 +108,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property nodeLabel (base name: "nodeLabel")', function() {
+      // uncomment below and update the code to test the property nodeLabel
+      //var instance = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property runSizing (base name: "runSizing")', function() {
+      // uncomment below and update the code to test the property runSizing
+      //var instance = new CosmotechApi.ScenarioRunContainer();
+      //expect(instance).to.be();
+    });
+
     it('should have the property artifacts (base name: "artifacts")', function() {
       // uncomment below and update the code to test the property artifacts
       //var instance = new CosmotechApi.ScenarioRunContainer();

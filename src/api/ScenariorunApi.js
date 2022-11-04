@@ -42,12 +42,9 @@ export default class ScenariorunApi {
     /**
      * Delete all historical ScenarioRuns in the Organization
      * @param {String} organizationId the Organization identifier
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.deleteUnknown condition to delete runs with an Unknown status (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteHistoricalDataOrganizationWithHttpInfo(organizationId, opts) {
-      opts = opts || {};
+    deleteHistoricalDataOrganizationWithHttpInfo(organizationId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -58,7 +55,6 @@ export default class ScenariorunApi {
         'organization_id': organizationId
       };
       let queryParams = {
-        'deleteUnknown': opts['deleteUnknown']
       };
       let headerParams = {
       };
@@ -79,78 +75,10 @@ export default class ScenariorunApi {
     /**
      * Delete all historical ScenarioRuns in the Organization
      * @param {String} organizationId the Organization identifier
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.deleteUnknown condition to delete runs with an Unknown status (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    deleteHistoricalDataOrganization(organizationId, opts) {
-      return this.deleteHistoricalDataOrganizationWithHttpInfo(organizationId, opts)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Delete all historical ScenarioRuns in the Scenario
-     * @param {String} organizationId the Organization identifier
-     * @param {String} workspaceId the Workspace identifier
-     * @param {String} scenarioId the Scenario identifier
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.deleteUnknown condition to delete runs with an Unknown status (default to false)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
-     */
-    deleteHistoricalDataScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, opts) {
-      opts = opts || {};
-      let postBody = null;
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling deleteHistoricalDataScenario");
-      }
-      // verify the required parameter 'workspaceId' is set
-      if (workspaceId === undefined || workspaceId === null) {
-        throw new Error("Missing the required parameter 'workspaceId' when calling deleteHistoricalDataScenario");
-      }
-      // verify the required parameter 'scenarioId' is set
-      if (scenarioId === undefined || scenarioId === null) {
-        throw new Error("Missing the required parameter 'scenarioId' when calling deleteHistoricalDataScenario");
-      }
-
-      let pathParams = {
-        'organization_id': organizationId,
-        'workspace_id': workspaceId,
-        'scenario_id': scenarioId
-      };
-      let queryParams = {
-        'deleteUnknown': opts['deleteUnknown']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = [];
-      let accepts = [];
-      let returnType = null;
-      return this.apiClient.callApi(
-        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/historicaldata', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Delete all historical ScenarioRuns in the Scenario
-     * @param {String} organizationId the Organization identifier
-     * @param {String} workspaceId the Workspace identifier
-     * @param {String} scenarioId the Scenario identifier
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.deleteUnknown condition to delete runs with an Unknown status (default to false)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
-     */
-    deleteHistoricalDataScenario(organizationId, workspaceId, scenarioId, opts) {
-      return this.deleteHistoricalDataScenarioWithHttpInfo(organizationId, workspaceId, scenarioId, opts)
+    deleteHistoricalDataOrganization(organizationId) {
+      return this.deleteHistoricalDataOrganizationWithHttpInfo(organizationId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -161,12 +89,9 @@ export default class ScenariorunApi {
      * Delete all historical ScenarioRuns in the Workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.deleteUnknown condition to delete runs with an Unknown status (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteHistoricalDataWorkspaceWithHttpInfo(organizationId, workspaceId, opts) {
-      opts = opts || {};
+    deleteHistoricalDataWorkspaceWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -182,7 +107,6 @@ export default class ScenariorunApi {
         'workspace_id': workspaceId
       };
       let queryParams = {
-        'deleteUnknown': opts['deleteUnknown']
       };
       let headerParams = {
       };
@@ -204,12 +128,70 @@ export default class ScenariorunApi {
      * Delete all historical ScenarioRuns in the Workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.deleteUnknown condition to delete runs with an Unknown status (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    deleteHistoricalDataWorkspace(organizationId, workspaceId, opts) {
-      return this.deleteHistoricalDataWorkspaceWithHttpInfo(organizationId, workspaceId, opts)
+    deleteHistoricalDataWorkspace(organizationId, workspaceId) {
+      return this.deleteHistoricalDataWorkspaceWithHttpInfo(organizationId, workspaceId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Delete all historical ScenarioRuns for the Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    deleteHistoricalScenarioRunsByScenarioWithHttpInfo(organizationId, workspaceId, scenarioId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling deleteHistoricalScenarioRunsByScenario");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling deleteHistoricalScenarioRunsByScenario");
+      }
+      // verify the required parameter 'scenarioId' is set
+      if (scenarioId === undefined || scenarioId === null) {
+        throw new Error("Missing the required parameter 'scenarioId' when calling deleteHistoricalScenarioRunsByScenario");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId,
+        'scenario_id': scenarioId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Delete all historical ScenarioRuns for the Scenario
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} scenarioId the Scenario identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    deleteHistoricalScenarioRunsByScenario(organizationId, workspaceId, scenarioId) {
+      return this.deleteHistoricalScenarioRunsByScenarioWithHttpInfo(organizationId, workspaceId, scenarioId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
