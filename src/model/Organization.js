@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import OrganizationSecurity from './OrganizationSecurity';
 import OrganizationServices from './OrganizationServices';
+import OrganizationUser from './OrganizationUser';
 
 /**
  * The Organization model module.
@@ -59,11 +59,11 @@ class Organization {
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
             }
+            if (data.hasOwnProperty('users')) {
+                obj['users'] = ApiClient.convertToType(data['users'], [OrganizationUser]);
+            }
             if (data.hasOwnProperty('services')) {
                 obj['services'] = OrganizationServices.constructFromObject(data['services']);
-            }
-            if (data.hasOwnProperty('security')) {
-                obj['security'] = ApiClient.convertToType(data['security'], OrganizationSecurity);
             }
         }
         return obj;
@@ -91,14 +91,14 @@ Organization.prototype['name'] = undefined;
 Organization.prototype['ownerId'] = undefined;
 
 /**
+ * @member {Array.<module:model/OrganizationUser>} users
+ */
+Organization.prototype['users'] = undefined;
+
+/**
  * @member {module:model/OrganizationServices} services
  */
 Organization.prototype['services'] = undefined;
-
-/**
- * @member {module:model/OrganizationSecurity} security
- */
-Organization.prototype['security'] = undefined;
 
 
 

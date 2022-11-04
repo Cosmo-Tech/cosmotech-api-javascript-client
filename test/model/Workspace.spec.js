@@ -102,6 +102,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property users (base name: "users")', function() {
+      // uncomment below and update the code to test the property users
+      //var instance = new CosmotechApi.Workspace();
+      //expect(instance).to.be();
+    });
+
     it('should have the property webApp (base name: "webApp")', function() {
       // uncomment below and update the code to test the property webApp
       //var instance = new CosmotechApi.Workspace();
@@ -122,12 +128,6 @@
 
     it('should have the property sendScenarioMetadataToEventHub (base name: "sendScenarioMetadataToEventHub")', function() {
       // uncomment below and update the code to test the property sendScenarioMetadataToEventHub
-      //var instance = new CosmotechApi.Workspace();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property security (base name: "security")', function() {
-      // uncomment below and update the code to test the property security
       //var instance = new CosmotechApi.Workspace();
       //expect(instance).to.be();
     });

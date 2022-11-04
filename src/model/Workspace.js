@@ -12,8 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import WorkspaceSecurity from './WorkspaceSecurity';
 import WorkspaceSolution from './WorkspaceSolution';
+import WorkspaceUser from './WorkspaceUser';
 import WorkspaceWebApp from './WorkspaceWebApp';
 
 /**
@@ -81,6 +81,9 @@ class Workspace {
             if (data.hasOwnProperty('solution')) {
                 obj['solution'] = WorkspaceSolution.constructFromObject(data['solution']);
             }
+            if (data.hasOwnProperty('users')) {
+                obj['users'] = ApiClient.convertToType(data['users'], [WorkspaceUser]);
+            }
             if (data.hasOwnProperty('webApp')) {
                 obj['webApp'] = WorkspaceWebApp.constructFromObject(data['webApp']);
             }
@@ -92,9 +95,6 @@ class Workspace {
             }
             if (data.hasOwnProperty('sendScenarioMetadataToEventHub')) {
                 obj['sendScenarioMetadataToEventHub'] = ApiClient.convertToType(data['sendScenarioMetadataToEventHub'], 'Boolean');
-            }
-            if (data.hasOwnProperty('security')) {
-                obj['security'] = ApiClient.convertToType(data['security'], WorkspaceSecurity);
             }
         }
         return obj;
@@ -151,6 +151,12 @@ Workspace.prototype['ownerId'] = undefined;
 Workspace.prototype['solution'] = undefined;
 
 /**
+ * the list of users Id with their role
+ * @member {Array.<module:model/WorkspaceUser>} users
+ */
+Workspace.prototype['users'] = undefined;
+
+/**
  * @member {module:model/WorkspaceWebApp} webApp
  */
 Workspace.prototype['webApp'] = undefined;
@@ -174,11 +180,6 @@ Workspace.prototype['useDedicatedEventHubNamespace'] = false;
  * @default false
  */
 Workspace.prototype['sendScenarioMetadataToEventHub'] = false;
-
-/**
- * @member {module:model/WorkspaceSecurity} security
- */
-Workspace.prototype['security'] = undefined;
 
 
 
