@@ -4,9 +4,9 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**callDelete**](TwingraphApi.md#callDelete) | **DELETE** /organizations/{organization_id}/delete/{graphId} | 
-[**importGraph**](TwingraphApi.md#importGraph) | **POST** /organizations/{organization_id}/import | 
-[**query**](TwingraphApi.md#query) | **POST** /organizations/{organization_id}/query | 
+[**callDelete**](TwingraphApi.md#callDelete) | **DELETE** /organizations/{organization_id}/twingraph/{graph_id} | 
+[**importGraph**](TwingraphApi.md#importGraph) | **POST** /organizations/{organization_id}/twingraph/import | 
+[**query**](TwingraphApi.md#query) | **POST** /organizations/{organization_id}/twingraph/{graph_id}/query | 
 
 
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ## query
 
-> String query(organizationId, twinGraphQuery)
+> String query(organizationId, graphId, twinGraphQuery)
 
 
 
@@ -129,8 +129,9 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.TwingraphApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
+let graphId = "graphId_example"; // String | the Graph Identifier
 let twinGraphQuery = new CosmotechApi.TwinGraphQuery(); // TwinGraphQuery | the query to run
-apiInstance.query(organizationId, twinGraphQuery).then((data) => {
+apiInstance.query(organizationId, graphId, twinGraphQuery).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -144,6 +145,7 @@ apiInstance.query(organizationId, twinGraphQuery).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **graphId** | **String**| the Graph Identifier | 
  **twinGraphQuery** | [**TwinGraphQuery**](TwinGraphQuery.md)| the query to run | 
 
 ### Return type
