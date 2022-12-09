@@ -28,6 +28,7 @@
   var instance;
 
   beforeEach(function() {
+    instance = new CosmotechApi.SourceInfo();
   });
 
   var getProperty = function(object, getter, property) {
@@ -46,11 +47,35 @@
       object[property] = value;
   }
 
-  describe('RunTemplateStepSource', function() {
-    it('should create an instance of RunTemplateStepSource', function() {
-      // uncomment below and update the code to test RunTemplateStepSource
-      //var instance = new CosmotechApi.RunTemplateStepSource();
-      //expect(instance).to.be.a(CosmotechApi.RunTemplateStepSource);
+  describe('SourceInfo', function() {
+    it('should create an instance of SourceInfo', function() {
+      // uncomment below and update the code to test SourceInfo
+      //var instance = new CosmotechApi.SourceInfo();
+      //expect(instance).to.be.a(CosmotechApi.SourceInfo);
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new CosmotechApi.SourceInfo();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property location (base name: "location")', function() {
+      // uncomment below and update the code to test the property location
+      //var instance = new CosmotechApi.SourceInfo();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property path (base name: "path")', function() {
+      // uncomment below and update the code to test the property path
+      //var instance = new CosmotechApi.SourceInfo();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instance = new CosmotechApi.SourceInfo();
+      //expect(instance).to.be();
     });
 
   });

@@ -5,8 +5,8 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteHistoricalDataOrganization**](ScenariorunApi.md#deleteHistoricalDataOrganization) | **DELETE** /organizations/{organization_id}/scenarioruns/historicaldata | Delete all historical ScenarioRuns in the Organization
-[**deleteHistoricalDataScenario**](ScenariorunApi.md#deleteHistoricalDataScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/historicaldata | Delete all historical ScenarioRuns in the Scenario
 [**deleteHistoricalDataWorkspace**](ScenariorunApi.md#deleteHistoricalDataWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarioruns/historicaldata | Delete all historical ScenarioRuns in the Workspace
+[**deleteHistoricalScenarioRunsByScenario**](ScenariorunApi.md#deleteHistoricalScenarioRunsByScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns | Delete all historical ScenarioRuns for the Scenario
 [**deleteScenarioRun**](ScenariorunApi.md#deleteScenarioRun) | **DELETE** /organizations/{organization_id}/scenarioruns/{scenariorun_id} | Delete a scenariorun
 [**findScenarioRunById**](ScenariorunApi.md#findScenarioRunById) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id} | Get the details of a scenariorun
 [**getScenarioRunCumulatedLogs**](ScenariorunApi.md#getScenarioRunCumulatedLogs) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/cumulatedlogs | Get the cumulated logs of a scenariorun
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 ## deleteHistoricalDataOrganization
 
-> deleteHistoricalDataOrganization(organizationId, opts)
+> deleteHistoricalDataOrganization(organizationId)
 
 Delete all historical ScenarioRuns in the Organization
 
@@ -38,10 +38,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let opts = {
-  'deleteUnknown': false // Boolean | condition to delete runs with an Unknown status
-};
-apiInstance.deleteHistoricalDataOrganization(organizationId, opts).then(() => {
+apiInstance.deleteHistoricalDataOrganization(organizationId).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -55,61 +52,6 @@ apiInstance.deleteHistoricalDataOrganization(organizationId, opts).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **deleteUnknown** | **Boolean**| condition to delete runs with an Unknown status | [optional] [default to false]
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## deleteHistoricalDataScenario
-
-> deleteHistoricalDataScenario(organizationId, workspaceId, scenarioId, opts)
-
-Delete all historical ScenarioRuns in the Scenario
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.ScenariorunApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-let opts = {
-  'deleteUnknown': false // Boolean | condition to delete runs with an Unknown status
-};
-apiInstance.deleteHistoricalDataScenario(organizationId, workspaceId, scenarioId, opts).then(() => {
-  console.log('API called successfully.');
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
- **scenarioId** | **String**| the Scenario identifier | 
- **deleteUnknown** | **Boolean**| condition to delete runs with an Unknown status | [optional] [default to false]
 
 ### Return type
 
@@ -127,7 +69,7 @@ null (empty response body)
 
 ## deleteHistoricalDataWorkspace
 
-> deleteHistoricalDataWorkspace(organizationId, workspaceId, opts)
+> deleteHistoricalDataWorkspace(organizationId, workspaceId)
 
 Delete all historical ScenarioRuns in the Workspace
 
@@ -143,10 +85,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let opts = {
-  'deleteUnknown': false // Boolean | condition to delete runs with an Unknown status
-};
-apiInstance.deleteHistoricalDataWorkspace(organizationId, workspaceId, opts).then(() => {
+apiInstance.deleteHistoricalDataWorkspace(organizationId, workspaceId).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -161,7 +100,56 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **deleteUnknown** | **Boolean**| condition to delete runs with an Unknown status | [optional] [default to false]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## deleteHistoricalScenarioRunsByScenario
+
+> deleteHistoricalScenarioRunsByScenario(organizationId, workspaceId, scenarioId)
+
+Delete all historical ScenarioRuns for the Scenario
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.ScenariorunApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let scenarioId = "scenarioId_example"; // String | the Scenario identifier
+apiInstance.deleteHistoricalScenarioRunsByScenario(organizationId, workspaceId, scenarioId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **scenarioId** | **String**| the Scenario identifier | 
 
 ### Return type
 
