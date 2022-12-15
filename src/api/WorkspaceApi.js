@@ -15,6 +15,7 @@
 import ApiClient from "../ApiClient";
 import Workspace from '../model/Workspace';
 import WorkspaceFile from '../model/WorkspaceFile';
+import WorkspaceSecret from '../model/WorkspaceSecret';
 import WorkspaceUser from '../model/WorkspaceUser';
 
 /**
@@ -90,6 +91,65 @@ export default class WorkspaceApi {
      */
     addOrReplaceUsersInOrganizationWorkspace(organizationId, workspaceId, workspaceUser) {
       return this.addOrReplaceUsersInOrganizationWorkspaceWithHttpInfo(organizationId, workspaceId, workspaceUser)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Create a secret for the Workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {module:model/WorkspaceSecret} workspaceSecret the definition of the secret
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    createSecretWithHttpInfo(organizationId, workspaceId, workspaceSecret) {
+      let postBody = workspaceSecret;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling createSecret");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling createSecret");
+      }
+      // verify the required parameter 'workspaceSecret' is set
+      if (workspaceSecret === undefined || workspaceSecret === null) {
+        throw new Error("Missing the required parameter 'workspaceSecret' when calling createSecret");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/secret', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create a secret for the Workspace
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {module:model/WorkspaceSecret} workspaceSecret the definition of the secret
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    createSecret(organizationId, workspaceId, workspaceSecret) {
+      return this.createSecretWithHttpInfo(organizationId, workspaceId, workspaceSecret)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

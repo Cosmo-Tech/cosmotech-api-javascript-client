@@ -212,6 +212,7 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ValidatorApi* | [**findValidatorRunById**](docs/ValidatorApi.md#findValidatorRunById) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id} | Get the details of a validator run
 *CosmotechApi.ValidatorApi* | [**runValidator**](docs/ValidatorApi.md#runValidator) | **POST** /organizations/{organization_id}/datasets/validators/{validator_id}/run | Run a Validator
 *CosmotechApi.WorkspaceApi* | [**addOrReplaceUsersInOrganizationWorkspace**](docs/WorkspaceApi.md#addOrReplaceUsersInOrganizationWorkspace) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/users | Add (or replace) users to the Workspace specified
+*CosmotechApi.WorkspaceApi* | [**createSecret**](docs/WorkspaceApi.md#createSecret) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/secret | Create a secret for the Workspace
 *CosmotechApi.WorkspaceApi* | [**createWorkspace**](docs/WorkspaceApi.md#createWorkspace) | **POST** /organizations/{organization_id}/workspaces | Create a new workspace
 *CosmotechApi.WorkspaceApi* | [**deleteAllWorkspaceFiles**](docs/WorkspaceApi.md#deleteAllWorkspaceFiles) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/files | Delete all Workspace files
 *CosmotechApi.WorkspaceApi* | [**deleteWorkspace**](docs/WorkspaceApi.md#deleteWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id} | Delete a workspace
@@ -275,6 +276,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ValidatorRun](docs/ValidatorRun.md)
  - [CosmotechApi.Workspace](docs/Workspace.md)
  - [CosmotechApi.WorkspaceFile](docs/WorkspaceFile.md)
+ - [CosmotechApi.WorkspaceSecret](docs/WorkspaceSecret.md)
  - [CosmotechApi.WorkspaceSolution](docs/WorkspaceSolution.md)
  - [CosmotechApi.WorkspaceUser](docs/WorkspaceUser.md)
  - [CosmotechApi.WorkspaceWebApp](docs/WorkspaceWebApp.md)

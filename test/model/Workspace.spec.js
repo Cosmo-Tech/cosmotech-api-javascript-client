@@ -126,6 +126,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property dedicatedEventHubSasKeyName (base name: "dedicatedEventHubSasKeyName")', function() {
+      // uncomment below and update the code to test the property dedicatedEventHubSasKeyName
+      //var instance = new CosmotechApi.Workspace();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dedicatedEventHubAuthenticationStrategy (base name: "dedicatedEventHubAuthenticationStrategy")', function() {
+      // uncomment below and update the code to test the property dedicatedEventHubAuthenticationStrategy
+      //var instance = new CosmotechApi.Workspace();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sendScenarioRunToEventHub (base name: "sendScenarioRunToEventHub")', function() {
+      // uncomment below and update the code to test the property sendScenarioRunToEventHub
+      //var instance = new CosmotechApi.Workspace();
+      //expect(instance).to.be();
+    });
+
     it('should have the property sendScenarioMetadataToEventHub (base name: "sendScenarioMetadataToEventHub")', function() {
       // uncomment below and update the code to test the property sendScenarioMetadataToEventHub
       //var instance = new CosmotechApi.Workspace();

@@ -60,6 +60,7 @@ import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
 import Workspace from './model/Workspace';
 import WorkspaceFile from './model/WorkspaceFile';
+import WorkspaceSecret from './model/WorkspaceSecret';
 import WorkspaceSolution from './model/WorkspaceSolution';
 import WorkspaceUser from './model/WorkspaceUser';
 import WorkspaceWebApp from './model/WorkspaceWebApp';
@@ -393,6 +394,12 @@ export {
      * @property {module:model/WorkspaceFile}
      */
     WorkspaceFile,
+
+    /**
+     * The WorkspaceSecret model constructor.
+     * @property {module:model/WorkspaceSecret}
+     */
+    WorkspaceSecret,
 
     /**
      * The WorkspaceSolution model constructor.

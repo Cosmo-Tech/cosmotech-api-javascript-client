@@ -93,6 +93,15 @@ class Workspace {
             if (data.hasOwnProperty('useDedicatedEventHubNamespace')) {
                 obj['useDedicatedEventHubNamespace'] = ApiClient.convertToType(data['useDedicatedEventHubNamespace'], 'Boolean');
             }
+            if (data.hasOwnProperty('dedicatedEventHubSasKeyName')) {
+                obj['dedicatedEventHubSasKeyName'] = ApiClient.convertToType(data['dedicatedEventHubSasKeyName'], 'String');
+            }
+            if (data.hasOwnProperty('dedicatedEventHubAuthenticationStrategy')) {
+                obj['dedicatedEventHubAuthenticationStrategy'] = ApiClient.convertToType(data['dedicatedEventHubAuthenticationStrategy'], 'String');
+            }
+            if (data.hasOwnProperty('sendScenarioRunToEventHub')) {
+                obj['sendScenarioRunToEventHub'] = ApiClient.convertToType(data['sendScenarioRunToEventHub'], 'Boolean');
+            }
             if (data.hasOwnProperty('sendScenarioMetadataToEventHub')) {
                 obj['sendScenarioMetadataToEventHub'] = ApiClient.convertToType(data['sendScenarioMetadataToEventHub'], 'Boolean');
             }
@@ -173,6 +182,25 @@ Workspace.prototype['sendInputToDataWarehouse'] = undefined;
  * @default false
  */
 Workspace.prototype['useDedicatedEventHubNamespace'] = false;
+
+/**
+ * the Dedicated Event Hub SAS key name, default to RootManageSharedAccessKey. Use the /secret endpoint to set the key value
+ * @member {String} dedicatedEventHubSasKeyName
+ */
+Workspace.prototype['dedicatedEventHubSasKeyName'] = undefined;
+
+/**
+ * the Event Hub authentication strategy, SHARED_ACCESS_POLICY or TENANT_CLIENT_CREDENTIALS. Default to the one defined for the tenant.
+ * @member {String} dedicatedEventHubAuthenticationStrategy
+ */
+Workspace.prototype['dedicatedEventHubAuthenticationStrategy'] = undefined;
+
+/**
+ * default setting for all Scenarios and Run Templates to set whether or not the ScenarioRun is send to the Event Hub
+ * @member {Boolean} sendScenarioRunToEventHub
+ * @default true
+ */
+Workspace.prototype['sendScenarioRunToEventHub'] = true;
 
 /**
  * Set this property to false to not send scenario metada to Azure Event Hub Namespace for this Workspace. The Event Hub Namespace must be named \\'<organization_id\\>-<workspace_id\\>\\' (in lower case). This Namespace must also contain two Event Hubs named \\'scenariometadata\\' and \\'scenariorunmetadata\\'.

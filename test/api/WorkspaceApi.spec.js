@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('createSecret', function() {
+      it('should call createSecret successfully', function(done) {
+        //uncomment below and update the code to test createSecret
+        //instance.createSecret(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createWorkspace', function() {
       it('should call createWorkspace successfully', function(done) {
         //uncomment below and update the code to test createWorkspace
