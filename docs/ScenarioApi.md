@@ -5,7 +5,7 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addOrReplaceScenarioParameterValues**](ScenarioApi.md#addOrReplaceScenarioParameterValues) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/parameterValues | Add (or replace) Parameter Values for the Scenario specified
-[**addOrReplaceUsersInScenario**](ScenarioApi.md#addOrReplaceUsersInScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/users | Add (or replace) users in the Scenario specified
+[**addScenarioAccessControl**](ScenarioApi.md#addScenarioAccessControl) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/access | Add a control access to the Scenario
 [**compareScenarios**](ScenarioApi.md#compareScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/compare/{compared_scenario_id} | Compare the Scenario with another one and returns the difference for parameters values
 [**createScenario**](ScenarioApi.md#createScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | Create a new Scenario
 [**deleteAllScenarios**](ScenarioApi.md#deleteAllScenarios) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | Delete all Scenarios of the Workspace
@@ -14,13 +14,18 @@ Method | HTTP request | Description
 [**findAllScenarios**](ScenarioApi.md#findAllScenarios) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios | List all Scenarios
 [**findAllScenariosByValidationStatus**](ScenarioApi.md#findAllScenariosByValidationStatus) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/{validationStatus} | List all Scenarios by validation status
 [**findScenarioById**](ScenarioApi.md#findScenarioById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Get the details of an scenario
+[**getScenarioAccessControl**](ScenarioApi.md#getScenarioAccessControl) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/access/{identity_id} | Get a control access for the Scenario
 [**getScenarioDataDownloadJobInfo**](ScenarioApi.md#getScenarioDataDownloadJobInfo) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/downloads/{download_id} | Get Scenario data download URL
+[**getScenarioPermissions**](ScenarioApi.md#getScenarioPermissions) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/permissions/{role} | Get the Scenario permission by given role
+[**getScenarioSecurity**](ScenarioApi.md#getScenarioSecurity) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security | Get the Scenario security information
+[**getScenarioSecurityUsers**](ScenarioApi.md#getScenarioSecurityUsers) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/users | Get the Scenario security users list
 [**getScenarioValidationStatusById**](ScenarioApi.md#getScenarioValidationStatusById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/ValidationStatus | Get the validation status of an scenario
 [**getScenariosTree**](ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
 [**removeAllScenarioParameterValues**](ScenarioApi.md#removeAllScenarioParameterValues) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/parameterValues | Remove all Parameter Values from the Scenario specified
-[**removeAllUsersOfScenario**](ScenarioApi.md#removeAllUsersOfScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/users | Remove all users from the Scenario specified
-[**removeUserFromScenario**](ScenarioApi.md#removeUserFromScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/users/{user_id} | Remove the specified user from the given Scenario
+[**removeScenarioAccessControl**](ScenarioApi.md#removeScenarioAccessControl) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/access/{identity_id} | Remove the specified access from the given Organization Scenario
+[**setScenarioDefaultSecurity**](ScenarioApi.md#setScenarioDefaultSecurity) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/default | Set the Scenario default security
 [**updateScenario**](ScenarioApi.md#updateScenario) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id} | Update a scenario
+[**updateScenarioAccessControl**](ScenarioApi.md#updateScenarioAccessControl) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/access/{identity_id} | Update the specified access to User for a Scenario
 
 
 
@@ -76,11 +81,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## addOrReplaceUsersInScenario
+## addScenarioAccessControl
 
-> [ScenarioUser] addOrReplaceUsersInScenario(organizationId, workspaceId, scenarioId, scenarioUser)
+> ScenarioAccessControl addScenarioAccessControl(organizationId, workspaceId, scenarioId, scenarioAccessControl)
 
-Add (or replace) users in the Scenario specified
+Add a control access to the Scenario
 
 ### Example
 
@@ -95,8 +100,8 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-let scenarioUser = [new CosmotechApi.ScenarioUser()]; // [ScenarioUser] | the Users to add. Any User with the same ID is overwritten
-apiInstance.addOrReplaceUsersInScenario(organizationId, workspaceId, scenarioId, scenarioUser).then((data) => {
+let scenarioAccessControl = new CosmotechApi.ScenarioAccessControl(); // ScenarioAccessControl | the new Scenario security access to add.
+apiInstance.addScenarioAccessControl(organizationId, workspaceId, scenarioId, scenarioAccessControl).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -112,11 +117,11 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
- **scenarioUser** | [**[ScenarioUser]**](ScenarioUser.md)| the Users to add. Any User with the same ID is overwritten | 
+ **scenarioAccessControl** | [**ScenarioAccessControl**](ScenarioAccessControl.md)| the new Scenario security access to add. | 
 
 ### Return type
 
-[**[ScenarioUser]**](ScenarioUser.md)
+[**ScenarioAccessControl**](ScenarioAccessControl.md)
 
 ### Authorization
 
@@ -124,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
@@ -530,6 +535,58 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## getScenarioAccessControl
+
+> ScenarioAccessControl getScenarioAccessControl(organizationId, workspaceId, scenarioId, identityId)
+
+Get a control access for the Scenario
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.ScenarioApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let scenarioId = "scenarioId_example"; // String | the Scenario identifier
+let identityId = "identityId_example"; // String | the User identifier
+apiInstance.getScenarioAccessControl(organizationId, workspaceId, scenarioId, identityId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **scenarioId** | **String**| the Scenario identifier | 
+ **identityId** | **String**| the User identifier | 
+
+### Return type
+
+[**ScenarioAccessControl**](ScenarioAccessControl.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## getScenarioDataDownloadJobInfo
 
 > ScenarioDataDownloadInfo getScenarioDataDownloadJobInfo(organizationId, workspaceId, scenarioId, downloadId)
@@ -571,6 +628,156 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ScenarioDataDownloadInfo**](ScenarioDataDownloadInfo.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getScenarioPermissions
+
+> [String] getScenarioPermissions(organizationId, workspaceId, role)
+
+Get the Scenario permission by given role
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.ScenarioApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let role = "role_example"; // String | the Role
+apiInstance.getScenarioPermissions(organizationId, workspaceId, role).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **role** | **String**| the Role | 
+
+### Return type
+
+**[String]**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getScenarioSecurity
+
+> ScenarioSecurity getScenarioSecurity(organizationId, workspaceId, scenarioId)
+
+Get the Scenario security information
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.ScenarioApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let scenarioId = "scenarioId_example"; // String | the Scenario identifier
+apiInstance.getScenarioSecurity(organizationId, workspaceId, scenarioId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **scenarioId** | **String**| the Scenario identifier | 
+
+### Return type
+
+[**ScenarioSecurity**](ScenarioSecurity.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getScenarioSecurityUsers
+
+> [String] getScenarioSecurityUsers(organizationId, workspaceId, scenarioId)
+
+Get the Scenario security users list
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.ScenarioApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let scenarioId = "scenarioId_example"; // String | the Scenario identifier
+apiInstance.getScenarioSecurityUsers(organizationId, workspaceId, scenarioId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **scenarioId** | **String**| the Scenario identifier | 
+
+### Return type
+
+**[String]**
 
 ### Authorization
 
@@ -730,11 +937,11 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## removeAllUsersOfScenario
+## removeScenarioAccessControl
 
-> removeAllUsersOfScenario(organizationId, workspaceId, scenarioId)
+> removeScenarioAccessControl(organizationId, workspaceId, scenarioId, identityId)
 
-Remove all users from the Scenario specified
+Remove the specified access from the given Organization Scenario
 
 ### Example
 
@@ -749,7 +956,8 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.removeAllUsersOfScenario(organizationId, workspaceId, scenarioId).then(() => {
+let identityId = "identityId_example"; // String | the User identifier
+apiInstance.removeScenarioAccessControl(organizationId, workspaceId, scenarioId, identityId).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -765,6 +973,7 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
+ **identityId** | **String**| the User identifier | 
 
 ### Return type
 
@@ -780,11 +989,11 @@ null (empty response body)
 - **Accept**: Not defined
 
 
-## removeUserFromScenario
+## setScenarioDefaultSecurity
 
-> removeUserFromScenario(organizationId, workspaceId, scenarioId, userId)
+> ScenarioSecurity setScenarioDefaultSecurity(organizationId, workspaceId, scenarioId, scenarioRole)
 
-Remove the specified user from the given Scenario
+Set the Scenario default security
 
 ### Example
 
@@ -799,9 +1008,9 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-let userId = "userId_example"; // String | the User identifier
-apiInstance.removeUserFromScenario(organizationId, workspaceId, scenarioId, userId).then(() => {
-  console.log('API called successfully.');
+let scenarioRole = new CosmotechApi.ScenarioRole(); // ScenarioRole | the new Scenario default security.
+apiInstance.setScenarioDefaultSecurity(organizationId, workspaceId, scenarioId, scenarioRole).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -816,11 +1025,11 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
- **userId** | **String**| the User identifier | 
+ **scenarioRole** | [**ScenarioRole**](ScenarioRole.md)| the new Scenario default security. | 
 
 ### Return type
 
-null (empty response body)
+[**ScenarioSecurity**](ScenarioSecurity.md)
 
 ### Authorization
 
@@ -828,8 +1037,8 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
 
 
 ## updateScenario
@@ -881,5 +1090,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
+
+
+## updateScenarioAccessControl
+
+> ScenarioAccessControl updateScenarioAccessControl(organizationId, workspaceId, scenarioId, identityId, scenarioRole)
+
+Update the specified access to User for a Scenario
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.ScenarioApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let scenarioId = "scenarioId_example"; // String | the Scenario identifier
+let identityId = "identityId_example"; // String | the User identifier
+let scenarioRole = new CosmotechApi.ScenarioRole(); // ScenarioRole | The new Scenario Access Control
+apiInstance.updateScenarioAccessControl(organizationId, workspaceId, scenarioId, identityId, scenarioRole).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **scenarioId** | **String**| the Scenario identifier | 
+ **identityId** | **String**| the User identifier | 
+ **scenarioRole** | [**ScenarioRole**](ScenarioRole.md)| The new Scenario Access Control | 
+
+### Return type
+
+[**ScenarioAccessControl**](ScenarioAccessControl.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
