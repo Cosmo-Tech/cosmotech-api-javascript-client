@@ -21,7 +21,6 @@ Method | HTTP request | Description
 [**getScenarioSecurityUsers**](ScenarioApi.md#getScenarioSecurityUsers) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/users | Get the Scenario security users list
 [**getScenarioValidationStatusById**](ScenarioApi.md#getScenarioValidationStatusById) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/ValidationStatus | Get the validation status of an scenario
 [**getScenariosTree**](ScenarioApi.md#getScenariosTree) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/tree | Get the Scenarios Tree
-[**importScenario**](ScenarioApi.md#importScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/import | Import Scenario
 [**removeAllScenarioParameterValues**](ScenarioApi.md#removeAllScenarioParameterValues) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/parameterValues | Remove all Parameter Values from the Scenario specified
 [**removeScenarioAccessControl**](ScenarioApi.md#removeScenarioAccessControl) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/access/{identity_id} | Remove the specified access from the given Organization Scenario
 [**setScenarioDefaultSecurity**](ScenarioApi.md#setScenarioDefaultSecurity) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/security/default | Set the Scenario default security
@@ -885,56 +884,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## importScenario
-
-> Scenario importScenario(organizationId, workspaceId, scenario)
-
-Import Scenario
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.ScenarioApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let scenario = new CosmotechApi.Scenario(); // Scenario | the Scenario to import
-apiInstance.importScenario(organizationId, workspaceId, scenario).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
- **scenario** | [**Scenario**](Scenario.md)| the Scenario to import | 
-
-### Return type
-
-[**Scenario**](Scenario.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 
