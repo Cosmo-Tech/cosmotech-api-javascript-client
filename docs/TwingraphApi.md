@@ -5,6 +5,8 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**callDelete**](TwingraphApi.md#callDelete) | **DELETE** /organizations/{organization_id}/twingraph/{graph_id} | 
+[**findAllTwingraphs**](TwingraphApi.md#findAllTwingraphs) | **GET** /organizations/{organization_id}/twingraphs | 
+[**getGraphMetaData**](TwingraphApi.md#getGraphMetaData) | **GET** /organizations/{organization_id}/twingraph/{graph_id}/metadata | 
 [**importGraph**](TwingraphApi.md#importGraph) | **POST** /organizations/{organization_id}/twingraph/import | 
 [**jobStatus**](TwingraphApi.md#jobStatus) | **GET** /organizations/{organization_id}/job/{job_id}/status | 
 [**query**](TwingraphApi.md#query) | **POST** /organizations/{organization_id}/twingraph/{graph_id}/query | 
@@ -59,6 +61,104 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+
+## findAllTwingraphs
+
+> [String] findAllTwingraphs(organizationId)
+
+
+
+Return the list of all graphs stored in the organization
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.TwingraphApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+apiInstance.findAllTwingraphs(organizationId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+
+### Return type
+
+**[String]**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getGraphMetaData
+
+> Object getGraphMetaData(organizationId, graphId)
+
+
+
+Return the metaData of the specified graph
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.TwingraphApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let graphId = "graphId_example"; // String | the Graph Identifier
+apiInstance.getGraphMetaData(organizationId, graphId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **graphId** | **String**| the Graph Identifier | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## importGraph
