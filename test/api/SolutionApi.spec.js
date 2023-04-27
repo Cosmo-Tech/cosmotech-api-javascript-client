@@ -138,6 +138,16 @@
         done();
       });
     });
+    describe('importSolution', function() {
+      it('should call importSolution successfully', function(done) {
+        //uncomment below and update the code to test importSolution
+        //instance.importSolution(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('removeAllRunTemplates', function() {
       it('should call removeAllRunTemplates successfully', function(done) {
         //uncomment below and update the code to test removeAllRunTemplates

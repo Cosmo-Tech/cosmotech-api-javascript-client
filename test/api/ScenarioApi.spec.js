@@ -218,6 +218,16 @@
         done();
       });
     });
+    describe('importScenario', function() {
+      it('should call importScenario successfully', function(done) {
+        //uncomment below and update the code to test importScenario
+        //instance.importScenario(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('removeAllScenarioParameterValues', function() {
       it('should call removeAllScenarioParameterValues successfully', function(done) {
         //uncomment below and update the code to test removeAllScenarioParameterValues

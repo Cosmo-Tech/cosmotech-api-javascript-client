@@ -13,6 +13,9 @@
 
 
 import ApiClient from "../ApiClient";
+import GraphProperties from '../model/GraphProperties';
+import TwinGraphBatchResult from '../model/TwinGraphBatchResult';
+import TwinGraphHash from '../model/TwinGraphHash';
 import TwinGraphImport from '../model/TwinGraphImport';
 import TwinGraphImportInfo from '../model/TwinGraphImportInfo';
 import TwinGraphQuery from '../model/TwinGraphQuery';
@@ -35,6 +38,131 @@ export default class TwingraphApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Run a query on a graph instance and return the result as a zip file in async mode
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/TwinGraphQuery} twinGraphQuery the query to run
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TwinGraphHash} and HTTP response
+     */
+    batchQueryWithHttpInfo(organizationId, graphId, twinGraphQuery) {
+      let postBody = twinGraphQuery;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling batchQuery");
+      }
+      // verify the required parameter 'graphId' is set
+      if (graphId === undefined || graphId === null) {
+        throw new Error("Missing the required parameter 'graphId' when calling batchQuery");
+      }
+      // verify the required parameter 'twinGraphQuery' is set
+      if (twinGraphQuery === undefined || twinGraphQuery === null) {
+        throw new Error("Missing the required parameter 'twinGraphQuery' when calling batchQuery");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'graph_id': graphId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TwinGraphHash;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/{graph_id}/batch-query', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Run a query on a graph instance and return the result as a zip file in async mode
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/TwinGraphQuery} twinGraphQuery the query to run
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TwinGraphHash}
+     */
+    batchQuery(organizationId, graphId, twinGraphQuery) {
+      return this.batchQueryWithHttpInfo(organizationId, graphId, twinGraphQuery)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Async batch update by loading a CSV file on a graph instance 
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/TwinGraphQuery} twinGraphQuery 
+     * @param {File} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TwinGraphBatchResult} and HTTP response
+     */
+    batchUploadUpdateWithHttpInfo(organizationId, graphId, twinGraphQuery, body) {
+      let postBody = body;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling batchUploadUpdate");
+      }
+      // verify the required parameter 'graphId' is set
+      if (graphId === undefined || graphId === null) {
+        throw new Error("Missing the required parameter 'graphId' when calling batchUploadUpdate");
+      }
+      // verify the required parameter 'twinGraphQuery' is set
+      if (twinGraphQuery === undefined || twinGraphQuery === null) {
+        throw new Error("Missing the required parameter 'twinGraphQuery' when calling batchUploadUpdate");
+      }
+      // verify the required parameter 'body' is set
+      if (body === undefined || body === null) {
+        throw new Error("Missing the required parameter 'body' when calling batchUploadUpdate");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'graph_id': graphId
+      };
+      let queryParams = {
+        'twinGraphQuery': twinGraphQuery
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['text/csv', 'application/octet-stream'];
+      let accepts = ['application/json'];
+      let returnType = TwinGraphBatchResult;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/{graph_id}/batch', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Async batch update by loading a CSV file on a graph instance 
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/TwinGraphQuery} twinGraphQuery 
+     * @param {File} body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TwinGraphBatchResult}
+     */
+    batchUploadUpdate(organizationId, graphId, twinGraphQuery, body) {
+      return this.batchUploadUpdateWithHttpInfo(organizationId, graphId, twinGraphQuery, body)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -91,6 +219,249 @@ export default class TwingraphApi {
 
 
     /**
+     * create new entities in a graph instance
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/String} modelType the entity model type
+     * @param {Array.<module:model/GraphProperties>} graphProperties the entities to create
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
+     */
+    createEntitiesWithHttpInfo(organizationId, graphId, modelType, graphProperties) {
+      let postBody = graphProperties;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling createEntities");
+      }
+      // verify the required parameter 'graphId' is set
+      if (graphId === undefined || graphId === null) {
+        throw new Error("Missing the required parameter 'graphId' when calling createEntities");
+      }
+      // verify the required parameter 'modelType' is set
+      if (modelType === undefined || modelType === null) {
+        throw new Error("Missing the required parameter 'modelType' when calling createEntities");
+      }
+      // verify the required parameter 'graphProperties' is set
+      if (graphProperties === undefined || graphProperties === null) {
+        throw new Error("Missing the required parameter 'graphProperties' when calling createEntities");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'graph_id': graphId,
+        'modelType': modelType
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [Object];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/{graph_id}/{modelType}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * create new entities in a graph instance
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/String} modelType the entity model type
+     * @param {Array.<module:model/GraphProperties>} graphProperties the entities to create
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
+     */
+    createEntities(organizationId, graphId, modelType, graphProperties) {
+      return this.createEntitiesWithHttpInfo(organizationId, graphId, modelType, graphProperties)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Create a new graph
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {Object} opts Optional parameters
+     * @param {File} opts.body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    createGraphWithHttpInfo(organizationId, graphId, opts) {
+      opts = opts || {};
+      let postBody = opts['body'];
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling createGraph");
+      }
+      // verify the required parameter 'graphId' is set
+      if (graphId === undefined || graphId === null) {
+        throw new Error("Missing the required parameter 'graphId' when calling createGraph");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'graph_id': graphId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/octet-stream'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/{graph_id}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Create a new graph
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {Object} opts Optional parameters
+     * @param {File} opts.body 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    createGraph(organizationId, graphId, opts) {
+      return this.createGraphWithHttpInfo(organizationId, graphId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * delete entities in a graph instance
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/String} modelType the entity model type
+     * @param {Array.<String>} requestBody the entities to delete
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    deleteEntitiesWithHttpInfo(organizationId, graphId, modelType, requestBody) {
+      let postBody = requestBody;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling deleteEntities");
+      }
+      // verify the required parameter 'graphId' is set
+      if (graphId === undefined || graphId === null) {
+        throw new Error("Missing the required parameter 'graphId' when calling deleteEntities");
+      }
+      // verify the required parameter 'modelType' is set
+      if (modelType === undefined || modelType === null) {
+        throw new Error("Missing the required parameter 'modelType' when calling deleteEntities");
+      }
+      // verify the required parameter 'requestBody' is set
+      if (requestBody === undefined || requestBody === null) {
+        throw new Error("Missing the required parameter 'requestBody' when calling deleteEntities");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'graph_id': graphId,
+        'modelType': modelType
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/{graph_id}/{modelType}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * delete entities in a graph instance
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/String} modelType the entity model type
+     * @param {Array.<String>} requestBody the entities to delete
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    deleteEntities(organizationId, graphId, modelType, requestBody) {
+      return this.deleteEntitiesWithHttpInfo(organizationId, graphId, modelType, requestBody)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Download a graph compressed in a zip file
+     * @param {String} organizationId the Organization identifier
+     * @param {String} hash the Graph download identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
+     */
+    downloadGraphWithHttpInfo(organizationId, hash) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling downloadGraph");
+      }
+      // verify the required parameter 'hash' is set
+      if (hash === undefined || hash === null) {
+        throw new Error("Missing the required parameter 'hash' when calling downloadGraph");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'hash': hash
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/octet-stream'];
+      let returnType = File;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/bulk-query/download/{hash}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Download a graph compressed in a zip file
+     * @param {String} organizationId the Organization identifier
+     * @param {String} hash the Graph download identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
+     */
+    downloadGraph(organizationId, hash) {
+      return this.downloadGraphWithHttpInfo(organizationId, hash)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Return the list of all graphs stored in the organization
      * @param {String} organizationId the Organization identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<String>} and HTTP response
@@ -130,6 +501,72 @@ export default class TwingraphApi {
      */
     findAllTwingraphs(organizationId) {
       return this.findAllTwingraphsWithHttpInfo(organizationId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * get entities in a graph instance
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/String} modelType the entity model type
+     * @param {Array.<String>} requestBody the entities to get
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
+     */
+    getEntitiesWithHttpInfo(organizationId, graphId, modelType, requestBody) {
+      let postBody = requestBody;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getEntities");
+      }
+      // verify the required parameter 'graphId' is set
+      if (graphId === undefined || graphId === null) {
+        throw new Error("Missing the required parameter 'graphId' when calling getEntities");
+      }
+      // verify the required parameter 'modelType' is set
+      if (modelType === undefined || modelType === null) {
+        throw new Error("Missing the required parameter 'modelType' when calling getEntities");
+      }
+      // verify the required parameter 'requestBody' is set
+      if (requestBody === undefined || requestBody === null) {
+        throw new Error("Missing the required parameter 'requestBody' when calling getEntities");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'graph_id': graphId,
+        'modelType': modelType
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [Object];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/{graph_id}/{modelType}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * get entities in a graph instance
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/String} modelType the entity model type
+     * @param {Array.<String>} requestBody the entities to get
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
+     */
+    getEntities(organizationId, graphId, modelType, requestBody) {
+      return this.getEntitiesWithHttpInfo(organizationId, graphId, modelType, requestBody)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -347,6 +784,131 @@ export default class TwingraphApi {
      */
     query(organizationId, graphId, twinGraphQuery) {
       return this.queryWithHttpInfo(organizationId, graphId, twinGraphQuery)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * update entities in a graph instance
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/String} modelType the entity model type
+     * @param {Array.<module:model/GraphProperties>} graphProperties the entities to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
+     */
+    updateEntitiesWithHttpInfo(organizationId, graphId, modelType, graphProperties) {
+      let postBody = graphProperties;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling updateEntities");
+      }
+      // verify the required parameter 'graphId' is set
+      if (graphId === undefined || graphId === null) {
+        throw new Error("Missing the required parameter 'graphId' when calling updateEntities");
+      }
+      // verify the required parameter 'modelType' is set
+      if (modelType === undefined || modelType === null) {
+        throw new Error("Missing the required parameter 'modelType' when calling updateEntities");
+      }
+      // verify the required parameter 'graphProperties' is set
+      if (graphProperties === undefined || graphProperties === null) {
+        throw new Error("Missing the required parameter 'graphProperties' when calling updateEntities");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'graph_id': graphId,
+        'modelType': modelType
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [Object];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/{graph_id}/{modelType}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * update entities in a graph instance
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {module:model/String} modelType the entity model type
+     * @param {Array.<module:model/GraphProperties>} graphProperties the entities to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
+     */
+    updateEntities(organizationId, graphId, modelType, graphProperties) {
+      return this.updateEntitiesWithHttpInfo(organizationId, graphId, modelType, graphProperties)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Update the metaData of the specified graph
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {Object.<String, {String: String}>} requestBody the metaData to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     */
+    updateGraphMetaDataWithHttpInfo(organizationId, graphId, requestBody) {
+      let postBody = requestBody;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling updateGraphMetaData");
+      }
+      // verify the required parameter 'graphId' is set
+      if (graphId === undefined || graphId === null) {
+        throw new Error("Missing the required parameter 'graphId' when calling updateGraphMetaData");
+      }
+      // verify the required parameter 'requestBody' is set
+      if (requestBody === undefined || requestBody === null) {
+        throw new Error("Missing the required parameter 'requestBody' when calling updateGraphMetaData");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'graph_id': graphId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/twingraph/{graph_id}/metadata', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Update the metaData of the specified graph
+     * @param {String} organizationId the Organization identifier
+     * @param {String} graphId the Graph Identifier
+     * @param {Object.<String, {String: String}>} requestBody the metaData to update
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     */
+    updateGraphMetaData(organizationId, graphId, requestBody) {
+      return this.updateGraphMetaDataWithHttpInfo(organizationId, graphId, requestBody)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

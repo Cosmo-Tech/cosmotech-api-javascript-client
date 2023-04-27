@@ -108,6 +108,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property organizationId (base name: "organizationId")', function() {
+      // uncomment below and update the code to test the property organizationId
+      //var instance = new CosmotechApi.Scenario();
+      //expect(instance).to.be();
+    });
+
     it('should have the property workspaceId (base name: "workspaceId")', function() {
       // uncomment below and update the code to test the property workspaceId
       //var instance = new CosmotechApi.Scenario();

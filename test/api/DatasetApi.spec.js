@@ -108,6 +108,16 @@
         done();
       });
     });
+    describe('importDataset', function() {
+      it('should call importDataset successfully', function(done) {
+        //uncomment below and update the code to test importDataset
+        //instance.importDataset(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('removeAllDatasetCompatibilityElements', function() {
       it('should call removeAllDatasetCompatibilityElements successfully', function(done) {
         //uncomment below and update the code to test removeAllDatasetCompatibilityElements

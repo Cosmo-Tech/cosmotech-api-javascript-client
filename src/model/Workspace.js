@@ -60,6 +60,9 @@ class Workspace {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('organizationId')) {
+                obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
+            }
             if (data.hasOwnProperty('key')) {
                 obj['key'] = ApiClient.convertToType(data['key'], 'String');
             }
@@ -117,6 +120,12 @@ class Workspace {
  * @member {String} id
  */
 Workspace.prototype['id'] = undefined;
+
+/**
+ * the Organization unique identifier
+ * @member {String} organizationId
+ */
+Workspace.prototype['organizationId'] = undefined;
 
 /**
  * technical key for resource name convention and version grouping. Must be unique

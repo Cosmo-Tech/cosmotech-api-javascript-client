@@ -25,6 +25,7 @@ import DatasetConnector from './model/DatasetConnector';
 import DatasetCopyParameters from './model/DatasetCopyParameters';
 import DatasetSearch from './model/DatasetSearch';
 import DeleteHistoricalData from './model/DeleteHistoricalData';
+import GraphProperties from './model/GraphProperties';
 import Organization from './model/Organization';
 import OrganizationAccessControl from './model/OrganizationAccessControl';
 import OrganizationRole from './model/OrganizationRole';
@@ -64,12 +65,11 @@ import ScenarioSecurity from './model/ScenarioSecurity';
 import ScenarioValidationStatus from './model/ScenarioValidationStatus';
 import Solution from './model/Solution';
 import SourceInfo from './model/SourceInfo';
+import TwinGraphBatchResult from './model/TwinGraphBatchResult';
+import TwinGraphHash from './model/TwinGraphHash';
 import TwinGraphImport from './model/TwinGraphImport';
 import TwinGraphImportInfo from './model/TwinGraphImportInfo';
 import TwinGraphQuery from './model/TwinGraphQuery';
-import User from './model/User';
-import UserOrganization from './model/UserOrganization';
-import UserWorkspace from './model/UserWorkspace';
 import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
 import Workspace from './model/Workspace';
@@ -87,7 +87,6 @@ import ScenarioApi from './api/ScenarioApi';
 import ScenariorunApi from './api/ScenariorunApi';
 import SolutionApi from './api/SolutionApi';
 import TwingraphApi from './api/TwingraphApi';
-import UserApi from './api/UserApi';
 import ValidatorApi from './api/ValidatorApi';
 import WorkspaceApi from './api/WorkspaceApi';
 
@@ -201,6 +200,12 @@ export {
      * @property {module:model/DeleteHistoricalData}
      */
     DeleteHistoricalData,
+
+    /**
+     * The GraphProperties model constructor.
+     * @property {module:model/GraphProperties}
+     */
+    GraphProperties,
 
     /**
      * The Organization model constructor.
@@ -437,6 +442,18 @@ export {
     SourceInfo,
 
     /**
+     * The TwinGraphBatchResult model constructor.
+     * @property {module:model/TwinGraphBatchResult}
+     */
+    TwinGraphBatchResult,
+
+    /**
+     * The TwinGraphHash model constructor.
+     * @property {module:model/TwinGraphHash}
+     */
+    TwinGraphHash,
+
+    /**
      * The TwinGraphImport model constructor.
      * @property {module:model/TwinGraphImport}
      */
@@ -453,24 +470,6 @@ export {
      * @property {module:model/TwinGraphQuery}
      */
     TwinGraphQuery,
-
-    /**
-     * The User model constructor.
-     * @property {module:model/User}
-     */
-    User,
-
-    /**
-     * The UserOrganization model constructor.
-     * @property {module:model/UserOrganization}
-     */
-    UserOrganization,
-
-    /**
-     * The UserWorkspace model constructor.
-     * @property {module:model/UserWorkspace}
-     */
-    UserWorkspace,
 
     /**
      * The Validator model constructor.
@@ -573,12 +572,6 @@ export {
     * @property {module:api/TwingraphApi}
     */
     TwingraphApi,
-
-    /**
-    * The UserApi service constructor.
-    * @property {module:api/UserApi}
-    */
-    UserApi,
 
     /**
     * The ValidatorApi service constructor.

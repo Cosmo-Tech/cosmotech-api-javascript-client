@@ -54,6 +54,9 @@ class Solution {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('organizationId')) {
+                obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
+            }
             if (data.hasOwnProperty('key')) {
                 obj['key'] = ApiClient.convertToType(data['key'], 'String');
             }
@@ -105,6 +108,12 @@ class Solution {
  * @member {String} id
  */
 Solution.prototype['id'] = undefined;
+
+/**
+ * the Organization unique identifier
+ * @member {String} organizationId
+ */
+Solution.prototype['organizationId'] = undefined;
 
 /**
  * the Solution key which group Solution versions

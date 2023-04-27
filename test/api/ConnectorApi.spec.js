@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('importConnector', function() {
+      it('should call importConnector successfully', function(done) {
+        //uncomment below and update the code to test importConnector
+        //instance.importConnector(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('registerConnector', function() {
       it('should call registerConnector successfully', function(done) {
         //uncomment below and update the code to test registerConnector

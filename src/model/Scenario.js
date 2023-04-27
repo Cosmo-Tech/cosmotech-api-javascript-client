@@ -81,6 +81,9 @@ class Scenario {
             if (data.hasOwnProperty('runTemplateId')) {
                 obj['runTemplateId'] = ApiClient.convertToType(data['runTemplateId'], 'String');
             }
+            if (data.hasOwnProperty('organizationId')) {
+                obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
+            }
             if (data.hasOwnProperty('workspaceId')) {
                 obj['workspaceId'] = ApiClient.convertToType(data['workspaceId'], 'String');
             }
@@ -88,10 +91,10 @@ class Scenario {
                 obj['state'] = ScenarioJobState.constructFromObject(data['state']);
             }
             if (data.hasOwnProperty('creationDate')) {
-                obj['creationDate'] = ApiClient.convertToType(data['creationDate'], 'Date');
+                obj['creationDate'] = ApiClient.convertToType(data['creationDate'], 'Number');
             }
             if (data.hasOwnProperty('lastUpdate')) {
-                obj['lastUpdate'] = ApiClient.convertToType(data['lastUpdate'], 'Date');
+                obj['lastUpdate'] = ApiClient.convertToType(data['lastUpdate'], 'Number');
             }
             if (data.hasOwnProperty('ownerName')) {
                 obj['ownerName'] = ApiClient.convertToType(data['ownerName'], 'String');
@@ -121,7 +124,7 @@ class Scenario {
                 obj['rootLastRun'] = ApiClient.convertToType(data['rootLastRun'], ScenarioLastRun);
             }
             if (data.hasOwnProperty('validationStatus')) {
-                obj['validationStatus'] = ScenarioValidationStatus.constructFromObject(data['validationStatus']);
+                obj['validationStatus'] = ApiClient.convertToType(data['validationStatus'], ScenarioValidationStatus);
             }
             if (data.hasOwnProperty('security')) {
                 obj['security'] = ApiClient.convertToType(data['security'], ScenarioSecurity);
@@ -188,6 +191,12 @@ Scenario.prototype['solutionId'] = undefined;
 Scenario.prototype['runTemplateId'] = undefined;
 
 /**
+ * the associated Organization Id
+ * @member {String} organizationId
+ */
+Scenario.prototype['organizationId'] = undefined;
+
+/**
  * the associated Workspace Id
  * @member {String} workspaceId
  */
@@ -200,13 +209,13 @@ Scenario.prototype['state'] = undefined;
 
 /**
  * the Scenario creation date
- * @member {Date} creationDate
+ * @member {Number} creationDate
  */
 Scenario.prototype['creationDate'] = undefined;
 
 /**
  * the last time a Scenario was updated
- * @member {Date} lastUpdate
+ * @member {Number} lastUpdate
  */
 Scenario.prototype['lastUpdate'] = undefined;
 

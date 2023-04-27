@@ -78,6 +78,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property organizationId (base name: "organizationId")', function() {
+      // uncomment below and update the code to test the property organizationId
+      //var instance = new CosmotechApi.Dataset();
+      //expect(instance).to.be();
+    });
+
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
       //var instance = new CosmotechApi.Dataset();

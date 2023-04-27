@@ -55,7 +55,7 @@ class ScenarioRun {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
             if (data.hasOwnProperty('state')) {
-                obj['state'] = ScenarioRunState.constructFromObject(data['state']);
+                obj['state'] = ApiClient.convertToType(data['state'], ScenarioRunState);
             }
             if (data.hasOwnProperty('organizationId')) {
                 obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');

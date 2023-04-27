@@ -128,6 +128,16 @@
         done();
       });
     });
+    describe('importOrganization', function() {
+      it('should call importOrganization successfully', function(done) {
+        //uncomment below and update the code to test importOrganization
+        //instance.importOrganization(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('registerOrganization', function() {
       it('should call registerOrganization successfully', function(done) {
         //uncomment below and update the code to test registerOrganization
