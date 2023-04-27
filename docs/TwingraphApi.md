@@ -291,7 +291,7 @@ null (empty response body)
 
 ## deleteEntities
 
-> deleteEntities(organizationId, graphId, modelType, requestBody)
+> deleteEntities(organizationId, graphId, modelType, ids)
 
 
 
@@ -310,8 +310,8 @@ let apiInstance = new CosmotechApi.TwingraphApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let graphId = "graphId_example"; // String | the Graph Identifier
 let modelType = "modelType_example"; // String | the entity model type
-let requestBody = ["null"]; // [String] | the entities to delete
-apiInstance.deleteEntities(organizationId, graphId, modelType, requestBody).then(() => {
+let ids = ["null"]; // [String] | the entities to delete
+apiInstance.deleteEntities(organizationId, graphId, modelType, ids).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **graphId** | **String**| the Graph Identifier | 
  **modelType** | **String**| the entity model type | 
- **requestBody** | [**[String]**](String.md)| the entities to delete | 
+ **ids** | [**[String]**](String.md)| the entities to delete | 
 
 ### Return type
 
@@ -339,7 +339,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 ## getEntities
 
-> [Object] getEntities(organizationId, graphId, modelType, requestBody)
+> [Object] getEntities(organizationId, graphId, modelType, ids)
 
 
 
@@ -462,8 +462,8 @@ let apiInstance = new CosmotechApi.TwingraphApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let graphId = "graphId_example"; // String | the Graph Identifier
 let modelType = "modelType_example"; // String | the entity model type
-let requestBody = ["null"]; // [String] | the entities to get
-apiInstance.getEntities(organizationId, graphId, modelType, requestBody).then((data) => {
+let ids = ["null"]; // [String] | the entities to get
+apiInstance.getEntities(organizationId, graphId, modelType, ids).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **graphId** | **String**| the Graph Identifier | 
  **modelType** | **String**| the entity model type | 
- **requestBody** | [**[String]**](String.md)| the entities to get | 
+ **ids** | [**[String]**](String.md)| the entities to get | 
 
 ### Return type
 
@@ -491,7 +491,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

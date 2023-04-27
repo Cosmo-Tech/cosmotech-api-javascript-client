@@ -347,11 +347,11 @@ export default class TwingraphApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
-     * @param {Array.<String>} requestBody the entities to delete
+     * @param {Array.<String>} ids the entities to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteEntitiesWithHttpInfo(organizationId, graphId, modelType, requestBody) {
-      let postBody = requestBody;
+    deleteEntitiesWithHttpInfo(organizationId, graphId, modelType, ids) {
+      let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
         throw new Error("Missing the required parameter 'organizationId' when calling deleteEntities");
@@ -364,9 +364,9 @@ export default class TwingraphApi {
       if (modelType === undefined || modelType === null) {
         throw new Error("Missing the required parameter 'modelType' when calling deleteEntities");
       }
-      // verify the required parameter 'requestBody' is set
-      if (requestBody === undefined || requestBody === null) {
-        throw new Error("Missing the required parameter 'requestBody' when calling deleteEntities");
+      // verify the required parameter 'ids' is set
+      if (ids === undefined || ids === null) {
+        throw new Error("Missing the required parameter 'ids' when calling deleteEntities");
       }
 
       let pathParams = {
@@ -375,6 +375,7 @@ export default class TwingraphApi {
         'modelType': modelType
       };
       let queryParams = {
+        'ids': this.apiClient.buildCollectionParam(ids, 'multi')
       };
       let headerParams = {
       };
@@ -382,7 +383,7 @@ export default class TwingraphApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = [];
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
@@ -397,11 +398,11 @@ export default class TwingraphApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
-     * @param {Array.<String>} requestBody the entities to delete
+     * @param {Array.<String>} ids the entities to delete
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    deleteEntities(organizationId, graphId, modelType, requestBody) {
-      return this.deleteEntitiesWithHttpInfo(organizationId, graphId, modelType, requestBody)
+    deleteEntities(organizationId, graphId, modelType, ids) {
+      return this.deleteEntitiesWithHttpInfo(organizationId, graphId, modelType, ids)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -512,11 +513,11 @@ export default class TwingraphApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
-     * @param {Array.<String>} requestBody the entities to get
+     * @param {Array.<String>} ids the entities to get
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
      */
-    getEntitiesWithHttpInfo(organizationId, graphId, modelType, requestBody) {
-      let postBody = requestBody;
+    getEntitiesWithHttpInfo(organizationId, graphId, modelType, ids) {
+      let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
         throw new Error("Missing the required parameter 'organizationId' when calling getEntities");
@@ -529,9 +530,9 @@ export default class TwingraphApi {
       if (modelType === undefined || modelType === null) {
         throw new Error("Missing the required parameter 'modelType' when calling getEntities");
       }
-      // verify the required parameter 'requestBody' is set
-      if (requestBody === undefined || requestBody === null) {
-        throw new Error("Missing the required parameter 'requestBody' when calling getEntities");
+      // verify the required parameter 'ids' is set
+      if (ids === undefined || ids === null) {
+        throw new Error("Missing the required parameter 'ids' when calling getEntities");
       }
 
       let pathParams = {
@@ -540,6 +541,7 @@ export default class TwingraphApi {
         'modelType': modelType
       };
       let queryParams = {
+        'ids': this.apiClient.buildCollectionParam(ids, 'multi')
       };
       let headerParams = {
       };
@@ -547,7 +549,7 @@ export default class TwingraphApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
+      let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = [Object];
       return this.apiClient.callApi(
@@ -562,11 +564,11 @@ export default class TwingraphApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
-     * @param {Array.<String>} requestBody the entities to get
+     * @param {Array.<String>} ids the entities to get
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
      */
-    getEntities(organizationId, graphId, modelType, requestBody) {
-      return this.getEntitiesWithHttpInfo(organizationId, graphId, modelType, requestBody)
+    getEntities(organizationId, graphId, modelType, ids) {
+      return this.getEntitiesWithHttpInfo(organizationId, graphId, modelType, ids)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
