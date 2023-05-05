@@ -5,8 +5,8 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteHistoricalDataOrganization**](ScenariorunApi.md#deleteHistoricalDataOrganization) | **DELETE** /organizations/{organization_id}/scenarioruns/historicaldata | Delete all historical ScenarioRuns in the Organization
+[**deleteHistoricalDataScenario**](ScenariorunApi.md#deleteHistoricalDataScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/historicaldata | Delete all historical ScenarioRuns in the Scenario
 [**deleteHistoricalDataWorkspace**](ScenariorunApi.md#deleteHistoricalDataWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarioruns/historicaldata | Delete all historical ScenarioRuns in the Workspace
-[**deleteHistoricalScenarioRunsByScenario**](ScenariorunApi.md#deleteHistoricalScenarioRunsByScenario) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns | Delete all historical ScenarioRuns for the Scenario
 [**deleteScenarioRun**](ScenariorunApi.md#deleteScenarioRun) | **DELETE** /organizations/{organization_id}/scenarioruns/{scenariorun_id} | Delete a scenariorun
 [**findScenarioRunById**](ScenariorunApi.md#findScenarioRunById) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id} | Get the details of a scenariorun
 [**getScenarioRunCumulatedLogs**](ScenariorunApi.md#getScenarioRunCumulatedLogs) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/cumulatedlogs | Get the cumulated logs of a scenariorun
@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**getScenarioRunStatus**](ScenariorunApi.md#getScenarioRunStatus) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/status | get the status for the ScenarioRun
 [**getScenarioRuns**](ScenariorunApi.md#getScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns | get the list of ScenarioRuns for the Scenario
 [**getWorkspaceScenarioRuns**](ScenariorunApi.md#getWorkspaceScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarioruns | get the list of ScenarioRuns for the Workspace
+[**importScenarioRun**](ScenariorunApi.md#importScenarioRun) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run/import | import a ScenarioRun for the Scenario
 [**runScenario**](ScenariorunApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | run a ScenarioRun for the Scenario
 [**searchScenarioRuns**](ScenariorunApi.md#searchScenarioRuns) | **POST** /organizations/{organization_id}/scenarioruns/search | Search ScenarioRuns
 [**startScenarioRunContainers**](ScenariorunApi.md#startScenarioRunContainers) | **POST** /organizations/{organization_id}/scenarioruns/startcontainers | Start a new scenariorun with raw containers definition
@@ -23,7 +24,7 @@ Method | HTTP request | Description
 
 ## deleteHistoricalDataOrganization
 
-> deleteHistoricalDataOrganization(organizationId)
+> deleteHistoricalDataOrganization(organizationId, opts)
 
 Delete all historical ScenarioRuns in the Organization
 
@@ -38,7 +39,10 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.deleteHistoricalDataOrganization(organizationId).then(() => {
+let opts = {
+  'deleteUnknown': false // Boolean | condition to delete runs with an Unknown status
+};
+apiInstance.deleteHistoricalDataOrganization(organizationId, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -52,6 +56,61 @@ apiInstance.deleteHistoricalDataOrganization(organizationId).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **deleteUnknown** | **Boolean**| condition to delete runs with an Unknown status | [optional] [default to false]
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## deleteHistoricalDataScenario
+
+> deleteHistoricalDataScenario(organizationId, workspaceId, scenarioId, opts)
+
+Delete all historical ScenarioRuns in the Scenario
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.ScenariorunApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let scenarioId = "scenarioId_example"; // String | the Scenario identifier
+let opts = {
+  'deleteUnknown': false // Boolean | condition to delete runs with an Unknown status
+};
+apiInstance.deleteHistoricalDataScenario(organizationId, workspaceId, scenarioId, opts).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **scenarioId** | **String**| the Scenario identifier | 
+ **deleteUnknown** | **Boolean**| condition to delete runs with an Unknown status | [optional] [default to false]
 
 ### Return type
 
@@ -69,7 +128,7 @@ null (empty response body)
 
 ## deleteHistoricalDataWorkspace
 
-> deleteHistoricalDataWorkspace(organizationId, workspaceId)
+> deleteHistoricalDataWorkspace(organizationId, workspaceId, opts)
 
 Delete all historical ScenarioRuns in the Workspace
 
@@ -85,7 +144,10 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.deleteHistoricalDataWorkspace(organizationId, workspaceId).then(() => {
+let opts = {
+  'deleteUnknown': false // Boolean | condition to delete runs with an Unknown status
+};
+apiInstance.deleteHistoricalDataWorkspace(organizationId, workspaceId, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -100,56 +162,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-
-## deleteHistoricalScenarioRunsByScenario
-
-> deleteHistoricalScenarioRunsByScenario(organizationId, workspaceId, scenarioId)
-
-Delete all historical ScenarioRuns for the Scenario
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.ScenariorunApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.deleteHistoricalScenarioRunsByScenario(organizationId, workspaceId, scenarioId).then(() => {
-  console.log('API called successfully.');
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
- **scenarioId** | **String**| the Scenario identifier | 
+ **deleteUnknown** | **Boolean**| condition to delete runs with an Unknown status | [optional] [default to false]
 
 ### Return type
 
@@ -407,7 +420,7 @@ Name | Type | Description  | Notes
 
 ## getScenarioRuns
 
-> [ScenarioRun] getScenarioRuns(organizationId, workspaceId, scenarioId)
+> [ScenarioRun] getScenarioRuns(organizationId, workspaceId, scenarioId, opts)
 
 get the list of ScenarioRuns for the Scenario
 
@@ -424,7 +437,11 @@ let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.getScenarioRuns(organizationId, workspaceId, scenarioId).then((data) => {
+let opts = {
+  'page': 56, // Number | page number to query
+  'size': 56 // Number | amount of result by page
+};
+apiInstance.getScenarioRuns(organizationId, workspaceId, scenarioId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -440,6 +457,8 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
+ **page** | **Number**| page number to query | [optional] 
+ **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 
@@ -457,7 +476,7 @@ Name | Type | Description  | Notes
 
 ## getWorkspaceScenarioRuns
 
-> [ScenarioRun] getWorkspaceScenarioRuns(organizationId, workspaceId)
+> [ScenarioRun] getWorkspaceScenarioRuns(organizationId, workspaceId, opts)
 
 get the list of ScenarioRuns for the Workspace
 
@@ -473,7 +492,11 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.getWorkspaceScenarioRuns(organizationId, workspaceId).then((data) => {
+let opts = {
+  'page': 56, // Number | page number to query
+  'size': 56 // Number | amount of result by page
+};
+apiInstance.getWorkspaceScenarioRuns(organizationId, workspaceId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -488,6 +511,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
+ **page** | **Number**| page number to query | [optional] 
+ **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 
@@ -500,6 +525,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## importScenarioRun
+
+> ScenarioRun importScenarioRun(organizationId, workspaceId, scenarioId, scenarioRun)
+
+import a ScenarioRun for the Scenario
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.ScenariorunApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let scenarioId = "scenarioId_example"; // String | the Scenario identifier
+let scenarioRun = new CosmotechApi.ScenarioRun(); // ScenarioRun | the ScenarioRun to import
+apiInstance.importScenarioRun(organizationId, workspaceId, scenarioId, scenarioRun).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **scenarioId** | **String**| the Scenario identifier | 
+ **scenarioRun** | [**ScenarioRun**](ScenarioRun.md)| the ScenarioRun to import | 
+
+### Return type
+
+[**ScenarioRun**](ScenarioRun.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -555,7 +632,7 @@ Name | Type | Description  | Notes
 
 ## searchScenarioRuns
 
-> [ScenarioRun] searchScenarioRuns(organizationId, scenarioRunSearch)
+> [ScenarioRun] searchScenarioRuns(organizationId, scenarioRunSearch, opts)
 
 Search ScenarioRuns
 
@@ -571,7 +648,11 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenarioRunSearch = new CosmotechApi.ScenarioRunSearch(); // ScenarioRunSearch | the ScenarioRun search parameters
-apiInstance.searchScenarioRuns(organizationId, scenarioRunSearch).then((data) => {
+let opts = {
+  'page': 56, // Number | page number to query
+  'size': 56 // Number | amount of result by page
+};
+apiInstance.searchScenarioRuns(organizationId, scenarioRunSearch, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -586,6 +667,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **scenarioRunSearch** | [**ScenarioRunSearch**](ScenarioRunSearch.md)| the ScenarioRun search parameters | 
+ **page** | **Number**| page number to query | [optional] 
+ **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 

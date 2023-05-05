@@ -5,6 +5,7 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addWorkspaceAccessControl**](WorkspaceApi.md#addWorkspaceAccessControl) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/access | Add a control access to the Workspace
+[**createSecret**](WorkspaceApi.md#createSecret) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/secret | Create a secret for the Workspace
 [**createWorkspace**](WorkspaceApi.md#createWorkspace) | **POST** /organizations/{organization_id}/workspaces | Create a new workspace
 [**deleteAllWorkspaceFiles**](WorkspaceApi.md#deleteAllWorkspaceFiles) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/files | Delete all Workspace files
 [**deleteWorkspace**](WorkspaceApi.md#deleteWorkspace) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id} | Delete a workspace
@@ -17,6 +18,7 @@ Method | HTTP request | Description
 [**getWorkspacePermissions**](WorkspaceApi.md#getWorkspacePermissions) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/permissions/{role} | Get the Workspace permission by given role
 [**getWorkspaceSecurity**](WorkspaceApi.md#getWorkspaceSecurity) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security | Get the Workspace security information
 [**getWorkspaceSecurityUsers**](WorkspaceApi.md#getWorkspaceSecurityUsers) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/security/users | Get the Workspace security users list
+[**importWorkspace**](WorkspaceApi.md#importWorkspace) | **POST** /organizations/{organization_id}/workspaces/import | Import a workspace
 [**removeWorkspaceAccessControl**](WorkspaceApi.md#removeWorkspaceAccessControl) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/security/access/{identity_id} | Remove the specified access from the given Organization Workspace
 [**setWorkspaceDefaultSecurity**](WorkspaceApi.md#setWorkspaceDefaultSecurity) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/default | Set the Workspace default security
 [**updateWorkspace**](WorkspaceApi.md#updateWorkspace) | **PATCH** /organizations/{organization_id}/workspaces/{workspace_id} | Update a workspace
@@ -73,6 +75,56 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
+
+
+## createSecret
+
+> createSecret(organizationId, workspaceId, workspaceSecret)
+
+Create a secret for the Workspace
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.WorkspaceApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspaceId = "workspaceId_example"; // String | the Workspace identifier
+let workspaceSecret = new CosmotechApi.WorkspaceSecret(); // WorkspaceSecret | the definition of the secret
+apiInstance.createSecret(organizationId, workspaceId, workspaceSecret).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspaceId** | **String**| the Workspace identifier | 
+ **workspaceSecret** | [**WorkspaceSecret**](WorkspaceSecret.md)| the definition of the secret | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/yaml
+- **Accept**: Not defined
 
 
 ## createWorkspace
@@ -369,7 +421,7 @@ Name | Type | Description  | Notes
 
 ## findAllWorkspaces
 
-> [Workspace] findAllWorkspaces(organizationId)
+> [Workspace] findAllWorkspaces(organizationId, opts)
 
 List all Workspaces
 
@@ -384,7 +436,11 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findAllWorkspaces(organizationId).then((data) => {
+let opts = {
+  'page': 56, // Number | page number to query
+  'size': 56 // Number | amount of result by page
+};
+apiInstance.findAllWorkspaces(organizationId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -398,6 +454,8 @@ apiInstance.findAllWorkspaces(organizationId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **page** | **Number**| page number to query | [optional] 
+ **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 
@@ -654,6 +712,54 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## importWorkspace
+
+> Workspace importWorkspace(organizationId, workspace)
+
+Import a workspace
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.WorkspaceApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let workspace = new CosmotechApi.Workspace(); // Workspace | the Workspace to import
+apiInstance.importWorkspace(organizationId, workspace).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **workspace** | [**Workspace**](Workspace.md)| the Workspace to import | 
+
+### Return type
+
+[**Workspace**](Workspace.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 
