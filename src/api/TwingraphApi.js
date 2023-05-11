@@ -42,6 +42,7 @@ export default class TwingraphApi {
 
     /**
      * Run a query on a graph instance and return the result as a zip file in async mode
+     * Run a query on a graph instance and return the result as a zip file in async mode
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {module:model/TwinGraphQuery} twinGraphQuery the query to run
@@ -86,6 +87,7 @@ export default class TwingraphApi {
 
     /**
      * Run a query on a graph instance and return the result as a zip file in async mode
+     * Run a query on a graph instance and return the result as a zip file in async mode
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {module:model/TwinGraphQuery} twinGraphQuery the query to run
@@ -100,6 +102,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Async batch update by loading a CSV file on a graph instance 
      * Async batch update by loading a CSV file on a graph instance 
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -151,6 +154,7 @@ export default class TwingraphApi {
 
     /**
      * Async batch update by loading a CSV file on a graph instance 
+     * Async batch update by loading a CSV file on a graph instance 
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {module:model/TwinGraphQuery} twinGraphQuery 
@@ -166,6 +170,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Launch a mass delete job
      * Launch a mass delete job
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -206,6 +211,7 @@ export default class TwingraphApi {
 
     /**
      * Launch a mass delete job
+     * Launch a mass delete job
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
@@ -219,6 +225,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Create new entities in a graph instance
      * create new entities in a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -269,6 +276,7 @@ export default class TwingraphApi {
     }
 
     /**
+     * Create new entities in a graph instance
      * create new entities in a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -285,6 +293,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Create a new graph
      * Create a new graph
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -328,6 +337,7 @@ export default class TwingraphApi {
 
     /**
      * Create a new graph
+     * Create a new graph
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {Object} opts Optional parameters
@@ -343,6 +353,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Delete entities in a graph instance
      * delete entities in a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -394,6 +405,7 @@ export default class TwingraphApi {
     }
 
     /**
+     * Delete entities in a graph instance
      * delete entities in a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -410,6 +422,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Download a graph compressed in a zip file
      * Download a graph compressed in a zip file
      * @param {String} organizationId the Organization identifier
      * @param {String} hash the Graph download identifier
@@ -450,6 +463,7 @@ export default class TwingraphApi {
 
     /**
      * Download a graph compressed in a zip file
+     * Download a graph compressed in a zip file
      * @param {String} organizationId the Organization identifier
      * @param {String} hash the Graph download identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
@@ -463,6 +477,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Return the list of all graphs stored in the organization
      * Return the list of all graphs stored in the organization
      * @param {String} organizationId the Organization identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<String>} and HTTP response
@@ -497,6 +512,7 @@ export default class TwingraphApi {
 
     /**
      * Return the list of all graphs stored in the organization
+     * Return the list of all graphs stored in the organization
      * @param {String} organizationId the Organization identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<String>}
      */
@@ -509,6 +525,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Get entities in a graph instance
      * get entities in a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -560,6 +577,7 @@ export default class TwingraphApi {
     }
 
     /**
+     * Get entities in a graph instance
      * get entities in a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -576,6 +594,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Return the metaData of the specified graph
      * Return the metaData of the specified graph
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -616,6 +635,7 @@ export default class TwingraphApi {
 
     /**
      * Return the metaData of the specified graph
+     * Return the metaData of the specified graph
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
@@ -629,6 +649,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Import a new version of a twin graph
      * Import a new version of a twin graph
      * @param {String} organizationId the Organization identifier
      * @param {module:model/TwinGraphImport} twinGraphImport the graph to import
@@ -668,6 +689,7 @@ export default class TwingraphApi {
 
     /**
      * Import a new version of a twin graph
+     * Import a new version of a twin graph
      * @param {String} organizationId the Organization identifier
      * @param {module:model/TwinGraphImport} twinGraphImport the graph to import
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TwinGraphImportInfo}
@@ -681,6 +703,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Get the status of a job
      * Get the status of a job
      * @param {String} organizationId the Organization identifier
      * @param {String} jobId the job identifier
@@ -721,6 +744,7 @@ export default class TwingraphApi {
 
     /**
      * Get the status of a job
+     * Get the status of a job
      * @param {String} organizationId the Organization identifier
      * @param {String} jobId the job identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
@@ -734,6 +758,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Run a query on a graph instance
      * Run a query on a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -779,6 +804,7 @@ export default class TwingraphApi {
 
     /**
      * Run a query on a graph instance
+     * Run a query on a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {module:model/TwinGraphQuery} twinGraphQuery the query to run
@@ -793,6 +819,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Update entities in a graph instance
      * update entities in a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -843,6 +870,7 @@ export default class TwingraphApi {
     }
 
     /**
+     * Update entities in a graph instance
      * update entities in a graph instance
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -859,6 +887,7 @@ export default class TwingraphApi {
 
 
     /**
+     * Update the metaData of the specified graph
      * Update the metaData of the specified graph
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
@@ -903,6 +932,7 @@ export default class TwingraphApi {
     }
 
     /**
+     * Update the metaData of the specified graph
      * Update the metaData of the specified graph
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
