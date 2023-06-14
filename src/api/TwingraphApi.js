@@ -170,8 +170,8 @@ export default class TwingraphApi {
 
 
     /**
-     * Launch a mass delete job
-     * Launch a mass delete job
+     * Delete all versions of a graph and his metadatas
+     * Delete all versions of a graph and his metadatas
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
@@ -210,8 +210,8 @@ export default class TwingraphApi {
     }
 
     /**
-     * Launch a mass delete job
-     * Launch a mass delete job
+     * Delete all versions of a graph and his metadatas
+     * Delete all versions of a graph and his metadatas
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
@@ -231,7 +231,7 @@ export default class TwingraphApi {
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
      * @param {Array.<module:model/GraphProperties>} graphProperties the entities to create
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
      */
     createEntitiesWithHttpInfo(organizationId, graphId, modelType, graphProperties) {
       let postBody = graphProperties;
@@ -267,7 +267,7 @@ export default class TwingraphApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = [Object];
+      let returnType = 'String';
       return this.apiClient.callApi(
         '/organizations/{organization_id}/twingraph/{graph_id}/{modelType}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -282,7 +282,7 @@ export default class TwingraphApi {
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
      * @param {Array.<module:model/GraphProperties>} graphProperties the entities to create
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
      */
     createEntities(organizationId, graphId, modelType, graphProperties) {
       return this.createEntitiesWithHttpInfo(organizationId, graphId, modelType, graphProperties)
@@ -294,7 +294,7 @@ export default class TwingraphApi {
 
     /**
      * Create a new graph
-     * Create a new graph
+     * To create a new graph from flat files,  you need to create a Zip file. This Zip file must countain two folders named Edges and Nodes.  .zip hierarchy: *main_folder/Nodes *main_folder/Edges  In each folder you can place one or multiple csv files containing your Nodes or Edges data.  Your csv files must follow the following header (column name) requirements:  The Nodes CSVs requires at least one column (the 1st).Column name = 'Id'. It will represent the nodes ID Ids must be populated with string  The Edges CSVs require three columns named, in order, * source * target * Id  those colomns represent * The source of the edge * The target of the edge * The Id of the edge  All following columns content are up to you. 
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {Object} opts Optional parameters
@@ -337,7 +337,7 @@ export default class TwingraphApi {
 
     /**
      * Create a new graph
-     * Create a new graph
+     * To create a new graph from flat files,  you need to create a Zip file. This Zip file must countain two folders named Edges and Nodes.  .zip hierarchy: *main_folder/Nodes *main_folder/Edges  In each folder you can place one or multiple csv files containing your Nodes or Edges data.  Your csv files must follow the following header (column name) requirements:  The Nodes CSVs requires at least one column (the 1st).Column name = 'Id'. It will represent the nodes ID Ids must be populated with string  The Edges CSVs require three columns named, in order, * source * target * Id  those colomns represent * The source of the edge * The target of the edge * The Id of the edge  All following columns content are up to you. 
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {Object} opts Optional parameters
@@ -531,7 +531,7 @@ export default class TwingraphApi {
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
      * @param {Array.<String>} ids the entities to get
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
      */
     getEntitiesWithHttpInfo(organizationId, graphId, modelType, ids) {
       let postBody = null;
@@ -568,7 +568,7 @@ export default class TwingraphApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Object];
+      let returnType = 'String';
       return this.apiClient.callApi(
         '/organizations/{organization_id}/twingraph/{graph_id}/{modelType}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -583,7 +583,7 @@ export default class TwingraphApi {
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
      * @param {Array.<String>} ids the entities to get
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
      */
     getEntities(organizationId, graphId, modelType, ids) {
       return this.getEntitiesWithHttpInfo(organizationId, graphId, modelType, ids)
@@ -825,7 +825,7 @@ export default class TwingraphApi {
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
      * @param {Array.<module:model/GraphProperties>} graphProperties the entities to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
      */
     updateEntitiesWithHttpInfo(organizationId, graphId, modelType, graphProperties) {
       let postBody = graphProperties;
@@ -861,7 +861,7 @@ export default class TwingraphApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = [Object];
+      let returnType = 'String';
       return this.apiClient.callApi(
         '/organizations/{organization_id}/twingraph/{graph_id}/{modelType}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -876,7 +876,7 @@ export default class TwingraphApi {
      * @param {String} graphId the Graph Identifier
      * @param {module:model/String} modelType the entity model type
      * @param {Array.<module:model/GraphProperties>} graphProperties the entities to update
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
      */
     updateEntities(organizationId, graphId, modelType, graphProperties) {
       return this.updateEntitiesWithHttpInfo(organizationId, graphId, modelType, graphProperties)
