@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.RunTemplateResourceSizing();
+    instance = new CosmotechApi.ScenarioRunResourceRequested();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,22 @@
       object[property] = value;
   }
 
-  describe('RunTemplateResourceSizing', function() {
-    it('should create an instance of RunTemplateResourceSizing', function() {
-      // uncomment below and update the code to test RunTemplateResourceSizing
-      //var instance = new CosmotechApi.RunTemplateResourceSizing();
-      //expect(instance).to.be.a(CosmotechApi.RunTemplateResourceSizing);
+  describe('ScenarioRunResourceRequested', function() {
+    it('should create an instance of ScenarioRunResourceRequested', function() {
+      // uncomment below and update the code to test ScenarioRunResourceRequested
+      //var instance = new CosmotechApi.ScenarioRunResourceRequested();
+      //expect(instance).to.be.a(CosmotechApi.ScenarioRunResourceRequested);
     });
 
-    it('should have the property requests (base name: "requests")', function() {
-      // uncomment below and update the code to test the property requests
-      //var instance = new CosmotechApi.RunTemplateResourceSizing();
+    it('should have the property cpu (base name: "cpu")', function() {
+      // uncomment below and update the code to test the property cpu
+      //var instance = new CosmotechApi.ScenarioRunResourceRequested();
       //expect(instance).to.be();
     });
 
-    it('should have the property limits (base name: "limits")', function() {
-      // uncomment below and update the code to test the property limits
-      //var instance = new CosmotechApi.RunTemplateResourceSizing();
+    it('should have the property memory (base name: "memory")', function() {
+      // uncomment below and update the code to test the property memory
+      //var instance = new CosmotechApi.ScenarioRunResourceRequested();
       //expect(instance).to.be();
     });
 
