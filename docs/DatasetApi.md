@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**deleteDataset**](DatasetApi.md#deleteDataset) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id} | Delete a dataset
 [**findAllDatasets**](DatasetApi.md#findAllDatasets) | **GET** /organizations/{organization_id}/datasets | List all Datasets
 [**findDatasetById**](DatasetApi.md#findDatasetById) | **GET** /organizations/{organization_id}/datasets/{dataset_id} | Get the details of a Dataset
+[**importDataset**](DatasetApi.md#importDataset) | **POST** /organizations/{organization_id}/datasets/import | Import a new Dataset
 [**removeAllDatasetCompatibilityElements**](DatasetApi.md#removeAllDatasetCompatibilityElements) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id}/compatibility | Remove all Dataset Compatibility elements from the Dataset specified
 [**searchDatasets**](DatasetApi.md#searchDatasets) | **POST** /organizations/{organization_id}/datasets/search | Search Datasets
 [**updateDataset**](DatasetApi.md#updateDataset) | **PATCH** /organizations/{organization_id}/datasets/{dataset_id} | Update a dataset
@@ -212,7 +213,7 @@ null (empty response body)
 
 ## findAllDatasets
 
-> [Dataset] findAllDatasets(organizationId)
+> [Dataset] findAllDatasets(organizationId, opts)
 
 List all Datasets
 
@@ -227,7 +228,11 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-apiInstance.findAllDatasets(organizationId).then((data) => {
+let opts = {
+  'page': 56, // Number | page number to query
+  'size': 56 // Number | amount of result by page
+};
+apiInstance.findAllDatasets(organizationId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -241,6 +246,8 @@ apiInstance.findAllDatasets(organizationId).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
+ **page** | **Number**| page number to query | [optional] 
+ **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 
@@ -304,6 +311,54 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## importDataset
+
+> Dataset importDataset(organizationId, dataset)
+
+Import a new Dataset
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let dataset = new CosmotechApi.Dataset(); // Dataset | the Dataset to import
+apiInstance.importDataset(organizationId, dataset).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **dataset** | [**Dataset**](Dataset.md)| the Dataset to import | 
+
+### Return type
+
+[**Dataset**](Dataset.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## removeAllDatasetCompatibilityElements
 
 > removeAllDatasetCompatibilityElements(organizationId, datasetId)
@@ -354,7 +409,7 @@ null (empty response body)
 
 ## searchDatasets
 
-> [Dataset] searchDatasets(organizationId, datasetSearch)
+> [Dataset] searchDatasets(organizationId, datasetSearch, opts)
 
 Search Datasets
 
@@ -370,7 +425,11 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetSearch = new CosmotechApi.DatasetSearch(); // DatasetSearch | the Dataset search parameters
-apiInstance.searchDatasets(organizationId, datasetSearch).then((data) => {
+let opts = {
+  'page': 56, // Number | page number to query
+  'size': 56 // Number | amount of result by page
+};
+apiInstance.searchDatasets(organizationId, datasetSearch, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -385,6 +444,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **datasetSearch** | [**DatasetSearch**](DatasetSearch.md)| the Dataset search parameters | 
+ **page** | **Number**| page number to query | [optional] 
+ **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 
