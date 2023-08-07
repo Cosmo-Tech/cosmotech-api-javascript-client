@@ -144,6 +144,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property createdAt (base name: "createdAt")', function() {
+      // uncomment below and update the code to test the property createdAt
+      //var instance = new CosmotechApi.ScenarioRun();
+      //expect(instance).to.be();
+    });
+
     it('should have the property noDataIngestionState (base name: "noDataIngestionState")', function() {
       // uncomment below and update the code to test the property noDataIngestionState
       //var instance = new CosmotechApi.ScenarioRun();

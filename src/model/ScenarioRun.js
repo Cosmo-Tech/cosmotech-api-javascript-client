@@ -96,6 +96,9 @@ class ScenarioRun {
             if (data.hasOwnProperty('sdkVersion')) {
                 obj['sdkVersion'] = ApiClient.convertToType(data['sdkVersion'], 'String');
             }
+            if (data.hasOwnProperty('createdAt')) {
+                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
+            }
             if (data.hasOwnProperty('noDataIngestionState')) {
                 obj['noDataIngestionState'] = ApiClient.convertToType(data['noDataIngestionState'], 'Boolean');
             }
@@ -212,6 +215,12 @@ ScenarioRun.prototype['computeSize'] = undefined;
  * @member {String} sdkVersion
  */
 ScenarioRun.prototype['sdkVersion'] = undefined;
+
+/**
+ * the ScenarioRun creation date
+ * @member {String} createdAt
+ */
+ScenarioRun.prototype['createdAt'] = undefined;
 
 /**
  * set to true if the run template does not use any Datawarehouse consumers (AMQP consumers for Azure)
