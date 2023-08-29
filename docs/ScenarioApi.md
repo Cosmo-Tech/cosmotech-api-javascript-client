@@ -286,7 +286,7 @@ null (empty response body)
 
 ## deleteScenario
 
-> deleteScenario(organizationId, workspaceId, scenarioId)
+> deleteScenario(organizationId, workspaceId, scenarioId, opts)
 
 Delete a scenario
 
@@ -303,7 +303,10 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-apiInstance.deleteScenario(organizationId, workspaceId, scenarioId).then(() => {
+let opts = {
+  'waitRelationshipPropagation': false // Boolean | whether to wait until child scenarios are effectively updated
+};
+apiInstance.deleteScenario(organizationId, workspaceId, scenarioId, opts).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -319,6 +322,7 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
+ **waitRelationshipPropagation** | **Boolean**| whether to wait until child scenarios are effectively updated | [optional] [default to false]
 
 ### Return type
 
