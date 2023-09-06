@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import DeleteHistoricalData from './DeleteHistoricalData';
+import RunTemplateOrchestrator from './RunTemplateOrchestrator';
 import RunTemplateResourceSizing from './RunTemplateResourceSizing';
 import RunTemplateStepSource from './RunTemplateStepSource';
 
@@ -142,6 +143,9 @@ class RunTemplate {
             }
             if (data.hasOwnProperty('runTemplateSourceDir')) {
                 obj['runTemplateSourceDir'] = ApiClient.convertToType(data['runTemplateSourceDir'], 'String');
+            }
+            if (data.hasOwnProperty('orchestratorType')) {
+                obj['orchestratorType'] = RunTemplateOrchestrator.constructFromObject(data['orchestratorType']);
             }
             if (data.hasOwnProperty('executionTimeout')) {
                 obj['executionTimeout'] = ApiClient.convertToType(data['executionTimeout'], 'Number');
@@ -328,6 +332,11 @@ RunTemplate.prototype['gitBranchName'] = undefined;
  * @member {String} runTemplateSourceDir
  */
 RunTemplate.prototype['runTemplateSourceDir'] = undefined;
+
+/**
+ * @member {module:model/RunTemplateOrchestrator} orchestratorType
+ */
+RunTemplate.prototype['orchestratorType'] = undefined;
 
 /**
  * an optional duration in seconds in which a workflow is allowed to run

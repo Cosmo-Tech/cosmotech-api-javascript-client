@@ -283,6 +283,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ResourceSizeInfo](docs/ResourceSizeInfo.md)
  - [CosmotechApi.RunTemplate](docs/RunTemplate.md)
  - [CosmotechApi.RunTemplateHandlerId](docs/RunTemplateHandlerId.md)
+ - [CosmotechApi.RunTemplateOrchestrator](docs/RunTemplateOrchestrator.md)
  - [CosmotechApi.RunTemplateParameter](docs/RunTemplateParameter.md)
  - [CosmotechApi.RunTemplateParameterGroup](docs/RunTemplateParameterGroup.md)
  - [CosmotechApi.RunTemplateParameterValue](docs/RunTemplateParameterValue.md)

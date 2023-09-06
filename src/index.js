@@ -35,6 +35,7 @@ import OrganizationServices from './model/OrganizationServices';
 import ResourceSizeInfo from './model/ResourceSizeInfo';
 import RunTemplate from './model/RunTemplate';
 import RunTemplateHandlerId from './model/RunTemplateHandlerId';
+import RunTemplateOrchestrator from './model/RunTemplateOrchestrator';
 import RunTemplateParameter from './model/RunTemplateParameter';
 import RunTemplateParameterGroup from './model/RunTemplateParameterGroup';
 import RunTemplateParameterValue from './model/RunTemplateParameterValue';
@@ -261,6 +262,12 @@ export {
      * @property {module:model/RunTemplateHandlerId}
      */
     RunTemplateHandlerId,
+
+    /**
+     * The RunTemplateOrchestrator model constructor.
+     * @property {module:model/RunTemplateOrchestrator}
+     */
+    RunTemplateOrchestrator,
 
     /**
      * The RunTemplateParameter model constructor.
