@@ -57,6 +57,7 @@ import ScenarioRunContainerArtifact from './model/ScenarioRunContainerArtifact';
 import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
 import ScenarioRunLogs from './model/ScenarioRunLogs';
 import ScenarioRunResourceRequested from './model/ScenarioRunResourceRequested';
+import ScenarioRunResult from './model/ScenarioRunResult';
 import ScenarioRunSearch from './model/ScenarioRunSearch';
 import ScenarioRunStartContainers from './model/ScenarioRunStartContainers';
 import ScenarioRunState from './model/ScenarioRunState';
@@ -87,6 +88,7 @@ import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
 import ScenarioApi from './api/ScenarioApi';
 import ScenariorunApi from './api/ScenariorunApi';
+import ScenariorunresultApi from './api/ScenariorunresultApi';
 import SolutionApi from './api/SolutionApi';
 import TwingraphApi from './api/TwingraphApi';
 import ValidatorApi from './api/ValidatorApi';
@@ -396,6 +398,12 @@ export {
     ScenarioRunResourceRequested,
 
     /**
+     * The ScenarioRunResult model constructor.
+     * @property {module:model/ScenarioRunResult}
+     */
+    ScenarioRunResult,
+
+    /**
      * The ScenarioRunSearch model constructor.
      * @property {module:model/ScenarioRunSearch}
      */
@@ -574,6 +582,12 @@ export {
     * @property {module:api/ScenariorunApi}
     */
     ScenariorunApi,
+
+    /**
+    * The ScenariorunresultApi service constructor.
+    * @property {module:api/ScenariorunresultApi}
+    */
+    ScenariorunresultApi,
 
     /**
     * The SolutionApi service constructor.

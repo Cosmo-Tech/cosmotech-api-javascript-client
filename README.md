@@ -197,6 +197,8 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ScenariorunApi* | [**searchScenarioRuns**](docs/ScenariorunApi.md#searchScenarioRuns) | **POST** /organizations/{organization_id}/scenarioruns/search | Search ScenarioRuns
 *CosmotechApi.ScenariorunApi* | [**startScenarioRunContainers**](docs/ScenariorunApi.md#startScenarioRunContainers) | **POST** /organizations/{organization_id}/scenarioruns/startcontainers | Start a new scenariorun with raw containers definition
 *CosmotechApi.ScenariorunApi* | [**stopScenarioRun**](docs/ScenariorunApi.md#stopScenarioRun) | **POST** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/stop | stop a ScenarioRun for the Scenario
+*CosmotechApi.ScenariorunresultApi* | [**getScenarioRunResult**](docs/ScenariorunresultApi.md#getScenarioRunResult) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id}/probes/{probe_id} | Get a ScenarioRunResult in the Organization
+*CosmotechApi.ScenariorunresultApi* | [**sendScenarioRunResult**](docs/ScenariorunresultApi.md#sendScenarioRunResult) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id}/probes/{probe_id} | Create a new ScenarioRunResult in the Organization
 *CosmotechApi.SolutionApi* | [**addOrReplaceParameterGroups**](docs/SolutionApi.md#addOrReplaceParameterGroups) | **POST** /organizations/{organization_id}/solutions/{solution_id}/parameterGroups | Add Parameter Groups. Any item with the same ID will be overwritten
 *CosmotechApi.SolutionApi* | [**addOrReplaceParameters**](docs/SolutionApi.md#addOrReplaceParameters) | **POST** /organizations/{organization_id}/solutions/{solution_id}/parameters | Add Parameters. Any item with the same ID will be overwritten
 *CosmotechApi.SolutionApi* | [**addOrReplaceRunTemplates**](docs/SolutionApi.md#addOrReplaceRunTemplates) | **POST** /organizations/{organization_id}/solutions/{solution_id}/runTemplates | Add Run Templates. Any item with the same ID will be overwritten
@@ -305,6 +307,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ScenarioRunContainerLogs](docs/ScenarioRunContainerLogs.md)
  - [CosmotechApi.ScenarioRunLogs](docs/ScenarioRunLogs.md)
  - [CosmotechApi.ScenarioRunResourceRequested](docs/ScenarioRunResourceRequested.md)
+ - [CosmotechApi.ScenarioRunResult](docs/ScenarioRunResult.md)
  - [CosmotechApi.ScenarioRunSearch](docs/ScenarioRunSearch.md)
  - [CosmotechApi.ScenarioRunStartContainers](docs/ScenarioRunStartContainers.md)
  - [CosmotechApi.ScenarioRunState](docs/ScenarioRunState.md)
