@@ -14,7 +14,6 @@ Method | HTTP request | Description
 [**getScenarioRunStatus**](ScenariorunApi.md#getScenarioRunStatus) | **GET** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/status | get the status for the ScenarioRun
 [**getScenarioRuns**](ScenariorunApi.md#getScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns | get the list of ScenarioRuns for the Scenario
 [**getWorkspaceScenarioRuns**](ScenariorunApi.md#getWorkspaceScenarioRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarioruns | get the list of ScenarioRuns for the Workspace
-[**importScenarioRun**](ScenariorunApi.md#importScenarioRun) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run/import | import a ScenarioRun for the Scenario
 [**runScenario**](ScenariorunApi.md#runScenario) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/run | run a ScenarioRun for the Scenario
 [**searchScenarioRuns**](ScenariorunApi.md#searchScenarioRuns) | **POST** /organizations/{organization_id}/scenarioruns/search | Search ScenarioRuns
 [**startScenarioRunContainers**](ScenariorunApi.md#startScenarioRunContainers) | **POST** /organizations/{organization_id}/scenarioruns/startcontainers | Start a new scenariorun with raw containers definition
@@ -420,7 +419,7 @@ Name | Type | Description  | Notes
 
 ## getScenarioRuns
 
-> [ScenarioRun] getScenarioRuns(organizationId, workspaceId, scenarioId, opts)
+> [ScenarioRun] getScenarioRuns(organizationId, workspaceId, scenarioId)
 
 get the list of ScenarioRuns for the Scenario
 
@@ -437,11 +436,7 @@ let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-let opts = {
-  'page': 56, // Number | page number to query
-  'size': 56 // Number | amount of result by page
-};
-apiInstance.getScenarioRuns(organizationId, workspaceId, scenarioId, opts).then((data) => {
+apiInstance.getScenarioRuns(organizationId, workspaceId, scenarioId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -457,8 +452,6 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
- **page** | **Number**| page number to query | [optional] 
- **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 
@@ -476,7 +469,7 @@ Name | Type | Description  | Notes
 
 ## getWorkspaceScenarioRuns
 
-> [ScenarioRun] getWorkspaceScenarioRuns(organizationId, workspaceId, opts)
+> [ScenarioRun] getWorkspaceScenarioRuns(organizationId, workspaceId)
 
 get the list of ScenarioRuns for the Workspace
 
@@ -492,11 +485,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let opts = {
-  'page': 56, // Number | page number to query
-  'size': 56 // Number | amount of result by page
-};
-apiInstance.getWorkspaceScenarioRuns(organizationId, workspaceId, opts).then((data) => {
+apiInstance.getWorkspaceScenarioRuns(organizationId, workspaceId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -511,8 +500,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **page** | **Number**| page number to query | [optional] 
- **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 
@@ -525,58 +512,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## importScenarioRun
-
-> ScenarioRun importScenarioRun(organizationId, workspaceId, scenarioId, scenarioRun)
-
-import a ScenarioRun for the Scenario
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.ScenariorunApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-let scenarioRun = new CosmotechApi.ScenarioRun(); // ScenarioRun | the ScenarioRun to import
-apiInstance.importScenarioRun(organizationId, workspaceId, scenarioId, scenarioRun).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **workspaceId** | **String**| the Workspace identifier | 
- **scenarioId** | **String**| the Scenario identifier | 
- **scenarioRun** | [**ScenarioRun**](ScenarioRun.md)| the ScenarioRun to import | 
-
-### Return type
-
-[**ScenarioRun**](ScenarioRun.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -632,7 +567,7 @@ Name | Type | Description  | Notes
 
 ## searchScenarioRuns
 
-> [ScenarioRun] searchScenarioRuns(organizationId, scenarioRunSearch, opts)
+> [ScenarioRun] searchScenarioRuns(organizationId, scenarioRunSearch)
 
 Search ScenarioRuns
 
@@ -648,11 +583,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.ScenariorunApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let scenarioRunSearch = new CosmotechApi.ScenarioRunSearch(); // ScenarioRunSearch | the ScenarioRun search parameters
-let opts = {
-  'page': 56, // Number | page number to query
-  'size': 56 // Number | amount of result by page
-};
-apiInstance.searchScenarioRuns(organizationId, scenarioRunSearch, opts).then((data) => {
+apiInstance.searchScenarioRuns(organizationId, scenarioRunSearch).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -667,8 +598,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **scenarioRunSearch** | [**ScenarioRunSearch**](ScenarioRunSearch.md)| the ScenarioRun search parameters | 
- **page** | **Number**| page number to query | [optional] 
- **size** | **Number**| amount of result by page | [optional] 
 
 ### Return type
 

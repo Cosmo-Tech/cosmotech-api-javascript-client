@@ -12,7 +12,6 @@ Method | HTTP request | Description
 [**getOrganizationPermissions**](OrganizationApi.md#getOrganizationPermissions) | **GET** /organizations/{organization_id}/permissions/{role} | Get the Organization permissions by given role
 [**getOrganizationSecurity**](OrganizationApi.md#getOrganizationSecurity) | **GET** /organizations/{organization_id}/security | Get the Organization security information
 [**getOrganizationSecurityUsers**](OrganizationApi.md#getOrganizationSecurityUsers) | **GET** /organizations/{organization_id}/security/users | Get the Organization security users list
-[**importOrganization**](OrganizationApi.md#importOrganization) | **POST** /organizations/import | Import an organization
 [**registerOrganization**](OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
 [**removeOrganizationAccessControl**](OrganizationApi.md#removeOrganizationAccessControl) | **DELETE** /organizations/{organization_id}/security/access/{identity_id} | Remove the specified access from the given Organization
 [**setOrganizationDefaultSecurity**](OrganizationApi.md#setOrganizationDefaultSecurity) | **POST** /organizations/{organization_id}/security/default | Set the Organization default security
@@ -75,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## findAllOrganizations
 
-> [Organization] findAllOrganizations(opts)
+> [Organization] findAllOrganizations()
 
 List all Organizations
 
@@ -89,11 +88,7 @@ let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
 oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
-let opts = {
-  'page': 56, // Number | page number to query
-  'size': 56 // Number | amount of result by page
-};
-apiInstance.findAllOrganizations(opts).then((data) => {
+apiInstance.findAllOrganizations().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -103,11 +98,7 @@ apiInstance.findAllOrganizations(opts).then((data) => {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Number**| page number to query | [optional] 
- **size** | **Number**| amount of result by page | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -396,52 +387,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## importOrganization
-
-> Organization importOrganization(organization)
-
-Import an organization
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.OrganizationApi();
-let organization = new CosmotechApi.Organization(); // Organization | the Organization to import
-apiInstance.importOrganization(organization).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization** | [**Organization**](Organization.md)| the Organization to import | 
-
-### Return type
-
-[**Organization**](Organization.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
 
 

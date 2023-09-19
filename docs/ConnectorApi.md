@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findAllConnectors**](ConnectorApi.md#findAllConnectors) | **GET** /connectors | List all Connectors
 [**findConnectorById**](ConnectorApi.md#findConnectorById) | **GET** /connectors/{connector_id} | Get the details of a connector
-[**importConnector**](ConnectorApi.md#importConnector) | **POST** /connectors/import | Import existing connector
 [**registerConnector**](ConnectorApi.md#registerConnector) | **POST** /connectors | Register a new connector
 [**unregisterConnector**](ConnectorApi.md#unregisterConnector) | **DELETE** /connectors/{connector_id} | Unregister a connector
 
@@ -14,7 +13,7 @@ Method | HTTP request | Description
 
 ## findAllConnectors
 
-> [Connector] findAllConnectors(opts)
+> [Connector] findAllConnectors()
 
 List all Connectors
 
@@ -28,11 +27,7 @@ let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
 oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.ConnectorApi();
-let opts = {
-  'page': 56, // Number | page number to query
-  'size': 56 // Number | amount of result by page
-};
-apiInstance.findAllConnectors(opts).then((data) => {
+apiInstance.findAllConnectors().then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -42,11 +37,7 @@ apiInstance.findAllConnectors(opts).then((data) => {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Number**| page number to query | [optional] 
- **size** | **Number**| amount of result by page | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -105,52 +96,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## importConnector
-
-> Connector importConnector(connector)
-
-Import existing connector
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.ConnectorApi();
-let connector = new CosmotechApi.Connector(); // Connector | the Connector to import
-apiInstance.importConnector(connector).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **connector** | [**Connector**](Connector.md)| the Connector to import | 
-
-### Return type
-
-[**Connector**](Connector.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 
