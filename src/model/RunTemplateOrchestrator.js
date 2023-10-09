@@ -20,17 +20,17 @@ import ApiClient from '../ApiClient';
 export default class RunTemplateOrchestrator {
     
         /**
-         * value: "argo-workflow"
+         * value: "argoWorkflow"
          * @const
          */
-        "argo-workflow" = "argo-workflow";
+        "argoWorkflow" = "argoWorkflow";
 
     
         /**
-         * value: "csm-orc"
+         * value: "csmOrc"
          * @const
          */
-        "csm-orc" = "csm-orc";
+        "csmOrc" = "csmOrc";
 
     
 
