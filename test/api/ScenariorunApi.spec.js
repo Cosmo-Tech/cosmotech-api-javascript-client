@@ -148,16 +148,6 @@
         done();
       });
     });
-    describe('importScenarioRun', function() {
-      it('should call importScenarioRun successfully', function(done) {
-        //uncomment below and update the code to test importScenarioRun
-        //instance.importScenarioRun(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('runScenario', function() {
       it('should call runScenario successfully', function(done) {
         //uncomment below and update the code to test runScenario
