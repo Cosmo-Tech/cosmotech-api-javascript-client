@@ -144,6 +144,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property security (base name: "security")', function() {
+      // uncomment below and update the code to test the property security
+      //var instance = new CosmotechApi.Solution();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

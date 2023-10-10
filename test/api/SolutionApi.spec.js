@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('addSolutionAccessControl', function() {
+      it('should call addSolutionAccessControl successfully', function(done) {
+        //uncomment below and update the code to test addSolutionAccessControl
+        //instance.addSolutionAccessControl(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('createSolution', function() {
       it('should call createSolution successfully', function(done) {
         //uncomment below and update the code to test createSolution
@@ -138,10 +148,20 @@
         done();
       });
     });
-    describe('importSolution', function() {
-      it('should call importSolution successfully', function(done) {
-        //uncomment below and update the code to test importSolution
-        //instance.importSolution(function(error) {
+    describe('getSolutionAccessControl', function() {
+      it('should call getSolutionAccessControl successfully', function(done) {
+        //uncomment below and update the code to test getSolutionAccessControl
+        //instance.getSolutionAccessControl(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getSolutionSecurityUsers', function() {
+      it('should call getSolutionSecurityUsers successfully', function(done) {
+        //uncomment below and update the code to test getSolutionSecurityUsers
+        //instance.getSolutionSecurityUsers(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -178,10 +198,30 @@
         done();
       });
     });
+    describe('removeSolutionAccessControl', function() {
+      it('should call removeSolutionAccessControl successfully', function(done) {
+        //uncomment below and update the code to test removeSolutionAccessControl
+        //instance.removeSolutionAccessControl(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('updateSolution', function() {
       it('should call updateSolution successfully', function(done) {
         //uncomment below and update the code to test updateSolution
         //instance.updateSolution(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateSolutionAccessControl', function() {
+      it('should call updateSolutionAccessControl successfully', function(done) {
+        //uncomment below and update the code to test updateSolutionAccessControl
+        //instance.updateSolutionAccessControl(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

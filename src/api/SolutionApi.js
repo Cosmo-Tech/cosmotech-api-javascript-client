@@ -18,6 +18,8 @@ import RunTemplateHandlerId from '../model/RunTemplateHandlerId';
 import RunTemplateParameter from '../model/RunTemplateParameter';
 import RunTemplateParameterGroup from '../model/RunTemplateParameterGroup';
 import Solution from '../model/Solution';
+import SolutionAccessControl from '../model/SolutionAccessControl';
+import SolutionRole from '../model/SolutionRole';
 
 /**
 * Solution service.
@@ -210,6 +212,65 @@ export default class SolutionApi {
      */
     addOrReplaceRunTemplates(organizationId, solutionId, runTemplate) {
       return this.addOrReplaceRunTemplatesWithHttpInfo(organizationId, solutionId, runTemplate)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Add a control access to the Solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {module:model/SolutionAccessControl} solutionAccessControl the new Solution security access to add.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SolutionAccessControl} and HTTP response
+     */
+    addSolutionAccessControlWithHttpInfo(organizationId, solutionId, solutionAccessControl) {
+      let postBody = solutionAccessControl;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling addSolutionAccessControl");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling addSolutionAccessControl");
+      }
+      // verify the required parameter 'solutionAccessControl' is set
+      if (solutionAccessControl === undefined || solutionAccessControl === null) {
+        throw new Error("Missing the required parameter 'solutionAccessControl' when calling addSolutionAccessControl");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json', 'application/yaml'];
+      let accepts = ['application/json'];
+      let returnType = SolutionAccessControl;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/security/access', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Add a control access to the Solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {module:model/SolutionAccessControl} solutionAccessControl the new Solution security access to add.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SolutionAccessControl}
+     */
+    addSolutionAccessControl(organizationId, solutionId, solutionAccessControl) {
+      return this.addSolutionAccessControlWithHttpInfo(organizationId, solutionId, solutionAccessControl)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -557,24 +618,31 @@ export default class SolutionApi {
 
 
     /**
-     * Import a solution
+     * Get a control access for the Solution
      * @param {String} organizationId the Organization identifier
-     * @param {module:model/Solution} solution the Solution to import
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Solution} and HTTP response
+     * @param {String} solutionId the Solution identifier
+     * @param {String} identityId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SolutionAccessControl} and HTTP response
      */
-    importSolutionWithHttpInfo(organizationId, solution) {
-      let postBody = solution;
+    getSolutionAccessControlWithHttpInfo(organizationId, solutionId, identityId) {
+      let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling importSolution");
+        throw new Error("Missing the required parameter 'organizationId' when calling getSolutionAccessControl");
       }
-      // verify the required parameter 'solution' is set
-      if (solution === undefined || solution === null) {
-        throw new Error("Missing the required parameter 'solution' when calling importSolution");
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling getSolutionAccessControl");
+      }
+      // verify the required parameter 'identityId' is set
+      if (identityId === undefined || identityId === null) {
+        throw new Error("Missing the required parameter 'identityId' when calling getSolutionAccessControl");
       }
 
       let pathParams = {
-        'organization_id': organizationId
+        'organization_id': organizationId,
+        'solution_id': solutionId,
+        'identity_id': identityId
       };
       let queryParams = {
       };
@@ -584,24 +652,78 @@ export default class SolutionApi {
       };
 
       let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json', 'application/yaml'];
+      let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Solution;
+      let returnType = SolutionAccessControl;
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/solutions/import', 'POST',
+        '/organizations/{organization_id}/solutions/{solution_id}/security/access/{identity_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Import a solution
+     * Get a control access for the Solution
      * @param {String} organizationId the Organization identifier
-     * @param {module:model/Solution} solution the Solution to import
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Solution}
+     * @param {String} solutionId the Solution identifier
+     * @param {String} identityId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SolutionAccessControl}
      */
-    importSolution(organizationId, solution) {
-      return this.importSolutionWithHttpInfo(organizationId, solution)
+    getSolutionAccessControl(organizationId, solutionId, identityId) {
+      return this.getSolutionAccessControlWithHttpInfo(organizationId, solutionId, identityId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get the Solution security users list
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<String>} and HTTP response
+     */
+    getSolutionSecurityUsersWithHttpInfo(organizationId, solutionId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getSolutionSecurityUsers");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling getSolutionSecurityUsers");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ['String'];
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/security/users', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get the Solution security users list
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<String>}
+     */
+    getSolutionSecurityUsers(organizationId, solutionId) {
+      return this.getSolutionSecurityUsersWithHttpInfo(organizationId, solutionId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -768,6 +890,66 @@ export default class SolutionApi {
 
 
     /**
+     * Remove the specified access from the given Organization Solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} identityId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    removeSolutionAccessControlWithHttpInfo(organizationId, solutionId, identityId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling removeSolutionAccessControl");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling removeSolutionAccessControl");
+      }
+      // verify the required parameter 'identityId' is set
+      if (identityId === undefined || identityId === null) {
+        throw new Error("Missing the required parameter 'identityId' when calling removeSolutionAccessControl");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId,
+        'identity_id': identityId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/security/access/{identity_id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Remove the specified access from the given Organization Solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} identityId the User identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    removeSolutionAccessControl(organizationId, solutionId, identityId) {
+      return this.removeSolutionAccessControlWithHttpInfo(organizationId, solutionId, identityId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Update a solution
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
@@ -820,6 +1002,72 @@ export default class SolutionApi {
      */
     updateSolution(organizationId, solutionId, solution) {
       return this.updateSolutionWithHttpInfo(organizationId, solutionId, solution)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Update the specified access to User for a Solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} identityId the User identifier
+     * @param {module:model/SolutionRole} solutionRole The new Solution Access Control
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SolutionAccessControl} and HTTP response
+     */
+    updateSolutionAccessControlWithHttpInfo(organizationId, solutionId, identityId, solutionRole) {
+      let postBody = solutionRole;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling updateSolutionAccessControl");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling updateSolutionAccessControl");
+      }
+      // verify the required parameter 'identityId' is set
+      if (identityId === undefined || identityId === null) {
+        throw new Error("Missing the required parameter 'identityId' when calling updateSolutionAccessControl");
+      }
+      // verify the required parameter 'solutionRole' is set
+      if (solutionRole === undefined || solutionRole === null) {
+        throw new Error("Missing the required parameter 'solutionRole' when calling updateSolutionAccessControl");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId,
+        'identity_id': identityId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = SolutionAccessControl;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/security/access/{identity_id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Update the specified access to User for a Solution
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {String} identityId the User identifier
+     * @param {module:model/SolutionRole} solutionRole The new Solution Access Control
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SolutionAccessControl}
+     */
+    updateSolutionAccessControl(organizationId, solutionId, identityId, solutionRole) {
+      return this.updateSolutionAccessControlWithHttpInfo(organizationId, solutionId, identityId, solutionRole)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

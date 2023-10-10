@@ -67,6 +67,9 @@ import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParame
 import ScenarioSecurity from './model/ScenarioSecurity';
 import ScenarioValidationStatus from './model/ScenarioValidationStatus';
 import Solution from './model/Solution';
+import SolutionAccessControl from './model/SolutionAccessControl';
+import SolutionRole from './model/SolutionRole';
+import SolutionSecurity from './model/SolutionSecurity';
 import SourceInfo from './model/SourceInfo';
 import TwinGraphBatchResult from './model/TwinGraphBatchResult';
 import TwinGraphHash from './model/TwinGraphHash';
@@ -456,6 +459,24 @@ export {
      * @property {module:model/Solution}
      */
     Solution,
+
+    /**
+     * The SolutionAccessControl model constructor.
+     * @property {module:model/SolutionAccessControl}
+     */
+    SolutionAccessControl,
+
+    /**
+     * The SolutionRole model constructor.
+     * @property {module:model/SolutionRole}
+     */
+    SolutionRole,
+
+    /**
+     * The SolutionSecurity model constructor.
+     * @property {module:model/SolutionSecurity}
+     */
+    SolutionSecurity,
 
     /**
      * The SourceInfo model constructor.

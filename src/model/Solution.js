@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import RunTemplate from './RunTemplate';
 import RunTemplateParameter from './RunTemplateParameter';
 import RunTemplateParameterGroup from './RunTemplateParameterGroup';
+import SolutionSecurity from './SolutionSecurity';
 
 /**
  * The Solution model module.
@@ -95,6 +96,9 @@ class Solution {
             }
             if (data.hasOwnProperty('runTemplates')) {
                 obj['runTemplates'] = ApiClient.convertToType(data['runTemplates'], [RunTemplate]);
+            }
+            if (data.hasOwnProperty('security')) {
+                obj['security'] = ApiClient.convertToType(data['security'], SolutionSecurity);
             }
         }
         return obj;
@@ -192,6 +196,11 @@ Solution.prototype['parameterGroups'] = undefined;
  * @member {Array.<module:model/RunTemplate>} runTemplates
  */
 Solution.prototype['runTemplates'] = undefined;
+
+/**
+ * @member {module:model/SolutionSecurity} security
+ */
+Solution.prototype['security'] = undefined;
 
 
 
