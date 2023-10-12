@@ -176,51 +176,6 @@ export default class ConnectorApi {
 
 
     /**
-     * Import existing connector
-     * @param {module:model/Connector} connector the Connector to import
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Connector} and HTTP response
-     */
-    importConnectorWithHttpInfo(connector) {
-      let postBody = connector;
-      // verify the required parameter 'connector' is set
-      if (connector === undefined || connector === null) {
-        throw new Error("Missing the required parameter 'connector' when calling importConnector");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = Connector;
-      return this.apiClient.callApi(
-        '/connectors/import', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Import existing connector
-     * @param {module:model/Connector} connector the Connector to import
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Connector}
-     */
-    importConnector(connector) {
-      return this.importConnectorWithHttpInfo(connector)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
      * Register a new connector
      * @param {module:model/Connector} connector the Connector to register
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Connector} and HTTP response

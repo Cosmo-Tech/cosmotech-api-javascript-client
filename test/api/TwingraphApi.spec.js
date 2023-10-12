@@ -148,16 +148,6 @@
         done();
       });
     });
-    describe('importGraph', function() {
-      it('should call importGraph successfully', function(done) {
-        //uncomment below and update the code to test importGraph
-        //instance.importGraph(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('jobStatus', function() {
       it('should call jobStatus successfully', function(done) {
         //uncomment below and update the code to test jobStatus

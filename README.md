@@ -129,7 +129,6 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ConnectorApi* | [**findAllConnectors**](docs/ConnectorApi.md#findAllConnectors) | **GET** /connectors | List all Connectors
 *CosmotechApi.ConnectorApi* | [**findConnectorById**](docs/ConnectorApi.md#findConnectorById) | **GET** /connectors/{connector_id} | Get the details of a connector
 *CosmotechApi.ConnectorApi* | [**findConnectorByName**](docs/ConnectorApi.md#findConnectorByName) | **GET** /connectors/name/{connector_name} | Get the details of a connector
-*CosmotechApi.ConnectorApi* | [**importConnector**](docs/ConnectorApi.md#importConnector) | **POST** /connectors/import | Import existing connector
 *CosmotechApi.ConnectorApi* | [**registerConnector**](docs/ConnectorApi.md#registerConnector) | **POST** /connectors | Register a new connector
 *CosmotechApi.ConnectorApi* | [**unregisterConnector**](docs/ConnectorApi.md#unregisterConnector) | **DELETE** /connectors/{connector_id} | Unregister a connector
 *CosmotechApi.DatasetApi* | [**addDatasetAccessControl**](docs/DatasetApi.md#addDatasetAccessControl) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/security/access | Add a control access to the Dataset
@@ -243,7 +242,6 @@ Class | Method | HTTP request | Description
 *CosmotechApi.TwingraphApi* | [**findAllTwingraphs**](docs/TwingraphApi.md#findAllTwingraphs) | **GET** /organizations/{organization_id}/twingraphs | Return the list of all graphs stored in the organization
 *CosmotechApi.TwingraphApi* | [**getEntities**](docs/TwingraphApi.md#getEntities) | **GET** /organizations/{organization_id}/twingraph/{graph_id}/entity/{type} | Get entities in a graph instance
 *CosmotechApi.TwingraphApi* | [**getGraphMetaData**](docs/TwingraphApi.md#getGraphMetaData) | **GET** /organizations/{organization_id}/twingraph/{graph_id}/metadata | Return the metaData of the specified graph
-*CosmotechApi.TwingraphApi* | [**importGraph**](docs/TwingraphApi.md#importGraph) | **POST** /organizations/{organization_id}/twingraph/import | Import a new version of a twin graph
 *CosmotechApi.TwingraphApi* | [**jobStatus**](docs/TwingraphApi.md#jobStatus) | **GET** /organizations/{organization_id}/job/{job_id}/status | Get the status of a job
 *CosmotechApi.TwingraphApi* | [**query**](docs/TwingraphApi.md#query) | **POST** /organizations/{organization_id}/twingraph/{graph_id}/query | Run a query on a graph instance
 *CosmotechApi.TwingraphApi* | [**updateEntities**](docs/TwingraphApi.md#updateEntities) | **PATCH** /organizations/{organization_id}/twingraph/{graph_id}/entity/{type} | Update entities in a graph instance
@@ -348,8 +346,6 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.SubDatasetGraphQuery](docs/SubDatasetGraphQuery.md)
  - [CosmotechApi.TwinGraphBatchResult](docs/TwinGraphBatchResult.md)
  - [CosmotechApi.TwinGraphHash](docs/TwinGraphHash.md)
- - [CosmotechApi.TwinGraphImport](docs/TwinGraphImport.md)
- - [CosmotechApi.TwinGraphImportInfo](docs/TwinGraphImportInfo.md)
  - [CosmotechApi.TwinGraphQuery](docs/TwinGraphQuery.md)
  - [CosmotechApi.Validator](docs/Validator.md)
  - [CosmotechApi.ValidatorRun](docs/ValidatorRun.md)

@@ -81,8 +81,6 @@ import SourceInfo from './model/SourceInfo';
 import SubDatasetGraphQuery from './model/SubDatasetGraphQuery';
 import TwinGraphBatchResult from './model/TwinGraphBatchResult';
 import TwinGraphHash from './model/TwinGraphHash';
-import TwinGraphImport from './model/TwinGraphImport';
-import TwinGraphImportInfo from './model/TwinGraphImportInfo';
 import TwinGraphQuery from './model/TwinGraphQuery';
 import Validator from './model/Validator';
 import ValidatorRun from './model/ValidatorRun';
@@ -551,18 +549,6 @@ export {
      * @property {module:model/TwinGraphHash}
      */
     TwinGraphHash,
-
-    /**
-     * The TwinGraphImport model constructor.
-     * @property {module:model/TwinGraphImport}
-     */
-    TwinGraphImport,
-
-    /**
-     * The TwinGraphImportInfo model constructor.
-     * @property {module:model/TwinGraphImportInfo}
-     */
-    TwinGraphImportInfo,
 
     /**
      * The TwinGraphQuery model constructor.

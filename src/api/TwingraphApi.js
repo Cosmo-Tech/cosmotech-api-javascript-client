@@ -16,8 +16,6 @@ import ApiClient from "../ApiClient";
 import GraphProperties from '../model/GraphProperties';
 import TwinGraphBatchResult from '../model/TwinGraphBatchResult';
 import TwinGraphHash from '../model/TwinGraphHash';
-import TwinGraphImport from '../model/TwinGraphImport';
-import TwinGraphImportInfo from '../model/TwinGraphImportInfo';
 import TwinGraphQuery from '../model/TwinGraphQuery';
 
 /**
@@ -642,60 +640,6 @@ export default class TwingraphApi {
      */
     getGraphMetaData(organizationId, graphId) {
       return this.getGraphMetaDataWithHttpInfo(organizationId, graphId)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
-     * Import a new version of a twin graph
-     * Import a new version of a twin graph
-     * @param {String} organizationId the Organization identifier
-     * @param {module:model/TwinGraphImport} twinGraphImport the graph to import
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TwinGraphImportInfo} and HTTP response
-     */
-    importGraphWithHttpInfo(organizationId, twinGraphImport) {
-      let postBody = twinGraphImport;
-      // verify the required parameter 'organizationId' is set
-      if (organizationId === undefined || organizationId === null) {
-        throw new Error("Missing the required parameter 'organizationId' when calling importGraph");
-      }
-      // verify the required parameter 'twinGraphImport' is set
-      if (twinGraphImport === undefined || twinGraphImport === null) {
-        throw new Error("Missing the required parameter 'twinGraphImport' when calling importGraph");
-      }
-
-      let pathParams = {
-        'organization_id': organizationId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = ['application/json', 'application/yaml'];
-      let accepts = ['application/json'];
-      let returnType = TwinGraphImportInfo;
-      return this.apiClient.callApi(
-        '/organizations/{organization_id}/twingraph/import', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Import a new version of a twin graph
-     * Import a new version of a twin graph
-     * @param {String} organizationId the Organization identifier
-     * @param {module:model/TwinGraphImport} twinGraphImport the graph to import
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TwinGraphImportInfo}
-     */
-    importGraph(organizationId, twinGraphImport) {
-      return this.importGraphWithHttpInfo(organizationId, twinGraphImport)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
