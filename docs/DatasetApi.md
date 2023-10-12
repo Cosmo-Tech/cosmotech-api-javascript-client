@@ -4,17 +4,83 @@ All URIs are relative to *https://dev.api.cosmotech.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addDatasetAccessControl**](DatasetApi.md#addDatasetAccessControl) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/security/access | Add a control access to the Dataset
 [**addOrReplaceDatasetCompatibilityElements**](DatasetApi.md#addOrReplaceDatasetCompatibilityElements) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/compatibility | Add Dataset Compatibility elements.
 [**copyDataset**](DatasetApi.md#copyDataset) | **POST** /organizations/{organization_id}/datasets/copy | Copy a Dataset to another Dataset. Source must have a read capable connector and Target a write capable connector.
 [**createDataset**](DatasetApi.md#createDataset) | **POST** /organizations/{organization_id}/datasets | Create a new Dataset
+[**createSubDataset**](DatasetApi.md#createSubDataset) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/subdataset | Run a query on a dataset
+[**createTwingraphEntities**](DatasetApi.md#createTwingraphEntities) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/twingraph/{type} | Create new entities in a graph instance
 [**deleteDataset**](DatasetApi.md#deleteDataset) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id} | Delete a dataset
+[**deleteTwingraphEntities**](DatasetApi.md#deleteTwingraphEntities) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id}/twingraph/{type} | Delete entities in a graph instance
+[**downloadTwingraph**](DatasetApi.md#downloadTwingraph) | **GET** /organizations/{organization_id}/datasets/twingraph/download/{hash} | Download a graph compressed in a zip file
 [**findAllDatasets**](DatasetApi.md#findAllDatasets) | **GET** /organizations/{organization_id}/datasets | List all Datasets
 [**findDatasetById**](DatasetApi.md#findDatasetById) | **GET** /organizations/{organization_id}/datasets/{dataset_id} | Get the details of a Dataset
-[**importDataset**](DatasetApi.md#importDataset) | **POST** /organizations/{organization_id}/datasets/import | Import a new Dataset
+[**getDatasetAccessControl**](DatasetApi.md#getDatasetAccessControl) | **GET** /organizations/{organization_id}/datasets/{dataset_id}/security/access/{identity_id} | Get a control access for the Dataset
+[**getDatasetSecurityUsers**](DatasetApi.md#getDatasetSecurityUsers) | **GET** /organizations/{organization_id}/datasets/{dataset_id}/security/users | Get the Dataset security users list
+[**getDatasetTwingraphStatus**](DatasetApi.md#getDatasetTwingraphStatus) | **GET** /organizations/{organization_id}/datasets/{dataset_id}/job/{job_id}/status | Get the status of twingraph import
+[**getTwingraphEntities**](DatasetApi.md#getTwingraphEntities) | **GET** /organizations/{organization_id}/datasets/{dataset_id}/twingraph/{type} | Get entities in a graph instance
+[**refreshDataset**](DatasetApi.md#refreshDataset) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/refresh | Refresh dataset
 [**removeAllDatasetCompatibilityElements**](DatasetApi.md#removeAllDatasetCompatibilityElements) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id}/compatibility | Remove all Dataset Compatibility elements from the Dataset specified
+[**removeDatasetAccessControl**](DatasetApi.md#removeDatasetAccessControl) | **DELETE** /organizations/{organization_id}/datasets/{dataset_id}/security/access/{identity_id} | Remove the specified access from the given Dataset
 [**searchDatasets**](DatasetApi.md#searchDatasets) | **POST** /organizations/{organization_id}/datasets/search | Search Datasets
+[**twingraphBatchQuery**](DatasetApi.md#twingraphBatchQuery) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/batch-query | Run a query on a graph instance and return the result as a zip file in async mode
+[**twingraphBatchUpdate**](DatasetApi.md#twingraphBatchUpdate) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/batch | Async batch update by loading a CSV file on a graph instance 
+[**twingraphQuery**](DatasetApi.md#twingraphQuery) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/twingraph | Run a query on a graph instance and return the result as a json
 [**updateDataset**](DatasetApi.md#updateDataset) | **PATCH** /organizations/{organization_id}/datasets/{dataset_id} | Update a dataset
+[**updateDatasetAccessControl**](DatasetApi.md#updateDatasetAccessControl) | **PATCH** /organizations/{organization_id}/datasets/{dataset_id}/security/access/{identity_id} | Update the specified access to User for a Dataset
+[**updateTwingraphEntities**](DatasetApi.md#updateTwingraphEntities) | **PATCH** /organizations/{organization_id}/datasets/{dataset_id}/twingraph/{type} | Update entities in a graph instance
+[**uploadTwingraph**](DatasetApi.md#uploadTwingraph) | **POST** /organizations/{organization_id}/datasets/{dataset_id} | Upload Twingraph with ZIP File
 
+
+
+## addDatasetAccessControl
+
+> DatasetAccessControl addDatasetAccessControl(organizationId, datasetId, datasetAccessControl)
+
+Add a control access to the Dataset
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+let datasetAccessControl = new CosmotechApi.DatasetAccessControl(); // DatasetAccessControl | the new Dataset security access to add.
+apiInstance.addDatasetAccessControl(organizationId, datasetId, datasetAccessControl).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+ **datasetAccessControl** | [**DatasetAccessControl**](DatasetAccessControl.md)| the new Dataset security access to add. | 
+
+### Return type
+
+[**DatasetAccessControl**](DatasetAccessControl.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
 
 
 ## addOrReplaceDatasetCompatibilityElements
@@ -163,6 +229,112 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## createSubDataset
+
+> Dataset createSubDataset(organizationId, datasetId, subDatasetGraphQuery)
+
+Run a query on a dataset
+
+Run a query on a dataset
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+let subDatasetGraphQuery = new CosmotechApi.SubDatasetGraphQuery(); // SubDatasetGraphQuery | the query to run
+apiInstance.createSubDataset(organizationId, datasetId, subDatasetGraphQuery).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+ **subDatasetGraphQuery** | [**SubDatasetGraphQuery**](SubDatasetGraphQuery.md)| the query to run | 
+
+### Return type
+
+[**Dataset**](Dataset.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## createTwingraphEntities
+
+> String createTwingraphEntities(organizationId, datasetId, type, graphProperties)
+
+Create new entities in a graph instance
+
+create new entities in a graph instance
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset Identifier
+let type = "type_example"; // String | the entity model type
+let graphProperties = [new CosmotechApi.GraphProperties()]; // [GraphProperties] | the entities to create
+apiInstance.createTwingraphEntities(organizationId, datasetId, type, graphProperties).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset Identifier | 
+ **type** | **String**| the entity model type | 
+ **graphProperties** | [**[GraphProperties]**](GraphProperties.md)| the entities to create | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## deleteDataset
 
 > deleteDataset(organizationId, datasetId)
@@ -209,6 +381,110 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+
+## deleteTwingraphEntities
+
+> deleteTwingraphEntities(organizationId, datasetId, type, ids)
+
+Delete entities in a graph instance
+
+delete entities in a graph instance
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset Identifier
+let type = "type_example"; // String | the entity model type
+let ids = ["null"]; // [String] | the entities to delete
+apiInstance.deleteTwingraphEntities(organizationId, datasetId, type, ids).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset Identifier | 
+ **type** | **String**| the entity model type | 
+ **ids** | [**[String]**](String.md)| the entities to delete | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## downloadTwingraph
+
+> File downloadTwingraph(organizationId, hash)
+
+Download a graph compressed in a zip file
+
+Download a graph compressed in a zip file
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let hash = "hash_example"; // String | the Graph download identifier
+apiInstance.downloadTwingraph(organizationId, hash).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **hash** | **String**| the Graph download identifier | 
+
+### Return type
+
+**File**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
 
 
 ## findAllDatasets
@@ -311,11 +587,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## importDataset
+## getDatasetAccessControl
 
-> Dataset importDataset(organizationId, dataset)
+> DatasetAccessControl getDatasetAccessControl(organizationId, datasetId, identityId)
 
-Import a new Dataset
+Get a control access for the Dataset
 
 ### Example
 
@@ -328,8 +604,9 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let dataset = new CosmotechApi.Dataset(); // Dataset | the Dataset to import
-apiInstance.importDataset(organizationId, dataset).then((data) => {
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+let identityId = "identityId_example"; // String | the User identifier
+apiInstance.getDatasetAccessControl(organizationId, datasetId, identityId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -343,11 +620,12 @@ apiInstance.importDataset(organizationId, dataset).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **dataset** | [**Dataset**](Dataset.md)| the Dataset to import | 
+ **datasetId** | **String**| the Dataset identifier | 
+ **identityId** | **String**| the User identifier | 
 
 ### Return type
 
-[**Dataset**](Dataset.md)
+[**DatasetAccessControl**](DatasetAccessControl.md)
 
 ### Authorization
 
@@ -355,7 +633,211 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDatasetSecurityUsers
+
+> [String] getDatasetSecurityUsers(organizationId, datasetId)
+
+Get the Dataset security users list
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+apiInstance.getDatasetSecurityUsers(organizationId, datasetId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+
+### Return type
+
+**[String]**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getDatasetTwingraphStatus
+
+> String getDatasetTwingraphStatus(organizationId, datasetId, jobId)
+
+Get the status of twingraph import
+
+Get the status of a twingraph import
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the dataset identifier
+let jobId = "jobId_example"; // String | the job identifier
+apiInstance.getDatasetTwingraphStatus(organizationId, datasetId, jobId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the dataset identifier | 
+ **jobId** | **String**| the job identifier | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/yaml, application/json
+
+
+## getTwingraphEntities
+
+> String getTwingraphEntities(organizationId, datasetId, type, ids)
+
+Get entities in a graph instance
+
+get entities in a graph instance
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset Identifier
+let type = "type_example"; // String | the entity model type
+let ids = ["null"]; // [String] | the entities to get
+apiInstance.getTwingraphEntities(organizationId, datasetId, type, ids).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset Identifier | 
+ **type** | **String**| the entity model type | 
+ **ids** | [**[String]**](String.md)| the entities to get | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## refreshDataset
+
+> DatasetTwinGraphInfo refreshDataset(organizationId, datasetId)
+
+Refresh dataset
+
+Refresh ADT, Storage dataset
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+apiInstance.refreshDataset(organizationId, datasetId).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+
+### Return type
+
+[**DatasetTwinGraphInfo**](DatasetTwinGraphInfo.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -392,6 +874,56 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **datasetId** | **String**| the Dataset identifier | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## removeDatasetAccessControl
+
+> removeDatasetAccessControl(organizationId, datasetId, identityId)
+
+Remove the specified access from the given Dataset
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+let identityId = "identityId_example"; // String | the User identifier
+apiInstance.removeDatasetAccessControl(organizationId, datasetId, identityId).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+ **identityId** | **String**| the User identifier | 
 
 ### Return type
 
@@ -461,6 +993,167 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## twingraphBatchQuery
+
+> DatasetTwinGraphHash twingraphBatchQuery(organizationId, datasetId, datasetTwinGraphQuery)
+
+Run a query on a graph instance and return the result as a zip file in async mode
+
+Run a query on a graph instance and return the result as a zip file in async mode
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Graph Identifier
+let datasetTwinGraphQuery = new CosmotechApi.DatasetTwinGraphQuery(); // DatasetTwinGraphQuery | the query to run
+apiInstance.twingraphBatchQuery(organizationId, datasetId, datasetTwinGraphQuery).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Graph Identifier | 
+ **datasetTwinGraphQuery** | [**DatasetTwinGraphQuery**](DatasetTwinGraphQuery.md)| the query to run | 
+
+### Return type
+
+[**DatasetTwinGraphHash**](DatasetTwinGraphHash.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## twingraphBatchUpdate
+
+> TwinGraphBatchResult twingraphBatchUpdate(organizationId, datasetId, twinGraphQuery, body)
+
+Async batch update by loading a CSV file on a graph instance 
+
+Async batch update by loading a CSV file on a graph instance 
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset Identifier
+let twinGraphQuery = {"query":"CREATE (:Person {id: toInteger($id), name: $name, rank: toInteger($rank)})"}; // DatasetTwinGraphQuery | 
+let body = id,name,rank
+1,"John Doe",37
+2,"Joe Bloggs",14
+; // File | 
+apiInstance.twingraphBatchUpdate(organizationId, datasetId, twinGraphQuery, body).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset Identifier | 
+ **twinGraphQuery** | [**DatasetTwinGraphQuery**](.md)|  | 
+ **body** | **File**|  | 
+
+### Return type
+
+[**TwinGraphBatchResult**](TwinGraphBatchResult.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: text/csv, application/octet-stream
+- **Accept**: application/json
+
+
+## twingraphQuery
+
+> String twingraphQuery(organizationId, datasetId, datasetTwinGraphQuery)
+
+Run a query on a graph instance and return the result as a json
+
+Run a query on a graph instance and return the result as a json
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+let datasetTwinGraphQuery = new CosmotechApi.DatasetTwinGraphQuery(); // DatasetTwinGraphQuery | the query to run
+apiInstance.twingraphQuery(organizationId, datasetId, datasetTwinGraphQuery).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+ **datasetTwinGraphQuery** | [**DatasetTwinGraphQuery**](DatasetTwinGraphQuery.md)| the query to run | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## updateDataset
 
 > Dataset updateDataset(organizationId, datasetId, dataset)
@@ -509,4 +1202,162 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
+
+
+## updateDatasetAccessControl
+
+> DatasetAccessControl updateDatasetAccessControl(organizationId, datasetId, identityId, datasetRole)
+
+Update the specified access to User for a Dataset
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+let identityId = "identityId_example"; // String | the User identifier
+let datasetRole = new CosmotechApi.DatasetRole(); // DatasetRole | The new Dataset Access Control
+apiInstance.updateDatasetAccessControl(organizationId, datasetId, identityId, datasetRole).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+ **identityId** | **String**| the User identifier | 
+ **datasetRole** | [**DatasetRole**](DatasetRole.md)| The new Dataset Access Control | 
+
+### Return type
+
+[**DatasetAccessControl**](DatasetAccessControl.md)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## updateTwingraphEntities
+
+> String updateTwingraphEntities(organizationId, datasetId, type, graphProperties)
+
+Update entities in a graph instance
+
+update entities in a graph instance
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset Identifier
+let type = "type_example"; // String | the entity model type
+let graphProperties = [new CosmotechApi.GraphProperties()]; // [GraphProperties] | the entities to update
+apiInstance.updateTwingraphEntities(organizationId, datasetId, type, graphProperties).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset Identifier | 
+ **type** | **String**| the entity model type | 
+ **graphProperties** | [**[GraphProperties]**](GraphProperties.md)| the entities to update | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## uploadTwingraph
+
+> uploadTwingraph(organizationId, datasetId, body)
+
+Upload Twingraph with ZIP File
+
+Upload Twingraph ZIP
+
+### Example
+
+```javascript
+import CosmotechApi from '@cosmotech/api';
+let defaultClient = CosmotechApi.ApiClient.instance;
+// Configure OAuth2 access token for authorization: oAuth2AuthCode
+let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
+oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
+
+let apiInstance = new CosmotechApi.DatasetApi();
+let organizationId = "organizationId_example"; // String | the Organization identifier
+let datasetId = "datasetId_example"; // String | the Dataset identifier
+let body = "/path/to/file"; // File | 
+apiInstance.uploadTwingraph(organizationId, datasetId, body).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organizationId** | **String**| the Organization identifier | 
+ **datasetId** | **String**| the Dataset identifier | 
+ **body** | **File**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[oAuth2AuthCode](../README.md#oAuth2AuthCode)
+
+### HTTP request headers
+
+- **Content-Type**: application/octet-stream
+- **Accept**: Not defined
 
