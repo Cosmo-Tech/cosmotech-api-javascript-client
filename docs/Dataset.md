@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **parentId** | **String** | the Dataset id which is the parent of this Dataset | [optional] 
 **twingraphId** | **String** | the twin graph id | [optional] 
 **main** | **Boolean** | is this the main dataset | [optional] 
+**creationDate** | **Number** | the Dataset creation date | [optional] [readonly] 
+**refreshDate** | **Number** | the last time a refresh was done | [optional] [readonly] 
 **sourceType** | [**DatasetSourceType**](DatasetSourceType.md) |  | [optional] 
 **source** | [**SourceInfo**](SourceInfo.md) |  | [optional] 
 **status** | **String** | the Dataset status | [optional] 
