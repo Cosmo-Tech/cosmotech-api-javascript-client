@@ -168,6 +168,16 @@
         done();
       });
     });
+    describe('getDatasetSecurity', function() {
+      it('should call getDatasetSecurity successfully', function(done) {
+        //uncomment below and update the code to test getDatasetSecurity
+        //instance.getDatasetSecurity(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getDatasetSecurityUsers', function() {
       it('should call getDatasetSecurityUsers successfully', function(done) {
         //uncomment below and update the code to test getDatasetSecurityUsers
@@ -232,6 +242,16 @@
       it('should call searchDatasets successfully', function(done) {
         //uncomment below and update the code to test searchDatasets
         //instance.searchDatasets(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('setDatasetDefaultSecurity', function() {
+      it('should call setDatasetDefaultSecurity successfully', function(done) {
+        //uncomment below and update the code to test setDatasetDefaultSecurity
+        //instance.setDatasetDefaultSecurity(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

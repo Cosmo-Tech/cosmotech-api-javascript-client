@@ -20,6 +20,7 @@ import RunTemplateParameterGroup from '../model/RunTemplateParameterGroup';
 import Solution from '../model/Solution';
 import SolutionAccessControl from '../model/SolutionAccessControl';
 import SolutionRole from '../model/SolutionRole';
+import SolutionSecurity from '../model/SolutionSecurity';
 
 /**
 * Solution service.
@@ -678,6 +679,59 @@ export default class SolutionApi {
 
 
     /**
+     * Get the Solution security information
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SolutionSecurity} and HTTP response
+     */
+    getSolutionSecurityWithHttpInfo(organizationId, solutionId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getSolutionSecurity");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling getSolutionSecurity");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = SolutionSecurity;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/security', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get the Solution security information
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SolutionSecurity}
+     */
+    getSolutionSecurity(organizationId, solutionId) {
+      return this.getSolutionSecurityWithHttpInfo(organizationId, solutionId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Get the Solution security users list
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
@@ -943,6 +997,65 @@ export default class SolutionApi {
      */
     removeSolutionAccessControl(organizationId, solutionId, identityId) {
       return this.removeSolutionAccessControlWithHttpInfo(organizationId, solutionId, identityId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Set the Solution default security
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {module:model/SolutionRole} solutionRole the new Solution default security.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SolutionSecurity} and HTTP response
+     */
+    setSolutionDefaultSecurityWithHttpInfo(organizationId, solutionId, solutionRole) {
+      let postBody = solutionRole;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling setSolutionDefaultSecurity");
+      }
+      // verify the required parameter 'solutionId' is set
+      if (solutionId === undefined || solutionId === null) {
+        throw new Error("Missing the required parameter 'solutionId' when calling setSolutionDefaultSecurity");
+      }
+      // verify the required parameter 'solutionRole' is set
+      if (solutionRole === undefined || solutionRole === null) {
+        throw new Error("Missing the required parameter 'solutionRole' when calling setSolutionDefaultSecurity");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'solution_id': solutionId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json', 'application/yaml'];
+      let accepts = ['application/json'];
+      let returnType = SolutionSecurity;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/solutions/{solution_id}/security/default', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Set the Solution default security
+     * @param {String} organizationId the Organization identifier
+     * @param {String} solutionId the Solution identifier
+     * @param {module:model/SolutionRole} solutionRole the new Solution default security.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SolutionSecurity}
+     */
+    setSolutionDefaultSecurity(organizationId, solutionId, solutionRole) {
+      return this.setSolutionDefaultSecurityWithHttpInfo(organizationId, solutionId, solutionRole)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

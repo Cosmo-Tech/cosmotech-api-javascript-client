@@ -158,6 +158,16 @@
         done();
       });
     });
+    describe('getSolutionSecurity', function() {
+      it('should call getSolutionSecurity successfully', function(done) {
+        //uncomment below and update the code to test getSolutionSecurity
+        //instance.getSolutionSecurity(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getSolutionSecurityUsers', function() {
       it('should call getSolutionSecurityUsers successfully', function(done) {
         //uncomment below and update the code to test getSolutionSecurityUsers
@@ -202,6 +212,16 @@
       it('should call removeSolutionAccessControl successfully', function(done) {
         //uncomment below and update the code to test removeSolutionAccessControl
         //instance.removeSolutionAccessControl(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('setSolutionDefaultSecurity', function() {
+      it('should call setSolutionDefaultSecurity successfully', function(done) {
+        //uncomment below and update the code to test setSolutionDefaultSecurity
+        //instance.setSolutionDefaultSecurity(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

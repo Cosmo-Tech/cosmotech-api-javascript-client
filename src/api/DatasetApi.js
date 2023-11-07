@@ -19,6 +19,7 @@ import DatasetCompatibility from '../model/DatasetCompatibility';
 import DatasetCopyParameters from '../model/DatasetCopyParameters';
 import DatasetRole from '../model/DatasetRole';
 import DatasetSearch from '../model/DatasetSearch';
+import DatasetSecurity from '../model/DatasetSecurity';
 import DatasetTwinGraphHash from '../model/DatasetTwinGraphHash';
 import DatasetTwinGraphInfo from '../model/DatasetTwinGraphInfo';
 import DatasetTwinGraphQuery from '../model/DatasetTwinGraphQuery';
@@ -745,6 +746,59 @@ export default class DatasetApi {
 
 
     /**
+     * Get the Dataset security information
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DatasetSecurity} and HTTP response
+     */
+    getDatasetSecurityWithHttpInfo(organizationId, datasetId) {
+      let postBody = null;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling getDatasetSecurity");
+      }
+      // verify the required parameter 'datasetId' is set
+      if (datasetId === undefined || datasetId === null) {
+        throw new Error("Missing the required parameter 'datasetId' when calling getDatasetSecurity");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'dataset_id': datasetId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = DatasetSecurity;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/datasets/{dataset_id}/security', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get the Dataset security information
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DatasetSecurity}
+     */
+    getDatasetSecurity(organizationId, datasetId) {
+      return this.getDatasetSecurityWithHttpInfo(organizationId, datasetId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Get the Dataset security users list
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
@@ -1151,6 +1205,65 @@ export default class DatasetApi {
      */
     searchDatasets(organizationId, datasetSearch, opts) {
       return this.searchDatasetsWithHttpInfo(organizationId, datasetSearch, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Set the Dataset default security
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @param {module:model/DatasetRole} datasetRole the new Dataset default security.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DatasetSecurity} and HTTP response
+     */
+    setDatasetDefaultSecurityWithHttpInfo(organizationId, datasetId, datasetRole) {
+      let postBody = datasetRole;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling setDatasetDefaultSecurity");
+      }
+      // verify the required parameter 'datasetId' is set
+      if (datasetId === undefined || datasetId === null) {
+        throw new Error("Missing the required parameter 'datasetId' when calling setDatasetDefaultSecurity");
+      }
+      // verify the required parameter 'datasetRole' is set
+      if (datasetRole === undefined || datasetRole === null) {
+        throw new Error("Missing the required parameter 'datasetRole' when calling setDatasetDefaultSecurity");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'dataset_id': datasetId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json', 'application/yaml'];
+      let accepts = ['application/json'];
+      let returnType = DatasetSecurity;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/datasets/{dataset_id}/security/default', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Set the Dataset default security
+     * @param {String} organizationId the Organization identifier
+     * @param {String} datasetId the Dataset identifier
+     * @param {module:model/DatasetRole} datasetRole the new Dataset default security.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DatasetSecurity}
+     */
+    setDatasetDefaultSecurity(organizationId, datasetId, datasetRole) {
+      return this.setDatasetDefaultSecurityWithHttpInfo(organizationId, datasetId, datasetRole)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
