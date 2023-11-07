@@ -72,6 +72,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property jobId (base name: "jobId")', function() {
+      // uncomment below and update the code to test the property jobId
+      //var instance = new CosmotechApi.SourceInfo();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

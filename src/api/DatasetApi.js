@@ -856,10 +856,9 @@ export default class DatasetApi {
      * Get the status of the import workflow lauch on the dataset's refresh.
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the dataset identifier
-     * @param {String} jobId the job identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
      */
-    getDatasetTwingraphStatusWithHttpInfo(organizationId, datasetId, jobId) {
+    getDatasetTwingraphStatusWithHttpInfo(organizationId, datasetId) {
       let postBody = null;
       // verify the required parameter 'organizationId' is set
       if (organizationId === undefined || organizationId === null) {
@@ -869,15 +868,10 @@ export default class DatasetApi {
       if (datasetId === undefined || datasetId === null) {
         throw new Error("Missing the required parameter 'datasetId' when calling getDatasetTwingraphStatus");
       }
-      // verify the required parameter 'jobId' is set
-      if (jobId === undefined || jobId === null) {
-        throw new Error("Missing the required parameter 'jobId' when calling getDatasetTwingraphStatus");
-      }
 
       let pathParams = {
         'organization_id': organizationId,
-        'dataset_id': datasetId,
-        'job_id': jobId
+        'dataset_id': datasetId
       };
       let queryParams = {
       };
@@ -891,7 +885,7 @@ export default class DatasetApi {
       let accepts = ['application/yaml', 'application/json'];
       let returnType = 'String';
       return this.apiClient.callApi(
-        '/organizations/{organization_id}/datasets/{dataset_id}/job/{job_id}/status', 'GET',
+        '/organizations/{organization_id}/datasets/{dataset_id}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
@@ -902,11 +896,10 @@ export default class DatasetApi {
      * Get the status of the import workflow lauch on the dataset's refresh.
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the dataset identifier
-     * @param {String} jobId the job identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
      */
-    getDatasetTwingraphStatus(organizationId, datasetId, jobId) {
-      return this.getDatasetTwingraphStatusWithHttpInfo(organizationId, datasetId, jobId)
+    getDatasetTwingraphStatus(organizationId, datasetId) {
+      return this.getDatasetTwingraphStatusWithHttpInfo(organizationId, datasetId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

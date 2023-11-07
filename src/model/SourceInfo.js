@@ -59,6 +59,9 @@ class SourceInfo {
             if (data.hasOwnProperty('path')) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
             }
+            if (data.hasOwnProperty('jobId')) {
+                obj['jobId'] = ApiClient.convertToType(data['jobId'], 'String');
+            }
         }
         return obj;
     }
@@ -83,6 +86,12 @@ SourceInfo.prototype['location'] = undefined;
  * @member {String} path
  */
 SourceInfo.prototype['path'] = undefined;
+
+/**
+ * indicate the last import jobId
+ * @member {String} jobId
+ */
+SourceInfo.prototype['jobId'] = undefined;
 
 
 
