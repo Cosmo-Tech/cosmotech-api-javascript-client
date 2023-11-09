@@ -509,7 +509,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let organizationRole = new CosmotechApi.OrganizationRole(); // OrganizationRole | the new Organization default security.
+let organizationRole = new CosmotechApi.OrganizationRole(); // OrganizationRole | This change the organization default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the organization.
 apiInstance.setOrganizationDefaultSecurity(organizationId, organizationRole).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -524,7 +524,7 @@ apiInstance.setOrganizationDefaultSecurity(organizationId, organizationRole).the
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **organizationRole** | [**OrganizationRole**](OrganizationRole.md)| the new Organization default security. | 
+ **organizationRole** | [**OrganizationRole**](OrganizationRole.md)| This change the organization default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the organization. | 
 
 ### Return type
 

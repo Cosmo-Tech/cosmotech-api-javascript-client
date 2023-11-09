@@ -1231,7 +1231,7 @@ export default class ScenarioApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:model/ScenarioRole} scenarioRole the new Scenario default security.
+     * @param {module:model/ScenarioRole} scenarioRole This change the scenario default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the scenario.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ScenarioSecurity} and HTTP response
      */
     setScenarioDefaultSecurityWithHttpInfo(organizationId, workspaceId, scenarioId, scenarioRole) {
@@ -1281,7 +1281,7 @@ export default class ScenarioApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {String} scenarioId the Scenario identifier
-     * @param {module:model/ScenarioRole} scenarioRole the new Scenario default security.
+     * @param {module:model/ScenarioRole} scenarioRole This change the scenario default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the scenario.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ScenarioSecurity}
      */
     setScenarioDefaultSecurity(organizationId, workspaceId, scenarioId, scenarioRole) {

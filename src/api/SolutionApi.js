@@ -1007,7 +1007,7 @@ export default class SolutionApi {
      * Set the Solution default security
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
-     * @param {module:model/SolutionRole} solutionRole the new Solution default security.
+     * @param {module:model/SolutionRole} solutionRole This change the solution default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the solution.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SolutionSecurity} and HTTP response
      */
     setSolutionDefaultSecurityWithHttpInfo(organizationId, solutionId, solutionRole) {
@@ -1051,7 +1051,7 @@ export default class SolutionApi {
      * Set the Solution default security
      * @param {String} organizationId the Organization identifier
      * @param {String} solutionId the Solution identifier
-     * @param {module:model/SolutionRole} solutionRole the new Solution default security.
+     * @param {module:model/SolutionRole} solutionRole This change the solution default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the solution.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SolutionSecurity}
      */
     setSolutionDefaultSecurity(organizationId, solutionId, solutionRole) {

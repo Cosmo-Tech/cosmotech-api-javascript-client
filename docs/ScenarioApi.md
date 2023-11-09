@@ -1018,7 +1018,7 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-let scenarioRole = new CosmotechApi.ScenarioRole(); // ScenarioRole | the new Scenario default security.
+let scenarioRole = new CosmotechApi.ScenarioRole(); // ScenarioRole | This change the scenario default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the scenario.
 apiInstance.setScenarioDefaultSecurity(organizationId, workspaceId, scenarioId, scenarioRole).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -1035,7 +1035,7 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
- **scenarioRole** | [**ScenarioRole**](ScenarioRole.md)| the new Scenario default security. | 
+ **scenarioRole** | [**ScenarioRole**](ScenarioRole.md)| This change the scenario default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the scenario. | 
 
 ### Return type
 

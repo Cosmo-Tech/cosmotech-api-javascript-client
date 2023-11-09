@@ -885,7 +885,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
-let solutionRole = new CosmotechApi.SolutionRole(); // SolutionRole | the new Solution default security.
+let solutionRole = new CosmotechApi.SolutionRole(); // SolutionRole | This change the solution default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the solution.
 apiInstance.setSolutionDefaultSecurity(organizationId, solutionId, solutionRole).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -901,7 +901,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **solutionId** | **String**| the Solution identifier | 
- **solutionRole** | [**SolutionRole**](SolutionRole.md)| the new Solution default security. | 
+ **solutionRole** | [**SolutionRole**](SolutionRole.md)| This change the solution default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the solution. | 
 
 ### Return type
 

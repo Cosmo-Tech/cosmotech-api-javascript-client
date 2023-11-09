@@ -887,7 +887,7 @@ export default class WorkspaceApi {
      * Set the Workspace default security
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:model/WorkspaceRole} workspaceRole the new Workspace default security.
+     * @param {module:model/WorkspaceRole} workspaceRole This change the workspace default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the workspace.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/WorkspaceSecurity} and HTTP response
      */
     setWorkspaceDefaultSecurityWithHttpInfo(organizationId, workspaceId, workspaceRole) {
@@ -931,7 +931,7 @@ export default class WorkspaceApi {
      * Set the Workspace default security
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @param {module:model/WorkspaceRole} workspaceRole the new Workspace default security.
+     * @param {module:model/WorkspaceRole} workspaceRole This change the workspace default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the workspace.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WorkspaceSecurity}
      */
     setWorkspaceDefaultSecurity(organizationId, workspaceId, workspaceRole) {

@@ -1061,7 +1061,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetId = "datasetId_example"; // String | the Dataset identifier
-let datasetRole = new CosmotechApi.DatasetRole(); // DatasetRole | the new Dataset default security.
+let datasetRole = new CosmotechApi.DatasetRole(); // DatasetRole | This change the dataset default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the dataset.
 apiInstance.setDatasetDefaultSecurity(organizationId, datasetId, datasetRole).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -1077,7 +1077,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **datasetId** | **String**| the Dataset identifier | 
- **datasetRole** | [**DatasetRole**](DatasetRole.md)| the new Dataset default security. | 
+ **datasetRole** | [**DatasetRole**](DatasetRole.md)| This change the dataset default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the dataset. | 
 
 ### Return type
 

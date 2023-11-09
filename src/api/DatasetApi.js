@@ -1208,7 +1208,7 @@ export default class DatasetApi {
      * Set the Dataset default security
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
-     * @param {module:model/DatasetRole} datasetRole the new Dataset default security.
+     * @param {module:model/DatasetRole} datasetRole This change the dataset default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the dataset.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DatasetSecurity} and HTTP response
      */
     setDatasetDefaultSecurityWithHttpInfo(organizationId, datasetId, datasetRole) {
@@ -1252,7 +1252,7 @@ export default class DatasetApi {
      * Set the Dataset default security
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
-     * @param {module:model/DatasetRole} datasetRole the new Dataset default security.
+     * @param {module:model/DatasetRole} datasetRole This change the dataset default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the dataset.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DatasetSecurity}
      */
     setDatasetDefaultSecurity(organizationId, datasetId, datasetRole) {

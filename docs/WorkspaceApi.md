@@ -782,7 +782,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let workspaceRole = new CosmotechApi.WorkspaceRole(); // WorkspaceRole | the new Workspace default security.
+let workspaceRole = new CosmotechApi.WorkspaceRole(); // WorkspaceRole | This change the workspace default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the workspace.
 apiInstance.setWorkspaceDefaultSecurity(organizationId, workspaceId, workspaceRole).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -798,7 +798,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **workspaceRole** | [**WorkspaceRole**](WorkspaceRole.md)| the new Workspace default security. | 
+ **workspaceRole** | [**WorkspaceRole**](WorkspaceRole.md)| This change the workspace default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the workspace. | 
 
 ### Return type
 
