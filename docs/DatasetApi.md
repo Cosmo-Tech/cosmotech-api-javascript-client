@@ -1272,7 +1272,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetId = "datasetId_example"; // String | the Dataset identifier
-let dataset = new CosmotechApi.Dataset(); // Dataset | the new Dataset details.
+let dataset = new CosmotechApi.Dataset(); // Dataset | the new Dataset details. This endpoint can't be used to update security
 apiInstance.updateDataset(organizationId, datasetId, dataset).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -1288,7 +1288,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **datasetId** | **String**| the Dataset identifier | 
- **dataset** | [**Dataset**](Dataset.md)| the new Dataset details. | 
+ **dataset** | [**Dataset**](Dataset.md)| the new Dataset details. This endpoint can&#39;t be used to update security | 
 
 ### Return type
 

@@ -832,7 +832,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-let workspace = new CosmotechApi.Workspace(); // Workspace | The new Workspace details.
+let workspace = new CosmotechApi.Workspace(); // Workspace | The new Workspace details. This endpoint can't be used to update security
 apiInstance.updateWorkspace(organizationId, workspaceId, workspace).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
- **workspace** | [**Workspace**](Workspace.md)| The new Workspace details. | 
+ **workspace** | [**Workspace**](Workspace.md)| The new Workspace details. This endpoint can&#39;t be used to update security | 
 
 ### Return type
 

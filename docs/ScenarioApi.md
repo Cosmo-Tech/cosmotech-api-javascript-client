@@ -1070,7 +1070,7 @@ let apiInstance = new CosmotechApi.ScenarioApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
 let scenarioId = "scenarioId_example"; // String | the Scenario identifier
-let scenario = new CosmotechApi.Scenario(); // Scenario | the new Scenario details.
+let scenario = new CosmotechApi.Scenario(); // Scenario | the new Scenario details. This endpoint can't be used to update security
 apiInstance.updateScenario(organizationId, workspaceId, scenarioId, scenario).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -1087,7 +1087,7 @@ Name | Type | Description  | Notes
  **organizationId** | **String**| the Organization identifier | 
  **workspaceId** | **String**| the Workspace identifier | 
  **scenarioId** | **String**| the Scenario identifier | 
- **scenario** | [**Scenario**](Scenario.md)| the new Scenario details. | 
+ **scenario** | [**Scenario**](Scenario.md)| the new Scenario details. This endpoint can&#39;t be used to update security | 
 
 ### Return type
 

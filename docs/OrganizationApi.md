@@ -603,7 +603,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let organization = {"name":"CosmoTech Digital Twins Engine"}; // Organization | the new Organization details
+let organization = {"name":"CosmoTech Digital Twins Engine"}; // Organization | the new Organization details. This endpoint can't be used to update security
 apiInstance.updateOrganization(organizationId, organization).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -618,7 +618,7 @@ apiInstance.updateOrganization(organizationId, organization).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **organization** | [**Organization**](Organization.md)| the new Organization details | 
+ **organization** | [**Organization**](Organization.md)| the new Organization details. This endpoint can&#39;t be used to update security | 
 
 ### Return type
 

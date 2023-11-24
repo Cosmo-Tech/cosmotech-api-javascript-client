@@ -935,7 +935,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.SolutionApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let solutionId = "solutionId_example"; // String | the Solution identifier
-let solution = new CosmotechApi.Solution(); // Solution | the new Solution details.
+let solution = new CosmotechApi.Solution(); // Solution | the new Solution details. This endpoint can't be used to update security
 apiInstance.updateSolution(organizationId, solutionId, solution).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -951,7 +951,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
  **solutionId** | **String**| the Solution identifier | 
- **solution** | [**Solution**](Solution.md)| the new Solution details. | 
+ **solution** | [**Solution**](Solution.md)| the new Solution details. This endpoint can&#39;t be used to update security | 
 
 ### Return type
 
