@@ -977,7 +977,7 @@ export default class DatasetApi {
 
     /**
      * Refresh data on dataset from dataset's source
-     * Lauch a import from source (ADT or Azure Storage). This replace currently stored data with just extracted data from source.
+     * Refresh dataset from parent source. At date, sources can be:      dataset (refresh from another dataset)      Azure Digital twin       Azure storage      Local File (import a new file)  During refresh, datas are overwritten 
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DatasetTwinGraphInfo} and HTTP response
@@ -1017,7 +1017,7 @@ export default class DatasetApi {
 
     /**
      * Refresh data on dataset from dataset's source
-     * Lauch a import from source (ADT or Azure Storage). This replace currently stored data with just extracted data from source.
+     * Refresh dataset from parent source. At date, sources can be:      dataset (refresh from another dataset)      Azure Digital twin       Azure storage      Local File (import a new file)  During refresh, datas are overwritten 
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/DatasetTwinGraphInfo}
