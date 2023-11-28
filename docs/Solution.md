@@ -19,5 +19,6 @@ Name | Type | Description | Notes
 **parameters** | [**[RunTemplateParameter]**](RunTemplateParameter.md) | the list of Run Template Parameters | [optional] 
 **parameterGroups** | [**[RunTemplateParameterGroup]**](RunTemplateParameterGroup.md) | the list of parameters groups for the Run Templates | [optional] 
 **runTemplates** | [**[RunTemplate]**](RunTemplate.md) | list of Run Template | [optional] 
+**security** | [**SolutionSecurity**](SolutionSecurity.md) |  | [optional] 
 
 
