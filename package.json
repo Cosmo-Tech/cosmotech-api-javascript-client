@@ -1,6 +1,6 @@
 {
   "name": "@cosmotech/api",
-  "version": "3.0.17-dev",
+  "version": "3.0.18-SNAPSHOT",
   "description": "Cosmo Tech Platform API client",
   "license": "MIT License",
   "main": "dist/index.js",
