@@ -65,6 +65,9 @@ class Dataset {
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
             }
+            if (data.hasOwnProperty('ownerName')) {
+                obj['ownerName'] = ApiClient.convertToType(data['ownerName'], 'String');
+            }
             if (data.hasOwnProperty('organizationId')) {
                 obj['organizationId'] = ApiClient.convertToType(data['organizationId'], 'String');
             }
@@ -143,6 +146,12 @@ Dataset.prototype['description'] = undefined;
  * @member {String} ownerId
  */
 Dataset.prototype['ownerId'] = undefined;
+
+/**
+ * the name of the owner
+ * @member {String} ownerName
+ */
+Dataset.prototype['ownerName'] = undefined;
 
 /**
  * the Organization Id related to this Dataset
