@@ -17,7 +17,8 @@ Name | Type | Description | Notes
 **refreshDate** | **Number** | the last time a refresh was done | [optional] [readonly] 
 **sourceType** | [**DatasetSourceType**](DatasetSourceType.md) |  | [optional] 
 **source** | [**SourceInfo**](SourceInfo.md) |  | [optional] 
-**status** | **String** | the Dataset status | [optional] 
+**ingestionStatus** | **String** | the Dataset ingestion status | [optional] 
+**twincacheStatus** | **String** | the twincache data status | [optional] 
 **queries** | **[String]** | the list of queries | [optional] 
 **tags** | **[String]** | the list of tags | [optional] 
 **connector** | [**DatasetConnector**](DatasetConnector.md) |  | [optional] 
@@ -28,16 +29,27 @@ Name | Type | Description | Notes
 
 
 
-## Enum: StatusEnum
+## Enum: IngestionStatusEnum
 
 
-* `DRAFT` (value: `"DRAFT"`)
+* `NONE` (value: `"NONE"`)
 
 * `PENDING` (value: `"PENDING"`)
 
 * `ERROR` (value: `"ERROR"`)
 
-* `READY` (value: `"READY"`)
+* `SUCCESS` (value: `"SUCCESS"`)
+
+
+
+
+
+## Enum: TwincacheStatusEnum
+
+
+* `EMPTY` (value: `"EMPTY"`)
+
+* `FULL` (value: `"FULL"`)
 
 
 
