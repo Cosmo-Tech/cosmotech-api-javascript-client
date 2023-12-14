@@ -1463,7 +1463,7 @@ Name | Type | Description  | Notes
 
 ## uploadTwingraph
 
-> uploadTwingraph(organizationId, datasetId, body)
+> FileUploadValidation uploadTwingraph(organizationId, datasetId, body)
 
 Upload data from zip file to dataset&#39;s twingraph
 
@@ -1482,8 +1482,8 @@ let apiInstance = new CosmotechApi.DatasetApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let datasetId = "datasetId_example"; // String | the Dataset identifier
 let body = "/path/to/file"; // File | 
-apiInstance.uploadTwingraph(organizationId, datasetId, body).then(() => {
-  console.log('API called successfully.');
+apiInstance.uploadTwingraph(organizationId, datasetId, body).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
 });
@@ -1501,7 +1501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**FileUploadValidation**](FileUploadValidation.md)
 
 ### Authorization
 
@@ -1510,5 +1510,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/octet-stream
-- **Accept**: Not defined
+- **Accept**: application/json
 
