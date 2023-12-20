@@ -70,6 +70,9 @@ class Solution {
             if (data.hasOwnProperty('repository')) {
                 obj['repository'] = ApiClient.convertToType(data['repository'], 'String');
             }
+            if (data.hasOwnProperty('alwaysPull')) {
+                obj['alwaysPull'] = ApiClient.convertToType(data['alwaysPull'], 'Boolean');
+            }
             if (data.hasOwnProperty('csmSimulator')) {
                 obj['csmSimulator'] = ApiClient.convertToType(data['csmSimulator'], 'String');
             }
@@ -142,6 +145,13 @@ Solution.prototype['description'] = undefined;
  * @member {String} repository
  */
 Solution.prototype['repository'] = undefined;
+
+/**
+ * set to true if the runtemplate wants to always pull the image
+ * @member {Boolean} alwaysPull
+ * @default false
+ */
+Solution.prototype['alwaysPull'] = false;
 
 /**
  * the main Cosmo Tech simulator name used in standard Run Template

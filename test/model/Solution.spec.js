@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property alwaysPull (base name: "alwaysPull")', function() {
+      // uncomment below and update the code to test the property alwaysPull
+      //var instance = new CosmotechApi.Solution();
+      //expect(instance).to.be();
+    });
+
     it('should have the property csmSimulator (base name: "csmSimulator")', function() {
       // uncomment below and update the code to test the property csmSimulator
       //var instance = new CosmotechApi.Solution();
