@@ -449,7 +449,7 @@ export default class SolutionApi {
      * @param {String} solutionId the Solution identifier
      * @param {String} runTemplateId the Run Template identifier
      * @param {module:model/RunTemplateHandlerId} handlerId the Handler identifier
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Blob} and HTTP response
      */
     downloadRunTemplateHandlerWithHttpInfo(organizationId, solutionId, runTemplateId, handlerId) {
       let postBody = null;
@@ -486,7 +486,7 @@ export default class SolutionApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
       let accepts = ['application/octet-stream'];
-      let returnType = File;
+      let returnType = 'Blob';
       return this.apiClient.callApi(
         '/organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/download', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -500,7 +500,7 @@ export default class SolutionApi {
      * @param {String} solutionId the Solution identifier
      * @param {String} runTemplateId the Run Template identifier
      * @param {module:model/RunTemplateHandlerId} handlerId the Handler identifier
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Blob}
      */
     downloadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId) {
       return this.downloadRunTemplateHandlerWithHttpInfo(organizationId, solutionId, runTemplateId, handlerId)

@@ -377,7 +377,7 @@ null (empty response body)
 
 ## downloadRunTemplateHandler
 
-> File downloadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId)
+> Blob downloadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId)
 
 Download a Run Template step handler zip file
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**Blob**
 
 ### Authorization
 
