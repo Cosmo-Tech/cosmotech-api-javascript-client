@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ownerName** | **String** | the name of the owner | [optional] [readonly] 
 **organizationId** | **String** | the Organization Id related to this Dataset | [optional] [readonly] 
 **parentId** | **String** | the Dataset id which is the parent of this Dataset | [optional] 
+**linkedWorkspaceIdList** | **[String]** | list of workspace linked to this dataset | [optional] 
 **twingraphId** | **String** | the twin graph id | [optional] 
 **main** | **Boolean** | is this the main dataset | [optional] 
 **creationDate** | **Number** | the Dataset creation date | [optional] [readonly] 
