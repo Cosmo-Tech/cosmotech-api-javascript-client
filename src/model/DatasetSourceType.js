@@ -54,6 +54,13 @@ export default class DatasetSourceType {
         "Twincache" = "Twincache";
 
     
+        /**
+         * value: "ETL"
+         * @const
+         */
+        "ETL" = "ETL";
+
+    
 
     /**
     * Returns a <code>DatasetSourceType</code> enum value from a Javascript object name.
