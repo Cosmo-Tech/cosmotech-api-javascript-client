@@ -12,7 +12,6 @@ Method | HTTP request | Description
 [**getOrganizationPermissions**](OrganizationApi.md#getOrganizationPermissions) | **GET** /organizations/{organization_id}/permissions/{role} | Get the Organization permissions by given role
 [**getOrganizationSecurity**](OrganizationApi.md#getOrganizationSecurity) | **GET** /organizations/{organization_id}/security | Get the Organization security information
 [**getOrganizationSecurityUsers**](OrganizationApi.md#getOrganizationSecurityUsers) | **GET** /organizations/{organization_id}/security/users | Get the Organization security users list
-[**importOrganization**](OrganizationApi.md#importOrganization) | **POST** /organizations/import | Import an organization
 [**registerOrganization**](OrganizationApi.md#registerOrganization) | **POST** /organizations | Register a new organization
 [**removeOrganizationAccessControl**](OrganizationApi.md#removeOrganizationAccessControl) | **DELETE** /organizations/{organization_id}/security/access/{identity_id} | Remove the specified access from the given Organization
 [**setOrganizationDefaultSecurity**](OrganizationApi.md#setOrganizationDefaultSecurity) | **POST** /organizations/{organization_id}/security/default | Set the Organization default security
@@ -399,52 +398,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## importOrganization
-
-> Organization importOrganization(organization)
-
-Import an organization
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.OrganizationApi();
-let organization = new CosmotechApi.Organization(); // Organization | the Organization to import
-apiInstance.importOrganization(organization).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization** | [**Organization**](Organization.md)| the Organization to import | 
-
-### Return type
-
-[**Organization**](Organization.md)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/yaml
-- **Accept**: application/json
-
-
 ## registerOrganization
 
 > Organization registerOrganization(organization)
@@ -556,7 +509,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let organizationRole = new CosmotechApi.OrganizationRole(); // OrganizationRole | the new Organization default security.
+let organizationRole = new CosmotechApi.OrganizationRole(); // OrganizationRole | This change the organization default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the organization.
 apiInstance.setOrganizationDefaultSecurity(organizationId, organizationRole).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -571,7 +524,7 @@ apiInstance.setOrganizationDefaultSecurity(organizationId, organizationRole).the
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **organizationRole** | [**OrganizationRole**](OrganizationRole.md)| the new Organization default security. | 
+ **organizationRole** | [**OrganizationRole**](OrganizationRole.md)| This change the organization default security. The default security is the role assigned to any person not on the Access Control List. If the default security is None, then nobody outside of the ACL can access the organization. | 
 
 ### Return type
 
@@ -650,7 +603,7 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.OrganizationApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
-let organization = {"name":"CosmoTech Digital Twins Engine"}; // Organization | the new Organization details
+let organization = {"name":"CosmoTech Digital Twins Engine"}; // Organization | the new Organization details. This endpoint can't be used to update security
 apiInstance.updateOrganization(organizationId, organization).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -665,7 +618,7 @@ apiInstance.updateOrganization(organizationId, organization).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organizationId** | **String**| the Organization identifier | 
- **organization** | [**Organization**](Organization.md)| the new Organization details | 
+ **organization** | [**Organization**](Organization.md)| the new Organization details. This endpoint can&#39;t be used to update security | 
 
 ### Return type
 
