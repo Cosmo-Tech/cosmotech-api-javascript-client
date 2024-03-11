@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**findAllConnectors**](ConnectorApi.md#findAllConnectors) | **GET** /connectors | List all Connectors
 [**findConnectorById**](ConnectorApi.md#findConnectorById) | **GET** /connectors/{connector_id} | Get the details of a connector
-[**findConnectorByName**](ConnectorApi.md#findConnectorByName) | **GET** /connectors/name/{connector_name} | Get the details of a connector
+[**importConnector**](ConnectorApi.md#importConnector) | **POST** /connectors/import | Import existing connector
 [**registerConnector**](ConnectorApi.md#registerConnector) | **POST** /connectors | Register a new connector
 [**unregisterConnector**](ConnectorApi.md#unregisterConnector) | **DELETE** /connectors/{connector_id} | Unregister a connector
 
@@ -108,11 +108,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## findConnectorByName
+## importConnector
 
-> Connector findConnectorByName(connectorName)
+> Connector importConnector(connector)
 
-Get the details of a connector
+Import existing connector
 
 ### Example
 
@@ -124,8 +124,8 @@ let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
 oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new CosmotechApi.ConnectorApi();
-let connectorName = "connectorName_example"; // String | the Connector name
-apiInstance.findConnectorByName(connectorName).then((data) => {
+let connector = new CosmotechApi.Connector(); // Connector | the Connector to import
+apiInstance.importConnector(connector).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -138,7 +138,7 @@ apiInstance.findConnectorByName(connectorName).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **connectorName** | **String**| the Connector name | 
+ **connector** | [**Connector**](Connector.md)| the Connector to import | 
 
 ### Return type
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
