@@ -64,8 +64,36 @@ class RunnerChangedParameterValue {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RunnerChangedParameterValue</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunnerChangedParameterValue</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['parameterId'] && !(typeof data['parameterId'] === 'string' || data['parameterId'] instanceof String)) {
+            throw new Error("Expected the field `parameterId` to be a primitive type in the JSON string but got " + data['parameterId']);
+        }
+        // ensure the json data is a string
+        if (data['varType'] && !(typeof data['varType'] === 'string' || data['varType'] instanceof String)) {
+            throw new Error("Expected the field `varType` to be a primitive type in the JSON string but got " + data['varType']);
+        }
+        // ensure the json data is a string
+        if (data['value'] && !(typeof data['value'] === 'string' || data['value'] instanceof String)) {
+            throw new Error("Expected the field `value` to be a primitive type in the JSON string but got " + data['value']);
+        }
+        // ensure the json data is a string
+        if (data['comparedValue'] && !(typeof data['comparedValue'] === 'string' || data['comparedValue'] instanceof String)) {
+            throw new Error("Expected the field `comparedValue` to be a primitive type in the JSON string but got " + data['comparedValue']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * the parameter id the values refer to

@@ -543,8 +543,8 @@ export default class RunnerApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.page page number to query
-     * @param {Number} opts.size amount of result by page
+     * @param {Number} [page] page number to query
+     * @param {Number} [size] amount of result by page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Runner>} and HTTP response
      */
     listRunnersWithHttpInfo(organizationId, workspaceId, opts) {

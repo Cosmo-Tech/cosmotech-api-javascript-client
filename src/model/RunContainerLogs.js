@@ -64,8 +64,36 @@ class RunContainerLogs {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RunContainerLogs</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunContainerLogs</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['nodeId'] && !(typeof data['nodeId'] === 'string' || data['nodeId'] instanceof String)) {
+            throw new Error("Expected the field `nodeId` to be a primitive type in the JSON string but got " + data['nodeId']);
+        }
+        // ensure the json data is a string
+        if (data['containerName'] && !(typeof data['containerName'] === 'string' || data['containerName'] instanceof String)) {
+            throw new Error("Expected the field `containerName` to be a primitive type in the JSON string but got " + data['containerName']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['children'])) {
+            throw new Error("Expected the field `children` to be an array in the JSON data but got " + data['children']);
+        }
+        // ensure the json data is a string
+        if (data['logs'] && !(typeof data['logs'] === 'string' || data['logs'] instanceof String)) {
+            throw new Error("Expected the field `logs` to be a primitive type in the JSON string but got " + data['logs']);
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * the node Id which has executed this log

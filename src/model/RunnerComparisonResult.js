@@ -62,8 +62,38 @@ class RunnerComparisonResult {
         return obj;
     }
 
+    /**
+     * Validates the JSON data with respect to <code>RunnerComparisonResult</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunnerComparisonResult</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['runnerId'] && !(typeof data['runnerId'] === 'string' || data['runnerId'] instanceof String)) {
+            throw new Error("Expected the field `runnerId` to be a primitive type in the JSON string but got " + data['runnerId']);
+        }
+        // ensure the json data is a string
+        if (data['comparedRunnerId'] && !(typeof data['comparedRunnerId'] === 'string' || data['comparedRunnerId'] instanceof String)) {
+            throw new Error("Expected the field `comparedRunnerId` to be a primitive type in the JSON string but got " + data['comparedRunnerId']);
+        }
+        if (data['changedValues']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['changedValues'])) {
+                throw new Error("Expected the field `changedValues` to be an array in the JSON data but got " + data['changedValues']);
+            }
+            // validate the optional field `changedValues` (array)
+            for (const item of data['changedValues']) {
+                RunnerChangedParameterValue.validateJSON(item);
+            };
+        }
+
+        return true;
+    }
+
 
 }
+
+
 
 /**
  * the Runner Id which is the reference for the comparison
