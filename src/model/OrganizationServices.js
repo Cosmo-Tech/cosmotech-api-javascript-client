@@ -62,28 +62,8 @@ class OrganizationServices {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>OrganizationServices</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>OrganizationServices</code>.
-     */
-    static validateJSON(data) {
-        // validate the optional field `storage`
-        if (data['storage']) { // data not null
-          OrganizationService.validateJSON(data['storage']);
-        }
-        // validate the optional field `solutionsContainerRegistry`
-        if (data['solutionsContainerRegistry']) { // data not null
-          OrganizationService.validateJSON(data['solutionsContainerRegistry']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * a freeform credentials object for the Organization tenant. Structure depends on cloud provider

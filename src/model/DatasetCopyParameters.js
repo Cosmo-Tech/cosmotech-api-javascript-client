@@ -61,28 +61,8 @@ class DatasetCopyParameters {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>DatasetCopyParameters</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>DatasetCopyParameters</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['sourceId'] && !(typeof data['sourceId'] === 'string' || data['sourceId'] instanceof String)) {
-            throw new Error("Expected the field `sourceId` to be a primitive type in the JSON string but got " + data['sourceId']);
-        }
-        // ensure the json data is a string
-        if (data['targetId'] && !(typeof data['targetId'] === 'string' || data['targetId'] instanceof String)) {
-            throw new Error("Expected the field `targetId` to be a primitive type in the JSON string but got " + data['targetId']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the source Dataset id

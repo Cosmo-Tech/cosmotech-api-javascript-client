@@ -76,52 +76,8 @@ class RunSearch {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>RunSearch</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunSearch</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['solutionId'] && !(typeof data['solutionId'] === 'string' || data['solutionId'] instanceof String)) {
-            throw new Error("Expected the field `solutionId` to be a primitive type in the JSON string but got " + data['solutionId']);
-        }
-        // ensure the json data is a string
-        if (data['runTemplateId'] && !(typeof data['runTemplateId'] === 'string' || data['runTemplateId'] instanceof String)) {
-            throw new Error("Expected the field `runTemplateId` to be a primitive type in the JSON string but got " + data['runTemplateId']);
-        }
-        // ensure the json data is a string
-        if (data['workspaceId'] && !(typeof data['workspaceId'] === 'string' || data['workspaceId'] instanceof String)) {
-            throw new Error("Expected the field `workspaceId` to be a primitive type in the JSON string but got " + data['workspaceId']);
-        }
-        // ensure the json data is a string
-        if (data['runnerId'] && !(typeof data['runnerId'] === 'string' || data['runnerId'] instanceof String)) {
-            throw new Error("Expected the field `runnerId` to be a primitive type in the JSON string but got " + data['runnerId']);
-        }
-        // ensure the json data is a string
-        if (data['state'] && !(typeof data['state'] === 'string' || data['state'] instanceof String)) {
-            throw new Error("Expected the field `state` to be a primitive type in the JSON string but got " + data['state']);
-        }
-        // ensure the json data is a string
-        if (data['workflowId'] && !(typeof data['workflowId'] === 'string' || data['workflowId'] instanceof String)) {
-            throw new Error("Expected the field `workflowId` to be a primitive type in the JSON string but got " + data['workflowId']);
-        }
-        // ensure the json data is a string
-        if (data['workflowName'] && !(typeof data['workflowName'] === 'string' || data['workflowName'] instanceof String)) {
-            throw new Error("Expected the field `workflowName` to be a primitive type in the JSON string but got " + data['workflowName']);
-        }
-        // ensure the json data is a string
-        if (data['ownerId'] && !(typeof data['ownerId'] === 'string' || data['ownerId'] instanceof String)) {
-            throw new Error("Expected the field `ownerId` to be a primitive type in the JSON string but got " + data['ownerId']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the Solution Id to search

@@ -63,30 +63,8 @@ class WorkspaceWebApp {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>WorkspaceWebApp</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>WorkspaceWebApp</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of WorkspaceWebApp.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['url'] && !(typeof data['url'] === 'string' || data['url'] instanceof String)) {
-            throw new Error("Expected the field `url` to be a primitive type in the JSON string but got " + data['url']);
-        }
-
-        return true;
-    }
-
 
 }
-
-WorkspaceWebApp.RequiredProperties = ["url"];
 
 /**
  * the Workspace Web Application URL

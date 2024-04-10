@@ -69,10 +69,8 @@ import RunnerDataDownloadInfo from './model/RunnerDataDownloadInfo';
 import RunnerDataDownloadJob from './model/RunnerDataDownloadJob';
 import RunnerJobState from './model/RunnerJobState';
 import RunnerLastRun from './model/RunnerLastRun';
-import RunnerParentLastRun from './model/RunnerParentLastRun';
 import RunnerResourceSizing from './model/RunnerResourceSizing';
 import RunnerRole from './model/RunnerRole';
-import RunnerRootLastRun from './model/RunnerRootLastRun';
 import RunnerRunTemplateParameterValue from './model/RunnerRunTemplateParameterValue';
 import RunnerSecurity from './model/RunnerSecurity';
 import RunnerValidationStatus from './model/RunnerValidationStatus';
@@ -509,12 +507,6 @@ export {
     RunnerLastRun,
 
     /**
-     * The RunnerParentLastRun model constructor.
-     * @property {module:model/RunnerParentLastRun}
-     */
-    RunnerParentLastRun,
-
-    /**
      * The RunnerResourceSizing model constructor.
      * @property {module:model/RunnerResourceSizing}
      */
@@ -525,12 +517,6 @@ export {
      * @property {module:model/RunnerRole}
      */
     RunnerRole,
-
-    /**
-     * The RunnerRootLastRun model constructor.
-     * @property {module:model/RunnerRootLastRun}
-     */
-    RunnerRootLastRun,
 
     /**
      * The RunnerRunTemplateParameterValue model constructor.

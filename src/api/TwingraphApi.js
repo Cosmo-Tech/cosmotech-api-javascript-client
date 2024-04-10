@@ -296,7 +296,7 @@ export default class TwingraphApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} graphId the Graph Identifier
      * @param {Object} opts Optional parameters
-     * @param {File} [body] 
+     * @param {File} opts.body 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     createGraphWithHttpInfo(organizationId, graphId, opts) {

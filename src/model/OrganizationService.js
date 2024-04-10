@@ -67,36 +67,8 @@ class OrganizationService {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>OrganizationService</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>OrganizationService</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['cloudService'] && !(typeof data['cloudService'] === 'string' || data['cloudService'] instanceof String)) {
-            throw new Error("Expected the field `cloudService` to be a primitive type in the JSON string but got " + data['cloudService']);
-        }
-        // ensure the json data is a string
-        if (data['baseUri'] && !(typeof data['baseUri'] === 'string' || data['baseUri'] instanceof String)) {
-            throw new Error("Expected the field `baseUri` to be a primitive type in the JSON string but got " + data['baseUri']);
-        }
-        // ensure the json data is a string
-        if (data['platformService'] && !(typeof data['platformService'] === 'string' || data['platformService'] instanceof String)) {
-            throw new Error("Expected the field `platformService` to be a primitive type in the JSON string but got " + data['platformService']);
-        }
-        // ensure the json data is a string
-        if (data['resourceUri'] && !(typeof data['resourceUri'] === 'string' || data['resourceUri'] instanceof String)) {
-            throw new Error("Expected the field `resourceUri` to be a primitive type in the JSON string but got " + data['resourceUri']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the cloud service name

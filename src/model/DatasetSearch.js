@@ -57,30 +57,8 @@ class DatasetSearch {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>DatasetSearch</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>DatasetSearch</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of DatasetSearch.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['datasetTags'])) {
-            throw new Error("Expected the field `datasetTags` to be an array in the JSON data but got " + data['datasetTags']);
-        }
-
-        return true;
-    }
-
 
 }
-
-DatasetSearch.RequiredProperties = ["datasetTags"];
 
 /**
  * the dataset tag list to search

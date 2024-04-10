@@ -62,38 +62,8 @@ class ScenarioComparisonResult {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>ScenarioComparisonResult</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ScenarioComparisonResult</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['scenarioId'] && !(typeof data['scenarioId'] === 'string' || data['scenarioId'] instanceof String)) {
-            throw new Error("Expected the field `scenarioId` to be a primitive type in the JSON string but got " + data['scenarioId']);
-        }
-        // ensure the json data is a string
-        if (data['comparedScenarioId'] && !(typeof data['comparedScenarioId'] === 'string' || data['comparedScenarioId'] instanceof String)) {
-            throw new Error("Expected the field `comparedScenarioId` to be a primitive type in the JSON string but got " + data['comparedScenarioId']);
-        }
-        if (data['changedValues']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['changedValues'])) {
-                throw new Error("Expected the field `changedValues` to be an array in the JSON data but got " + data['changedValues']);
-            }
-            // validate the optional field `changedValues` (array)
-            for (const item of data['changedValues']) {
-                ScenarioChangedParameterValue.validateJSON(item);
-            };
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the Scenario Id which is the reference for the comparison

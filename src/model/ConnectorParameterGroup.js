@@ -68,44 +68,8 @@ class ConnectorParameterGroup {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>ConnectorParameterGroup</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ConnectorParameterGroup</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of ConnectorParameterGroup.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
-        if (data['label'] && !(typeof data['label'] === 'string' || data['label'] instanceof String)) {
-            throw new Error("Expected the field `label` to be a primitive type in the JSON string but got " + data['label']);
-        }
-        if (data['parameters']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['parameters'])) {
-                throw new Error("Expected the field `parameters` to be an array in the JSON data but got " + data['parameters']);
-            }
-            // validate the optional field `parameters` (array)
-            for (const item of data['parameters']) {
-                ConnectorParameter.validateJSON(item);
-            };
-        }
-
-        return true;
-    }
-
 
 }
-
-ConnectorParameterGroup.RequiredProperties = ["id", "label", "parameters"];
 
 /**
  * the connector parameter group id

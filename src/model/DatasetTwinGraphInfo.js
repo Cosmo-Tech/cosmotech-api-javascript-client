@@ -61,32 +61,8 @@ class DatasetTwinGraphInfo {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>DatasetTwinGraphInfo</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>DatasetTwinGraphInfo</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['jobId'] && !(typeof data['jobId'] === 'string' || data['jobId'] instanceof String)) {
-            throw new Error("Expected the field `jobId` to be a primitive type in the JSON string but got " + data['jobId']);
-        }
-        // ensure the json data is a string
-        if (data['datasetId'] && !(typeof data['datasetId'] === 'string' || data['datasetId'] instanceof String)) {
-            throw new Error("Expected the field `datasetId` to be a primitive type in the JSON string but got " + data['datasetId']);
-        }
-        // ensure the json data is a string
-        if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
-            throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the import job id

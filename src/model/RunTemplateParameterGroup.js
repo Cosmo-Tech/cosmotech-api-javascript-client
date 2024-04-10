@@ -72,38 +72,8 @@ class RunTemplateParameterGroup {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>RunTemplateParameterGroup</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunTemplateParameterGroup</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of RunTemplateParameterGroup.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
-        if (data['parentId'] && !(typeof data['parentId'] === 'string' || data['parentId'] instanceof String)) {
-            throw new Error("Expected the field `parentId` to be a primitive type in the JSON string but got " + data['parentId']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['parameters'])) {
-            throw new Error("Expected the field `parameters` to be an array in the JSON data but got " + data['parameters']);
-        }
-
-        return true;
-    }
-
 
 }
-
-RunTemplateParameterGroup.RequiredProperties = ["id"];
 
 /**
  * the Parameter Group id

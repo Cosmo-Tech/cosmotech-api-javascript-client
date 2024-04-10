@@ -66,42 +66,8 @@ class SourceInfo {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>SourceInfo</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>SourceInfo</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of SourceInfo.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
-        }
-        // ensure the json data is a string
-        if (data['location'] && !(typeof data['location'] === 'string' || data['location'] instanceof String)) {
-            throw new Error("Expected the field `location` to be a primitive type in the JSON string but got " + data['location']);
-        }
-        // ensure the json data is a string
-        if (data['path'] && !(typeof data['path'] === 'string' || data['path'] instanceof String)) {
-            throw new Error("Expected the field `path` to be a primitive type in the JSON string but got " + data['path']);
-        }
-        // ensure the json data is a string
-        if (data['jobId'] && !(typeof data['jobId'] === 'string' || data['jobId'] instanceof String)) {
-            throw new Error("Expected the field `jobId` to be a primitive type in the JSON string but got " + data['jobId']);
-        }
-
-        return true;
-    }
-
 
 }
-
-SourceInfo.RequiredProperties = ["location"];
 
 /**
  * the source name containing the files to import

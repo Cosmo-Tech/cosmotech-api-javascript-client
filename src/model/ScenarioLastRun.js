@@ -63,36 +63,8 @@ class ScenarioLastRun {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>ScenarioLastRun</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ScenarioLastRun</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['scenarioRunId'] && !(typeof data['scenarioRunId'] === 'string' || data['scenarioRunId'] instanceof String)) {
-            throw new Error("Expected the field `scenarioRunId` to be a primitive type in the JSON string but got " + data['scenarioRunId']);
-        }
-        // ensure the json data is a string
-        if (data['csmSimulationRun'] && !(typeof data['csmSimulationRun'] === 'string' || data['csmSimulationRun'] instanceof String)) {
-            throw new Error("Expected the field `csmSimulationRun` to be a primitive type in the JSON string but got " + data['csmSimulationRun']);
-        }
-        // ensure the json data is a string
-        if (data['workflowId'] && !(typeof data['workflowId'] === 'string' || data['workflowId'] instanceof String)) {
-            throw new Error("Expected the field `workflowId` to be a primitive type in the JSON string but got " + data['workflowId']);
-        }
-        // ensure the json data is a string
-        if (data['workflowName'] && !(typeof data['workflowName'] === 'string' || data['workflowName'] instanceof String)) {
-            throw new Error("Expected the field `workflowName` to be a primitive type in the JSON string but got " + data['workflowName']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the last Scenario Run id

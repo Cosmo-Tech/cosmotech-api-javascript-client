@@ -493,8 +493,8 @@ export default class WorkspaceApi {
      * List all Workspaces
      * @param {String} organizationId the Organization identifier
      * @param {Object} opts Optional parameters
-     * @param {Number} [page] page number to query
-     * @param {Number} [size] amount of result by page
+     * @param {Number} opts.page page number to query
+     * @param {Number} opts.size amount of result by page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Workspace>} and HTTP response
      */
     findAllWorkspacesWithHttpInfo(organizationId, opts) {
@@ -1189,8 +1189,8 @@ export default class WorkspaceApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {File} file 
      * @param {Object} opts Optional parameters
-     * @param {Boolean} [overwrite = false)] 
-     * @param {String} [destination] Destination path. Must end with a '/' if specifying a folder. Note that paths may or may not start with a '/', but they are always treated as relative to the Workspace root location. 
+     * @param {Boolean} opts.overwrite  (default to false)
+     * @param {String} opts.destination Destination path. Must end with a '/' if specifying a folder. Note that paths may or may not start with a '/', but they are always treated as relative to the Workspace root location. 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/WorkspaceFile} and HTTP response
      */
     uploadWorkspaceFileWithHttpInfo(organizationId, workspaceId, file, opts) {

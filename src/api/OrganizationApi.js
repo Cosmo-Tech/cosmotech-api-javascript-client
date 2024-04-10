@@ -95,8 +95,8 @@ export default class OrganizationApi {
     /**
      * List all Organizations
      * @param {Object} opts Optional parameters
-     * @param {Number} [page] page number to query
-     * @param {Number} [size] amount of result by page
+     * @param {Number} opts.page page number to query
+     * @param {Number} opts.size amount of result by page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Organization>} and HTTP response
      */
     findAllOrganizationsWithHttpInfo(opts) {

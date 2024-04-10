@@ -58,24 +58,8 @@ class ComponentRolePermissions {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>ComponentRolePermissions</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ComponentRolePermissions</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['component'] && !(typeof data['component'] === 'string' || data['component'] instanceof String)) {
-            throw new Error("Expected the field `component` to be a primitive type in the JSON string but got " + data['component']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * @member {String} component

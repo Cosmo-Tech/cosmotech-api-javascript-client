@@ -89,64 +89,8 @@ class ScenarioRunStatusNode {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>ScenarioRunStatusNode</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ScenarioRunStatusNode</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
-        }
-        // ensure the json data is a string
-        if (data['containerName'] && !(typeof data['containerName'] === 'string' || data['containerName'] instanceof String)) {
-            throw new Error("Expected the field `containerName` to be a primitive type in the JSON string but got " + data['containerName']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['outboundNodes'])) {
-            throw new Error("Expected the field `outboundNodes` to be an array in the JSON data but got " + data['outboundNodes']);
-        }
-        // validate the optional field `resourcesDuration`
-        if (data['resourcesDuration']) { // data not null
-          ScenarioRunResourceRequested.validateJSON(data['resourcesDuration']);
-        }
-        // ensure the json data is a string
-        if (data['hostNodeName'] && !(typeof data['hostNodeName'] === 'string' || data['hostNodeName'] instanceof String)) {
-            throw new Error("Expected the field `hostNodeName` to be a primitive type in the JSON string but got " + data['hostNodeName']);
-        }
-        // ensure the json data is a string
-        if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
-            throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
-        }
-        // ensure the json data is a string
-        if (data['phase'] && !(typeof data['phase'] === 'string' || data['phase'] instanceof String)) {
-            throw new Error("Expected the field `phase` to be a primitive type in the JSON string but got " + data['phase']);
-        }
-        // ensure the json data is a string
-        if (data['progress'] && !(typeof data['progress'] === 'string' || data['progress'] instanceof String)) {
-            throw new Error("Expected the field `progress` to be a primitive type in the JSON string but got " + data['progress']);
-        }
-        // ensure the json data is a string
-        if (data['startTime'] && !(typeof data['startTime'] === 'string' || data['startTime'] instanceof String)) {
-            throw new Error("Expected the field `startTime` to be a primitive type in the JSON string but got " + data['startTime']);
-        }
-        // ensure the json data is a string
-        if (data['endTime'] && !(typeof data['endTime'] === 'string' || data['endTime'] instanceof String)) {
-            throw new Error("Expected the field `endTime` to be a primitive type in the JSON string but got " + data['endTime']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the node id

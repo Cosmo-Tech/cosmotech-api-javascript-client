@@ -363,10 +363,8 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.RunnerDataDownloadJob](docs/RunnerDataDownloadJob.md)
  - [CosmotechApi.RunnerJobState](docs/RunnerJobState.md)
  - [CosmotechApi.RunnerLastRun](docs/RunnerLastRun.md)
- - [CosmotechApi.RunnerParentLastRun](docs/RunnerParentLastRun.md)
  - [CosmotechApi.RunnerResourceSizing](docs/RunnerResourceSizing.md)
  - [CosmotechApi.RunnerRole](docs/RunnerRole.md)
- - [CosmotechApi.RunnerRootLastRun](docs/RunnerRootLastRun.md)
  - [CosmotechApi.RunnerRunTemplateParameterValue](docs/RunnerRunTemplateParameterValue.md)
  - [CosmotechApi.RunnerSecurity](docs/RunnerSecurity.md)
  - [CosmotechApi.RunnerValidationStatus](docs/RunnerValidationStatus.md)
@@ -419,7 +417,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 
-Authentication schemes defined for the API:
+
 ### oAuth2AuthCode
 
 

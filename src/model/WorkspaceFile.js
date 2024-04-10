@@ -55,24 +55,8 @@ class WorkspaceFile {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>WorkspaceFile</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>WorkspaceFile</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['fileName'] && !(typeof data['fileName'] === 'string' || data['fileName'] instanceof String)) {
-            throw new Error("Expected the field `fileName` to be a primitive type in the JSON string but got " + data['fileName']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the Workspace File name

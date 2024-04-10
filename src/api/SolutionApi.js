@@ -514,8 +514,8 @@ export default class SolutionApi {
      * List all Solutions
      * @param {String} organizationId the Organization identifier
      * @param {Object} opts Optional parameters
-     * @param {Number} [page] page number to query
-     * @param {Number} [size] amount of result by page
+     * @param {Number} opts.page page number to query
+     * @param {Number} opts.size amount of result by page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Solution>} and HTTP response
      */
     findAllSolutionsWithHttpInfo(organizationId, opts) {
@@ -1261,7 +1261,7 @@ export default class SolutionApi {
      * @param {module:model/RunTemplateHandlerId} handlerId the Handler identifier
      * @param {File} body 
      * @param {Object} opts Optional parameters
-     * @param {Boolean} [overwrite = false)] whether to overwrite any existing handler resource
+     * @param {Boolean} opts.overwrite whether to overwrite any existing handler resource (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     uploadRunTemplateHandlerWithHttpInfo(organizationId, solutionId, runTemplateId, handlerId, body, opts) {

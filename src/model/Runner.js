@@ -14,9 +14,7 @@
 import ApiClient from '../ApiClient';
 import RunnerJobState from './RunnerJobState';
 import RunnerLastRun from './RunnerLastRun';
-import RunnerParentLastRun from './RunnerParentLastRun';
 import RunnerResourceSizing from './RunnerResourceSizing';
-import RunnerRootLastRun from './RunnerRootLastRun';
 import RunnerRunTemplateParameterValue from './RunnerRunTemplateParameterValue';
 import RunnerSecurity from './RunnerSecurity';
 import RunnerValidationStatus from './RunnerValidationStatus';
@@ -117,13 +115,13 @@ class Runner {
                 obj['parametersValues'] = ApiClient.convertToType(data['parametersValues'], [RunnerRunTemplateParameterValue]);
             }
             if (data.hasOwnProperty('lastRun')) {
-                obj['lastRun'] = RunnerLastRun.constructFromObject(data['lastRun']);
+                obj['lastRun'] = ApiClient.convertToType(data['lastRun'], RunnerLastRun);
             }
             if (data.hasOwnProperty('parentLastRun')) {
-                obj['parentLastRun'] = RunnerParentLastRun.constructFromObject(data['parentLastRun']);
+                obj['parentLastRun'] = ApiClient.convertToType(data['parentLastRun'], RunnerLastRun);
             }
             if (data.hasOwnProperty('rootLastRun')) {
-                obj['rootLastRun'] = RunnerRootLastRun.constructFromObject(data['rootLastRun']);
+                obj['rootLastRun'] = ApiClient.convertToType(data['rootLastRun'], RunnerLastRun);
             }
             if (data.hasOwnProperty('validationStatus')) {
                 obj['validationStatus'] = ApiClient.convertToType(data['validationStatus'], RunnerValidationStatus);
@@ -135,110 +133,8 @@ class Runner {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>Runner</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>Runner</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
-        }
-        // ensure the json data is a string
-        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
-            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['tags'])) {
-            throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
-        }
-        // ensure the json data is a string
-        if (data['parentId'] && !(typeof data['parentId'] === 'string' || data['parentId'] instanceof String)) {
-            throw new Error("Expected the field `parentId` to be a primitive type in the JSON string but got " + data['parentId']);
-        }
-        // ensure the json data is a string
-        if (data['ownerId'] && !(typeof data['ownerId'] === 'string' || data['ownerId'] instanceof String)) {
-            throw new Error("Expected the field `ownerId` to be a primitive type in the JSON string but got " + data['ownerId']);
-        }
-        // ensure the json data is a string
-        if (data['rootId'] && !(typeof data['rootId'] === 'string' || data['rootId'] instanceof String)) {
-            throw new Error("Expected the field `rootId` to be a primitive type in the JSON string but got " + data['rootId']);
-        }
-        // ensure the json data is a string
-        if (data['solutionId'] && !(typeof data['solutionId'] === 'string' || data['solutionId'] instanceof String)) {
-            throw new Error("Expected the field `solutionId` to be a primitive type in the JSON string but got " + data['solutionId']);
-        }
-        // ensure the json data is a string
-        if (data['runTemplateId'] && !(typeof data['runTemplateId'] === 'string' || data['runTemplateId'] instanceof String)) {
-            throw new Error("Expected the field `runTemplateId` to be a primitive type in the JSON string but got " + data['runTemplateId']);
-        }
-        // ensure the json data is a string
-        if (data['organizationId'] && !(typeof data['organizationId'] === 'string' || data['organizationId'] instanceof String)) {
-            throw new Error("Expected the field `organizationId` to be a primitive type in the JSON string but got " + data['organizationId']);
-        }
-        // ensure the json data is a string
-        if (data['workspaceId'] && !(typeof data['workspaceId'] === 'string' || data['workspaceId'] instanceof String)) {
-            throw new Error("Expected the field `workspaceId` to be a primitive type in the JSON string but got " + data['workspaceId']);
-        }
-        // ensure the json data is a string
-        if (data['ownerName'] && !(typeof data['ownerName'] === 'string' || data['ownerName'] instanceof String)) {
-            throw new Error("Expected the field `ownerName` to be a primitive type in the JSON string but got " + data['ownerName']);
-        }
-        // ensure the json data is a string
-        if (data['solutionName'] && !(typeof data['solutionName'] === 'string' || data['solutionName'] instanceof String)) {
-            throw new Error("Expected the field `solutionName` to be a primitive type in the JSON string but got " + data['solutionName']);
-        }
-        // ensure the json data is a string
-        if (data['runTemplateName'] && !(typeof data['runTemplateName'] === 'string' || data['runTemplateName'] instanceof String)) {
-            throw new Error("Expected the field `runTemplateName` to be a primitive type in the JSON string but got " + data['runTemplateName']);
-        }
-        // ensure the json data is an array
-        if (!Array.isArray(data['datasetList'])) {
-            throw new Error("Expected the field `datasetList` to be an array in the JSON data but got " + data['datasetList']);
-        }
-        // validate the optional field `runSizing`
-        if (data['runSizing']) { // data not null
-          RunnerResourceSizing.validateJSON(data['runSizing']);
-        }
-        if (data['parametersValues']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['parametersValues'])) {
-                throw new Error("Expected the field `parametersValues` to be an array in the JSON data but got " + data['parametersValues']);
-            }
-            // validate the optional field `parametersValues` (array)
-            for (const item of data['parametersValues']) {
-                RunnerRunTemplateParameterValue.validateJSON(item);
-            };
-        }
-        // validate the optional field `lastRun`
-        if (data['lastRun']) { // data not null
-          RunnerLastRun.validateJSON(data['lastRun']);
-        }
-        // validate the optional field `parentLastRun`
-        if (data['parentLastRun']) { // data not null
-          RunnerParentLastRun.validateJSON(data['parentLastRun']);
-        }
-        // validate the optional field `rootLastRun`
-        if (data['rootLastRun']) { // data not null
-          RunnerRootLastRun.validateJSON(data['rootLastRun']);
-        }
-        // validate the optional field `security`
-        if (data['security']) { // data not null
-          RunnerSecurity.validateJSON(data['security']);
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * the Runner unique identifier
@@ -364,12 +260,12 @@ Runner.prototype['parametersValues'] = undefined;
 Runner.prototype['lastRun'] = undefined;
 
 /**
- * @member {module:model/RunnerParentLastRun} parentLastRun
+ * @member {module:model/RunnerLastRun} parentLastRun
  */
 Runner.prototype['parentLastRun'] = undefined;
 
 /**
- * @member {module:model/RunnerRootLastRun} rootLastRun
+ * @member {module:model/RunnerLastRun} rootLastRun
  */
 Runner.prototype['rootLastRun'] = undefined;
 

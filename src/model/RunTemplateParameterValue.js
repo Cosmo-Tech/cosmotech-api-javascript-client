@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class RunTemplateParameterValue {
     /**
      * Constructs a new <code>RunTemplateParameterValue</code>.
-     * the value of Analysis parameter for a Runner for this Run
+     * the value of Analysis parameter for a Scenario for this ScenarioRun
      * @alias module:model/RunTemplateParameterValue
      * @param parameterId {String} the parameter Id
      * @param value {String} the parameter value
@@ -65,38 +65,8 @@ class RunTemplateParameterValue {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>RunTemplateParameterValue</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunTemplateParameterValue</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of RunTemplateParameterValue.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['parameterId'] && !(typeof data['parameterId'] === 'string' || data['parameterId'] instanceof String)) {
-            throw new Error("Expected the field `parameterId` to be a primitive type in the JSON string but got " + data['parameterId']);
-        }
-        // ensure the json data is a string
-        if (data['varType'] && !(typeof data['varType'] === 'string' || data['varType'] instanceof String)) {
-            throw new Error("Expected the field `varType` to be a primitive type in the JSON string but got " + data['varType']);
-        }
-        // ensure the json data is a string
-        if (data['value'] && !(typeof data['value'] === 'string' || data['value'] instanceof String)) {
-            throw new Error("Expected the field `value` to be a primitive type in the JSON string but got " + data['value']);
-        }
-
-        return true;
-    }
-
 
 }
-
-RunTemplateParameterValue.RequiredProperties = ["parameterId", "value"];
 
 /**
  * the parameter Id

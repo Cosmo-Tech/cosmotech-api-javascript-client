@@ -59,40 +59,8 @@ class FileUploadValidation {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>FileUploadValidation</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>FileUploadValidation</code>.
-     */
-    static validateJSON(data) {
-        if (data['nodes']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['nodes'])) {
-                throw new Error("Expected the field `nodes` to be an array in the JSON data but got " + data['nodes']);
-            }
-            // validate the optional field `nodes` (array)
-            for (const item of data['nodes']) {
-                FileUploadMetadata.validateJSON(item);
-            };
-        }
-        if (data['edges']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['edges'])) {
-                throw new Error("Expected the field `edges` to be an array in the JSON data but got " + data['edges']);
-            }
-            // validate the optional field `edges` (array)
-            for (const item of data['edges']) {
-                FileUploadMetadata.validateJSON(item);
-            };
-        }
-
-        return true;
-    }
-
 
 }
-
-
 
 /**
  * list of filename found on nodes folder

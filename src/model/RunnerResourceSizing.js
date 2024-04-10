@@ -63,34 +63,8 @@ class RunnerResourceSizing {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>RunnerResourceSizing</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunnerResourceSizing</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of RunnerResourceSizing.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // validate the optional field `requests`
-        if (data['requests']) { // data not null
-          ResourceSizeInfo.validateJSON(data['requests']);
-        }
-        // validate the optional field `limits`
-        if (data['limits']) { // data not null
-          ResourceSizeInfo.validateJSON(data['limits']);
-        }
-
-        return true;
-    }
-
 
 }
-
-RunnerResourceSizing.RequiredProperties = ["requests", "limits"];
 
 /**
  * @member {module:model/ResourceSizeInfo} requests

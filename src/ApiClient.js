@@ -155,7 +155,7 @@ class ApiClient {
             url = apiBasePath + path;
         }
 
-        url = url.replace(/\{([\w-\.#]+)\}/g, (fullMatch, key) => {
+        url = url.replace(/\{([\w-\.]+)\}/g, (fullMatch, key) => {
             var value;
             if (pathParams.hasOwnProperty(key)) {
                 value = this.paramToString(pathParams[key]);
@@ -464,7 +464,7 @@ class ApiClient {
         if (returnType === 'Blob') {
           request.responseType('blob');
         } else if (returnType === 'String') {
-          request.responseType('text');
+          request.responseType('string');
         }
 
         // Attach previously saved cookies, if enabled

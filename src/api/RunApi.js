@@ -311,8 +311,8 @@ export default class RunApi {
      * @param {String} workspaceId the Workspace identifier
      * @param {String} runnerId the Runner identifier
      * @param {Object} opts Optional parameters
-     * @param {Number} [page] page number to query
-     * @param {Number} [size] amount of result by page
+     * @param {Number} opts.page page number to query
+     * @param {Number} opts.size amount of result by page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Run>} and HTTP response
      */
     listRunsWithHttpInfo(organizationId, workspaceId, runnerId, opts) {

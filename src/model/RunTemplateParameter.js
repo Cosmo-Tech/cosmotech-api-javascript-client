@@ -78,50 +78,8 @@ class RunTemplateParameter {
         return obj;
     }
 
-    /**
-     * Validates the JSON data with respect to <code>RunTemplateParameter</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunTemplateParameter</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of RunTemplateParameter.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
-        if (data['varType'] && !(typeof data['varType'] === 'string' || data['varType'] instanceof String)) {
-            throw new Error("Expected the field `varType` to be a primitive type in the JSON string but got " + data['varType']);
-        }
-        // ensure the json data is a string
-        if (data['defaultValue'] && !(typeof data['defaultValue'] === 'string' || data['defaultValue'] instanceof String)) {
-            throw new Error("Expected the field `defaultValue` to be a primitive type in the JSON string but got " + data['defaultValue']);
-        }
-        // ensure the json data is a string
-        if (data['minValue'] && !(typeof data['minValue'] === 'string' || data['minValue'] instanceof String)) {
-            throw new Error("Expected the field `minValue` to be a primitive type in the JSON string but got " + data['minValue']);
-        }
-        // ensure the json data is a string
-        if (data['maxValue'] && !(typeof data['maxValue'] === 'string' || data['maxValue'] instanceof String)) {
-            throw new Error("Expected the field `maxValue` to be a primitive type in the JSON string but got " + data['maxValue']);
-        }
-        // ensure the json data is a string
-        if (data['regexValidation'] && !(typeof data['regexValidation'] === 'string' || data['regexValidation'] instanceof String)) {
-            throw new Error("Expected the field `regexValidation` to be a primitive type in the JSON string but got " + data['regexValidation']);
-        }
-
-        return true;
-    }
-
 
 }
-
-RunTemplateParameter.RequiredProperties = ["id"];
 
 /**
  * the Parameter id

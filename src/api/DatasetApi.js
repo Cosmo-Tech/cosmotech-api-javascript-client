@@ -582,8 +582,8 @@ export default class DatasetApi {
      * List all Datasets
      * @param {String} organizationId the Organization identifier
      * @param {Object} opts Optional parameters
-     * @param {Number} [page] page number to query
-     * @param {Number} [size] amount of result by page
+     * @param {Number} opts.page page number to query
+     * @param {Number} opts.size amount of result by page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Dataset>} and HTTP response
      */
     findAllDatasetsWithHttpInfo(organizationId, opts) {
@@ -1262,8 +1262,8 @@ export default class DatasetApi {
      * @param {String} organizationId the Organization identifier
      * @param {module:model/DatasetSearch} datasetSearch the Dataset search parameters
      * @param {Object} opts Optional parameters
-     * @param {Number} [page] page number to query
-     * @param {Number} [size] amount of result by page
+     * @param {Number} opts.page page number to query
+     * @param {Number} opts.size amount of result by page
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Dataset>} and HTTP response
      */
     searchDatasetsWithHttpInfo(organizationId, datasetSearch, opts) {
