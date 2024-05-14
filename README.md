@@ -184,6 +184,8 @@ Class | Method | HTTP request | Description
 *CosmotechApi.RunApi* | [**getRunLogs**](docs/RunApi.md#getRunLogs) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id}/logs | get the logs for the Run
 *CosmotechApi.RunApi* | [**getRunStatus**](docs/RunApi.md#getRunStatus) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id}/status | get the status for the Run
 *CosmotechApi.RunApi* | [**listRuns**](docs/RunApi.md#listRuns) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs | get the list of Runs for the Runner
+*CosmotechApi.RunApi* | [**queryRunData**](docs/RunApi.md#queryRunData) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id}/data/query | query the run data
+*CosmotechApi.RunApi* | [**sendRunData**](docs/RunApi.md#sendRunData) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id}/data/send | Send data associated to a run
 *CosmotechApi.RunnerApi* | [**addRunnerAccessControl**](docs/RunnerApi.md#addRunnerAccessControl) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/security/access | Add a control access to the Runner
 *CosmotechApi.RunnerApi* | [**createRunner**](docs/RunnerApi.md#createRunner) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/runners | Create a new Runner
 *CosmotechApi.RunnerApi* | [**deleteRunner**](docs/RunnerApi.md#deleteRunner) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id} | Delete a runner
@@ -235,8 +237,6 @@ Class | Method | HTTP request | Description
 *CosmotechApi.ScenariorunApi* | [**searchScenarioRuns**](docs/ScenariorunApi.md#searchScenarioRuns) | **POST** /organizations/{organization_id}/scenarioruns/search | Search ScenarioRuns
 *CosmotechApi.ScenariorunApi* | [**startScenarioRunContainers**](docs/ScenariorunApi.md#startScenarioRunContainers) | **POST** /organizations/{organization_id}/scenarioruns/startcontainers | Start a new scenariorun with raw containers definition
 *CosmotechApi.ScenariorunApi* | [**stopScenarioRun**](docs/ScenariorunApi.md#stopScenarioRun) | **POST** /organizations/{organization_id}/scenarioruns/{scenariorun_id}/stop | stop a ScenarioRun for the Scenario
-*CosmotechApi.ScenariorunresultApi* | [**getScenarioRunResult**](docs/ScenariorunresultApi.md#getScenarioRunResult) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id}/probes/{probe_id} | Get a ScenarioRunResult in the Organization
-*CosmotechApi.ScenariorunresultApi* | [**sendScenarioRunResult**](docs/ScenariorunresultApi.md#sendScenarioRunResult) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/scenarios/{scenario_id}/scenarioruns/{scenariorun_id}/probes/{probe_id} | Create a new ScenarioRunResult in the Organization
 *CosmotechApi.SolutionApi* | [**addOrReplaceParameterGroups**](docs/SolutionApi.md#addOrReplaceParameterGroups) | **POST** /organizations/{organization_id}/solutions/{solution_id}/parameterGroups | Add Parameter Groups. Any item with the same ID will be overwritten
 *CosmotechApi.SolutionApi* | [**addOrReplaceParameters**](docs/SolutionApi.md#addOrReplaceParameters) | **POST** /organizations/{organization_id}/solutions/{solution_id}/parameters | Add Parameters. Any item with the same ID will be overwritten
 *CosmotechApi.SolutionApi* | [**addOrReplaceRunTemplates**](docs/SolutionApi.md#addOrReplaceRunTemplates) | **POST** /organizations/{organization_id}/solutions/{solution_id}/runTemplates | Add Run Templates. Any item with the same ID will be overwritten
@@ -273,15 +273,6 @@ Class | Method | HTTP request | Description
 *CosmotechApi.TwingraphApi* | [**query**](docs/TwingraphApi.md#query) | **POST** /organizations/{organization_id}/twingraph/{graph_id}/query | Run a query on a graph instance
 *CosmotechApi.TwingraphApi* | [**updateEntities**](docs/TwingraphApi.md#updateEntities) | **PATCH** /organizations/{organization_id}/twingraph/{graph_id}/entity/{type} | Update entities in a graph instance
 *CosmotechApi.TwingraphApi* | [**updateGraphMetaData**](docs/TwingraphApi.md#updateGraphMetaData) | **PATCH** /organizations/{organization_id}/twingraph/{graph_id}/metadata | Update the metaData of the specified graph
-*CosmotechApi.ValidatorApi* | [**createValidator**](docs/ValidatorApi.md#createValidator) | **POST** /organizations/{organization_id}/datasets/validators | Register a new validator
-*CosmotechApi.ValidatorApi* | [**createValidatorRun**](docs/ValidatorApi.md#createValidatorRun) | **POST** /organizations/{organization_id}/datasets/validators/{validator_id}/history | Register a new validator run
-*CosmotechApi.ValidatorApi* | [**deleteValidator**](docs/ValidatorApi.md#deleteValidator) | **DELETE** /organizations/{organization_id}/datasets/validators/{validator_id} | Delete a validator
-*CosmotechApi.ValidatorApi* | [**deleteValidatorRun**](docs/ValidatorApi.md#deleteValidatorRun) | **DELETE** /organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id} | Delete a validator run
-*CosmotechApi.ValidatorApi* | [**findAllValidatorRuns**](docs/ValidatorApi.md#findAllValidatorRuns) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id}/history | List all Validator Runs
-*CosmotechApi.ValidatorApi* | [**findAllValidators**](docs/ValidatorApi.md#findAllValidators) | **GET** /organizations/{organization_id}/datasets/validators | List all Validators
-*CosmotechApi.ValidatorApi* | [**findValidatorById**](docs/ValidatorApi.md#findValidatorById) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id} | Get the details of a validator
-*CosmotechApi.ValidatorApi* | [**findValidatorRunById**](docs/ValidatorApi.md#findValidatorRunById) | **GET** /organizations/{organization_id}/datasets/validators/{validator_id}/history/{validatorrun_id} | Get the details of a validator run
-*CosmotechApi.ValidatorApi* | [**runValidator**](docs/ValidatorApi.md#runValidator) | **POST** /organizations/{organization_id}/datasets/validators/{validator_id}/run | Run a Validator
 *CosmotechApi.WorkspaceApi* | [**addWorkspaceAccessControl**](docs/WorkspaceApi.md#addWorkspaceAccessControl) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/security/access | Add a control access to the Workspace
 *CosmotechApi.WorkspaceApi* | [**createSecret**](docs/WorkspaceApi.md#createSecret) | **POST** /organizations/{organization_id}/workspaces/{workspace_id}/secret | Create a secret for the Workspace
 *CosmotechApi.WorkspaceApi* | [**createWorkspace**](docs/WorkspaceApi.md#createWorkspace) | **POST** /organizations/{organization_id}/workspaces | Create a new workspace
@@ -335,11 +326,14 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.OrganizationSecurity](docs/OrganizationSecurity.md)
  - [CosmotechApi.OrganizationService](docs/OrganizationService.md)
  - [CosmotechApi.OrganizationServices](docs/OrganizationServices.md)
+ - [CosmotechApi.QueryResult](docs/QueryResult.md)
  - [CosmotechApi.ResourceSizeInfo](docs/ResourceSizeInfo.md)
  - [CosmotechApi.Run](docs/Run.md)
  - [CosmotechApi.RunContainer](docs/RunContainer.md)
  - [CosmotechApi.RunContainerArtifact](docs/RunContainerArtifact.md)
  - [CosmotechApi.RunContainerLogs](docs/RunContainerLogs.md)
+ - [CosmotechApi.RunData](docs/RunData.md)
+ - [CosmotechApi.RunDataQuery](docs/RunDataQuery.md)
  - [CosmotechApi.RunLogs](docs/RunLogs.md)
  - [CosmotechApi.RunResourceRequested](docs/RunResourceRequested.md)
  - [CosmotechApi.RunSearch](docs/RunSearch.md)
@@ -386,7 +380,6 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ScenarioRunContainerLogs](docs/ScenarioRunContainerLogs.md)
  - [CosmotechApi.ScenarioRunLogs](docs/ScenarioRunLogs.md)
  - [CosmotechApi.ScenarioRunResourceRequested](docs/ScenarioRunResourceRequested.md)
- - [CosmotechApi.ScenarioRunResult](docs/ScenarioRunResult.md)
  - [CosmotechApi.ScenarioRunSearch](docs/ScenarioRunSearch.md)
  - [CosmotechApi.ScenarioRunStartContainers](docs/ScenarioRunStartContainers.md)
  - [CosmotechApi.ScenarioRunState](docs/ScenarioRunState.md)
@@ -395,6 +388,7 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.ScenarioRunTemplateParameterValue](docs/ScenarioRunTemplateParameterValue.md)
  - [CosmotechApi.ScenarioSecurity](docs/ScenarioSecurity.md)
  - [CosmotechApi.ScenarioValidationStatus](docs/ScenarioValidationStatus.md)
+ - [CosmotechApi.SendRunDataRequest](docs/SendRunDataRequest.md)
  - [CosmotechApi.Solution](docs/Solution.md)
  - [CosmotechApi.SolutionAccessControl](docs/SolutionAccessControl.md)
  - [CosmotechApi.SolutionRole](docs/SolutionRole.md)

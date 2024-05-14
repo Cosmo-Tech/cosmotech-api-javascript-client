@@ -98,6 +98,26 @@
         done();
       });
     });
+    describe('queryRunData', function() {
+      it('should call queryRunData successfully', function(done) {
+        //uncomment below and update the code to test queryRunData
+        //instance.queryRunData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('sendRunData', function() {
+      it('should call sendRunData successfully', function(done) {
+        //uncomment below and update the code to test sendRunData
+        //instance.sendRunData(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

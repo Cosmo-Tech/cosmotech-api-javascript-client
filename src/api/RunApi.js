@@ -13,9 +13,13 @@
 
 
 import ApiClient from "../ApiClient";
+import QueryResult from '../model/QueryResult';
 import Run from '../model/Run';
+import RunData from '../model/RunData';
+import RunDataQuery from '../model/RunDataQuery';
 import RunLogs from '../model/RunLogs';
 import RunStatus from '../model/RunStatus';
+import SendRunDataRequest from '../model/SendRunDataRequest';
 
 /**
 * Run service.
@@ -368,6 +372,152 @@ export default class RunApi {
      */
     listRuns(organizationId, workspaceId, runnerId, opts) {
       return this.listRunsWithHttpInfo(organizationId, workspaceId, runnerId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * query the run data
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} runnerId the Runner identifier
+     * @param {String} runId the Run identifier
+     * @param {module:model/RunDataQuery} runDataQuery the query to run
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/QueryResult} and HTTP response
+     */
+    queryRunDataWithHttpInfo(organizationId, workspaceId, runnerId, runId, runDataQuery) {
+      let postBody = runDataQuery;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling queryRunData");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling queryRunData");
+      }
+      // verify the required parameter 'runnerId' is set
+      if (runnerId === undefined || runnerId === null) {
+        throw new Error("Missing the required parameter 'runnerId' when calling queryRunData");
+      }
+      // verify the required parameter 'runId' is set
+      if (runId === undefined || runId === null) {
+        throw new Error("Missing the required parameter 'runId' when calling queryRunData");
+      }
+      // verify the required parameter 'runDataQuery' is set
+      if (runDataQuery === undefined || runDataQuery === null) {
+        throw new Error("Missing the required parameter 'runDataQuery' when calling queryRunData");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId,
+        'runner_id': runnerId,
+        'run_id': runId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = QueryResult;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id}/data/query', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * query the run data
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} runnerId the Runner identifier
+     * @param {String} runId the Run identifier
+     * @param {module:model/RunDataQuery} runDataQuery the query to run
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/QueryResult}
+     */
+    queryRunData(organizationId, workspaceId, runnerId, runId, runDataQuery) {
+      return this.queryRunDataWithHttpInfo(organizationId, workspaceId, runnerId, runId, runDataQuery)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Send data associated to a run
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} runnerId the Runner identifier
+     * @param {String} runId the Run identifier
+     * @param {module:model/SendRunDataRequest} sendRunDataRequest Custom data to register
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RunData} and HTTP response
+     */
+    sendRunDataWithHttpInfo(organizationId, workspaceId, runnerId, runId, sendRunDataRequest) {
+      let postBody = sendRunDataRequest;
+      // verify the required parameter 'organizationId' is set
+      if (organizationId === undefined || organizationId === null) {
+        throw new Error("Missing the required parameter 'organizationId' when calling sendRunData");
+      }
+      // verify the required parameter 'workspaceId' is set
+      if (workspaceId === undefined || workspaceId === null) {
+        throw new Error("Missing the required parameter 'workspaceId' when calling sendRunData");
+      }
+      // verify the required parameter 'runnerId' is set
+      if (runnerId === undefined || runnerId === null) {
+        throw new Error("Missing the required parameter 'runnerId' when calling sendRunData");
+      }
+      // verify the required parameter 'runId' is set
+      if (runId === undefined || runId === null) {
+        throw new Error("Missing the required parameter 'runId' when calling sendRunData");
+      }
+      // verify the required parameter 'sendRunDataRequest' is set
+      if (sendRunDataRequest === undefined || sendRunDataRequest === null) {
+        throw new Error("Missing the required parameter 'sendRunDataRequest' when calling sendRunData");
+      }
+
+      let pathParams = {
+        'organization_id': organizationId,
+        'workspace_id': workspaceId,
+        'runner_id': runnerId,
+        'run_id': runId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['oAuth2AuthCode'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = RunData;
+      return this.apiClient.callApi(
+        '/organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id}/data/send', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Send data associated to a run
+     * @param {String} organizationId the Organization identifier
+     * @param {String} workspaceId the Workspace identifier
+     * @param {String} runnerId the Runner identifier
+     * @param {String} runId the Run identifier
+     * @param {module:model/SendRunDataRequest} sendRunDataRequest Custom data to register
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RunData}
+     */
+    sendRunData(organizationId, workspaceId, runnerId, runId, sendRunDataRequest) {
+      return this.sendRunDataWithHttpInfo(organizationId, workspaceId, runnerId, runId, sendRunDataRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

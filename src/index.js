@@ -41,11 +41,14 @@ import OrganizationRole from './model/OrganizationRole';
 import OrganizationSecurity from './model/OrganizationSecurity';
 import OrganizationService from './model/OrganizationService';
 import OrganizationServices from './model/OrganizationServices';
+import QueryResult from './model/QueryResult';
 import ResourceSizeInfo from './model/ResourceSizeInfo';
 import Run from './model/Run';
 import RunContainer from './model/RunContainer';
 import RunContainerArtifact from './model/RunContainerArtifact';
 import RunContainerLogs from './model/RunContainerLogs';
+import RunData from './model/RunData';
+import RunDataQuery from './model/RunDataQuery';
 import RunLogs from './model/RunLogs';
 import RunResourceRequested from './model/RunResourceRequested';
 import RunSearch from './model/RunSearch';
@@ -92,7 +95,6 @@ import ScenarioRunContainerArtifact from './model/ScenarioRunContainerArtifact';
 import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
 import ScenarioRunLogs from './model/ScenarioRunLogs';
 import ScenarioRunResourceRequested from './model/ScenarioRunResourceRequested';
-import ScenarioRunResult from './model/ScenarioRunResult';
 import ScenarioRunSearch from './model/ScenarioRunSearch';
 import ScenarioRunStartContainers from './model/ScenarioRunStartContainers';
 import ScenarioRunState from './model/ScenarioRunState';
@@ -101,6 +103,7 @@ import ScenarioRunStatusNode from './model/ScenarioRunStatusNode';
 import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParameterValue';
 import ScenarioSecurity from './model/ScenarioSecurity';
 import ScenarioValidationStatus from './model/ScenarioValidationStatus';
+import SendRunDataRequest from './model/SendRunDataRequest';
 import Solution from './model/Solution';
 import SolutionAccessControl from './model/SolutionAccessControl';
 import SolutionRole from './model/SolutionRole';
@@ -127,10 +130,8 @@ import RunApi from './api/RunApi';
 import RunnerApi from './api/RunnerApi';
 import ScenarioApi from './api/ScenarioApi';
 import ScenariorunApi from './api/ScenariorunApi';
-import ScenariorunresultApi from './api/ScenariorunresultApi';
 import SolutionApi from './api/SolutionApi';
 import TwingraphApi from './api/TwingraphApi';
-import ValidatorApi from './api/ValidatorApi';
 import WorkspaceApi from './api/WorkspaceApi';
 
 
@@ -341,6 +342,12 @@ export {
     OrganizationServices,
 
     /**
+     * The QueryResult model constructor.
+     * @property {module:model/QueryResult}
+     */
+    QueryResult,
+
+    /**
      * The ResourceSizeInfo model constructor.
      * @property {module:model/ResourceSizeInfo}
      */
@@ -369,6 +376,18 @@ export {
      * @property {module:model/RunContainerLogs}
      */
     RunContainerLogs,
+
+    /**
+     * The RunData model constructor.
+     * @property {module:model/RunData}
+     */
+    RunData,
+
+    /**
+     * The RunDataQuery model constructor.
+     * @property {module:model/RunDataQuery}
+     */
+    RunDataQuery,
 
     /**
      * The RunLogs model constructor.
@@ -647,12 +666,6 @@ export {
     ScenarioRunResourceRequested,
 
     /**
-     * The ScenarioRunResult model constructor.
-     * @property {module:model/ScenarioRunResult}
-     */
-    ScenarioRunResult,
-
-    /**
      * The ScenarioRunSearch model constructor.
      * @property {module:model/ScenarioRunSearch}
      */
@@ -699,6 +712,12 @@ export {
      * @property {module:model/ScenarioValidationStatus}
      */
     ScenarioValidationStatus,
+
+    /**
+     * The SendRunDataRequest model constructor.
+     * @property {module:model/SendRunDataRequest}
+     */
+    SendRunDataRequest,
 
     /**
      * The Solution model constructor.
@@ -857,12 +876,6 @@ export {
     ScenariorunApi,
 
     /**
-    * The ScenariorunresultApi service constructor.
-    * @property {module:api/ScenariorunresultApi}
-    */
-    ScenariorunresultApi,
-
-    /**
     * The SolutionApi service constructor.
     * @property {module:api/SolutionApi}
     */
@@ -873,12 +886,6 @@ export {
     * @property {module:api/TwingraphApi}
     */
     TwingraphApi,
-
-    /**
-    * The ValidatorApi service constructor.
-    * @property {module:api/ValidatorApi}
-    */
-    ValidatorApi,
 
     /**
     * The WorkspaceApi service constructor.
