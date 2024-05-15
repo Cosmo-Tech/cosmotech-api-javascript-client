@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import RunnerLastRun from './RunnerLastRun';
 
 /**
  * The RunnerLastRun model module.
@@ -26,7 +25,6 @@ class RunnerLastRun {
      * @implements module:model/RunnerLastRun
      */
     constructor() { 
-        RunnerLastRun.initialize(this);
         RunnerLastRun.initialize(this);
     }
 
