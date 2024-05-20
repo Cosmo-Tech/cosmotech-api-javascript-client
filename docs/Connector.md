@@ -15,18 +15,7 @@ Name | Type | Description | Notes
 **url** | **String** | an optional URL link to connector page | [optional] 
 **azureManagedIdentity** | **Boolean** | whether or not the connector uses Azure Managed Identity | [optional] 
 **azureAuthenticationWithCustomerAppRegistration** | **Boolean** | whether to authenticate against Azure using the app registration credentials provided by the customer | [optional] 
-**ioTypes** | **[String]** |  | [optional] 
+**ioTypes** | [**[IoTypesEnum]**](IoTypesEnum.md) |  | [optional] 
 **parameterGroups** | [**[ConnectorParameterGroup]**](ConnectorParameterGroup.md) | the list of connector parameters groups | [optional] 
-
-
-
-## Enum: [IoTypesEnum]
-
-
-* `read` (value: `"read"`)
-
-* `write` (value: `"write"`)
-
-
 
 
