@@ -72,12 +72,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property services (base name: "services")', function() {
-      // uncomment below and update the code to test the property services
-      //var instance = new CosmotechApi.Organization();
-      //expect(instance).to.be();
-    });
-
     it('should have the property security (base name: "security")', function() {
       // uncomment below and update the code to test the property security
       //var instance = new CosmotechApi.Organization();

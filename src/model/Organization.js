@@ -13,7 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import OrganizationSecurity from './OrganizationSecurity';
-import OrganizationServices from './OrganizationServices';
 
 /**
  * The Organization model module.
@@ -59,9 +58,6 @@ class Organization {
             if (data.hasOwnProperty('ownerId')) {
                 obj['ownerId'] = ApiClient.convertToType(data['ownerId'], 'String');
             }
-            if (data.hasOwnProperty('services')) {
-                obj['services'] = OrganizationServices.constructFromObject(data['services']);
-            }
             if (data.hasOwnProperty('security')) {
                 obj['security'] = ApiClient.convertToType(data['security'], OrganizationSecurity);
             }
@@ -86,10 +82,6 @@ class Organization {
         // ensure the json data is a string
         if (data['ownerId'] && !(typeof data['ownerId'] === 'string' || data['ownerId'] instanceof String)) {
             throw new Error("Expected the field `ownerId` to be a primitive type in the JSON string but got " + data['ownerId']);
-        }
-        // validate the optional field `services`
-        if (data['services']) { // data not null
-          OrganizationServices.validateJSON(data['services']);
         }
         // validate the optional field `security`
         if (data['security']) { // data not null
@@ -121,11 +113,6 @@ Organization.prototype['name'] = undefined;
  * @member {String} ownerId
  */
 Organization.prototype['ownerId'] = undefined;
-
-/**
- * @member {module:model/OrganizationServices} services
- */
-Organization.prototype['services'] = undefined;
 
 /**
  * @member {module:model/OrganizationSecurity} security

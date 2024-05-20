@@ -188,36 +188,6 @@
         done();
       });
     });
-    describe('updateSolutionsContainerRegistryByOrganizationId', function() {
-      it('should call updateSolutionsContainerRegistryByOrganizationId successfully', function(done) {
-        //uncomment below and update the code to test updateSolutionsContainerRegistryByOrganizationId
-        //instance.updateSolutionsContainerRegistryByOrganizationId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updateStorageByOrganizationId', function() {
-      it('should call updateStorageByOrganizationId successfully', function(done) {
-        //uncomment below and update the code to test updateStorageByOrganizationId
-        //instance.updateStorageByOrganizationId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('updateTenantCredentialsByOrganizationId', function() {
-      it('should call updateTenantCredentialsByOrganizationId successfully', function(done) {
-        //uncomment below and update the code to test updateTenantCredentialsByOrganizationId
-        //instance.updateTenantCredentialsByOrganizationId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
   });
 
 }));

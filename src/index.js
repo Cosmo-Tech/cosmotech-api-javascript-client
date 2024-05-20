@@ -41,8 +41,6 @@ import Organization from './model/Organization';
 import OrganizationAccessControl from './model/OrganizationAccessControl';
 import OrganizationRole from './model/OrganizationRole';
 import OrganizationSecurity from './model/OrganizationSecurity';
-import OrganizationService from './model/OrganizationService';
-import OrganizationServices from './model/OrganizationServices';
 import QueryResult from './model/QueryResult';
 import ResourceSizeInfo from './model/ResourceSizeInfo';
 import Run from './model/Run';
@@ -344,18 +342,6 @@ export {
      * @property {module:model/OrganizationSecurity}
      */
     OrganizationSecurity,
-
-    /**
-     * The OrganizationService model constructor.
-     * @property {module:model/OrganizationService}
-     */
-    OrganizationService,
-
-    /**
-     * The OrganizationServices model constructor.
-     * @property {module:model/OrganizationServices}
-     */
-    OrganizationServices,
 
     /**
      * The QueryResult model constructor.

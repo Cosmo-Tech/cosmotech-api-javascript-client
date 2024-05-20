@@ -176,9 +176,6 @@ Class | Method | HTTP request | Description
 *CosmotechApi.OrganizationApi* | [**unregisterOrganization**](docs/OrganizationApi.md#unregisterOrganization) | **DELETE** /organizations/{organization_id} | Unregister an organization
 *CosmotechApi.OrganizationApi* | [**updateOrganization**](docs/OrganizationApi.md#updateOrganization) | **PATCH** /organizations/{organization_id} | Update an Organization
 *CosmotechApi.OrganizationApi* | [**updateOrganizationAccessControl**](docs/OrganizationApi.md#updateOrganizationAccessControl) | **PATCH** /organizations/{organization_id}/security/access/{identity_id} | Update the specified access to User for an Organization
-*CosmotechApi.OrganizationApi* | [**updateSolutionsContainerRegistryByOrganizationId**](docs/OrganizationApi.md#updateSolutionsContainerRegistryByOrganizationId) | **PATCH** /organizations/{organization_id}/services/solutionsContainerRegistry | Update the solutions container registry configuration for the Organization specified
-*CosmotechApi.OrganizationApi* | [**updateStorageByOrganizationId**](docs/OrganizationApi.md#updateStorageByOrganizationId) | **PATCH** /organizations/{organization_id}/services/storage | Update storage configuration for the Organization specified
-*CosmotechApi.OrganizationApi* | [**updateTenantCredentialsByOrganizationId**](docs/OrganizationApi.md#updateTenantCredentialsByOrganizationId) | **PATCH** /organizations/{organization_id}/services/tenantCredentials | Update tenant credentials for the Organization specified
 *CosmotechApi.RunApi* | [**deleteRun**](docs/RunApi.md#deleteRun) | **DELETE** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id} | Delete a run
 *CosmotechApi.RunApi* | [**getRun**](docs/RunApi.md#getRun) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id} | Get the details of a run
 *CosmotechApi.RunApi* | [**getRunLogs**](docs/RunApi.md#getRunLogs) | **GET** /organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/runs/{run_id}/logs | get the logs for the Run
@@ -326,8 +323,6 @@ Class | Method | HTTP request | Description
  - [CosmotechApi.OrganizationAccessControl](docs/OrganizationAccessControl.md)
  - [CosmotechApi.OrganizationRole](docs/OrganizationRole.md)
  - [CosmotechApi.OrganizationSecurity](docs/OrganizationSecurity.md)
- - [CosmotechApi.OrganizationService](docs/OrganizationService.md)
- - [CosmotechApi.OrganizationServices](docs/OrganizationServices.md)
  - [CosmotechApi.QueryResult](docs/QueryResult.md)
  - [CosmotechApi.ResourceSizeInfo](docs/ResourceSizeInfo.md)
  - [CosmotechApi.Run](docs/Run.md)
