@@ -8,36 +8,9 @@ Name | Type | Description | Notes
 **runTemplateId** | **String** | the Solution Analysis Id to search | [optional] 
 **workspaceId** | **String** | the Workspace Id to search | [optional] 
 **scenarioId** | **String** | the Scenario Id to search | [optional] 
-**state** | **String** | the state to search | [optional] 
+**state** | [**ScenarioRunSearchState**](ScenarioRunSearchState.md) |  | [optional] 
 **workflowId** | **String** | the Cosmo Tech compute cluster Argo Workflow Id to search | [optional] 
 **workflowName** | **String** | the Cosmo Tech compute cluster Argo Workflow Name | [optional] 
 **ownerId** | **String** | the owner Id to search | [optional] 
-
-
-
-## Enum: StateEnum
-
-
-* `FetchingDatasets` (value: `"FetchingDatasets"`)
-
-* `FetchingScenarioParameters` (value: `"FetchingScenarioParameters"`)
-
-* `ApplyingScenarioParameters` (value: `"ApplyingScenarioParameters"`)
-
-* `ValidatingScenarioData` (value: `"ValidatingScenarioData"`)
-
-* `SendingScenarioDataToDataWarehouse` (value: `"SendingScenarioDataToDataWarehouse"`)
-
-* `PreRun` (value: `"PreRun"`)
-
-* `Running` (value: `"Running"`)
-
-* `PostRun` (value: `"PostRun"`)
-
-* `Success` (value: `"Success"`)
-
-* `Failed` (value: `"Failed"`)
-
-
 
 
