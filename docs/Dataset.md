@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **refreshDate** | **Number** | the last time a refresh was done | [optional] [readonly] 
 **sourceType** | [**DatasetSourceType**](DatasetSourceType.md) |  | [optional] 
 **source** | [**SourceInfo**](SourceInfo.md) |  | [optional] 
-**ingestionStatus** | **String** | the Dataset ingestion status | [optional] 
-**twincacheStatus** | **String** | the twincache data status | [optional] 
+**ingestionStatus** | [**IngestionStatusEnum**](IngestionStatusEnum.md) |  | [optional] 
+**twincacheStatus** | [**TwincacheStatusEnum**](TwincacheStatusEnum.md) |  | [optional] 
 **queries** | **[String]** | the list of queries | [optional] 
 **tags** | **[String]** | the list of tags | [optional] 
 **connector** | [**DatasetConnector**](DatasetConnector.md) |  | [optional] 
@@ -27,31 +27,5 @@ Name | Type | Description | Notes
 **validatorId** | **String** | the validator id | [optional] 
 **compatibility** | [**[DatasetCompatibility]**](DatasetCompatibility.md) | the list of compatible Solutions versions | [optional] 
 **security** | [**DatasetSecurity**](DatasetSecurity.md) |  | [optional] 
-
-
-
-## Enum: IngestionStatusEnum
-
-
-* `NONE` (value: `"NONE"`)
-
-* `PENDING` (value: `"PENDING"`)
-
-* `ERROR` (value: `"ERROR"`)
-
-* `SUCCESS` (value: `"SUCCESS"`)
-
-
-
-
-
-## Enum: TwincacheStatusEnum
-
-
-* `EMPTY` (value: `"EMPTY"`)
-
-* `FULL` (value: `"FULL"`)
-
-
 
 

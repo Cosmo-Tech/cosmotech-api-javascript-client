@@ -588,7 +588,7 @@ Name | Type | Description  | Notes
 
 ## startRun
 
-> RunnerLastRun startRun(organizationId, workspaceId, runnerId)
+> String startRun(organizationId, workspaceId, runnerId)
 
 Start a run with runner parameters
 
@@ -624,7 +624,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RunnerLastRun**](RunnerLastRun.md)
+**String**
 
 ### Authorization
 
