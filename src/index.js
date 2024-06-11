@@ -76,31 +76,6 @@ import RunnerRole from './model/RunnerRole';
 import RunnerRunTemplateParameterValue from './model/RunnerRunTemplateParameterValue';
 import RunnerSecurity from './model/RunnerSecurity';
 import RunnerValidationStatus from './model/RunnerValidationStatus';
-import Scenario from './model/Scenario';
-import ScenarioAccessControl from './model/ScenarioAccessControl';
-import ScenarioChangedParameterValue from './model/ScenarioChangedParameterValue';
-import ScenarioComparisonResult from './model/ScenarioComparisonResult';
-import ScenarioDataDownloadInfo from './model/ScenarioDataDownloadInfo';
-import ScenarioDataDownloadJob from './model/ScenarioDataDownloadJob';
-import ScenarioJobState from './model/ScenarioJobState';
-import ScenarioLastRun from './model/ScenarioLastRun';
-import ScenarioResourceSizing from './model/ScenarioResourceSizing';
-import ScenarioRole from './model/ScenarioRole';
-import ScenarioRun from './model/ScenarioRun';
-import ScenarioRunContainer from './model/ScenarioRunContainer';
-import ScenarioRunContainerArtifact from './model/ScenarioRunContainerArtifact';
-import ScenarioRunContainerLogs from './model/ScenarioRunContainerLogs';
-import ScenarioRunLogs from './model/ScenarioRunLogs';
-import ScenarioRunResourceRequested from './model/ScenarioRunResourceRequested';
-import ScenarioRunSearch from './model/ScenarioRunSearch';
-import ScenarioRunSearchState from './model/ScenarioRunSearchState';
-import ScenarioRunStartContainers from './model/ScenarioRunStartContainers';
-import ScenarioRunState from './model/ScenarioRunState';
-import ScenarioRunStatus from './model/ScenarioRunStatus';
-import ScenarioRunStatusNode from './model/ScenarioRunStatusNode';
-import ScenarioRunTemplateParameterValue from './model/ScenarioRunTemplateParameterValue';
-import ScenarioSecurity from './model/ScenarioSecurity';
-import ScenarioValidationStatus from './model/ScenarioValidationStatus';
 import SendRunDataRequest from './model/SendRunDataRequest';
 import Solution from './model/Solution';
 import SolutionAccessControl from './model/SolutionAccessControl';
@@ -109,8 +84,6 @@ import SolutionSecurity from './model/SolutionSecurity';
 import SourceInfo from './model/SourceInfo';
 import SubDatasetGraphQuery from './model/SubDatasetGraphQuery';
 import TwinGraphBatchResult from './model/TwinGraphBatchResult';
-import TwinGraphHash from './model/TwinGraphHash';
-import TwinGraphQuery from './model/TwinGraphQuery';
 import TwincacheStatusEnum from './model/TwincacheStatusEnum';
 import Validator from './model/Validator';
 import Workspace from './model/Workspace';
@@ -126,10 +99,7 @@ import DatasetApi from './api/DatasetApi';
 import OrganizationApi from './api/OrganizationApi';
 import RunApi from './api/RunApi';
 import RunnerApi from './api/RunnerApi';
-import ScenarioApi from './api/ScenarioApi';
-import ScenariorunApi from './api/ScenariorunApi';
 import SolutionApi from './api/SolutionApi';
-import TwingraphApi from './api/TwingraphApi';
 import WorkspaceApi from './api/WorkspaceApi';
 
 
@@ -550,156 +520,6 @@ export {
     RunnerValidationStatus,
 
     /**
-     * The Scenario model constructor.
-     * @property {module:model/Scenario}
-     */
-    Scenario,
-
-    /**
-     * The ScenarioAccessControl model constructor.
-     * @property {module:model/ScenarioAccessControl}
-     */
-    ScenarioAccessControl,
-
-    /**
-     * The ScenarioChangedParameterValue model constructor.
-     * @property {module:model/ScenarioChangedParameterValue}
-     */
-    ScenarioChangedParameterValue,
-
-    /**
-     * The ScenarioComparisonResult model constructor.
-     * @property {module:model/ScenarioComparisonResult}
-     */
-    ScenarioComparisonResult,
-
-    /**
-     * The ScenarioDataDownloadInfo model constructor.
-     * @property {module:model/ScenarioDataDownloadInfo}
-     */
-    ScenarioDataDownloadInfo,
-
-    /**
-     * The ScenarioDataDownloadJob model constructor.
-     * @property {module:model/ScenarioDataDownloadJob}
-     */
-    ScenarioDataDownloadJob,
-
-    /**
-     * The ScenarioJobState model constructor.
-     * @property {module:model/ScenarioJobState}
-     */
-    ScenarioJobState,
-
-    /**
-     * The ScenarioLastRun model constructor.
-     * @property {module:model/ScenarioLastRun}
-     */
-    ScenarioLastRun,
-
-    /**
-     * The ScenarioResourceSizing model constructor.
-     * @property {module:model/ScenarioResourceSizing}
-     */
-    ScenarioResourceSizing,
-
-    /**
-     * The ScenarioRole model constructor.
-     * @property {module:model/ScenarioRole}
-     */
-    ScenarioRole,
-
-    /**
-     * The ScenarioRun model constructor.
-     * @property {module:model/ScenarioRun}
-     */
-    ScenarioRun,
-
-    /**
-     * The ScenarioRunContainer model constructor.
-     * @property {module:model/ScenarioRunContainer}
-     */
-    ScenarioRunContainer,
-
-    /**
-     * The ScenarioRunContainerArtifact model constructor.
-     * @property {module:model/ScenarioRunContainerArtifact}
-     */
-    ScenarioRunContainerArtifact,
-
-    /**
-     * The ScenarioRunContainerLogs model constructor.
-     * @property {module:model/ScenarioRunContainerLogs}
-     */
-    ScenarioRunContainerLogs,
-
-    /**
-     * The ScenarioRunLogs model constructor.
-     * @property {module:model/ScenarioRunLogs}
-     */
-    ScenarioRunLogs,
-
-    /**
-     * The ScenarioRunResourceRequested model constructor.
-     * @property {module:model/ScenarioRunResourceRequested}
-     */
-    ScenarioRunResourceRequested,
-
-    /**
-     * The ScenarioRunSearch model constructor.
-     * @property {module:model/ScenarioRunSearch}
-     */
-    ScenarioRunSearch,
-
-    /**
-     * The ScenarioRunSearchState model constructor.
-     * @property {module:model/ScenarioRunSearchState}
-     */
-    ScenarioRunSearchState,
-
-    /**
-     * The ScenarioRunStartContainers model constructor.
-     * @property {module:model/ScenarioRunStartContainers}
-     */
-    ScenarioRunStartContainers,
-
-    /**
-     * The ScenarioRunState model constructor.
-     * @property {module:model/ScenarioRunState}
-     */
-    ScenarioRunState,
-
-    /**
-     * The ScenarioRunStatus model constructor.
-     * @property {module:model/ScenarioRunStatus}
-     */
-    ScenarioRunStatus,
-
-    /**
-     * The ScenarioRunStatusNode model constructor.
-     * @property {module:model/ScenarioRunStatusNode}
-     */
-    ScenarioRunStatusNode,
-
-    /**
-     * The ScenarioRunTemplateParameterValue model constructor.
-     * @property {module:model/ScenarioRunTemplateParameterValue}
-     */
-    ScenarioRunTemplateParameterValue,
-
-    /**
-     * The ScenarioSecurity model constructor.
-     * @property {module:model/ScenarioSecurity}
-     */
-    ScenarioSecurity,
-
-    /**
-     * The ScenarioValidationStatus model constructor.
-     * @property {module:model/ScenarioValidationStatus}
-     */
-    ScenarioValidationStatus,
-
-    /**
      * The SendRunDataRequest model constructor.
      * @property {module:model/SendRunDataRequest}
      */
@@ -746,18 +566,6 @@ export {
      * @property {module:model/TwinGraphBatchResult}
      */
     TwinGraphBatchResult,
-
-    /**
-     * The TwinGraphHash model constructor.
-     * @property {module:model/TwinGraphHash}
-     */
-    TwinGraphHash,
-
-    /**
-     * The TwinGraphQuery model constructor.
-     * @property {module:model/TwinGraphQuery}
-     */
-    TwinGraphQuery,
 
     /**
      * The TwincacheStatusEnum model constructor.
@@ -850,28 +658,10 @@ export {
     RunnerApi,
 
     /**
-    * The ScenarioApi service constructor.
-    * @property {module:api/ScenarioApi}
-    */
-    ScenarioApi,
-
-    /**
-    * The ScenariorunApi service constructor.
-    * @property {module:api/ScenariorunApi}
-    */
-    ScenariorunApi,
-
-    /**
     * The SolutionApi service constructor.
     * @property {module:api/SolutionApi}
     */
     SolutionApi,
-
-    /**
-    * The TwingraphApi service constructor.
-    * @property {module:api/TwingraphApi}
-    */
-    TwingraphApi,
 
     /**
     * The WorkspaceApi service constructor.
