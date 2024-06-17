@@ -1512,7 +1512,7 @@ export default class DatasetApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
      * @param {module:model/DatasetTwinGraphQuery} datasetTwinGraphQuery the query to run
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link String} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<Object>} and HTTP response
      */
     twingraphQueryWithHttpInfo(organizationId, datasetId, datasetTwinGraphQuery) {
       let postBody = datasetTwinGraphQuery;
@@ -1543,7 +1543,7 @@ export default class DatasetApi {
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = 'String';
+      let returnType = [Object];
       return this.apiClient.callApi(
         '/organizations/{organization_id}/datasets/{dataset_id}/twingraph', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -1557,7 +1557,7 @@ export default class DatasetApi {
      * @param {String} organizationId the Organization identifier
      * @param {String} datasetId the Dataset identifier
      * @param {module:model/DatasetTwinGraphQuery} datasetTwinGraphQuery the query to run
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link String}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<Object>}
      */
     twingraphQuery(organizationId, datasetId, datasetTwinGraphQuery) {
       return this.twingraphQueryWithHttpInfo(organizationId, datasetId, datasetTwinGraphQuery)

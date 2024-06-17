@@ -1307,7 +1307,7 @@ Name | Type | Description  | Notes
 
 ## twingraphQuery
 
-> String twingraphQuery(organizationId, datasetId, datasetTwinGraphQuery)
+> [Object] twingraphQuery(organizationId, datasetId, datasetTwinGraphQuery)
 
 Return the result of a query made on the graph instance as a json
 
@@ -1345,7 +1345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**String**
+**[Object]**
 
 ### Authorization
 
