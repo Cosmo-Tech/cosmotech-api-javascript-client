@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dedicatedEventHubKey** | **String** | the dedicated event hub shared access key | [optional] 
+**name** | **String** | the secret name | 
+**value** | **String** | the secret value | 
 
 
