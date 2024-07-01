@@ -23,10 +23,12 @@ class WorkspaceSecret {
      * Constructs a new <code>WorkspaceSecret</code>.
      * the secret definition
      * @alias module:model/WorkspaceSecret
+     * @param name {String} the secret name
+     * @param value {String} the secret value
      */
-    constructor() { 
+    constructor(name, value) { 
         
-        WorkspaceSecret.initialize(this);
+        WorkspaceSecret.initialize(this, name, value);
     }
 
     /**
@@ -34,7 +36,9 @@ class WorkspaceSecret {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name, value) { 
+        obj['name'] = name;
+        obj['value'] = value;
     }
 
     /**
@@ -48,8 +52,11 @@ class WorkspaceSecret {
         if (data) {
             obj = obj || new WorkspaceSecret();
 
-            if (data.hasOwnProperty('dedicatedEventHubKey')) {
-                obj['dedicatedEventHubKey'] = ApiClient.convertToType(data['dedicatedEventHubKey'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('value')) {
+                obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
         }
         return obj;
@@ -61,9 +68,19 @@ class WorkspaceSecret {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>WorkspaceSecret</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of WorkspaceSecret.RequiredProperties) {
+            if (!data.hasOwnProperty(property)) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
-        if (data['dedicatedEventHubKey'] && !(typeof data['dedicatedEventHubKey'] === 'string' || data['dedicatedEventHubKey'] instanceof String)) {
-            throw new Error("Expected the field `dedicatedEventHubKey` to be a primitive type in the JSON string but got " + data['dedicatedEventHubKey']);
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['value'] && !(typeof data['value'] === 'string' || data['value'] instanceof String)) {
+            throw new Error("Expected the field `value` to be a primitive type in the JSON string but got " + data['value']);
         }
 
         return true;
@@ -72,13 +89,19 @@ class WorkspaceSecret {
 
 }
 
-
+WorkspaceSecret.RequiredProperties = ["name", "value"];
 
 /**
- * the dedicated event hub shared access key
- * @member {String} dedicatedEventHubKey
+ * the secret name
+ * @member {String} name
  */
-WorkspaceSecret.prototype['dedicatedEventHubKey'] = undefined;
+WorkspaceSecret.prototype['name'] = undefined;
+
+/**
+ * the secret value
+ * @member {String} value
+ */
+WorkspaceSecret.prototype['value'] = undefined;
 
 
 

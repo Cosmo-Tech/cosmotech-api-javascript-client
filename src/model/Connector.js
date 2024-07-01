@@ -77,12 +77,6 @@ class Connector {
             if (data.hasOwnProperty('url')) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('azureManagedIdentity')) {
-                obj['azureManagedIdentity'] = ApiClient.convertToType(data['azureManagedIdentity'], 'Boolean');
-            }
-            if (data.hasOwnProperty('azureAuthenticationWithCustomerAppRegistration')) {
-                obj['azureAuthenticationWithCustomerAppRegistration'] = ApiClient.convertToType(data['azureAuthenticationWithCustomerAppRegistration'], 'Boolean');
-            }
             if (data.hasOwnProperty('ioTypes')) {
                 obj['ioTypes'] = ApiClient.convertToType(data['ioTypes'], [IoTypesEnum]);
             }
@@ -211,18 +205,6 @@ Connector.prototype['ownerId'] = undefined;
  * @member {String} url
  */
 Connector.prototype['url'] = undefined;
-
-/**
- * whether or not the connector uses Azure Managed Identity
- * @member {Boolean} azureManagedIdentity
- */
-Connector.prototype['azureManagedIdentity'] = undefined;
-
-/**
- * whether to authenticate against Azure using the app registration credentials provided by the customer
- * @member {Boolean} azureAuthenticationWithCustomerAppRegistration
- */
-Connector.prototype['azureAuthenticationWithCustomerAppRegistration'] = undefined;
 
 /**
  * @member {Array.<module:model/IoTypesEnum>} ioTypes

@@ -54,8 +54,14 @@
       //expect(instance).to.be.a(CosmotechApi.WorkspaceSecret);
     });
 
-    it('should have the property dedicatedEventHubKey (base name: "dedicatedEventHubKey")', function() {
-      // uncomment below and update the code to test the property dedicatedEventHubKey
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new CosmotechApi.WorkspaceSecret();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property value (base name: "value")', function() {
+      // uncomment below and update the code to test the property value
       //var instance = new CosmotechApi.WorkspaceSecret();
       //expect(instance).to.be();
     });
