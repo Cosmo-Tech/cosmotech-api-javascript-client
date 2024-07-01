@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**createSolution**](SolutionApi.md#createSolution) | **POST** /organizations/{organization_id}/solutions | Register a new solution
 [**deleteSolution**](SolutionApi.md#deleteSolution) | **DELETE** /organizations/{organization_id}/solutions/{solution_id} | Delete a solution
 [**deleteSolutionRunTemplate**](SolutionApi.md#deleteSolutionRunTemplate) | **DELETE** /organizations/{organization_id}/solutions/{solution_id}/runTemplates/{run_template_id} | Remove the specified Solution Run Template
-[**downloadRunTemplateHandler**](SolutionApi.md#downloadRunTemplateHandler) | **GET** /organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/download | Download a Run Template step handler zip file
 [**findAllSolutions**](SolutionApi.md#findAllSolutions) | **GET** /organizations/{organization_id}/solutions | List all Solutions
 [**findSolutionById**](SolutionApi.md#findSolutionById) | **GET** /organizations/{organization_id}/solutions/{solution_id} | Get the details of a solution
 [**getSolutionAccessControl**](SolutionApi.md#getSolutionAccessControl) | **GET** /organizations/{organization_id}/solutions/{solution_id}/security/access/{identity_id} | Get a control access for the Solution
@@ -25,7 +24,6 @@ Method | HTTP request | Description
 [**updateSolution**](SolutionApi.md#updateSolution) | **PATCH** /organizations/{organization_id}/solutions/{solution_id} | Update a solution
 [**updateSolutionAccessControl**](SolutionApi.md#updateSolutionAccessControl) | **PATCH** /organizations/{organization_id}/solutions/{solution_id}/security/access/{identity_id} | Update the specified access to User for a Solution
 [**updateSolutionRunTemplate**](SolutionApi.md#updateSolutionRunTemplate) | **PATCH** /organizations/{organization_id}/solutions/{solution_id}/runTemplates/{run_template_id} | Update the specified Solution Run Template
-[**uploadRunTemplateHandler**](SolutionApi.md#uploadRunTemplateHandler) | **POST** /organizations/{organization_id}/solutions/{solution_id}/runtemplates/{run_template_id}/handlers/{handler_id}/upload | Upload a Run Template step handler zip file
 
 
 
@@ -373,58 +371,6 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
-
-
-## downloadRunTemplateHandler
-
-> Blob downloadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId)
-
-Download a Run Template step handler zip file
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.SolutionApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let solutionId = "solutionId_example"; // String | the Solution identifier
-let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
-let handlerId = new CosmotechApi.RunTemplateHandlerId(); // RunTemplateHandlerId | the Handler identifier
-apiInstance.downloadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **solutionId** | **String**| the Solution identifier | 
- **runTemplateId** | **String**| the Run Template identifier | 
- **handlerId** | [**RunTemplateHandlerId**](.md)| the Handler identifier | 
-
-### Return type
-
-**Blob**
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/octet-stream
 
 
 ## findAllSolutions
@@ -1069,62 +1015,4 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json, application/yaml
 - **Accept**: application/json
-
-
-## uploadRunTemplateHandler
-
-> uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, body, opts)
-
-Upload a Run Template step handler zip file
-
-### Example
-
-```javascript
-import CosmotechApi from '@cosmotech/api';
-let defaultClient = CosmotechApi.ApiClient.instance;
-// Configure OAuth2 access token for authorization: oAuth2AuthCode
-let oAuth2AuthCode = defaultClient.authentications['oAuth2AuthCode'];
-oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
-
-let apiInstance = new CosmotechApi.SolutionApi();
-let organizationId = "organizationId_example"; // String | the Organization identifier
-let solutionId = "solutionId_example"; // String | the Solution identifier
-let runTemplateId = "runTemplateId_example"; // String | the Run Template identifier
-let handlerId = new CosmotechApi.RunTemplateHandlerId(); // RunTemplateHandlerId | the Handler identifier
-let body = "/path/to/file"; // File | 
-let opts = {
-  'overwrite': false // Boolean | whether to overwrite any existing handler resource
-};
-apiInstance.uploadRunTemplateHandler(organizationId, solutionId, runTemplateId, handlerId, body, opts).then(() => {
-  console.log('API called successfully.');
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationId** | **String**| the Organization identifier | 
- **solutionId** | **String**| the Solution identifier | 
- **runTemplateId** | **String**| the Run Template identifier | 
- **handlerId** | [**RunTemplateHandlerId**](.md)| the Handler identifier | 
- **body** | **File**|  | 
- **overwrite** | **Boolean**| whether to overwrite any existing handler resource | [optional] [default to false]
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[oAuth2AuthCode](../README.md#oAuth2AuthCode)
-
-### HTTP request headers
-
-- **Content-Type**: application/octet-stream
-- **Accept**: Not defined
 
