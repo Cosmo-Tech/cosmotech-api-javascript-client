@@ -130,52 +130,6 @@ export default class ConnectorApi {
 
 
     /**
-     * Get the details of a connector
-     * @param {String} connectorName the Connector name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Connector} and HTTP response
-     */
-    findConnectorByNameWithHttpInfo(connectorName) {
-      let postBody = null;
-      // verify the required parameter 'connectorName' is set
-      if (connectorName === undefined || connectorName === null) {
-        throw new Error("Missing the required parameter 'connectorName' when calling findConnectorByName");
-      }
-
-      let pathParams = {
-        'connector_name': connectorName
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['oAuth2AuthCode'];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = Connector;
-      return this.apiClient.callApi(
-        '/connectors/name/{connector_name}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null
-      );
-    }
-
-    /**
-     * Get the details of a connector
-     * @param {String} connectorName the Connector name
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Connector}
-     */
-    findConnectorByName(connectorName) {
-      return this.findConnectorByNameWithHttpInfo(connectorName)
-        .then(function(response_and_data) {
-          return response_and_data.data;
-        });
-    }
-
-
-    /**
      * Register a new connector
      * @param {module:model/Connector} connector the Connector to register
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Connector} and HTTP response

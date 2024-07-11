@@ -68,16 +68,6 @@
         done();
       });
     });
-    describe('findConnectorByName', function() {
-      it('should call findConnectorByName successfully', function(done) {
-        //uncomment below and update the code to test findConnectorByName
-        //instance.findConnectorByName(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('registerConnector', function() {
       it('should call registerConnector successfully', function(done) {
         //uncomment below and update the code to test registerConnector

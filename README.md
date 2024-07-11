@@ -128,7 +128,6 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CosmotechApi.ConnectorApi* | [**findAllConnectors**](docs/ConnectorApi.md#findAllConnectors) | **GET** /connectors | List all Connectors
 *CosmotechApi.ConnectorApi* | [**findConnectorById**](docs/ConnectorApi.md#findConnectorById) | **GET** /connectors/{connector_id} | Get the details of a connector
-*CosmotechApi.ConnectorApi* | [**findConnectorByName**](docs/ConnectorApi.md#findConnectorByName) | **GET** /connectors/name/{connector_name} | Get the details of a connector
 *CosmotechApi.ConnectorApi* | [**registerConnector**](docs/ConnectorApi.md#registerConnector) | **POST** /connectors | Register a new connector
 *CosmotechApi.ConnectorApi* | [**unregisterConnector**](docs/ConnectorApi.md#unregisterConnector) | **DELETE** /connectors/{connector_id} | Unregister a connector
 *CosmotechApi.DatasetApi* | [**addDatasetAccessControl**](docs/DatasetApi.md#addDatasetAccessControl) | **POST** /organizations/{organization_id}/datasets/{dataset_id}/security/access | Add a control access to the Dataset
