@@ -226,7 +226,7 @@ null (empty response body)
 
 ## deleteWorkspace
 
-> Workspace deleteWorkspace(organizationId, workspaceId)
+> deleteWorkspace(organizationId, workspaceId)
 
 Delete a workspace
 
@@ -242,8 +242,8 @@ oAuth2AuthCode.accessToken = 'YOUR ACCESS TOKEN';
 let apiInstance = new CosmotechApi.WorkspaceApi();
 let organizationId = "organizationId_example"; // String | the Organization identifier
 let workspaceId = "workspaceId_example"; // String | the Workspace identifier
-apiInstance.deleteWorkspace(organizationId, workspaceId).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
+apiInstance.deleteWorkspace(organizationId, workspaceId).then(() => {
+  console.log('API called successfully.');
 }, (error) => {
   console.error(error);
 });
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Workspace**](Workspace.md)
+null (empty response body)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: Not defined
 
 
 ## deleteWorkspaceFile

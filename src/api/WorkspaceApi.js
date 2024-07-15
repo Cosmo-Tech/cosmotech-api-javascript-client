@@ -267,7 +267,7 @@ export default class WorkspaceApi {
      * Delete a workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Workspace} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     deleteWorkspaceWithHttpInfo(organizationId, workspaceId) {
       let postBody = null;
@@ -293,8 +293,8 @@ export default class WorkspaceApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = Workspace;
+      let accepts = [];
+      let returnType = null;
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -306,7 +306,7 @@ export default class WorkspaceApi {
      * Delete a workspace
      * @param {String} organizationId the Organization identifier
      * @param {String} workspaceId the Workspace identifier
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Workspace}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     deleteWorkspace(organizationId, workspaceId) {
       return this.deleteWorkspaceWithHttpInfo(organizationId, workspaceId)
