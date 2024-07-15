@@ -768,7 +768,7 @@ export default class RunnerApi {
 
       let authNames = ['oAuth2AuthCode'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['text/plain'];
       let returnType = 'String';
       return this.apiClient.callApi(
         '/organizations/{organization_id}/workspaces/{workspace_id}/runners/{runner_id}/start', 'POST',
