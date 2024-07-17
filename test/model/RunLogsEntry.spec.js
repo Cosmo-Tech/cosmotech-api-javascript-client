@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new CosmotechApi.ResourceSizeInfo();
+    instance = new CosmotechApi.RunLogsEntry();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,16 @@
       object[property] = value;
   }
 
-  describe('ResourceSizeInfo', function() {
-    it('should create an instance of ResourceSizeInfo', function() {
-      // uncomment below and update the code to test ResourceSizeInfo
-      //var instance = new CosmotechApi.ResourceSizeInfo();
-      //expect(instance).to.be.a(CosmotechApi.ResourceSizeInfo);
+  describe('RunLogsEntry', function() {
+    it('should create an instance of RunLogsEntry', function() {
+      // uncomment below and update the code to test RunLogsEntry
+      //var instance = new CosmotechApi.RunLogsEntry();
+      //expect(instance).to.be.a(CosmotechApi.RunLogsEntry);
     });
 
-    it('should have the property cpu (base name: "cpu")', function() {
-      // uncomment below and update the code to test the property cpu
-      //var instance = new CosmotechApi.ResourceSizeInfo();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property memory (base name: "memory")', function() {
-      // uncomment below and update the code to test the property memory
-      //var instance = new CosmotechApi.ResourceSizeInfo();
+    it('should have the property line (base name: "line")', function() {
+      // uncomment below and update the code to test the property line
+      //var instance = new CosmotechApi.RunLogsEntry();
       //expect(instance).to.be();
     });
 

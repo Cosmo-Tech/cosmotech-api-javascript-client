@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**runId** | **String** | the Run Id | [optional] [readonly] 
-**containers** | [**{String: RunContainerLogs}**](RunContainerLogs.md) | the container map of logs | [optional] [readonly] 
+**runId** | **String** | the Run Id | [readonly] 
+**logs** | [**[RunLogsEntry]**](RunLogsEntry.md) | run log entries in chronological order | [readonly] 
 
 

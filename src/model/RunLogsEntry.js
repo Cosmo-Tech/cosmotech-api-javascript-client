@@ -14,20 +14,20 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The RunDataQuery model module.
- * @module model/RunDataQuery
+ * The RunLogsEntry model module.
+ * @module model/RunLogsEntry
  * @version 4.0.3-SNAPSHOT
  */
-class RunDataQuery {
+class RunLogsEntry {
     /**
-     * Constructs a new <code>RunDataQuery</code>.
-     * a data result query in SQL
-     * @alias module:model/RunDataQuery
-     * @param query {String} the query in SQL
+     * Constructs a new <code>RunLogsEntry</code>.
+     * single run log entry
+     * @alias module:model/RunLogsEntry
+     * @param line {String} log line data
      */
-    constructor(query) { 
+    constructor(line) { 
         
-        RunDataQuery.initialize(this, query);
+        RunLogsEntry.initialize(this, line);
     }
 
     /**
@@ -35,43 +35,43 @@ class RunDataQuery {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, query) { 
-        obj['query'] = query;
+    static initialize(obj, line) { 
+        obj['line'] = line;
     }
 
     /**
-     * Constructs a <code>RunDataQuery</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>RunLogsEntry</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/RunDataQuery} obj Optional instance to populate.
-     * @return {module:model/RunDataQuery} The populated <code>RunDataQuery</code> instance.
+     * @param {module:model/RunLogsEntry} obj Optional instance to populate.
+     * @return {module:model/RunLogsEntry} The populated <code>RunLogsEntry</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new RunDataQuery();
+            obj = obj || new RunLogsEntry();
 
-            if (data.hasOwnProperty('query')) {
-                obj['query'] = ApiClient.convertToType(data['query'], 'String');
+            if (data.hasOwnProperty('line')) {
+                obj['line'] = ApiClient.convertToType(data['line'], 'String');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>RunDataQuery</code>.
+     * Validates the JSON data with respect to <code>RunLogsEntry</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunDataQuery</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>RunLogsEntry</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of RunDataQuery.RequiredProperties) {
+        for (const property of RunLogsEntry.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
         // ensure the json data is a string
-        if (data['query'] && !(typeof data['query'] === 'string' || data['query'] instanceof String)) {
-            throw new Error("Expected the field `query` to be a primitive type in the JSON string but got " + data['query']);
+        if (data['line'] && !(typeof data['line'] === 'string' || data['line'] instanceof String)) {
+            throw new Error("Expected the field `line` to be a primitive type in the JSON string but got " + data['line']);
         }
 
         return true;
@@ -80,18 +80,18 @@ class RunDataQuery {
 
 }
 
-RunDataQuery.RequiredProperties = ["query"];
+RunLogsEntry.RequiredProperties = ["line"];
 
 /**
- * the query in SQL
- * @member {String} query
+ * log line data
+ * @member {String} line
  */
-RunDataQuery.prototype['query'] = undefined;
+RunLogsEntry.prototype['line'] = undefined;
 
 
 
 
 
 
-export default RunDataQuery;
+export default RunLogsEntry;
 
